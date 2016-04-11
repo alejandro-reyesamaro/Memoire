@@ -1,0 +1,123 @@
+%------------------Includings -----------------------
+\usepackage{amsopn} % for \DeclareMathOperator
+\usepackage{amstext,amsxtra,amssymb,amsmath}
+\usepackage{subfig} % subfloat
+\usepackage{stmaryrd} % for \llbracket and \rrbracket
+\usepackage{paralist} % inline list
+\usepackage{caption}
+%\usepackage{fdsymbol} %diamond
+\usepackage{empheq} % for \xmapsto
+\usepackage{tikz} % for \circled
+\usepackage{fancyvrb}
+\usepackage{pstricks}
+\usepackage{pst-2dplot}
+\usepackage{pgfplots}
+\usepackage{cite}
+%\usetikzlibrary{pgfplots.groupplots}
+%\usepackage{pbox}
+
+\usepackage[oldcommands,boxruled]{algorithm2e}
+\usepackage{algpseudocode}
+\usepackage{algpascal}
+\usepackage{algc}
+
+\usepackage{multirow,tabularx}
+\renewcommand{\arraystretch}{1}
+
+
+\usepackage{mathptmx}       % selects Times Roman as basic font
+\usepackage{helvet}         % selects Helvetica as sans-serif font
+\usepackage{courier}        % selects Courier as typewriter font
+
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+
+%-----------------------------------------------------
+
+%-----------------ALGORITHM2e--------------------------
+\usepackage{algorithm2e}
+\newsavebox{\mycode}
+
+%----------------- Colors --------------------------
+\definecolor{naranja}{RGB}{241,70,34}
+\definecolor{verde}{RGB}{104,198,135}
+\definecolor{dred}{RGB}{120,7,7}
+\definecolor{darkgreen}{rgb}{0.0, 0.42, 0.24}
+%--------------------------------------------------
+
+%----------------- Commands --------------------------
+\newcommand{\tet}[1]{\textcolor{naranja}{#1}}
+\newcommand{\new}[1]{\textcolor{dred}{#1}}
+\newcommand{\comment}[1]{\textcolor{verde}{#1}}
+\newcommand{\hsep}[1]{\hspace{7pt} #1}
+\newcommand{\conf}{$s$}
+\newcommand{\af}{{\sc POSL}}
+
+\newcommand{\opch}{{\it open channel}}
+\newcommand{\opchs}{\opch{\it s}}
+\newcommand{\dopch}{{\it data open channel}}
+\newcommand{\oopch}{{\it object open channel}}
+\newcommand{\om}{{\it operation module}}
+\newcommand{\oms}{\om{\it s}}
+\newcommand{\m}{{\it module}}
+\newcommand{\ms}{\m{\it s}}
+\newcommand{\cstr}{{\it computation strategy}}
+\newcommand{\cstrs}{{\it computation strategies}}
+\newcommand{\commch}{{\it communication channel}}
+\newcommand{\commchs}{\commch{\it s}}
+\newcommand{\cm}{{\it compound module}}
+\newcommand{\cms}{\cm{\it s}}
+
+\newcommand{\lbk}{\left\llbracket}
+\newcommand{\rbk}{\right\rrbracket}
+\newcommand{\produce}{&\rightarrow}
+\newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\newcommand{\defop}[2]{\left\{\begin{tabular}{#1} #2 \end{tabular} \right.}	
+
+\newcommand{\stage}[3]
+{
+\vspace{5mm}\noindent\underline{{\bf #1 stage:} #2} \vspace{5mm}
+
+\hfill\begin{minipage}{\dimexpr\textwidth-5mm}
+#3
+\end{minipage}
+\vspace{5mm}
+}
+
+%\newtheorem{definition}{Definition}[section]
+
+\newcommand{\defname}[2]{ \begin{definition}\textbf{(#1)}
+	#2
+\end{definition}}
+
+\newcommand{\TM}{$^{\scalebox{0.6}{\mbox{TM}}}$}
+\newcommand{\R}{$^{\scalebox{0.7}{\textregistered}}$}
+\newcommand{\curiosiphyfull}{Intel\R{} Xeon\TM{} E5-2680 v2 (10$\times$4 cores, 2.80GHz)}
+\newcommand{\curiosiphy}{Intel\R{} Xeon\TM{}}
+
+\usepackage{listings}
+\usepackage{fancyvrb}
+\fvset{fontfamily=courier,fontsize=\scriptsize,numbers=left,framerule=.3mm,numbersep=1mm,commandchars=\\\{\}}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.2}
+\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\textfraction}{0.2}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+\usepackage[multiple]{footmisc}

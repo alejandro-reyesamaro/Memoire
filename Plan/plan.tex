@@ -1,0 +1,272 @@
+\documentclass[a4paper]{book} %[runningheads,a4paper]{llncs}
+\usepackage{etex}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage[a4paper]{geometry}% just for the example
+\usepackage{fancyhdr}
+\usepackage[titletoc]{appendix}
+
+\let\cleardoublepage\clearpage % to remove blind pages
+
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\input{myhead}
+\newcommand{\posl}{{\sc POSL}}
+\newcommand{\COP}{\textit{Combinatorial Optimization Problem}}
+\newcommand{\COPs}{\COP\textit{s}}
+\newcommand{\CSP}{\textit{Constraint Satisfaction Problem}}
+\newcommand{\CSPs}{\CSP\textit{s}}
+\newcommand{\csp}{\textit{CSP}}
+\newcommand{\csps}{\csp\textit{s}}
+\newcommand{\CP}{\textit{Constraint Programing}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[EL]{\nouppercase\leftmark}
+\fancyhead[OR]{\nouppercase\rightmark}
+\fancyhead[ER,OL]{\thepage}
+
+\begin{document}
+
+\title{\posl: A Parallel Oriented Solver Language \\ {\small (detailed plan)}}
+\author{\textbf{Alejandro REYES-AMARO}\\ \mbox{\'Eric MONFROY, Florian RICHOUX}}
+
+\maketitle
+
+\tableofcontents
+
+%----------------------------------------------------------------------------------------------
+%------ 1
+%----------------------------------------------------------------------------------------------
+\chapter{Introduction}
+
+The \textit{Introduction} of the work is presented. We describe the target problem (the formal definition will be in the next chapter), and the approaches implemented so far to solve them. The necessity of a new approach to exploit the new era of parallelism is introduced. 
+
+In this section are presented the goals of the thesis, and \posl{} is introduced as a new parallel approach including others and novel features. Finally, we describe the structure of the document. 
+
+%----------------------------------------------------------------------------------------------
+%------ 2
+%----------------------------------------------------------------------------------------------
+\chapter{Overview of Combinatorial Optimization Problems and methods to solve them}
+
+This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. 
+
+\section{Combinatorial Optimization}
+
+We introduce the definition of a \CSP{} (\csp), where we concentrate our main efforts. We give some examples: {\it Resource Allocations} \cite{Akplogan2011}, \textit{Task Scheduling} \cite{Sibbesen2008}, \textit{Master-keying} \cite{Espelage2000}, \textit{Traveling Salesman}, \textit{Knapsack Problem}, among others.
+
+\section{Constraint propagation}
+
+Constraint propagation techniques are deterministic methods to attack these kind of problems, but in some cases they are incapable to solve them \cite{ChristianBessiere2006}. 
+
+\section{Meta-heuristic and Hyper-heuristic methods}
+
+However, we can not solve some \csps{} only applying constraint propagation techniques. It is necessary to combine them with other methods. In this chapter is presented an overview in the field of \textit{meta-heuristic} methods \cite{Boussaid2013}, nature-inspired algorithms divided in two groups: 
+\begin{enumerate}
+    \item {\it Single Solution Based:} more exploitation oriented, intensifying the search in some specific areas. (We will focus our attention on this first group)
+    \item {\it Population Based:} more exploration oriented, identifying areas of the search space where there are (or where there could be) the best solutions.
+\end{enumerate}
+
+\subsection{Single Solution Based Meta-heuristic}
+
+Methods of the first group are also called {\it trajectory methods}, and they are based on choosing a solution taking into account some criterion (usually random), and they move from a solution to his \textit{neighbor}, following a trajectory into the search space.
+
+\subsection{Population Based Meta-heuristic}
+
+Also there exist heuristic methods based on populations. These methods do not work with a single solution, but with a set of solutions named {\it population}. 
+
+\subsection{Hyper-heuristic Methods}
+
+\textit{Hyper-heuristics} are automated methodologies for selecting or generating heuristics to solve hard computational problems.
+
+\section{Hybridization}
+
+The \textit{Hybridization} approach is the one who combine different approaches into the same solution strategy, and recently, it leads to very good results in the constraint satisfaction field, some of them presented in this section.
+
+\section{Parallel computing}
+
+The evolution of computer architecture is leading us toward massively multi-core computers for tomorrow, composed of thousands of computing units. A parallel model to solve \csps{} is the core of this work, and its advances are presented in this section.
+
+\section{Solvers cooperation}
+
+The interaction between solvers exchanging some information is called {\it solver cooperation} and it is very popular in this field due to their good results, presented in this section.
+
+\section{Parameter setting techniques}
+
+Most of these methods to tackle combinatorial problems, involve a number of parameters that govern their behavior, and they need to be well adjusted, and most of the times they depend on the nature of the specific problem, so they require a previous analysis to study their behavior \cite{Birattari2005}. That is way another branch of the investigation arises: {\it parameter tuning}. It is also known as a meta optimization problem, because the main goal is to find the best solution (parameter configuration) for a program, which will try to find the best solution for some problem as well. Finally, this chapter presents an overview of the progresses in the field of \textit{parameter settings}.
+
+The are tow classes to classify these methods: 
+\begin{enumerate}
+\item \textit{Off-line tunning}: Also known just as parameter tuning, were parameters are computed before the run.
+\item \textit{On-line tunning}: Also known as parameter control, were parameters are adjusted during the run, and
+\end{enumerate}
+
+\subsection{Off-line tunning}
+
+The technique of parameter tuning or off-line tunning, is used to computed the best parameter configuration for an algorithm before the run (solving a given instance of a problem), to obtain the best performance.
+
+\subsection{On-line tunning}
+
+Although parameter tunning shows to be an effective way to adjust parameters to sensibles algorithms, in some problems the optimal parameter settings may be different for various phases of the search process. This is the main motivation to use on-line tuning techniques to find the best parameter setting, also called \textit{Parameter Control Techniques}.
+
+%----------------------------------------------------------------------------------------------
+%------ 3
+%----------------------------------------------------------------------------------------------
+\chapter{First attempts}
+
+Aiming for the right direction in order to find the proper approach, we have done some previous work that we present in this chapter.
+
+\section{Relaxation model for discrete \csps}
+
+On a first attempt to tackle the problem of reducing the search space of a \csp, we model it through a continuous optimization problem, and then, applying efficient methods to solve it. This way we do not reach an optimal solution, but an approximation of it. The new variables domain would be the neighborhood of the found approximation.
+
+\section{Domain Split}
+
+A way to tackle huge combinatorial problems in parallel is to split the search space. In this section, the {\it problem subdivision} approach was adopted to divide the domain of a given problem, in this particular case, to solve the {\it k-medoids problem} in parallel. \footnote{This work falls within the framework of the \textit{Ulysses} project between France and Ireland}
+
+\section{Tunning methods for local search algorithms}
+
+Another performed study was applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver. {\sc ParamsILS} (version 2.3) is a tool for parameter optimization for parametrized algorithms. % \cite{Hutter2009}. 
+It is an open source program (project) in {\it Ruby}, and the public source include some examples and a detailed and complete User Guide with a compact explanation about how to use it with a specific solver. % \cite{Hutter2008}.
+
+%----------------------------------------------------------------------------------------------
+%------ 4
+%----------------------------------------------------------------------------------------------
+\chapter{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}
+
+In this chapter we introduce \posl{} as our main contribution and a new way to solve \csps{}. We resume the its characteristics and advantages, and we get into details in the next sections. We describe a general outline to follow in order to build parallel solvers using \posl, and following each step is described in details.
+
+\section{First Stage: Modeling the target benchmark}
+
+In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+
+
+\section{Second Stage: Creating \posl's modules}
+
+There exist two types of basic modules in \posl: \oms{} and \opchs{}. An \om{} is a function receiving an input, then executes an internal algorithm, and returns an output. An \opch{} is also a function receiving and returning information, but in contrast, the \opch can receive information from two different ways: through parameter or from outside, i.e. by communicating with a module from another solver.
+
+\subsection{Operation Module}
+
+In this sub-section we expose the definition and the characteristics and the details of the \om, and give some examples. We explain how to create new \oms{} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+
+\subsection{Open channel}
+
+In this sub-section we expose the definition and the characteristics and the details of the \opch, and give some examples. We explain how to create new \opchs{} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+
+\section{Third Stage: Assembling \posl's modules}
+
+In this stage a generic strategy is coded through a operator based language: \posl. We call this the \cstr. The operators are parametrized functions receiving information and allow interactions between modules (\oms{} and \opchs). In this section are defined the operators and some examples are presented. We explain how to create new \textit{operators} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+
+\section{Forth Stage: Creating \posl{} solvers}
+
+With operation modules and open channels already assembled through the \cstr{}, we can create solvers by instantiating modules. \posl{} provides an environment to this end and we present the procedure to use it. 
+
+\section{Fifth Stage: Connecting the solvers}
+
+Once we have defined our solver strategy, the last step is to declare the \commchs, i.e. connecting the solvers each others. In this last stage, \posl{} provides to the user a platform to easily define cooperative meta--strategies that solvers must follow (\posl{} meta--solvers). The steps to create \commchs{} through \textit{communication operators} are explained and some examples are presented. We explain how to create new \textit{communication operators} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+
+\section{An step-by-step \posl{} code example}
+
+In this section we summarize all the steps to build a \posl{} meta--solver through an real example, providing schemes to make more comprehensive the process.
+
+%----------------------------------------------------------------------------------------------
+%------ 5
+%----------------------------------------------------------------------------------------------
+\chapter{Study and evaluation process}
+
+In this chapter we expose all details about the process of evaluation of \posl{}, i.e. all the experiments we perform. For each benchmark, we explain also the strategy (or strategies) used in the solving (evaluation) process.
+
+\newcommand{\benchbody}[1]{We present in this sub-section the definition, characteristics and some implementation details of the \textit{#1 Problem}. Studied strategies used to evaluate \posl{} through this benchmark are presented and explained in details.}
+
+\section{Target benchmarks}
+
+We present all the benchmarks that we used to evaluate \posl{}. We give the formal definition of them and their main characteristics, explaining also our interest in them. The studied strategies used to evaluate \posl{} through this benchmark are presented and explained in details.
+
+\subsection{Social Golfers Problem}
+
+\benchbody{Social Golfers}
+
+\subsection{Costas Array Problem}
+
+\benchbody{Costas Array}
+
+\subsection{N-Queen Problem}
+
+\benchbody{N-Queen}
+
+\subsection{Golomb Ruler Problem}
+
+\benchbody{Golomb Ruler}
+
+\subsection{All Interval Problem}
+
+\benchbody{All Interval}
+
+\subsection{...}
+
+Maybe others...
+
+%----------------------------------------------------------------------------------------------
+%------ 6
+%----------------------------------------------------------------------------------------------
+\chapter{Analysis of results}
+
+In this chapter we explain the used environments were we run the experiments (description of my desktop machine, \textit{Curiosiphi} server, and eventually \textit{Grid5k}). We describe all the experiments and we expose a complete analysis of the obtained result.
+
+\chapter{Conclusions and future works}
+
+We resume our work, emphasizing on our contribution and obtained results, and we expose the conclusions of the work. We also discus future branches to follow that can be derived from our work. Finally we give our conclusions. 
+
+
+%----------------------------------------------------------------------------------------------
+%------ APPENDIX
+%----------------------------------------------------------------------------------------------
+\begin{appendices}
+%\appendixpage
+\noappendicestocpagenum
+\addappheadtotoc
+
+\chapter{\posl{} strategies}
+
+In this appendix we present some secondaries \cstrs{} (written in symbolic \posl{} code) used during our work, not directly related with our main results.
+
+\chapter{\posl{} code}
+
+In this appendix we present the \posl{} code used during our work in all the main performed experiments.
+
+\chapter{Complete results}
+
+In most of the cases, the complete result tables show interesting behaviors of \posl{}, like for example, the percentage of times when the communication was effective (a solver was able tu find a solution thanks to the received information). For that reason we present in this Appendix this results.
+
+\chapter{\posl{} Documentation}
+
+A complete and detailed documentation of the code is presented in this Appendix.
+
+\end{appendices}
+
+\bibliographystyle{plain}
+\bibliography{biblio201604}
+
+%\newpage 
+%
+%\section*{Appendix A: \af{} strategies}
+%
+%\input{_append}
+%
+%\newpage
+%
+%\section*{Appendix B: An example of a \af's code}
+%\label{appb}
+%
+%\input{_bppend}
+%
+%\newpage 
+%
+%\section*{Appendix C: Complete communication tables}
+%
+%%\afterpage{\input _cppend} 
+%\input{_cppend}
+%
+\end{document}
