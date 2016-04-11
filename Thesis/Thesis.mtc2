@@ -1,0 +1,41 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Photophysics of Organic Dyes}{\reset@font\mtcSfont 14}{section.2.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Electronically excited states.}{\reset@font\mtcPfont 14}{paragraph*.8}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Electronic transitions}{\reset@font\mtcPfont 14}{paragraph*.9}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The transition dipole moment.}{\reset@font\mtcPfont 15}{paragraph*.10}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The oscillator strength.}{\reset@font\mtcPfont 15}{paragraph*.11}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Radiative vs. non-radiative decay.}{\reset@font\mtcPfont 15}{paragraph*.12}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Excited state lifetime.}{\reset@font\mtcPfont 15}{paragraph*.13}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Temperature-dependent excited state decay.}{\reset@font\mtcPfont 16}{paragraph*.14}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Potential Energy Surfaces.}{\reset@font\mtcPfont 16}{paragraph*.15}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}FRET - F\IeC {\"o}rster Resonance Energy Transfer}{\reset@font\mtcSfont 16}{section.2.2}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode FRET theory.}{\reset@font\mtcPfont 16}{paragraph*.16}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Measuring FRET.}{\reset@font\mtcPfont 17}{paragraph*.17}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Computational Chemistry}{\reset@font\mtcSfont 18}{section.2.3}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Geometry Optimization.}{\reset@font\mtcPfont 18}{paragraph*.18}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Solvation shell.}{\reset@font\mtcPfont 19}{paragraph*.19}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Density Functional Theory.}{\reset@font\mtcSSfont 19}{subsection.2.3.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode The Kohn-Sham scheme.}{\reset@font\mtcPfont 19}{paragraph*.20}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Exchange-correlation functionals.}{\reset@font\mtcPfont 20}{paragraph*.21}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Basis set.}{\reset@font\mtcPfont 20}{paragraph*.22}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Prediction of Electronic Spectra.}{\reset@font\mtcPfont 20}{paragraph*.23}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Optical Spectroscopy}{\reset@font\mtcSfont 21}{section.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.1}Steady-State Spectroscopy}{\reset@font\mtcSSfont 21}{subsection.2.4.1}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode UV-Vis absorption.}{\reset@font\mtcPfont 21}{paragraph*.24}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Emission spectroscopy.}{\reset@font\mtcPfont 21}{paragraph*.25}}
+{\reset@font\mtcSPfont\mtc@string\contentsline{subparagraph}{\noexpand \leavevmode Quantum yield determination.}{\reset@font\mtcSPfont 21}{subparagraph*.26}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Solvatochromism.}{\reset@font\mtcPfont 22}{paragraph*.27}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.2}Polarized Spectroscopy}{\reset@font\mtcSSfont 22}{subsection.2.4.2}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Circular dichroism.}{\reset@font\mtcPfont 22}{paragraph*.28}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Fluorescence anisotropy.}{\reset@font\mtcPfont 22}{paragraph*.29}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.4.3}Time-Resolved Emission Spectroscopy}{\reset@font\mtcSSfont 23}{subsection.2.4.3}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Time-correlated single photon counting.}{\reset@font\mtcPfont 23}{paragraph*.30}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Time-resolved fluorescence anisotropy.}{\reset@font\mtcPfont 23}{paragraph*.31}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Analysis of time-resolved decays.}{\reset@font\mtcPfont 23}{paragraph*.32}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Quantitative Data Analysis}{\reset@font\mtcSfont 24}{section.2.5}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode $\chi ^2$ analysis and $\chi ^2$ surfaces.}{\reset@font\mtcPfont 24}{paragraph*.33}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Global decay analysis.}{\reset@font\mtcPfont 24}{paragraph*.34}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Optimization algorithms.}{\reset@font\mtcPfont 25}{paragraph*.35}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Making User-Interfaced Software.}{\reset@font\mtcSfont 25}{section.2.6}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode GUIDE.}{\reset@font\mtcPfont 25}{paragraph*.36}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Creating stand-alone software.}{\reset@font\mtcPfont 26}{paragraph*.37}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Experimental Details.}{\reset@font\mtcSfont 26}{section.2.7}}

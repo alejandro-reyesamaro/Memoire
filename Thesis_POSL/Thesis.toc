@@ -1,0 +1,17 @@
+\select@language {english}
+\contentsline {part}{I\hspace {1em}Description of Thesis}{1}{part.1}
+\contentsline {chapter}{\numberline {1}State of the art}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Combinatorial Optimization}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Constraint propagation}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Meta-heuristic and Hyper-heuristic methods}{7}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Single Solution Based Meta-heuristic}{8}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Population Based Meta-heuristic}{11}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Hyper-heuristic Methods}{11}{subsection.1.3.3}
+\contentsline {section}{\numberline {1.4}Hybridization}{13}{section.1.4}
+\contentsline {section}{\numberline {1.5}Parallel computing}{14}{section.1.5}
+\contentsline {section}{\numberline {1.6}Solvers cooperation}{19}{section.1.6}
+\contentsline {section}{\numberline {1.7}Parameter setting techniques}{20}{section.1.7}
+\contentsline {subsection}{\numberline {1.7.1}Off-line tunning}{21}{subsection.1.7.1}
+\contentsline {subsection}{\numberline {1.7.2}On-line tunning}{22}{subsection.1.7.2}
+\contentsline {chapter}{\numberline {2}Bibliography}{25}{chapter.2}
+\contentsline {part}{II\hspace {1em}Appended Papers}{33}{part.2}

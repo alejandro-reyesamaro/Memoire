@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Thesis.aux
+The style file: unsrt.bst
+Database file #1: biblio201604.bib
+Warning--can't use both volume and number fields in Cousot1977
+Warning--empty institution in Arbab1995
+Warning--there's a number but no volume in Feo95
+Warning--empty publisher in Comet
+Warning--empty publisher in Gecode
+Warning--there's a number but no volume in Hill2008
+Warning--empty year in Jinnai
+Warning--empty journal in Zoeteweij
+Warning--there's a number but no volume in Zoeteweij
+Warning--empty year in Zoeteweij
+You've used 117 entries,
+            1791 wiz_defined-function locations,
+            1190 strings with 23066 characters,
+and the built_in function-call counts, 35022 in all, are:
+= -- 3454
+> -- 1252
+< -- 86
++ -- 458
+- -- 341
+* -- 2257
+:= -- 5004
+add.period$ -- 395
+call.type$ -- 117
+change.case$ -- 128
+chr.to.int$ -- 0
+cite$ -- 127
+duplicate$ -- 1754
+empty$ -- 3391
+format.name$ -- 341
+if$ -- 8246
+int.to.chr$ -- 0
+int.to.str$ -- 117
+missing$ -- 115
+newline$ -- 588
+num.names$ -- 135
+pop$ -- 420
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 1011
+stack$ -- 0
+substring$ -- 2673
+swap$ -- 656
+text.length$ -- 86
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 10
+while$ -- 387
+width$ -- 120
+write$ -- 1352
+(There were 10 warnings)

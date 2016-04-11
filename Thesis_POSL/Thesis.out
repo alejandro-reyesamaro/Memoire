@@ -1,0 +1,16 @@
+\BOOKMARK [-1][-]{part.1}{I Description of Thesis}{}% 1
+\BOOKMARK [0][-]{chapter.1}{State of the art}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Combinatorial Optimization}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Constraint propagation}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Meta-heuristic and Hyper-heuristic methods}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.3.1}{Single Solution Based Meta-heuristic}{section.1.3}% 6
+\BOOKMARK [2][-]{subsection.1.3.2}{Population Based Meta-heuristic}{section.1.3}% 7
+\BOOKMARK [2][-]{subsection.1.3.3}{Hyper-heuristic Methods}{section.1.3}% 8
+\BOOKMARK [1][-]{section.1.4}{Hybridization}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.5}{Parallel computing}{chapter.1}% 10
+\BOOKMARK [1][-]{section.1.6}{Solvers cooperation}{chapter.1}% 11
+\BOOKMARK [1][-]{section.1.7}{Parameter setting techniques}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.7.1}{Off-line tunning}{section.1.7}% 13
+\BOOKMARK [2][-]{subsection.1.7.2}{On-line tunning}{section.1.7}% 14
+\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 15
+\BOOKMARK [-1][-]{part.2}{II Appended Papers}{}% 16
