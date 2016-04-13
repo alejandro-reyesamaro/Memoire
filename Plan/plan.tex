@@ -28,6 +28,39 @@
 \fancyhead[OR]{\nouppercase\rightmark}
 \fancyhead[ER,OL]{\thepage}
 
+\usepackage{titlesec}
+%\usepackage{hyperref}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
 \begin{document}
 
 \title{\posl: A Parallel Oriented Solver Language \\ {\small (detailed plan)}}
@@ -53,15 +86,19 @@ In this section are presented the goals of the thesis, and \posl{} is introduced
 
 This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. 
 
-\section{Combinatorial Optimization}
+\section{Combinatorial Optimization Problems}
 
-We introduce the definition of a \CSP{} (\csp), where we concentrate our main efforts. We give some examples: {\it Resource Allocations} \cite{Akplogan2011}, \textit{Task Scheduling} \cite{Sibbesen2008}, \textit{Master-keying} \cite{Espelage2000}, \textit{Traveling Salesman}, \textit{Knapsack Problem}, among others.
+We introduce the definition of a \COP{} and the its link with \CSPs{} (\csp), where we concentrate our main efforts. We give some examples: {\it Resource Allocations} \cite{Akplogan2011}, \textit{Task Scheduling} \cite{Sibbesen2008}, \textit{Master-keying} \cite{Espelage2000}, \textit{Traveling Salesman}, \textit{Knapsack Problem}, among others.
 
-\section{Constraint propagation}
+\section{Basic techniques}
+
+In this section we introduce some basic techniques used to solve the problems defined above, like tree search-based solvers, backtracking-based solvers, Monte Carlo Tree Search methods, meta-heuristic methods, etc. \footnote{We also mention other approach that we tested at the beginning of this research (modeling \csps{} through \textit{relaxation}), giving a brief introduction and referencing the Appendix~\ref{app:relaxation} for more information.}
+
+\subsection{Constraint propagation}
 
 Constraint propagation techniques are deterministic methods to attack these kind of problems, but in some cases they are incapable to solve them \cite{ChristianBessiere2006}. 
 
-\section{Meta-heuristic and Hyper-heuristic methods}
+\subsection{Meta-heuristic and Hyper-heuristic methods}
 
 However, we can not solve some \csps{} only applying constraint propagation techniques. It is necessary to combine them with other methods. In this chapter is presented an overview in the field of \textit{meta-heuristic} methods \cite{Boussaid2013}, nature-inspired algorithms divided in two groups: 
 \begin{enumerate}
@@ -69,11 +106,11 @@ However, we can not solve some \csps{} only applying constraint propagation tech
     \item {\it Population Based:} more exploration oriented, identifying areas of the search space where there are (or where there could be) the best solutions.
 \end{enumerate}
 
-\subsection{Single Solution Based Meta-heuristic}
+\subsubsection{Single Solution Based Meta-heuristic}
 
 Methods of the first group are also called {\it trajectory methods}, and they are based on choosing a solution taking into account some criterion (usually random), and they move from a solution to his \textit{neighbor}, following a trajectory into the search space.
 
-\subsection{Population Based Meta-heuristic}
+\subsubsection{Population Based Meta-heuristic}
 
 Also there exist heuristic methods based on populations. These methods do not work with a single solution, but with a set of solutions named {\it population}. 
 
@@ -81,15 +118,27 @@ Also there exist heuristic methods based on populations. These methods do not wo
 
 \textit{Hyper-heuristics} are automated methodologies for selecting or generating heuristics to solve hard computational problems.
 
-\section{Hybridization}
+\section{Advances techniques}
+
+Even if many works applying basic techniques are obtained very good results solving \csps{}, the complexity of problems grows relentlessly. For that reason applying more sophisticated techniques becomes imperative. In this section we present some of them and give an overview of its contributions. 
+
+\subsection{Hybridization}
 
 The \textit{Hybridization} approach is the one who combine different approaches into the same solution strategy, and recently, it leads to very good results in the constraint satisfaction field, some of them presented in this section.
 
-\section{Parallel computing}
+\subsection{Parallel computing}
 
 The evolution of computer architecture is leading us toward massively multi-core computers for tomorrow, composed of thousands of computing units. A parallel model to solve \csps{} is the core of this work, and its advances are presented in this section.
 
-\section{Solvers cooperation}
+Some results have been obtained on this field. The contribution in terms of hardware has been crucial, but the development of the techniques and algorithms to solve problems in parallel is
+also visible, focusing the main efforts in three fundamentals concepts:
+\begin{enumerate}
+\item Problem subdivision, \footnote{In this topic, a theoretical (and still in progress) contribution is presented. We give a brief introduction and referencing the Appendix~\ref{app:split} for more information.}
+\item Scalability and
+\item Inter-process communication.
+\end{enumerate}
+
+\subsection{Solvers cooperation}
 
 The interaction between solvers exchanging some information is called {\it solver cooperation} and it is very popular in this field due to their good results, presented in this section.
 
@@ -99,7 +148,7 @@ Most of these methods to tackle combinatorial problems, involve a number of para
 
 The are tow classes to classify these methods: 
 \begin{enumerate}
-\item \textit{Off-line tunning}: Also known just as parameter tuning, were parameters are computed before the run.
+\item \textit{Off-line tunning}: Also known just as parameter tuning, were parameters are computed before the run \footnote{Here, we present a performed experiment applying an automatic tuner to \textit{Adaptive Search}, giving a brief introduction and referencing the Appendix~\ref{app:tunning} for more information.}
 \item \textit{On-line tunning}: Also known as parameter control, were parameters are adjusted during the run, and
 \end{enumerate}
 
@@ -113,26 +162,6 @@ Although parameter tunning shows to be an effective way to adjust parameters to 
 
 %----------------------------------------------------------------------------------------------
 %------ 3
-%----------------------------------------------------------------------------------------------
-\chapter{First attempts}
-
-Aiming for the right direction in order to find the proper approach, we have done some previous work that we present in this chapter.
-
-\section{Relaxation model for discrete \csps}
-
-On a first attempt to tackle the problem of reducing the search space of a \csp, we model it through a continuous optimization problem, and then, applying efficient methods to solve it. This way we do not reach an optimal solution, but an approximation of it. The new variables domain would be the neighborhood of the found approximation.
-
-\section{Domain Split}
-
-A way to tackle huge combinatorial problems in parallel is to split the search space. In this section, the {\it problem subdivision} approach was adopted to divide the domain of a given problem, in this particular case, to solve the {\it k-medoids problem} in parallel. \footnote{This work falls within the framework of the \textit{Ulysses} project between France and Ireland}
-
-\section{Tunning methods for local search algorithms}
-
-Another performed study was applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver. {\sc ParamsILS} (version 2.3) is a tool for parameter optimization for parametrized algorithms. % \cite{Hutter2009}. 
-It is an open source program (project) in {\it Ruby}, and the public source include some examples and a detailed and complete User Guide with a compact explanation about how to use it with a specific solver. % \cite{Hutter2008}.
-
-%----------------------------------------------------------------------------------------------
-%------ 4
 %----------------------------------------------------------------------------------------------
 \chapter{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}
 
@@ -172,44 +201,40 @@ Once we have defined our solver strategy, the last step is to declare the \commc
 In this section we summarize all the steps to build a \posl{} meta--solver through an real example, providing schemes to make more comprehensive the process.
 
 %----------------------------------------------------------------------------------------------
-%------ 5
+%------ 4
 %----------------------------------------------------------------------------------------------
 \chapter{Study and evaluation process}
 
 In this chapter we expose all details about the process of evaluation of \posl{}, i.e. all the experiments we perform. For each benchmark, we explain also the strategy (or strategies) used in the solving (evaluation) process.
 
-\newcommand{\benchbody}[1]{We present in this sub-section the definition, characteristics and some implementation details of the \textit{#1 Problem}. Studied strategies used to evaluate \posl{} through this benchmark are presented and explained in details.}
+\newcommand{\benchbody}[1]{We present in this sub-section the definition, characteristics and some implementation details of the \textit{#1 Problem}, explaining also our interest in it. Studied strategies used to evaluate \posl{} through this benchmark are presented and explained in details.}
 
-\section{Target benchmarks}
-
-We present all the benchmarks that we used to evaluate \posl{}. We give the formal definition of them and their main characteristics, explaining also our interest in them. The studied strategies used to evaluate \posl{} through this benchmark are presented and explained in details.
-
-\subsection{Social Golfers Problem}
+\section{Social Golfers Problem}
 
 \benchbody{Social Golfers}
 
-\subsection{Costas Array Problem}
+\section{Costas Array Problem}
 
 \benchbody{Costas Array}
 
-\subsection{N-Queen Problem}
+\section{N-Queen Problem}
 
 \benchbody{N-Queen}
 
-\subsection{Golomb Ruler Problem}
+\section{Golomb Ruler Problem}
 
 \benchbody{Golomb Ruler}
 
-\subsection{All Interval Problem}
+\section{All Interval Problem}
 
 \benchbody{All Interval}
 
-\subsection{...}
+\section{...}
 
 Maybe others...
 
 %----------------------------------------------------------------------------------------------
-%------ 6
+%------ 5
 %----------------------------------------------------------------------------------------------
 \chapter{Analysis of results}
 
@@ -227,6 +252,22 @@ We resume our work, emphasizing on our contribution and obtained results, and we
 %\appendixpage
 \noappendicestocpagenum
 \addappheadtotoc
+
+\chapter{Relaxation model for discrete \csps}
+\label{app:relaxation}
+
+Aiming for the right direction in order to find the proper approach, our first attempt to tackle the problem of reducing the search space of a \csp, we model it through a continuous optimization problem, and then, applying efficient methods to solve it. This way we do not reach an optimal solution, but an approximation of it. The new variables domain would be the neighborhood of the found approximation.
+
+\chapter{Domain Split}
+\label{app:split}
+
+A way to tackle huge combinatorial problems in parallel is to split the search space. In this section, the {\it problem subdivision} approach was adopted to divide the domain of a given problem, in this particular case, to solve the {\it k-medoids problem} in parallel. \footnote{This work falls within the framework of the \textit{Ulysses} project between France and Ireland}
+
+\chapter{Tunning methods for local search algorithms}
+\label{app:tunning}
+
+Another performed study was applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver. {\sc ParamsILS} (version 2.3) is a tool for parameter optimization for parametrized algorithms \cite{Hutter2009}. 
+It is an open source program (project) in {\it Ruby}, and the public source include some examples and a detailed and complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008}.
 
 \chapter{\posl{} strategies}
 

@@ -34,6 +34,17 @@ Wolfgang Espelage and Egon Wanke.
 \newblock {\em Mathematical Methods of Operations Research}, 52(2):325--348,
   2000.
 
+\bibitem{Hutter2008}
+Frank Hutter.
+\newblock {Updated Quick start guide for ParamILS, version 2.3}.
+\newblock Technical report, Department of Computer Science University of
+  British Columbia, Vancouver, Canada, 2008.
+
+\bibitem{Hutter2009}
+Frank Hutter, Holger~H Hoos, and Kevin Leyton-brown.
+\newblock {ParamILS: An Automatic Algorithm Configuration Framework}.
+\newblock {\em Journal of Artificial Intelligence Research}, 36:267--306, 2009.
+
 \bibitem{Sibbesen2008}
 Louise~K. Sibbesen.
 \newblock {\em {Mathematical models and heuristic solutions for container

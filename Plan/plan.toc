@@ -1,42 +1,42 @@
 \contentsline {chapter}{\numberline {1}Introduction}{4}
 \contentsline {chapter}{\numberline {2}Overview of Combinatorial Optimization Problems and methods to solve them}{5}
-\contentsline {section}{\numberline {2.1}Combinatorial Optimization}{5}
-\contentsline {section}{\numberline {2.2}Constraint propagation}{5}
-\contentsline {section}{\numberline {2.3}Meta-heuristic and Hyper-heuristic methods}{5}
-\contentsline {subsection}{\numberline {2.3.1}Single Solution Based Meta-heuristic}{6}
-\contentsline {subsection}{\numberline {2.3.2}Population Based Meta-heuristic}{6}
-\contentsline {subsection}{\numberline {2.3.3}Hyper-heuristic Methods}{6}
-\contentsline {section}{\numberline {2.4}Hybridization}{6}
-\contentsline {section}{\numberline {2.5}Parallel computing}{6}
-\contentsline {section}{\numberline {2.6}Solvers cooperation}{6}
-\contentsline {section}{\numberline {2.7}Parameter setting techniques}{6}
-\contentsline {subsection}{\numberline {2.7.1}Off-line tunning}{7}
-\contentsline {subsection}{\numberline {2.7.2}On-line tunning}{7}
-\contentsline {chapter}{\numberline {3}First attempts}{8}
-\contentsline {section}{\numberline {3.1}Relaxation model for discrete \textit {CSP}\textit {s}}{8}
-\contentsline {section}{\numberline {3.2}Domain Split}{8}
-\contentsline {section}{\numberline {3.3}Tunning methods for local search algorithms}{8}
-\contentsline {chapter}{\numberline {4}A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{9}
-\contentsline {section}{\numberline {4.1}First Stage: Modeling the target benchmark}{9}
-\contentsline {section}{\numberline {4.2}Second Stage: Creating {\sc POSL}'s modules}{9}
-\contentsline {subsection}{\numberline {4.2.1}Operation Module}{9}
-\contentsline {subsection}{\numberline {4.2.2}Open channel}{9}
-\contentsline {section}{\numberline {4.3}Third Stage: Assembling {\sc POSL}'s modules}{10}
-\contentsline {section}{\numberline {4.4}Forth Stage: Creating {\sc POSL}{} solvers}{10}
-\contentsline {section}{\numberline {4.5}Fifth Stage: Connecting the solvers}{10}
-\contentsline {section}{\numberline {4.6}An step-by-step {\sc POSL}{} code example}{10}
-\contentsline {chapter}{\numberline {5}Study and evaluation process}{11}
-\contentsline {section}{\numberline {5.1}Target benchmarks}{11}
-\contentsline {subsection}{\numberline {5.1.1}Social Golfers Problem}{11}
-\contentsline {subsection}{\numberline {5.1.2}Costas Array Problem}{11}
-\contentsline {subsection}{\numberline {5.1.3}N-Queen Problem}{11}
-\contentsline {subsection}{\numberline {5.1.4}Golomb Ruler Problem}{11}
-\contentsline {subsection}{\numberline {5.1.5}All Interval Problem}{12}
-\contentsline {subsection}{\numberline {5.1.6}...}{12}
-\contentsline {chapter}{\numberline {6}Analysis of results}{13}
-\contentsline {chapter}{\numberline {7}Conclusions and future works}{14}
+\contentsline {section}{\numberline {2.1}Combinatorial Optimization Problems}{5}
+\contentsline {section}{\numberline {2.2}Basic techniques}{5}
+\contentsline {subsection}{\numberline {2.2.1}Constraint propagation}{5}
+\contentsline {subsection}{\numberline {2.2.2}Meta-heuristic and Hyper-heuristic methods}{5}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Single Solution Based Meta-heuristic}{6}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Population Based Meta-heuristic}{6}
+\contentsline {subsection}{\numberline {2.2.3}Hyper-heuristic Methods}{6}
+\contentsline {section}{\numberline {2.3}Advances techniques}{6}
+\contentsline {subsection}{\numberline {2.3.1}Hybridization}{6}
+\contentsline {subsection}{\numberline {2.3.2}Parallel computing}{6}
+\contentsline {subsection}{\numberline {2.3.3}Solvers cooperation}{7}
+\contentsline {section}{\numberline {2.4}Parameter setting techniques}{7}
+\contentsline {subsection}{\numberline {2.4.1}Off-line tunning}{7}
+\contentsline {subsection}{\numberline {2.4.2}On-line tunning}{7}
+\contentsline {chapter}{\numberline {3}A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{8}
+\contentsline {section}{\numberline {3.1}First Stage: Modeling the target benchmark}{8}
+\contentsline {section}{\numberline {3.2}Second Stage: Creating {\sc POSL}'s modules}{8}
+\contentsline {subsection}{\numberline {3.2.1}Operation Module}{8}
+\contentsline {subsection}{\numberline {3.2.2}Open channel}{8}
+\contentsline {section}{\numberline {3.3}Third Stage: Assembling {\sc POSL}'s modules}{9}
+\contentsline {section}{\numberline {3.4}Forth Stage: Creating {\sc POSL}{} solvers}{9}
+\contentsline {section}{\numberline {3.5}Fifth Stage: Connecting the solvers}{9}
+\contentsline {section}{\numberline {3.6}An step-by-step {\sc POSL}{} code example}{9}
+\contentsline {chapter}{\numberline {4}Study and evaluation process}{10}
+\contentsline {section}{\numberline {4.1}Social Golfers Problem}{10}
+\contentsline {section}{\numberline {4.2}Costas Array Problem}{10}
+\contentsline {section}{\numberline {4.3}N-Queen Problem}{10}
+\contentsline {section}{\numberline {4.4}Golomb Ruler Problem}{10}
+\contentsline {section}{\numberline {4.5}All Interval Problem}{11}
+\contentsline {section}{\numberline {4.6}...}{11}
+\contentsline {chapter}{\numberline {5}Analysis of results}{12}
+\contentsline {chapter}{\numberline {6}Conclusions and future works}{13}
 \contentsline {chapter}{Appendices}{}
-\contentsline {chapter}{Appendix \numberline {A}{\sc POSL}{} strategies}{15}
-\contentsline {chapter}{Appendix \numberline {B}{\sc POSL}{} code}{16}
-\contentsline {chapter}{Appendix \numberline {C}Complete results}{17}
-\contentsline {chapter}{Appendix \numberline {D}{\sc POSL}{} Documentation}{18}
+\contentsline {chapter}{Appendix \numberline {A}Relaxation model for discrete \textit {CSP}\textit {s}}{14}
+\contentsline {chapter}{Appendix \numberline {B}Domain Split}{15}
+\contentsline {chapter}{Appendix \numberline {C}Tunning methods for local search algorithms}{16}
+\contentsline {chapter}{Appendix \numberline {D}{\sc POSL}{} strategies}{17}
+\contentsline {chapter}{Appendix \numberline {E}{\sc POSL}{} code}{18}
+\contentsline {chapter}{Appendix \numberline {F}Complete results}{19}
+\contentsline {chapter}{Appendix \numberline {G}{\sc POSL}{} Documentation}{20}

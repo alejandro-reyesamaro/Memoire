@@ -1,0 +1,42 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Overview of Combinatorial Optimization Problems and methods to solve them}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Combinatorial Optimization Problems}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Basic techniques}{chapter.2}% 4
+\BOOKMARK [2][-]{subsection.2.2.1}{Constraint propagation}{section.2.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.2}{Meta-heuristic and Hyper-heuristic methods}{section.2.2}% 6
+\BOOKMARK [2][-]{subsection.2.2.3}{Single Solution Based Meta-heuristic}{section.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.3.1}{Population Based Meta-heuristic}{subsection.2.2.3}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.3.2}{Hyper-heuristic Methods}{subsection.2.2.3}% 9
+\BOOKMARK [1][-]{section.2.3}{Hybridization}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Parallel computing}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.5}{Solvers cooperation}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.6}{Parameter setting techniques}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.6.1}{Off-line tunning}{section.2.6}% 14
+\BOOKMARK [2][-]{subsection.2.6.2}{On-line tunning}{section.2.6}% 15
+\BOOKMARK [0][-]{chapter.3}{First attempts}{}% 16
+\BOOKMARK [1][-]{section.3.1}{Relaxation model for discrete CSPs}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.2}{Domain Split}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.3}{Tunning methods for local search algorithms}{chapter.3}% 19
+\BOOKMARK [0][-]{chapter.4}{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{}% 20
+\BOOKMARK [1][-]{section.4.1}{First Stage: Modeling the target benchmark}{chapter.4}% 21
+\BOOKMARK [1][-]{section.4.2}{Second Stage: Creating POSL's modules}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.2.1}{Operation Module}{section.4.2}% 23
+\BOOKMARK [2][-]{subsection.4.2.2}{Open channel}{section.4.2}% 24
+\BOOKMARK [1][-]{section.4.3}{Third Stage: Assembling POSL's modules}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{Forth Stage: Creating POSL solvers}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{Fifth Stage: Connecting the solvers}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.6}{An step-by-step POSL code example}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{Study and evaluation process}{}% 29
+\BOOKMARK [1][-]{section.5.1}{Target benchmarks}{chapter.5}% 30
+\BOOKMARK [2][-]{subsection.5.1.1}{Social Golfers Problem}{section.5.1}% 31
+\BOOKMARK [2][-]{subsection.5.1.2}{Costas Array Problem}{section.5.1}% 32
+\BOOKMARK [2][-]{subsection.5.1.3}{N-Queen Problem}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.4}{Golomb Ruler Problem}{section.5.1}% 34
+\BOOKMARK [2][-]{subsection.5.1.5}{All Interval Problem}{section.5.1}% 35
+\BOOKMARK [2][-]{subsection.5.1.6}{...}{section.5.1}% 36
+\BOOKMARK [0][-]{chapter.6}{Analysis of results}{}% 37
+\BOOKMARK [0][-]{chapter.7}{Conclusions and future works}{}% 38
+\BOOKMARK [0][-]{Appendix.a.A}{Appendix POSL strategies}{}% 39
+\BOOKMARK [0][-]{Appendix.a.B}{Appendix POSL code}{}% 40
+\BOOKMARK [0][-]{Appendix.a.C}{Appendix Complete results}{}% 41
+\BOOKMARK [0][-]{Appendix.a.D}{Appendix POSL Documentation}{}% 42
