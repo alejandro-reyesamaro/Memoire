@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  13 APR 2016 11:02
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  21 APR 2016 14:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1178,10 +1178,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
  [2
 
-]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 36.
-)
+])
 \tf@toc=\write5
 \openout5 = `plan.toc'.
 
@@ -1203,6 +1200,8 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 
 ] [6] [7]
 Chapter 3.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 172.
 [8
 
 ] [9]
@@ -1213,60 +1212,50 @@ Chapter 4.
 Chapter 5.
 [12
 
-]
+] [13]
 Chapter 6.
-[13
-
-]
-Appendix A.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24.88> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 256.
 [14
 
 ]
-Appendix B.
+Chapter 7.
 [15
 
 ]
-Appendix C.
+Appendix A.
 [16
 
 ]
-Appendix D.
+Appendix B.
 [17
 
 ]
-Appendix E.
+Appendix C.
 [18
 
 ]
-Appendix F.
-[19
+Appendix D.
+(./plan.bbl [19
 
-]
-Appendix G.
-(./plan.bbl [20
-
-]) [21
+]) [20
 
 ] (./plan.aux) ) 
 Here is how much of TeX's memory you used:
- 27973 strings out of 494272
- 582961 string characters out of 6160999
- 760122 words of memory out of 5000000
- 30660 multiletter control sequences out of 15000+600000
- 63224 words of font info for 125 fonts, out of 8000000 for 9000
+ 27971 strings out of 494272
+ 582939 string characters out of 6160999
+ 760125 words of memory out of 5000000
+ 30659 multiletter control sequences out of 15000+600000
+ 61595 words of font info for 123 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
- 58i,11n,74p,732b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,11n,74p,750b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/t
 imes/utmri8a.pfb>
-Output written on plan.pdf (21 pages, 76933 bytes).
+Output written on plan.pdf (20 pages, 78034 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

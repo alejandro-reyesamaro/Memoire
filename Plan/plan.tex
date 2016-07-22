@@ -71,7 +71,7 @@
 \tableofcontents
 
 %----------------------------------------------------------------------------------------------
-%------ 1
+%------ INTRO
 %----------------------------------------------------------------------------------------------
 \chapter{Introduction}
 
@@ -80,7 +80,7 @@ The \textit{Introduction} of the work is presented. We describe the target probl
 In this section are presented the goals of the thesis, and \posl{} is introduced as a new parallel approach including others and novel features. Finally, we describe the structure of the document. 
 
 %----------------------------------------------------------------------------------------------
-%------ 2
+%------ ART
 %----------------------------------------------------------------------------------------------
 \chapter{Overview of Combinatorial Optimization Problems and methods to solve them}
 
@@ -92,31 +92,31 @@ We introduce the definition of a \COP{} and the its link with \CSPs{} (\csp), wh
 
 \section{Basic techniques}
 
-In this section we introduce some basic techniques used to solve the problems defined above, like tree search-based solvers, backtracking-based solvers, Monte Carlo Tree Search methods, meta-heuristic methods, etc. \footnote{We also mention other approach that we tested at the beginning of this research (modeling \csps{} through \textit{relaxation}), giving a brief introduction and referencing the Appendix~\ref{app:relaxation} for more information.}
+In this section we introduce some basic techniques used to solve the problems defined above, like tree search-based solvers, backtracking-based solvers, Monte Carlo Tree Search methods, meta-heuristics methods, etc. \footnote{We also mention other approach that we tested at the beginning of this research (modeling \csps{} through \textit{relaxation}), giving a brief introduction and referencing the Section~\ref{sec:relaxation} for more information.}
 
 \subsection{Constraint propagation}
 
 Constraint propagation techniques are deterministic methods to attack these kind of problems, but in some cases they are incapable to solve them \cite{ChristianBessiere2006}. 
 
-\subsection{Meta-heuristic and Hyper-heuristic methods}
+\subsection{Meta-heuristics and Hyper-heuristics methods}
 
-However, we can not solve some \csps{} only applying constraint propagation techniques. It is necessary to combine them with other methods. In this chapter is presented an overview in the field of \textit{meta-heuristic} methods \cite{Boussaid2013}, nature-inspired algorithms divided in two groups: 
+However, we cannot solve some \csps{} only applying constraint propagation techniques. It is necessary to combine them with other methods. In this chapter is presented an overview in the field of \textit{meta-heuristics} methods \cite{Boussaid2013}, nature-inspired algorithms divided in two groups: 
 \begin{enumerate}
-    \item {\it Single Solution Based:} more exploitation oriented, intensifying the search in some specific areas. (We will focus our attention on this first group)
-    \item {\it Population Based:} more exploration oriented, identifying areas of the search space where there are (or where there could be) the best solutions.
+    \item {\it Single Solution Based:} more exploitation-oriented, intensifying the search in some specific areas. (We will focus our attention on this first group)
+    \item {\it Population Based:} more exploration-oriented, identifying areas of the search space where there are (or where there could be) the best solutions.
 \end{enumerate}
 
-\subsubsection{Single Solution Based Meta-heuristic}
+\subsubsection{Single Solution Based Meta-heuristics}
 
 Methods of the first group are also called {\it trajectory methods}, and they are based on choosing a solution taking into account some criterion (usually random), and they move from a solution to his \textit{neighbor}, following a trajectory into the search space.
 
-\subsubsection{Population Based Meta-heuristic}
+\subsubsection{Population Based Meta-heuristics}
 
 Also there exist heuristic methods based on populations. These methods do not work with a single solution, but with a set of solutions named {\it population}. 
 
 \subsection{Hyper-heuristic Methods}
 
-\textit{Hyper-heuristics} are automated methodologies for selecting or generating heuristics to solve hard computational problems.
+\textit{Hyper-heuristics} are automated methodologies for selecting or generating meta-heuristics to solve hard computational problems.
 
 \section{Advances techniques}
 
@@ -133,7 +133,7 @@ The evolution of computer architecture is leading us toward massively multi-core
 Some results have been obtained on this field. The contribution in terms of hardware has been crucial, but the development of the techniques and algorithms to solve problems in parallel is
 also visible, focusing the main efforts in three fundamentals concepts:
 \begin{enumerate}
-\item Problem subdivision, \footnote{In this topic, a theoretical (and still in progress) contribution is presented. We give a brief introduction and referencing the Appendix~\ref{app:split} for more information.}
+\item Problem subdivision, \footnote{In this topic, a theoretical (and still in progress) contribution is presented. We give a brief introduction and referencing the Section~\ref{sec:split} for more information.}
 \item Scalability and
 \item Inter-process communication.
 \end{enumerate}
@@ -144,49 +144,96 @@ The interaction between solvers exchanging some information is called {\it solve
 
 \section{Parameter setting techniques}
 
-Most of these methods to tackle combinatorial problems, involve a number of parameters that govern their behavior, and they need to be well adjusted, and most of the times they depend on the nature of the specific problem, so they require a previous analysis to study their behavior \cite{Birattari2005}. That is way another branch of the investigation arises: {\it parameter tuning}. It is also known as a meta optimization problem, because the main goal is to find the best solution (parameter configuration) for a program, which will try to find the best solution for some problem as well. Finally, this chapter presents an overview of the progresses in the field of \textit{parameter settings}.
+Most of these methods to tackle combinatorial problems, involve a number of parameters that govern their behavior, and they need to be well adjusted. Most of the times they depend on the nature of the specific problem, so they require a previous analysis to study their behavior \cite{Birattari2005}. The field that studies and searches the proper parameters for an algorithm is called {\it parameter tuning}. It is also known as a meta-optimization problem, because the main goal is to find the best solution (parameter configuration) for a program, which will try to find the best solution for some problem as well. Finally, this chapter presents an overview of the progresses in the field of \textit{parameter settings}.
 
-The are tow classes to classify these methods: 
+There exist two classes to classify these methods: 
 \begin{enumerate}
-\item \textit{Off-line tunning}: Also known just as parameter tuning, were parameters are computed before the run \footnote{Here, we present a performed experiment applying an automatic tuner to \textit{Adaptive Search}, giving a brief introduction and referencing the Appendix~\ref{app:tunning} for more information.}
-\item \textit{On-line tunning}: Also known as parameter control, were parameters are adjusted during the run, and
+\item \textit{Off-line tunning}: Also known just as parameter tuning, were parameters are computed before running the program to tune.\footnote{Here, we present a performed experiment applying an automatic tuner to \textit{Adaptive Search}, giving a brief introduction, and referencing the Section~\ref{sec:tunning} for more information.}
+\item \textit{On-line tunning}: Also known as parameter control, where parameters are adjusted while running the program.
 \end{enumerate}
 
 \subsection{Off-line tunning}
 
-The technique of parameter tuning or off-line tunning, is used to computed the best parameter configuration for an algorithm before the run (solving a given instance of a problem), to obtain the best performance.
+The technique of parameter tuning or off-line tunning, is used to computed the best parameter configuration for an algorithm before solving a given instance of a problem, to obtain the best performance.
 
 \subsection{On-line tunning}
 
 Although parameter tunning shows to be an effective way to adjust parameters to sensibles algorithms, in some problems the optimal parameter settings may be different for various phases of the search process. This is the main motivation to use on-line tuning techniques to find the best parameter setting, also called \textit{Parameter Control Techniques}.
 
+
 %----------------------------------------------------------------------------------------------
-%------ 3
+%------ Prior Works
+%----------------------------------------------------------------------------------------------
+
+\chapter{Prior works leading to \posl}
+
+In this chapter are presented Prior works leading to \posl. 
+
+\section{Relaxation model for discrete \csps}
+\label{sec:relaxation}
+
+Aiming for the right direction in order to find the proper approach, our first attempt to tackle the problem of reducing the search space of a \csp, we model it through a continuous optimization problem, and then, applying efficient methods to solve it. This way we do not reach an optimal solution, but an approximation of it. The new variables domain would be the neighborhood of the found approximation.
+
+\section{Domain Split}
+\label{sec:split}
+
+A way to tackle huge combinatorial problems in parallel is to split the search space. In this section, the {\it problem subdivision} approach was adopted to divide the domain of a given problem, in this particular case, to solve the {\it k-medoids problem} in parallel. \footnote{This work falls within the framework of the \textit{Ulysses} project between France and Ireland}
+
+\section{Tunning methods for local search algorithms}
+\label{sec:tunning}
+
+Another performed study was applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver. {\sc ParamsILS} (version 2.3) is a tool for parameter optimization for parametrized algorithms \cite{Hutter2009}. 
+It is an open source program (project) in {\it Ruby}, and the public source include some examples and a detailed and complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008}.
+
+\subsection{ParamILS\_2.3}
+
+{\sc ParamILS}\footnote{Available on http://cs.ubc.ca/labs/beta/Projects/ParamILS} library (an open source program (project) in {\it Ruby}) is described. It can be downloaded from  
+
+\subsection{Using ParamILS}
+
+In this section we explain how to use {\sc ParamILS}, getting in details about how to write and prepare all the files that this tool needs to work.
+
+\subsection{A ParamILS wrapper}
+
+In order to use {\sc ParamILS} to tune \textit{Adaptive Search}, and study the results, we built a wrapper in C++ to easily collect all data and process it. In this section we explain in detail that wrapper and how to use it.
+
+\subsection{Results}
+
+We present in this section all experiment designs and the obtained results, tuning \textit{Adaptive Search} to solve \textit{Costas Array} and \textit{All-Interval Series} problems.
+
+\subsection{Conclusion}
+
+We close this work with a brief conclusion. 
+
+
+
+%----------------------------------------------------------------------------------------------
+%------ POSL
 %----------------------------------------------------------------------------------------------
 \chapter{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}
 
-In this chapter we introduce \posl{} as our main contribution and a new way to solve \csps{}. We resume the its characteristics and advantages, and we get into details in the next sections. We describe a general outline to follow in order to build parallel solvers using \posl, and following each step is described in details.
+In this chapter we introduce \posl{} as our main contribution and a new way to solve \csps{}. We resume its characteristics and advantages, and we get into details in the next sections. We describe a general outline to follow in order to build parallel solvers using \posl, and following each step is described in details.
 
 \section{First Stage: Modeling the target benchmark}
 
-In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
 
 \section{Second Stage: Creating \posl's modules}
 
-There exist two types of basic modules in \posl: \oms{} and \opchs{}. An \om{} is a function receiving an input, then executes an internal algorithm, and returns an output. An \opch{} is also a function receiving and returning information, but in contrast, the \opch can receive information from two different ways: through parameter or from outside, i.e. by communicating with a module from another solver.
+There exist two types of basic modules in \posl: \oms{} and \opchs{}. An \om{} is a function receiving an input, then executes an internal algorithm, and returns an output. An \opch{} is also a function receiving and returning information, but in contrast, the \opch{} can receive information from two different ways: through parameter or from outside, i.e. by communicating with a module from another solver.
 
 \subsection{Operation Module}
 
-In this sub-section we expose the definition and the characteristics and the details of the \om, and give some examples. We explain how to create new \oms{} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+In this sub-section we expose the definition and the characteristics and the details of the \om, and give some examples. We explain how to create new \oms{} using the basic layer of the framework.
 
 \subsection{Open channel}
 
-In this sub-section we expose the definition and the characteristics and the details of the \opch, and give some examples. We explain how to create new \opchs{} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+In this sub-section we expose the definition and the characteristics and the details of the \opch, and give some examples. We explain how to create new \opchs{} using the basic layer of the framework.
 
 \section{Third Stage: Assembling \posl's modules}
 
-In this stage a generic strategy is coded through a operator based language: \posl. We call this the \cstr. The operators are parametrized functions receiving information and allow interactions between modules (\oms{} and \opchs). In this section are defined the operators and some examples are presented. We explain how to create new \textit{operators} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+In this stage a generic strategy is coded through a operator based language: \posl. We call this the \cstr. The operators are parametrized functions receiving information and allow interactions between modules (\oms{} and \opchs). In this section are defined the operators and some examples are presented. We explain how to create new \textit{operators} using the basic layer of the framework.
 
 \section{Forth Stage: Creating \posl{} solvers}
 
@@ -194,14 +241,16 @@ With operation modules and open channels already assembled through the \cstr{}, 
 
 \section{Fifth Stage: Connecting the solvers}
 
-Once we have defined our solver strategy, the last step is to declare the \commchs, i.e. connecting the solvers each others. In this last stage, \posl{} provides to the user a platform to easily define cooperative meta--strategies that solvers must follow (\posl{} meta--solvers). The steps to create \commchs{} through \textit{communication operators} are explained and some examples are presented. We explain how to create new \textit{communication operators} using the basic layer of the framework (in C++) making a proper usage of the object-oriented design.
+Once we have defined our solver strategy, the last step is to declare the \commchs, i.e. connecting the solvers each others. In this last stage, \posl{} provides to the user a platform to easily define cooperative meta--strategies that solvers must follow (\posl{} meta--solvers). The steps to create \commchs{} through \textit{communication operators} are explained and some examples are presented. We explain how to create new \textit{communication operators} using the basic layer of the framework.
 
-\section{An step-by-step \posl{} code example}
+\section{Step-by-step \posl{} code example}
 
 In this section we summarize all the steps to build a \posl{} meta--solver through an real example, providing schemes to make more comprehensive the process.
 
+
+
 %----------------------------------------------------------------------------------------------
-%------ 4
+%------ EXPERIMENTS
 %----------------------------------------------------------------------------------------------
 \chapter{Study and evaluation process}
 
@@ -225,7 +274,7 @@ In this chapter we expose all details about the process of evaluation of \posl{}
 
 \benchbody{Golomb Ruler}
 
-\section{All Interval Problem}
+\section{All-Interval Series Problem}
 
 \benchbody{All Interval}
 
@@ -238,7 +287,7 @@ Maybe others...
 %----------------------------------------------------------------------------------------------
 \chapter{Analysis of results}
 
-In this chapter we explain the used environments were we run the experiments (description of my desktop machine, \textit{Curiosiphi} server, and eventually \textit{Grid5k}). We describe all the experiments and we expose a complete analysis of the obtained result.
+In this chapter we explain the used environments were we run the experiments (description of my desktop machine, \textit{Curiosiphi} server, and eventually \textit{Grid5000}). We describe all the experiments and we expose a complete analysis of the obtained result.
 
 \chapter{Conclusions and future works}
 
@@ -252,22 +301,6 @@ We resume our work, emphasizing on our contribution and obtained results, and we
 %\appendixpage
 \noappendicestocpagenum
 \addappheadtotoc
-
-\chapter{Relaxation model for discrete \csps}
-\label{app:relaxation}
-
-Aiming for the right direction in order to find the proper approach, our first attempt to tackle the problem of reducing the search space of a \csp, we model it through a continuous optimization problem, and then, applying efficient methods to solve it. This way we do not reach an optimal solution, but an approximation of it. The new variables domain would be the neighborhood of the found approximation.
-
-\chapter{Domain Split}
-\label{app:split}
-
-A way to tackle huge combinatorial problems in parallel is to split the search space. In this section, the {\it problem subdivision} approach was adopted to divide the domain of a given problem, in this particular case, to solve the {\it k-medoids problem} in parallel. \footnote{This work falls within the framework of the \textit{Ulysses} project between France and Ireland}
-
-\chapter{Tunning methods for local search algorithms}
-\label{app:tunning}
-
-Another performed study was applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver. {\sc ParamsILS} (version 2.3) is a tool for parameter optimization for parametrized algorithms \cite{Hutter2009}. 
-It is an open source program (project) in {\it Ruby}, and the public source include some examples and a detailed and complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008}.
 
 \chapter{\posl{} strategies}
 

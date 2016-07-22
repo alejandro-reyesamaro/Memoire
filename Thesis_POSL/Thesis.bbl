@@ -1,5 +1,30 @@
 \begin{thebibliography}{100}
 
+\bibitem{Diaz}
+Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
+  Abreu.
+\newblock {Constraint-Based Local Search for the Costas Array Problem}.
+\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
+  Springer, 2012.
+
+\bibitem{Munera}
+Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
+\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
+  volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
+
+\bibitem{Frank2003}
+Stephan Frank, Petra Hofstedt, and Pierre~R. Mai.
+\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
+\newblock In {\em Florida AI Research Society (FLAIRS) Conference}, pages
+  177--181, 2003.
+
+\bibitem{Fukunaga2008}
+Alex~S Fukunaga.
+\newblock {Automated discovery of local search heuristics for satisfiability
+  testing.}
+\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
+
 \bibitem{Akplogan2011}
 Mahuna Akplogan, J{\'{e}}rome Dury, Simon de~Givry, Gauthier Quesnel, Alexandre
   Joannon, Arnauld Reynaud, Jacques~Eric Bergez, and Fr{\'{e}}d{\'{e}}rick
@@ -238,13 +263,6 @@ Philippe Galinier and Jin-Kao Hao.
 \newblock {A General Approach for Constraint Solving by Local Search}.
 \newblock {\em Journal of Mathematical Modelling and Algorithms}, 3(1):73--88,
   2004.
-
-\bibitem{Diaz}
-Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
-  Abreu.
-\newblock {Constraint-Based Local Search for the Costas Array Problem}.
-\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
-  Springer, 2012.
 
 \bibitem{Codognet2001}
 Philippe Codognet and Daniel Diaz.
@@ -507,12 +525,6 @@ Mark~D. Hill.
 \newblock {What is Scalability?}
 \newblock {\em ACM SIGARCH Computer Architecture News}, 18:18--21, 1990.
 
-\bibitem{Munera}
-Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
-\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
-\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
-  volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
-
 \bibitem{Munera2016}
 Danny Munera, Daniel Diaz, and Salvador Abreu.
 \newblock {Solving the Quadratic Assignment Problem with Cooperative Parallel
@@ -542,12 +554,6 @@ Youssef Hamadi, Said Jaddour, and Lakhdar Sais.
 \newblock {Control-Based Clause Sharing in Parallel SAT Solving}.
 \newblock In {\em Autonomous Search}, pages 245--267. Springer Berlin
   Heidelberg, 2012.
-
-\bibitem{Frank2003}
-Stephan Frank, Petra Hofstedt, and Pierre~R. Mai.
-\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
-\newblock In {\em Florida AI Research Society (FLAIRS) Conference}, pages
-  177--181, 2003.
 
 \bibitem{Hamadi2011}
 Youssef Hamadi, Cedric Piette, Said Jabbour, and Lakhdar Sais.
@@ -706,5 +712,17 @@ Jeff Clune, Sherri Goings, Erik~D. Goodman, and William Punch.
 \newblock {Investigations in Meta-GAs: Panaceas or Pipe Dreams?}
 \newblock In {\em GECOO'05: Proceedings of the 2005 Workshop on Genetic an
   Evolutionary Computation}, pages 235--241, 2005.
+
+\bibitem{Paradis2005}
+Emmanuel Paradis.
+\newblock {R for Beginners}.
+\newblock Technical report, Institut des Sciences de l'Evolution,
+  Universit{\'{e}} Montpellier II, 2005.
+
+\bibitem{Rickard}
+Scott Rickard.
+\newblock {Open Problems in Costas Arrays}.
+\newblock In {\em IMA International Conference on Mathematics in Signal
+  Processing at The Royal Agricultural College}, Cirencester, UK., 2006.
 
 \end{thebibliography}

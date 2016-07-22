@@ -3,9 +3,9 @@
 \contentsline {section}{\numberline {2.1}Combinatorial Optimization Problems}{5}
 \contentsline {section}{\numberline {2.2}Basic techniques}{5}
 \contentsline {subsection}{\numberline {2.2.1}Constraint propagation}{5}
-\contentsline {subsection}{\numberline {2.2.2}Meta-heuristic and Hyper-heuristic methods}{5}
-\contentsline {subsubsection}{\numberline {2.2.2.1}Single Solution Based Meta-heuristic}{6}
-\contentsline {subsubsection}{\numberline {2.2.2.2}Population Based Meta-heuristic}{6}
+\contentsline {subsection}{\numberline {2.2.2}Meta-heuristics and Hyper-heuristics methods}{5}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Single Solution Based Meta-heuristics}{6}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Population Based Meta-heuristics}{6}
 \contentsline {subsection}{\numberline {2.2.3}Hyper-heuristic Methods}{6}
 \contentsline {section}{\numberline {2.3}Advances techniques}{6}
 \contentsline {subsection}{\numberline {2.3.1}Hybridization}{6}
@@ -14,29 +14,35 @@
 \contentsline {section}{\numberline {2.4}Parameter setting techniques}{7}
 \contentsline {subsection}{\numberline {2.4.1}Off-line tunning}{7}
 \contentsline {subsection}{\numberline {2.4.2}On-line tunning}{7}
-\contentsline {chapter}{\numberline {3}A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{8}
-\contentsline {section}{\numberline {3.1}First Stage: Modeling the target benchmark}{8}
-\contentsline {section}{\numberline {3.2}Second Stage: Creating {\sc POSL}'s modules}{8}
-\contentsline {subsection}{\numberline {3.2.1}Operation Module}{8}
-\contentsline {subsection}{\numberline {3.2.2}Open channel}{8}
-\contentsline {section}{\numberline {3.3}Third Stage: Assembling {\sc POSL}'s modules}{9}
-\contentsline {section}{\numberline {3.4}Forth Stage: Creating {\sc POSL}{} solvers}{9}
-\contentsline {section}{\numberline {3.5}Fifth Stage: Connecting the solvers}{9}
-\contentsline {section}{\numberline {3.6}An step-by-step {\sc POSL}{} code example}{9}
-\contentsline {chapter}{\numberline {4}Study and evaluation process}{10}
-\contentsline {section}{\numberline {4.1}Social Golfers Problem}{10}
-\contentsline {section}{\numberline {4.2}Costas Array Problem}{10}
-\contentsline {section}{\numberline {4.3}N-Queen Problem}{10}
-\contentsline {section}{\numberline {4.4}Golomb Ruler Problem}{10}
-\contentsline {section}{\numberline {4.5}All Interval Problem}{11}
-\contentsline {section}{\numberline {4.6}...}{11}
-\contentsline {chapter}{\numberline {5}Analysis of results}{12}
-\contentsline {chapter}{\numberline {6}Conclusions and future works}{13}
+\contentsline {chapter}{\numberline {3}Prior works leading to {\sc POSL}}{8}
+\contentsline {section}{\numberline {3.1}Relaxation model for discrete \textit {CSP}\textit {s}}{8}
+\contentsline {section}{\numberline {3.2}Domain Split}{8}
+\contentsline {section}{\numberline {3.3}Tunning methods for local search algorithms}{8}
+\contentsline {subsection}{\numberline {3.3.1}ParamILS\_2.3}{8}
+\contentsline {subsection}{\numberline {3.3.2}Using ParamILS}{9}
+\contentsline {subsection}{\numberline {3.3.3}A ParamILS wrapper}{9}
+\contentsline {subsection}{\numberline {3.3.4}Results}{9}
+\contentsline {subsection}{\numberline {3.3.5}Conclusion}{9}
+\contentsline {chapter}{\numberline {4}A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{10}
+\contentsline {section}{\numberline {4.1}First Stage: Modeling the target benchmark}{10}
+\contentsline {section}{\numberline {4.2}Second Stage: Creating {\sc POSL}'s modules}{10}
+\contentsline {subsection}{\numberline {4.2.1}Operation Module}{10}
+\contentsline {subsection}{\numberline {4.2.2}Open channel}{10}
+\contentsline {section}{\numberline {4.3}Third Stage: Assembling {\sc POSL}'s modules}{11}
+\contentsline {section}{\numberline {4.4}Forth Stage: Creating {\sc POSL}{} solvers}{11}
+\contentsline {section}{\numberline {4.5}Fifth Stage: Connecting the solvers}{11}
+\contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{11}
+\contentsline {chapter}{\numberline {5}Study and evaluation process}{12}
+\contentsline {section}{\numberline {5.1}Social Golfers Problem}{12}
+\contentsline {section}{\numberline {5.2}Costas Array Problem}{12}
+\contentsline {section}{\numberline {5.3}N-Queen Problem}{12}
+\contentsline {section}{\numberline {5.4}Golomb Ruler Problem}{12}
+\contentsline {section}{\numberline {5.5}All-Interval Series Problem}{13}
+\contentsline {section}{\numberline {5.6}...}{13}
+\contentsline {chapter}{\numberline {6}Analysis of results}{14}
+\contentsline {chapter}{\numberline {7}Conclusions and future works}{15}
 \contentsline {chapter}{Appendices}{}
-\contentsline {chapter}{Appendix \numberline {A}Relaxation model for discrete \textit {CSP}\textit {s}}{14}
-\contentsline {chapter}{Appendix \numberline {B}Domain Split}{15}
-\contentsline {chapter}{Appendix \numberline {C}Tunning methods for local search algorithms}{16}
-\contentsline {chapter}{Appendix \numberline {D}{\sc POSL}{} strategies}{17}
-\contentsline {chapter}{Appendix \numberline {E}{\sc POSL}{} code}{18}
-\contentsline {chapter}{Appendix \numberline {F}Complete results}{19}
-\contentsline {chapter}{Appendix \numberline {G}{\sc POSL}{} Documentation}{20}
+\contentsline {chapter}{Appendix \numberline {A}{\sc POSL}{} strategies}{16}
+\contentsline {chapter}{Appendix \numberline {B}{\sc POSL}{} code}{17}
+\contentsline {chapter}{Appendix \numberline {C}Complete results}{18}
+\contentsline {chapter}{Appendix \numberline {D}{\sc POSL}{} Documentation}{19}

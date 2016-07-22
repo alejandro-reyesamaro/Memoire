@@ -1,0 +1,9 @@
+Vous trouverez deux version du modèle de couverture de thèse commune de la Comue UBL :
+
+1. La version LaTeX contient (devrait contenir) l'ensemble des dernières mises à jour.
+
+2. Une version docx a été établie par Anthony Goupil, responsable du service de la scolarité de l'École centrale de Nantes. Elle peut servir de base à celles et ceux qui utilisent un traitement de texte.
+
+   ATTENTION, suivant les traitements de texte utilisés, et même les versions, le rendu doit être ajusté en se référant à celui de LaTeX.
+
+3. Les commentaires contenus dans le source du squelette d'une thèse ont été mis en forme dans le document "directives-these-français.pdf". Sa lecture est également conseillée aux utilisateurs d'un traitement de texte.

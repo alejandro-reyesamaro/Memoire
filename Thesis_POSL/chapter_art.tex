@@ -1,11 +1,9 @@
 \chapter{State of the art}
 \label{chap:Art}
-\textit{In this chapter we talk about the related works.}
+\textit{This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. We introduce in Section~\ref{sec:combi} the definition of a \COP{} and the its link with \CSPs{} (\csp), where we concentrate our main efforts, and we give some examples. The basic techniques used to solve these problems are introduced, like {\it Constraint Propagation} (\ref{sec:progagation}), {\it meta-- and hyper--heuristic methods} (Sections~\ref{sec:meta} and \ref{sec:hyper}). We also present some advanced techniques like {\it hybridization} in Section~\ref{sec:hybrid}, {\it parallel computing} in Section~\ref{sec:parallel}, and {\it Solvers cooperation} in Section~\ref{sec:cooperation}. Finally we present {\i parameter setting techniques} in Section~\ref{sec:tunning}.}
 \vfill
 \minitoc
 \newpage
-
-%\section{Classification de la bibliographie}
 
 This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. In Section~\ref{sec:combi} the definition of a \CSP{} (\csp), emphasizing in the concept of \CSPs, where we concentrate our main efforts. Constraint propagation techniques are deterministic methods to attack these kind of problems (presented in Section~\ref{sec:progagation}), but in some cases they are incapable to solve them (they are mostly used to reduce the problem's search space or to prove it unsatisfiable). For that reason, the model presented in this thesis is based on \textit{meta-heuristic} methods (Section~\ref{sec:meta}). The \textit{Hybridization} approach combines different techniques in the same solution strategy, so the progresses in this field are exposed in Section~\ref{sec:hybrid}.
 
@@ -80,7 +78,7 @@ To be more flexible and more accurate, they assume that all arcs from the curren
 
 However, we can not solve some \csps{} only applying constraint propagation techniques. It is necessary to combine them with other methods. 
 
-\section{Meta-heuristic and Hyper-heuristic methods}
+\section{Meta-heuristic methods}
 \label{sec:meta}
 
 {\it Meta-heuristic Methods} are non problem-specific techniques that efficiently explore the search space in order to find the solution, and can often find them with less computational effort than iterative methods, so an effective way to face the \csps. Their algorithms are approximate and usually non-deterministic.
@@ -164,7 +162,8 @@ Also there exist heuristic methods based on populations. These methods do not wo
 
 Probably the most popular in this group are the {\it Genetic Algorithms} \cite{Reeves2010}, and theirs operators are based on the simulation of the genetic variation  process to achieve individuals (solutions in this case) more adapted; and the {\it Ant Colony} algorithms \cite{Dorigo2010}, that simulate the behavior of an ant swarm to find the shortest path from the food source to the nest.
 
-\subsection{Hyper-heuristic Methods}
+\section{Hyper-heuristic Methods}
+\label{sec:hyper}
 
 \textit{Hyper-heuristics} are automated methodologies for selecting or generating heuristics to solve hard computational problems \cite{Chakhlevitch2008}. This can be achieved with a learning mechanism that evaluates the quality of the algorithm solutions, in order to become general enough to solve new instances of a given problem. \textit{Hyper-heuristics} are related with the \textit{Algorithm Selection Problem}, so they establish a close relationship between a problem instance, the algorithm to solve it and its performance \cite{Ryser-welch}.   
 

@@ -1,16 +1,40 @@
-\BOOKMARK [-1][-]{part.1}{I Description of Thesis}{}% 1
-\BOOKMARK [0][-]{chapter.1}{State of the art}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Combinatorial Optimization}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Constraint propagation}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Meta-heuristic and Hyper-heuristic methods}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.3.1}{Single Solution Based Meta-heuristic}{section.1.3}% 6
-\BOOKMARK [2][-]{subsection.1.3.2}{Population Based Meta-heuristic}{section.1.3}% 7
-\BOOKMARK [2][-]{subsection.1.3.3}{Hyper-heuristic Methods}{section.1.3}% 8
-\BOOKMARK [1][-]{section.1.4}{Hybridization}{chapter.1}% 9
-\BOOKMARK [1][-]{section.1.5}{Parallel computing}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.6}{Solvers cooperation}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.7}{Parameter setting techniques}{chapter.1}% 12
-\BOOKMARK [2][-]{subsection.1.7.1}{Off-line tunning}{section.1.7}% 13
-\BOOKMARK [2][-]{subsection.1.7.2}{On-line tunning}{section.1.7}% 14
-\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 15
-\BOOKMARK [-1][-]{part.2}{II Appended Papers}{}% 16
+\BOOKMARK [-1][-]{part.1}{I Presentation}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introduction}{part.1}% 2
+\BOOKMARK [0][-]{chapter.2}{State of the art}{part.1}% 3
+\BOOKMARK [1][-]{section.2.1}{Combinatorial Optimization}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.2}{Constraint propagation}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.3}{Meta-heuristic methods}{chapter.2}% 6
+\BOOKMARK [2][-]{subsection.2.3.1}{Single Solution Based Meta-heuristic}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.2}{Population Based Meta-heuristic}{section.2.3}% 8
+\BOOKMARK [1][-]{section.2.4}{Hyper-heuristic Methods}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.5}{Hybridization}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.6}{Parallel computing}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.7}{Solvers cooperation}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.8}{Parameter setting techniques}{chapter.2}% 13
+\BOOKMARK [2][-]{subsection.2.8.1}{Off-line tunning}{section.2.8}% 14
+\BOOKMARK [2][-]{subsection.2.8.2}{On-line tunning}{section.2.8}% 15
+\BOOKMARK [0][-]{chapter.3}{Prior works leading to POSL}{part.1}% 16
+\BOOKMARK [1][-]{section.3.1}{Domain Split}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.1.1}{Domain Splitting. General point of view}{section.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.1.2}{Split strategies}{section.3.1}% 19
+\BOOKMARK [2][-]{subsection.3.1.3}{Conclusion}{section.3.1}% 20
+\BOOKMARK [1][-]{section.3.2}{Tunning methods for local search algorithms}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.2.1}{Using ParamILS}{section.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.2.2}{Tuning scenario files}{section.3.2}% 23
+\BOOKMARK [2][-]{subsection.3.2.3}{Building the wrapper}{section.3.2}% 24
+\BOOKMARK [2][-]{subsection.3.2.4}{Using the wrapper}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.5}{Results}{section.3.2}% 26
+\BOOKMARK [2][-]{subsection.3.2.6}{Tuning comparison}{section.3.2}% 27
+\BOOKMARK [2][-]{subsection.3.2.7}{Conclusion}{section.3.2}% 28
+\BOOKMARK [-1][-]{part.2}{II Parallel Oriented Solver Language}{}% 29
+\BOOKMARK [0][-]{chapter.4}{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{part.2}% 30
+\BOOKMARK [1][-]{section.4.1}{First Stage: Creating POSL's modules}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.1.1}{Computation Module}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.2}{Communication modules}{section.4.1}% 33
+\BOOKMARK [1][-]{section.4.2}{Second Stage: Assembling POSL's modules}{chapter.4}% 34
+\BOOKMARK [1][-]{section.4.3}{Third Stage: Creating POSL solvers}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.4}{Forth Stage: Connecting the solvers}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.5}{Fifth Stage: Modeling the target benchmark}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.6}{Step-by-step POSL code example}{chapter.4}% 38
+\BOOKMARK [0][-]{chapter.5}{Bibliography}{part.2}% 39
+\BOOKMARK [-1][-]{part.3}{III Appended Papers}{}% 40

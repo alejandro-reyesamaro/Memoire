@@ -1,7 +1,8 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Summary}{\reset@font\mtcSfont 50}{section.4.1}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Appended papers.}{\reset@font\mtcPfont 50}{paragraph*.66}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Published software.}{\reset@font\mtcPfont 50}{paragraph*.67}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Outlook}{\reset@font\mtcSfont 51}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Novel Fluorescent Base Analogues}{\reset@font\mtcSSfont 51}{subsection.4.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Quantitative FRET}{\reset@font\mtcSSfont 52}{subsection.4.2.2}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.2.1}The Outlook of FRETmatrix}{\reset@font\mtcSSSfont 52}{subsubsection.4.2.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}First Stage: Creating {\sc POSL}'s modules}{\reset@font\mtcSfont 55}{section.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Computation Module}{\reset@font\mtcSSfont 55}{subsection.4.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.2}Communication modules}{\reset@font\mtcSSfont 56}{subsection.4.1.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Second Stage: Assembling {\sc POSL}'s modules}{\reset@font\mtcSfont 57}{section.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 64}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Forth Stage: Connecting the solvers}{\reset@font\mtcSfont 64}{section.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Fifth Stage: Modeling the target benchmark}{\reset@font\mtcSfont 64}{section.4.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Step-by-step {\sc POSL}{} code example}{\reset@font\mtcSfont 64}{section.4.6}}

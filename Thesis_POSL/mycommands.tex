@@ -1,32 +1,102 @@
 \newcommand{\Aref}[1]{Appendix  \ref{#1}} %\thechapter
 
+%----------------- Colors --------------------------
 \definecolor{naranja}{RGB}{241,70,34}
 \definecolor{verde}{RGB}{104,198,135}
 \definecolor{dred}{RGB}{120,7,7}
 \definecolor{darkgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{orange}{RGB}{241,70,34}
+\definecolor{gray}{RGB}{135,131,131}
+\definecolor{intenso}{RGB}{126,13,13}
+\definecolor{shadecolor}{RGB}{215,215,215}
+
 %----------------- Commands --------------------------
+\newcommand{\tet}[1]{\textcolor{naranja}{#1}}
+\newcommand{\new}[1]{\textcolor{blue}{#1}}
+\newcommand{\modified}[1]{\textcolor{verde}{#1}}
+\newcommand{\highlight}[1]{\textcolor{red}{#1}}
+\newcommand{\good}[1]{\textcolor{dred}{\bf #1}}
+%\newcommand{\comment}[1]{\textcolor{verde}{#1}}
+\newcommand{\hsep}[1]{\hspace{7pt} #1}
+
 \newcommand{\ale}{Alejandro {\sc Reyes Amaro}}
 \newcommand{\titre}{{\sc POSL}: A Parallel-Oriented Solver Language}
-\newcommand{\tet}[1]{\textcolor{naranja}{#1}}
-\newcommand{\new}[1]{\textcolor{dred}{#1}}
-\newcommand{\commentario}[1]{\textcolor{verde}{#1}}
-\newcommand{\hsep}[1]{\hspace{7pt} #1}
-\newcommand{\conf}{$s$}
-\newcommand{\af}{{\sc POSL}}
-\newcommand{\opch}{{\it open channel}}
-\newcommand{\dopch}{{\it data open channel}}
-\newcommand{\oopch}{{\it object open channel}}
-\newcommand{\sus}{{\it subscription}}
-\newcommand{\module}{{\it operation module}}
+\newcommand{\posl}{{\sc POSL}}
+
+\newcommand{\opch}{{\it communication module}}
+\newcommand{\opchs}{\opch{\it s}}
+\newcommand{\dopch}{{\it data communication module}}
+\newcommand{\oopch}{{\it object communication module}}
+\newcommand{\comstr}{{\it communication strategy}}
+\newcommand{\comstrs}{{\it communication strategies}}
+\newcommand{\om}{{\it computation module}}
+\newcommand{\oms}{\om{\it s}}
 \newcommand{\m}{{\it module}}
-\newcommand{\cstr}{{\it computation strategy}}
+\newcommand{\ms}{\m{\it s}}
+\newcommand{\as}{{\it abstract solver}}
+\newcommand{\ass}{\as{\it s}}
 \newcommand{\cm}{{\it compound module}}
+\newcommand{\cms}{\cm{\it s}}
+
+\usepackage{stmaryrd}
 \newcommand{\lbk}{\left\llbracket}
 \newcommand{\rbk}{\right\rrbracket}
 \newcommand{\produce}{&\rightarrow}
 \newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
+
+\newcommand{\TM}{$^{\scalebox{0.6}{\mbox{TM}}}$}
+\newcommand{\R}{$^{\scalebox{0.7}{\textregistered}}$}
+\newcommand{\curiosiphyfull}{Intel\R{} Xeon\TM{} E5-2680 v2 (10$\times$4 cores, 2.80GHz)}
+\newcommand{\curiosiphy}{Intel\R{} Xeon\TM{}}
+\newcommand{\mylaptopProc}{Intel Core i7-4702HQ 2.2 GHz}
+\newcommand{\mylaptopMemo}{16384 MB, Dual-channel DDR3L 1600 MHz}
+\newcommand{\mylaptopName}{Dell XPS 15}
+
 \def\chapterautorefname{Chapter}
 \usepackage{xspace}
+
+% <Verbatim>
+\usepackage{fancyvrb}
+\fvset{frame=single,framesep=1mm,fontfamily=courier,fontsize=\scriptsize,framerule=.3mm,numbersep=1mm,commandchars=\\\{\}} %numbers=left
+% </Verbatim>
+
+% <ConsoleLikeListing>
+\usepackage{tcolorbox,listings}
+\lstdefinestyle{mystyle}{
+     basicstyle=\ttfamily\bf\tiny\color{white}, %
+     moredelim=**[is][\color{red}]{@}{@}
+     %numbers=left, 
+     %numberstyle=\tiny, 
+     %numbersep=5pt     
+ }
+\tcbuselibrary{listings,skins,breakable}
+\newtcblisting{BGVerbatim}{
+      arc=0mm,
+      top=0mm,
+      bottom=0mm,
+      left=1mm,
+      right=0mm,
+      width=\textwidth,
+      boxrule=0.5pt,
+      colback=black,
+      spartan,
+      listing only,
+      listing options={style=mystyle},
+      breakable
+}
+% </ConsoleLikeListing>
+
+\newcommand{\textover}[2]{\begin{tabular}{c}#1\\#2\end{tabular}}
+\newcommand{\tablePILSresults}[1]{
+\begin{tabular}{|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}||p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}|p{0.5cm}||p{2cm}|p{1.7cm}|p{1.7cm}|}
+	\hline\hline
+	\multicolumn{5}{|c||}{\bf Initial configuration} & \multicolumn{5}{c||}{\bf Final best configuration} & \multirow{2}{*}{\footnotesize{\centering {\bf \textover{Training}{quality}}}} & \multirow{2}{*}{\footnotesize{\centering {\bf \textover{Number}{of runs}}}} & \multirow{2}{*}{\footnotesize{\centering {\bf \textover{Test}{quality}}}} \\ %[0.5ex]
+	\cline{1-10}
+	F & P & f & l & p & F & P & f & l & p &  &  &  \\ %[1ex]
+	\hline\hline
+	#1
+	\hline
+\end{tabular}}
 
 \newcommand{\COP}{\textit{Combinatorial Optimization Problem}}
 \newcommand{\COPs}{\COP\textit{s}}
@@ -43,7 +113,6 @@
 >{\raggedleft\hspace{0pt}}m{#1}}%
 
 
-\hyphenation{mo-le-cu-lar ful-le-ro-pyr-ro-li-di-ne ful-le-ro-pyr-ro-li-di-nes his-to-grams his-to-gram pla-te-aus}
 
 \hypersetup
 {pdftitle={Spectroscopic Tools for Quantitative Studies of DNA Structure and Dynamics.},
@@ -61,3 +130,39 @@ citecolor=black, %couleur des liens pour les citations
 urlcolor=black, %couleur des liens pour les url
 bookmarksopenlevel=2
 }
+
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{shadows}
+\newmdenv[shadow=true,shadowcolor=black,font=\sffamily,rightmargin=8pt]{shadedbox}
+
+\newcommand{\defname}[2]{ \begin{definition}\textbf{(#1)}
+#2
+\end{definition}}
+
+\newcommand{\myboxlist}[2]
+{
+\begin{list}{\boxed{#1 \arabic{qcounter}:~}}{\usecounter{qcounter}} \itemsep0em
+#2
+\end{list}
+}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+%-----------------ALGORITHM2e--------------------------
+\usepackage{algorithm2e}
+%\newsavebox{\mycode}
+\SetKwFor{While}{$[\circlearrowleft $}{\tet{\bf begin}}{\tet{\bf end}$]$}
+\SetKwIF{Strategy}{}{}{\tet{\bf abstract solver}: }{}{}{}{}
+\SetKwIF{oModule}{}{}{\tet{\bf computation} : }{}{}{}{}
+\SetKwIF{oChannel}{}{}{\tet {\bf connection} : }{}{}{}{}
+
+\SetKwBlock{Begin}{\tet{\bf begin}}{\tet{\bf end}}
+%\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{endif}
+\SetKwData{Iter}{{\sc Iter}}
+\SetKwData{sec}{$\text{  }\circled{$\mapsto$}\text{  }$}
+\SetKwData{kdom}{{\bf oModule}}
+\SetKwData{kdoch}{{\bf oChannel}}
+\SetKwFunction{str}{\bf strategy}
+\SetKwFunction{solver}{\bf solver}
