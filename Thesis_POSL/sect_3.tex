@@ -1,0 +1,28 @@
+%With operation modules and open channels already assembled through the \as, we can create solvers by instantiating modules. \posl{} provides an environment to this end and we present the procedure to use it.
+
+%With \module s, \opch s and \cstr{} defined, we can create solvers by instantiating the declared components. \af{} provides an environment to this end, presented in Algorithm~\ref{algo:solver_def}, where $m_i$ and $ch_i$ represent the instances of the \module s and the instances of the \opch s to be passed by parameters to the \cstr{} $St$.
+
+With \bothmodules{} composing an \as, we can create solvers by instantiating \ms. This is simply done by specifying that a given \mbox{\tet{\bf solver}} will \mbox{\tet{\bf implements}} a given \as, followed by the list of \omprefix{} then \opchs{} matching signatures required by the \as. Algorithm~\ref{algo:solver_def} gives an example of implementation of Algorithm~\ref{algo:as_example} by instantiating modules shown in Figure~\ref{fig:2difBeh}.
+
+\begin{algorithm}[H]
+\dontprintsemicolon
+\SetNoline
+\SetKwProg{myproc}{}{}{}
+%\myproc{
+\tet{\bf solver} solver\_01 \tet{\bf implements} as\_01\;
+\tet{\bf computation} : $I_{rand}, V_{std}, S_{best}, A_{alw}$ \; 
+\tet{\bf connection}: $CM_{last}$\; %}{
+%	\Begin{
+%	}
+%}
+\caption{An instantiation of the solver presented in Algorithm~\ref{algo:as_example}}\label{algo:solver_def}
+\end{algorithm}
+
+\modified{Algorithm~\ref{algo:solver_def} is just an example of a solver instantiation, using some \oms{} provided by \posl{} provides, that we use and explain in details later in this document:}
+\begin{itemize}
+\item $I_{rand}$ creates a random configuration.
+\item $V_{std}$ creates a neighborhood of a given configuration, changing one element at once.
+\item $S_{best}$ selects the configuration of a neighborhood with the lowest cost.
+\item $A_{alw}$ always accepts the incoming configuration.
+\item $CM_{last}$ returns the last arrived configuration, if at the time of its execution, there is more than one waiting. 
+\end{itemize}

@@ -29,14 +29,21 @@
 \newcommand{\oopch}{{\it object communication module}}
 \newcommand{\comstr}{{\it communication strategy}}
 \newcommand{\comstrs}{{\it communication strategies}}
-\newcommand{\om}{{\it computation module}}
+\newcommand{\omprefix}{{\it computation}}
+\newcommand{\om}{\omprefix {\it module}}
 \newcommand{\oms}{\om{\it s}}
+\newcommand{\bothmodules}{\omprefix{} and \opchs}
 \newcommand{\m}{{\it module}}
 \newcommand{\ms}{\m{\it s}}
 \newcommand{\as}{{\it abstract solver}}
 \newcommand{\ass}{\as{\it s}}
 \newcommand{\cm}{{\it compound module}}
 \newcommand{\cms}{\cm{\it s}}
+\newcommand{\soset}{{\it solver set}}
+\newcommand{\jack}{{\it communication jack}}
+\newcommand{\jacks}{\jack{\it s}}
+\newcommand{\outlet}{{\it communication outlet}}
+\newcommand{\outlets}{\outlet{\it s}}
 
 \usepackage{stmaryrd}
 \newcommand{\lbk}{\left\llbracket}
@@ -166,3 +173,5 @@ bookmarksopenlevel=2
 \SetKwData{kdoch}{{\bf oChannel}}
 \SetKwFunction{str}{\bf strategy}
 \SetKwFunction{solver}{\bf solver}
+
+\newcommand{\poslop}[1]{\textbf{  }\circled{$#1$}\textbf{  }}
