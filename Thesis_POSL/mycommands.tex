@@ -30,7 +30,7 @@
 \newcommand{\comstr}{{\it communication strategy}}
 \newcommand{\comstrs}{{\it communication strategies}}
 \newcommand{\omprefix}{{\it computation}}
-\newcommand{\om}{\omprefix {\it module}}
+\newcommand{\om}{\omprefix{} {\it module}}
 \newcommand{\oms}{\om{\it s}}
 \newcommand{\bothmodules}{\omprefix{} and \opchs}
 \newcommand{\m}{{\it module}}
@@ -38,7 +38,7 @@
 \newcommand{\as}{{\it abstract solver}}
 \newcommand{\ass}{\as{\it s}}
 \newcommand{\cm}{{\it compound module}}
-\newcommand{\cms}{\cm{\it s}}
+\newcommand{\cms}{\cm {\it s}}
 \newcommand{\soset}{{\it solver set}}
 \newcommand{\jack}{{\it communication jack}}
 \newcommand{\jacks}{\jack{\it s}}
@@ -168,10 +168,11 @@ bookmarksopenlevel=2
 \SetKwBlock{Begin}{\tet{\bf begin}}{\tet{\bf end}}
 %\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{endif}
 \SetKwData{Iter}{{\sc Iter}}
-\SetKwData{sec}{$\text{  }\circled{$\mapsto$}\text{  }$}
+\SetKwData{sec}{\text{  }\circled{$\mapsto$}\text{  }}
 \SetKwData{kdom}{{\bf oModule}}
 \SetKwData{kdoch}{{\bf oChannel}}
 \SetKwFunction{str}{\bf strategy}
 \SetKwFunction{solver}{\bf solver}
 
 \newcommand{\poslop}[1]{\textbf{  }\circled{$#1$}\textbf{  }}
+\newcounter{qcounter}

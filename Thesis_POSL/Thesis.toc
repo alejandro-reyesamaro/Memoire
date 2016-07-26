@@ -47,7 +47,7 @@
 \contentsline {section}{\numberline {4.2}Second Stage: Assembling {\sc POSL}'s modules}{57}{section.4.2}
 \contentsline {section}{\numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{64}{section.4.3}
 \contentsline {section}{\numberline {4.4}Forth Stage: Connecting the solvers}{65}{section.4.4}
-\contentsline {section}{\numberline {4.5}Fifth Stage: Modeling the target benchmark}{66}{section.4.5}
+\contentsline {section}{\numberline {4.5}Fifth Stage: Modeling the target benchmark}{67}{section.4.5}
 \contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{67}{section.4.6}
-\contentsline {chapter}{\numberline {5}Bibliography}{69}{chapter.5}
-\contentsline {part}{III\hspace {1em}Appended Papers}{77}{part.3}
+\contentsline {chapter}{\numberline {5}Bibliography}{71}{chapter.5}
+\contentsline {part}{III\hspace {1em}Appended Papers}{79}{part.3}
