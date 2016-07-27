@@ -45,9 +45,10 @@
 \contentsline {subsection}{\numberline {4.1.1}Computation Module}{55}{subsection.4.1.1}
 \contentsline {subsection}{\numberline {4.1.2}Communication modules}{56}{subsection.4.1.2}
 \contentsline {section}{\numberline {4.2}Second Stage: Assembling {\sc POSL}'s modules}{57}{section.4.2}
-\contentsline {section}{\numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{64}{section.4.3}
-\contentsline {section}{\numberline {4.4}Forth Stage: Connecting the solvers}{65}{section.4.4}
-\contentsline {section}{\numberline {4.5}Fifth Stage: Modeling the target benchmark}{67}{section.4.5}
-\contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{67}{section.4.6}
-\contentsline {chapter}{\numberline {5}Bibliography}{71}{chapter.5}
-\contentsline {part}{III\hspace {1em}Appended Papers}{79}{part.3}
+\contentsline {section}{\numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{65}{section.4.3}
+\contentsline {section}{\numberline {4.4}Forth Stage: Connecting the solvers}{66}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Solver name space expansion}{69}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}Fifth Stage: Modeling the target benchmark}{70}{section.4.5}
+\contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{70}{section.4.6}
+\contentsline {chapter}{\numberline {5}Bibliography}{73}{chapter.5}
+\contentsline {part}{III\hspace {1em}Appended Papers}{81}{part.3}

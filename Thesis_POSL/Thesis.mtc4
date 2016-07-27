@@ -2,7 +2,8 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Computation Module}{\reset@font\mtcSSfont 55}{subsection.4.1.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.2}Communication modules}{\reset@font\mtcSSfont 56}{subsection.4.1.2}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Second Stage: Assembling {\sc POSL}'s modules}{\reset@font\mtcSfont 57}{section.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 64}{section.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Forth Stage: Connecting the solvers}{\reset@font\mtcSfont 65}{section.4.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Fifth Stage: Modeling the target benchmark}{\reset@font\mtcSfont 67}{section.4.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Step-by-step {\sc POSL}{} code example}{\reset@font\mtcSfont 67}{section.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 65}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Forth Stage: Connecting the solvers}{\reset@font\mtcSfont 66}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Solver name space expansion}{\reset@font\mtcSSfont 69}{subsection.4.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Fifth Stage: Modeling the target benchmark}{\reset@font\mtcSfont 70}{section.4.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Step-by-step {\sc POSL}{} code example}{\reset@font\mtcSfont 70}{section.4.6}}

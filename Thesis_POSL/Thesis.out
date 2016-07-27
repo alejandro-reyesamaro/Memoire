@@ -34,7 +34,8 @@
 \BOOKMARK [1][-]{section.4.2}{Second Stage: Assembling POSL's modules}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.3}{Third Stage: Creating POSL solvers}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.4}{Forth Stage: Connecting the solvers}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.5}{Fifth Stage: Modeling the target benchmark}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.6}{Step-by-step POSL code example}{chapter.4}% 38
-\BOOKMARK [0][-]{chapter.5}{Bibliography}{part.2}% 39
-\BOOKMARK [-1][-]{part.3}{III Appended Papers}{}% 40
+\BOOKMARK [2][-]{subsection.4.4.1}{Solver name space expansion}{section.4.4}% 37
+\BOOKMARK [1][-]{section.4.5}{Fifth Stage: Modeling the target benchmark}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.6}{Step-by-step POSL code example}{chapter.4}% 39
+\BOOKMARK [0][-]{chapter.5}{Bibliography}{part.2}% 40
+\BOOKMARK [-1][-]{part.3}{III Appended Papers}{}% 41
