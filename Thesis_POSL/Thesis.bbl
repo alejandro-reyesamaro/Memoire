@@ -53,7 +53,7 @@ Barbara~M Smith.
   Constraint Programming}, 2005.
 
 \bibitem{Abio2014}
-Ignasi Ab{\'{\i}}o and Peter~J Stuckey.
+Ignasi Ab{\'{i}}o and Peter~J Stuckey.
 \newblock {Encoding Linear Constraints into SAT}.
 \newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
   Constraint Programming}, pages 75--91. Springer, 2014.
@@ -185,7 +185,7 @@ Christian Blum and Andrea Roli.
 \newblock {\em ACM Computing Surveys (CSUR)}, 35(3):268--308, 2003.
 
 \bibitem{Boussaid2013}
-Ilhem Boussa{\"{\i}}d, Julien Lepagnot, and Patrick Siarry.
+Ilhem Boussa{\"{i}}d, Julien Lepagnot, and Patrick Siarry.
 \newblock {A survey on optimization metaheuristics}.
 \newblock {\em Information Sciences}, 237:82--117, jul 2013.
 
@@ -593,7 +593,8 @@ Prakash~R. Kotecha, Mani Bhushan, and Ravindra~D. Gudi.
 \bibitem{Zoeteweij}
 Peter Zoeteweij and Farhad Arbab.
 \newblock {A Component-Based Parallel Constraint Solver}.
-\newblock (612).
+\newblock In {\em Coordination Models and Languages}, pages 307--322. Springer,
+  2004.
 
 \bibitem{Kishimoto2009}
 Akihiro Kishimoto, Alex Fukunaga, and Adi Botea.
@@ -669,7 +670,7 @@ S.~K. Smit and A.~E. Eiben.
 
 \bibitem{Yeguas2014}
 E.~Yeguas, M.V. Luz{\'{o}}n, R.~Pav{\'{o}}n, R.~Laza, G.~Arroyo, and
-  F.~D{\'{\i}}az.
+  F.~D{\'{i}}az.
 \newblock {Automatic parameter tuning for Evolutionary Algorithms using a
   Bayesian Case-Based Reasoning system}.
 \newblock {\em Applied Soft Computing}, 18:185--195, may 2014.
@@ -724,5 +725,46 @@ Scott Rickard.
 \newblock {Open Problems in Costas Arrays}.
 \newblock In {\em IMA International Conference on Mathematics in Signal
   Processing at The Royal Agricultural College}, Cirencester, UK., 2006.
+
+\bibitem{Lardeux2014}
+Fr{\'{e}}d{\'{e}}ric Lardeux, {\'{E}}ric Monfroy, Broderick Crawford, and
+  Ricardo Soto.
+\newblock {Set Constraint Model and Automated Encoding into SAT: Application to
+  the Social Golfer Problem}.
+\newblock {\em Annals of Operations Research}, 235(1):423--452, 2014.
+
+\bibitem{Drakakis2006}
+Konstantinos Drakakis.
+\newblock {A review of Costas arrays}.
+\newblock {\em Journal of Applied Mathematics}, 2006:32 pages, 2006.
+
+\bibitem{Bell2009}
+Jordan Bell and Brett Stevens.
+\newblock {A survey of known results and research areas for n-queens}.
+\newblock {\em Discrete Mathematics}, 309(1):1--31, 2009.
+
+\bibitem{Sosic1994}
+Rok Sosic and Jun Gu.
+\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
+  the N-Queens Problem}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  6:661--668, 1994.
+
+\bibitem{Soliday1995}
+Stephen~W. Soliday, Abdollah. Homaifar, and Gary~L. Lebby.
+\newblock {Genetic algorithm approach to the search for Golomb Rulers}.
+\newblock In {\em International Conference on Genetic Algorithms}, volume~1,
+  pages 528--535, Pittsburg, 1995.
+
+\bibitem{Reyes-amaro}
+Alejandro Reyes-amaro, {\'{E}}ric Monfroy, and Florian Richoux.
+\newblock {POSL: A Parallel-Oriented metaheuristic-based Solver Language}.
+\newblock In {\em Recent developments of metaheuristics}, to appear. Springer.
+
+\bibitem{ale2015mic}
+Alejandro Reyes-Amaro, {\'{E}}ric Monfroy, and Florian Richoux.
+\newblock {A Parallel-Oriented Language for Modeling Constraint-Based Solvers}.
+\newblock In {\em Proceedings of the 11th edition of the Metaheuristics
+  International Conference (MIC 2015)}. Springer, 2015.
 
 \end{thebibliography}

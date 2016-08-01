@@ -1,0 +1,50 @@
+%In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
+
+\modified{Target problems are modelized in \posl{} using the C++ programing language. \posl{} provides the class \pclass{Benchmark} to inherit from. This class does not any method to override or implement, but in its constructor it receives three objects, instances from classes that the user must create, inheriting from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy} respectively. In these classes we write the most important functionalities of the benchmark model.}
+
+\underline{\textbf{SolutionCostStrategy}}: \modified{In this class is implemented the strategy to compute the \textit{cost} of a configuration. \posl{} is based on improving step by step an initial configuration, tacking into account a \textit{cost function} provided by the user through the model (implementing the function \pmethod{solutionCost}{$dots$}). The kind of problems that \posl{} solves are the \CSPs{}, so this \textit{cost function} must be a function returning an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ aims all the problem constraints. An example of \textit{cost function} can be returning the number of violated constraints. However, the most ........... is the function cost, the better the behavior of \posl{} is leading to the solution.}
+
+The method to implement in this class is:
+
+\begin{itemize}
+\item \verb|int solutionCost(std::vector<int> & c)| $\rightarrow$ It computes the cost of a given configuration (\verb|c|).
+\end{itemize}
+
+\underline{\textbf{RelativeCostStrategy}}: \modified{In this classe the user implements the strategy to compute the \textit{cost} of a given configuration, with respect to another: the current one. If the user is able to compute the cost of a configuration, by knowing the performed changes with respect to the current configuration, the search process becomes more efficient, because this function is very often executed.}
+
+The methods to implement in this class are:
+
+\begin{itemize}
+\item \verb|void initializeCostData(std::vector<int> & c)| $\rightarrow$ Initializes the information related to the cost (auxiliary data structures, the current configuration (\verb|c|), the current cost, etc.)
+\item \verb|void updateConfiguration(std::vector<int> & c)| $\rightarrow$ Updates the information related to the cost.
+\item \verb|int relativeSolutionCost(std::vector<int> & c)| $\rightarrow$ Returns the relative cost of the configuration \verb|c| with respect to the current configuration.
+\item \verb|int currentCost()| $\rightarrow$ Property that returns the cost of the current configuration.
+\item \verb|int costOnVariable(int variable_index)| $\rightarrow$ Returns a measure of how much some variable is contributing to the total cost of a configuration. \tet{AMPLIAR}
+\item \verb|int sickestVariable()| $\rightarrow$ Returns the variable contributing more to the cost.
+\end{itemize}
+
+\underline{\textbf{SolutionCostStrategy}}: \modified{This class represents the way a benchmark shows a configuration, in order to be clearer and to give more information about the structure. For example, a configuration of the instance 3--3--2 of the \sgp{} (see bellow for more details about this benchmark) can be written as follows:}
+
+\begin{Verbatim}
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6, 7, 8, 9, 1, 2]
+\end{Verbatim}
+
+\modified{But this text is very difficult to read if the instance is bigger. For that reason, the user should implement this class in order to give more details and make easier the configuration read. For example, for the same instance of the problem, a solution is presented as follows:}
+
+\begin{Verbatim}
+Golfers: players-3, groups-3, weeks-2
+6	8	7	
+1	3	5	
+4	9	2	
+--
+7	2	3	
+4	8	1	
+5	6	9	
+--
+\end{Verbatim}
+
+The method to implement in this class is:
+
+\begin{itemize}
+\item \verb|std::string showSolution(std::shared_ptr<Solution> s)| $\rightarrow$ Returns a string to write in the standard output.
+\end{itemize}

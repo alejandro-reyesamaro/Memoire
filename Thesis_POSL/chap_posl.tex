@@ -33,6 +33,11 @@ The parallel-oriented language based on operators that \posl{} provides (see Fig
 
 Once the solvers set is ready, the last step is to model the problem to solve. To do so, the user must follow the framework specification to implement the benchmark, respecting some requirements. The most important one is to implement a {\it cost function} computing the cost for a given configuration, i.e., an integer indicating how much the configuration violates the set of constraints. This integer equals zero if the configuration is a solution.
 
+\section{Modeling the target benchmark}
+\label{sec:model}
+
+\input{sect_model}
+
 \section{First Stage: Creating \posl's modules}
 \label{sec:1ststage}
 
@@ -52,10 +57,6 @@ Once the solvers set is ready, the last step is to model the problem to solve. T
 \label{sec:4thstage}
 
 \input{sect_4}
-
-\section{Fifth Stage: Modeling the target benchmark}
-
-In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
 \section{Step-by-step \posl{} code example}
 

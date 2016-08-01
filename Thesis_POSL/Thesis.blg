@@ -2,7 +2,7 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
-Database file #1: biblio201604.bib
+Database file #1: biblio201608.bib
 Warning--can't use both volume and number fields in Cousot1977
 Warning--empty institution in Arbab1995
 Warning--there's a number but no volume in Feo95
@@ -10,48 +10,46 @@ Warning--empty publisher in Comet
 Warning--empty publisher in Gecode
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
-Warning--empty journal in Zoeteweij
-Warning--there's a number but no volume in Zoeteweij
-Warning--empty year in Zoeteweij
-You've used 120 entries,
+Warning--empty year in Reyes-amaro
+You've used 127 entries,
             1791 wiz_defined-function locations,
-            1208 strings with 23513 characters,
-and the built_in function-call counts, 35511 in all, are:
-= -- 3501
-> -- 1264
-< -- 86
-+ -- 464
-- -- 344
-* -- 2279
-:= -- 5087
-add.period$ -- 404
-call.type$ -- 120
-change.case$ -- 132
+            1253 strings with 24876 characters,
+and the built_in function-call counts, 37455 in all, are:
+= -- 3694
+> -- 1331
+< -- 89
++ -- 489
+- -- 362
+* -- 2402
+:= -- 5371
+add.period$ -- 428
+call.type$ -- 127
+change.case$ -- 139
 chr.to.int$ -- 0
-cite$ -- 130
-duplicate$ -- 1781
-empty$ -- 3448
-format.name$ -- 344
-if$ -- 8356
+cite$ -- 135
+duplicate$ -- 1876
+empty$ -- 3649
+format.name$ -- 362
+if$ -- 8814
 int.to.chr$ -- 0
-int.to.str$ -- 120
-missing$ -- 117
-newline$ -- 603
-num.names$ -- 138
-pop$ -- 430
+int.to.str$ -- 127
+missing$ -- 124
+newline$ -- 638
+num.names$ -- 145
+pop$ -- 451
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1016
+skip$ -- 1062
 stack$ -- 0
-substring$ -- 2692
-swap$ -- 658
-text.length$ -- 86
+substring$ -- 2846
+swap$ -- 687
+text.length$ -- 89
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 10
-while$ -- 392
-width$ -- 123
-write$ -- 1385
-(There were 10 warnings)
+warning$ -- 8
+while$ -- 412
+width$ -- 130
+write$ -- 1467
+(There were 8 warnings)

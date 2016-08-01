@@ -41,14 +41,26 @@
 \contentsline {subsection}{\numberline {3.2.7}Conclusion}{45}{subsection.3.2.7}
 \contentsline {part}{II\hspace {1em}Parallel Oriented Solver Language}{51}{part.2}
 \contentsline {chapter}{\numberline {4}A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{53}{chapter.4}
-\contentsline {section}{\numberline {4.1}First Stage: Creating {\sc POSL}'s modules}{55}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Computation Module}{55}{subsection.4.1.1}
-\contentsline {subsection}{\numberline {4.1.2}Communication modules}{56}{subsection.4.1.2}
-\contentsline {section}{\numberline {4.2}Second Stage: Assembling {\sc POSL}'s modules}{57}{section.4.2}
-\contentsline {section}{\numberline {4.3}Third Stage: Creating {\sc POSL}{} solvers}{65}{section.4.3}
-\contentsline {section}{\numberline {4.4}Forth Stage: Connecting the solvers}{66}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Solver name space expansion}{69}{subsection.4.4.1}
-\contentsline {section}{\numberline {4.5}Fifth Stage: Modeling the target benchmark}{70}{section.4.5}
-\contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{70}{section.4.6}
-\contentsline {chapter}{\numberline {5}Bibliography}{73}{chapter.5}
-\contentsline {part}{III\hspace {1em}Appended Papers}{81}{part.3}
+\contentsline {section}{\numberline {4.1}Modeling the target benchmark}{55}{section.4.1}
+\contentsline {section}{\numberline {4.2}First Stage: Creating {\sc POSL}'s modules}{56}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Computation Module}{57}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Communication modules}{58}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Second Stage: Assembling {\sc POSL}'s modules}{59}{section.4.3}
+\contentsline {section}{\numberline {4.4}Third Stage: Creating {\sc POSL}{} solvers}{67}{section.4.4}
+\contentsline {section}{\numberline {4.5}Forth Stage: Connecting the solvers}{68}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Solver name space expansion}{71}{subsection.4.5.1}
+\contentsline {section}{\numberline {4.6}Step-by-step {\sc POSL}{} code example}{71}{section.4.6}
+\contentsline {part}{III\hspace {1em}Study and evaluation of {\sc POSL}}{75}{part.3}
+\contentsline {chapter}{\numberline {5}Experiments design}{77}{chapter.5}
+\contentsline {section}{\numberline {5.1}Solving the {\it Social Golfers}{} {\it Problem}}{78}{section.5.1}
+\contentsline {section}{\numberline {5.2}Solving the {\it N-Queens}{} {\it Problem}}{81}{section.5.2}
+\contentsline {section}{\numberline {5.3}Solving the {\it Costas Array}{} {\it Problem}}{82}{section.5.3}
+\contentsline {section}{\numberline {5.4}Solving the {\it Golomb Ruler}{} {\it Problem}}{85}{section.5.4}
+\contentsline {chapter}{\numberline {6}Analysis of results}{87}{chapter.6}
+\contentsline {section}{\numberline {6.1}{\it Social Golfers}{} {\it Problem}}{88}{section.6.1}
+\contentsline {section}{\numberline {6.2}{\it N-Queens}{} {\it Problem}}{91}{section.6.2}
+\contentsline {section}{\numberline {6.3}{\it Costas Array}{} {\it Problem}}{92}{section.6.3}
+\contentsline {section}{\numberline {6.4}{\it Golomb Ruler}{} {\it Problem}}{94}{section.6.4}
+\contentsline {part}{IV\hspace {1em}Conclusions and future works}{97}{part.4}
+\contentsline {chapter}{\numberline {7}Conclusion}{99}{chapter.7}
+\contentsline {chapter}{\numberline {8}Bibliography}{101}{chapter.8}

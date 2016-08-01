@@ -345,7 +345,9 @@ Similarly we define the operator \textbf{Send Module}:
 
 Once all desired abstract modules are linked together with operators, we obtain what we call an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
 
-An \as{} is defined as follow: after declaring an \mbox{\tet{\bf abstract solver}} and its name, the first line defines the list of signatures of \oms, the second one the list of signatures of \opchs, then the algorithm of the solver is defined is the solver's body, between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}. For instance, Algorithm~\ref{algo:as_example} illustrate the abstract solver corresponding to Figure~\ref{subfig:as}.
+\tet{Including the topic of ROOT \cm}
+
+An \as{} is defined as follow: after declaring an \mbox{\tet{\bf abstract solver}} and its name, the first line defines the list of signatures of \oms, the second one the list of signatures of \opchs, then the algorithm of the solver is defined is the solver's body, between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.  For instance, Algorithm~\ref{algo:as_example} illustrate the abstract solver corresponding to Figure~\ref{subfig:as}.
 
 
 \begin{algorithm}[H]
