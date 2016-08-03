@@ -1,7 +1,7 @@
 %----------------------------------------------------------------------------------------------
 %------ POSL
 %----------------------------------------------------------------------------------------------
-\chapter{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}
+\chapter{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers}
 \label{chap:posl}
 \textit{In this chapter we introduce \posl{} as our main contribution and a new way to solve \csps{}. We resume its characteristics and advantages, and we get into details in the next sections. We describe a general outline to follow in order to build parallel solvers using \posl, and following each step is described in details.}
 \vfill
@@ -9,7 +9,7 @@
 \newpage
 
 In this chapter we present the different steps to follow to build communicating parallel solvers with \posl. 
-First of all, the algorithm that we have conceived to solve the target problem is modeled by decomposing it into small modules of computation. After that, they are implemented as separated {\it functions}. We name them \oms{} (see Figure~\ref{subfig:modules}, blue shapes). The coder's experience is crucial to find a good decomposition of its algorithm, because it will have an important impact in its future reuse and variability. The next step is to decide what information is interesting to receive from other solvers. This information is encapsulated into another kind of component called \opch, allowing data transmission among solvers (see Figure~\ref{subfig:modules}, red shapes).
+First of all, the algorithm that we have conceived to solve the target problem is modeled by decomposing it into small modules of computation. After that, they are implemented as separated {\it functions}. We name them \oms{} (see Figure~\ref{subfig:modules}, blue shapes). The coder's experience is crucial to find a good decomposition of its algorithm, because it will have an important impact in its future re-usage  and variability. The next step is to decide what information is interesting to receive from other solvers. This information is encapsulated into another kind of component called \opch, allowing data transmission among solvers (see Figure~\ref{subfig:modules}, red shapes).
 In a third stage, is to glue the modules through \posl{}'s inner language (the reader can see an example in Appendix \tet{[...]}) to create independent solvers.
 The parallel-oriented language based on operators that \posl{} provides (see Figure~\ref{subfig:as}, green shapes) allows not only the information exchange, but also executing components in parallel. In this stage, the information that is interesting to share with other solvers, is sent using operators. After that, we can connect them using {\it communication operators}. We call this final entity a {\it solvers set} (see Figure~\ref{subfig:conn}).
 
@@ -31,7 +31,9 @@ The parallel-oriented language based on operators that \posl{} provides (see Fig
 	\label{fig:posl}
 \end{figure}
 
-Once the solvers set is ready, the last step is to model the problem to solve. To do so, the user must follow the framework specification to implement the benchmark, respecting some requirements. The most important one is to implement a {\it cost function} computing the cost for a given configuration, i.e., an integer indicating how much the configuration violates the set of constraints. This integer equals zero if the configuration is a solution.
+%Once the solvers set is ready, the last step is to model the problem to solve. To do so, the user must follow the framework specification to implement the benchmark, respecting some requirements. The most important one is to implement a {\it cost function} computing the cost for a given configuration, i.e., an integer indicating how much the configuration violates the set of constraints. This integer equals zero if the configuration is a solution.
+
+\modified{In the following sections we explain in details all these steps, but first, we explain how to modelize the target benchmark to be solved using \posl.}
 
 \section{Modeling the target benchmark}
 \label{sec:model}
@@ -103,7 +105,8 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 \end{figure}
 
 \modified{Algorithm \ref{algo:as_ex} shows the \posl{} pseudo-code for the \as{} described above, using predefined operators, and Algorithm~\ref{algo:cs_ex} shows the concrete solver definition using the concrete \omprefix{} and \opchs{} already presented. In the later, we have used the concrete \opch{} $CM_{last}$, that receives all the configuration sent to it, and selects the last arrived.}
-%\af{} provides information regarding the execution process, such as number of {\sc Iterations}, solver execution {\sc Time}, {\sc Best} found solution, among others.
+
+\modified{In practice, \posl{} provides information regarding the execution process, such as number of {\sc Iterations}, solver execution {\sc Time}, {\sc Best} found solution, among others.}
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -130,7 +133,7 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 \SetNoline
 \SetKwProg{myproc}{}{}{}
 %\myproc{
-\tet{\bf solver} solver\_example \tet{\bf implements} as\_example\;
+\tet{\bf solver} S \tet{\bf implements} as\_example\;
 \tet{\bf computation} : $I_{rand}, V_{1ch}, S_{best}, A_{a.i.}$ \; 
 \tet{\bf connection}: $CM_{last}$\; %}{
 %	\Begin{
@@ -139,7 +142,23 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 \caption{An instantiation of the \as{} in Algorithm~\ref{algo:as_ex}}\label{algo:cs_ex}
 \end{algorithm}
 
+\modified{Now, supose that we want to create another solver \texttt{Z} using a different neighborhood function, that we will call $V_{2ch}$, performing two changes instead of only one. As a communication strategy, we want also connect them through the operator {\it 1~to~N}, using \texttt{Z} as sender and \texttt{S} as receiver. Then, we need to declare, using name spare expansions, how many solvers we want to connect each others. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy.}
 
+\begin{algorithm}[H]
+\dontprintsemicolon
+\SetNoline
+%\myproc{
+[ Z$\cdot A$ (3) ] $\poslop{\rightsquigarrow}$ [ S$\cdot CM_{last}$ (3) ] 2 ;
+\caption{A communication strategy}\label{algo:comm_str_ex}
+\end{algorithm}
+
+\modified{Notice that the connection operation is affected also by the number $2$ at the end, to expand also the topology. In that sense, supposing that we have 12 units of computation available, we obtain a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn}.}
+
+\begin{figure}[h]
+	\centering	
+	\includegraphics[width=0.6\linewidth]{ex_top.png}
+	\caption{An example of connection strategy for 12 units of computation}\label{fig:ex_conn}
+\end{figure}
 
 %\noindent%
 %%\begin{minipage}{\textwidth}

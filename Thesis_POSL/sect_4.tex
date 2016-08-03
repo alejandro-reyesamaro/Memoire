@@ -95,7 +95,7 @@ Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 
 \modified{When we apply a connection operator $\circled{op}$ between a \jacks{} list $\mathcal{J}$ and a \outlets{} list $\mathcal{O}$, internally we are assigning an \textit{abstract computation unit} (typically a thread) to each solver that we declare in each list. This assignation receives the name of \textit{Solver Scheduling}. Before running the \soset{} this \textit{abstract unit of computation} is just an integer $\tau \in [0..N]$ as unique identifier for each solver. When the \soset{} is launched, the solver with the identifier $\tau$ runs into the computation unit $\tau$. This identifier assignation remains independent of the real availability of resources of computation. It just take into account the user declaration. It means that, if the user declares 30 solvers (15 senders and 15 receivers) and the \soset{} is launched using 20 cores, only the firsts 20 solvers will be executed, and in consequence, there will be 10 solvers sending information to nowhere. Users should take this into account at the time of declaring the \soset.}
 
-\modified{The connection process depends on the applied conection operator. In each case the goal is to assign to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) into the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.}
+\modified{The connection process depends on the applied conection operator. In each case the goal is to assign, to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) into the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.}
 
 \incmargin{1.4em}
 \linesnumbered
@@ -185,8 +185,7 @@ Searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 
 \subsection{Solver name space expansion}
 
-\tet{Includeing an introduction here.}
-\modified{\posl{} provides to ways of space name expansion:}
+\modified{One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel fast and easily. For that reason, \posl{} provides two ways of name space expansion, in order to create sets of solvers using already declared ones:}
 
 \textbf{Solver name expansion - } Using an integer $K$ to denote how many times the solver name $S$ will appear in the declaration. $\left[\dots S_i\cdot\mathcal{M}(K),\dots\right]$ expands as $\left[\dots S_i\cdot\mathcal{M}, S_i^2\cdot\mathcal{M},\dots S_i^K\cdot\mathcal{M}\dots\right]$\\
 and all new solvers $S_i^j, j\in [2..K]$ are created using the same solver declaration of solver $S_i$.

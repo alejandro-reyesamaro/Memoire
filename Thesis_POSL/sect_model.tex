@@ -1,8 +1,8 @@
 %In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
-\modified{Target problems are modelized in \posl{} using the C++ programing language. \posl{} provides the class \pclass{Benchmark} to inherit from. This class does not any method to override or implement, but in its constructor it receives three objects, instances from classes that the user must create, inheriting from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy} respectively. In these classes we write the most important functionalities of the benchmark model.}
+\modified{Target problems are modelized in \posl{} using the C++ programing language, respecting some rules of the object-oriented design. First of all, the benchmark must inherit from the class \pclass{Benchmark} provided by \posl. This class does not have any method to override or implement, but it receives in its constructor three objects, instances from classes that the user must create, inheriting from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy} respectively. In these classes we write the most important functionalities of the benchmark model.}
 
-\underline{\textbf{SolutionCostStrategy}}: \modified{In this class is implemented the strategy to compute the \textit{cost} of a configuration. \posl{} is based on improving step by step an initial configuration, tacking into account a \textit{cost function} provided by the user through the model (implementing the function \pmethod{solutionCost}{$dots$}). The kind of problems that \posl{} solves are the \CSPs{}, so this \textit{cost function} must be a function returning an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ aims all the problem constraints. An example of \textit{cost function} can be returning the number of violated constraints. However, the most ........... is the function cost, the better the behavior of \posl{} is leading to the solution.}
+\underline{\textbf{SolutionCostStrategy}}: \modified{In this class is implemented the strategy to compute the \textit{cost} of a configuration. \posl{} is based on improving step by step an initial configuration, tacking into account a \textit{cost function} provided by the user through the model (implementing the function \pmethod{solutionCost}{$dots$}). The kind of problems that \posl{} solves are the \CSPs{}, so this \textit{cost function} must be a function returning an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ aims all the problem constraints. An example of \textit{cost function} can be returning the number of violated constraints. However, the more \tet{expressive} is the function cost, the better the behavior of \posl{} is leading to the solution.}
 
 The method to implement in this class is:
 
@@ -19,7 +19,7 @@ The methods to implement in this class are:
 \item \verb|void updateConfiguration(std::vector<int> & c)| $\rightarrow$ Updates the information related to the cost.
 \item \verb|int relativeSolutionCost(std::vector<int> & c)| $\rightarrow$ Returns the relative cost of the configuration \verb|c| with respect to the current configuration.
 \item \verb|int currentCost()| $\rightarrow$ Property that returns the cost of the current configuration.
-\item \verb|int costOnVariable(int variable_index)| $\rightarrow$ Returns a measure of how much some variable is contributing to the total cost of a configuration. \tet{AMPLIAR}
+\item \verb|int costOnVariable(int variable_index)| $\rightarrow$ Returns a measure of how much some variable is contributing to the total cost of a configuration. % \tet{AMPLIAR}
 \item \verb|int sickestVariable()| $\rightarrow$ Returns the variable contributing more to the cost.
 \end{itemize}
 
@@ -48,3 +48,5 @@ The method to implement in this class is:
 \begin{itemize}
 \item \verb|std::string showSolution(std::shared_ptr<Solution> s)| $\rightarrow$ Returns a string to write in the standard output.
 \end{itemize}
+
+\modified{Once we have modelized the target benchmark, we can solve it through \posl{}. In the following sections we describe how to use this parallel-oriented language to solve \CSPs.}

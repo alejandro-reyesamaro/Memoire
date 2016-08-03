@@ -1,53 +1,14 @@
 \BOOKMARK [-1][-]{part.1}{I Presentation}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Introduction}{part.1}% 2
-\BOOKMARK [0][-]{chapter.2}{State of the art}{part.1}% 3
-\BOOKMARK [1][-]{section.2.1}{Combinatorial Optimization}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.2}{Constraint propagation}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.3}{Meta-heuristic methods}{chapter.2}% 6
-\BOOKMARK [2][-]{subsection.2.3.1}{Single Solution Based Meta-heuristic}{section.2.3}% 7
-\BOOKMARK [2][-]{subsection.2.3.2}{Population Based Meta-heuristic}{section.2.3}% 8
-\BOOKMARK [1][-]{section.2.4}{Hyper-heuristic Methods}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.5}{Hybridization}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.6}{Parallel computing}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.7}{Solvers cooperation}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.8}{Parameter setting techniques}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.8.1}{Off-line tunning}{section.2.8}% 14
-\BOOKMARK [2][-]{subsection.2.8.2}{On-line tunning}{section.2.8}% 15
-\BOOKMARK [0][-]{chapter.3}{Prior works leading to POSL}{part.1}% 16
-\BOOKMARK [1][-]{section.3.1}{Domain Split}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.1.1}{Domain Splitting. General point of view}{section.3.1}% 18
-\BOOKMARK [2][-]{subsection.3.1.2}{Split strategies}{section.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.1.3}{Conclusion}{section.3.1}% 20
-\BOOKMARK [1][-]{section.3.2}{Tunning methods for local search algorithms}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.2.1}{Using ParamILS}{section.3.2}% 22
-\BOOKMARK [2][-]{subsection.3.2.2}{Tuning scenario files}{section.3.2}% 23
-\BOOKMARK [2][-]{subsection.3.2.3}{Building the wrapper}{section.3.2}% 24
-\BOOKMARK [2][-]{subsection.3.2.4}{Using the wrapper}{section.3.2}% 25
-\BOOKMARK [2][-]{subsection.3.2.5}{Results}{section.3.2}% 26
-\BOOKMARK [2][-]{subsection.3.2.6}{Tuning comparison}{section.3.2}% 27
-\BOOKMARK [2][-]{subsection.3.2.7}{Conclusion}{section.3.2}% 28
-\BOOKMARK [-1][-]{part.2}{II Parallel Oriented Solver Language}{}% 29
-\BOOKMARK [0][-]{chapter.4}{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}{part.2}% 30
-\BOOKMARK [1][-]{section.4.1}{Modeling the target benchmark}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{First Stage: Creating POSL's modules}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.2.1}{Computation Module}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.2}{Communication modules}{section.4.2}% 34
-\BOOKMARK [1][-]{section.4.3}{Second Stage: Assembling POSL's modules}{chapter.4}% 35
-\BOOKMARK [1][-]{section.4.4}{Third Stage: Creating POSL solvers}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.5}{Forth Stage: Connecting the solvers}{chapter.4}% 37
-\BOOKMARK [2][-]{subsection.4.5.1}{Solver name space expansion}{section.4.5}% 38
-\BOOKMARK [1][-]{section.4.6}{Step-by-step POSL code example}{chapter.4}% 39
-\BOOKMARK [-1][-]{part.3}{III Study and evaluation of POSL}{}% 40
-\BOOKMARK [0][-]{chapter.5}{Experiments design}{part.3}% 41
-\BOOKMARK [1][-]{section.5.1}{Solving the Social Golfers Problem}{chapter.5}% 42
-\BOOKMARK [1][-]{section.5.2}{Solving the N-Queens Problem}{chapter.5}% 43
-\BOOKMARK [1][-]{section.5.3}{Solving the Costas Array Problem}{chapter.5}% 44
-\BOOKMARK [1][-]{section.5.4}{Solving the Golomb Ruler Problem}{chapter.5}% 45
-\BOOKMARK [0][-]{chapter.6}{Analysis of results}{part.3}% 46
-\BOOKMARK [1][-]{section.6.1}{Social Golfers Problem}{chapter.6}% 47
-\BOOKMARK [1][-]{section.6.2}{N-Queens Problem}{chapter.6}% 48
-\BOOKMARK [1][-]{section.6.3}{Costas Array Problem}{chapter.6}% 49
-\BOOKMARK [1][-]{section.6.4}{Golomb Ruler Problem}{chapter.6}% 50
-\BOOKMARK [-1][-]{part.4}{IV Conclusions and future works}{}% 51
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{part.4}% 52
-\BOOKMARK [0][-]{chapter.8}{Bibliography}{part.4}% 53
+\BOOKMARK [0][-]{chapter.1}{Prior works leading to POSL}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Domain Split}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Domain Splitting. General point of view}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Split strategies}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.3}{Conclusion}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Tunning methods for local search algorithms}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.2.1}{Using ParamILS}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.2}{Tuning scenario files}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.3}{Building the wrapper}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.4}{Using the wrapper}{section.1.2}% 11
+\BOOKMARK [2][-]{subsection.1.2.5}{Results}{section.1.2}% 12
+\BOOKMARK [2][-]{subsection.1.2.6}{Conclusion}{section.1.2}% 13
+\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 14

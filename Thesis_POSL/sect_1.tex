@@ -24,14 +24,26 @@ Cm_{neighborhood}:D_1\times D_2\times\dots\times D_n \rightarrow 2^{D_1\times D_
 
 \noindent where $D_i$ represents the definition domains of each variable of the input confi\-gura\-tion.
 
-Figure~\ref{fig:om} shows an example of computation module: it receives a configuration $S$ and then computes the set $V$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
+Figure~\ref{fig:om} shows an example of computation module: it receives a configuration $S$ and then computes the set $\mathcal{V}$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
 
-\vspace{0.5cm}
+%\vspace{0.5cm}
 \begin{figure}
 	\centering	
 	\includegraphics[width=0.7\linewidth]{OM.png}
 	\caption{An example of a computation module computing a neighborhood}\label{fig:om}
 \end{figure}
+
+\subsubsection{Creating new communication modules}
+\label{subsubsec:creatingoms}
+
+\modified{To create new \oms{} we use C++ programing language. \posl{} provides a hierarchy of data types to work with (\tet{See anexes}) and some abstract classes to inherit from, depending of the type of \om{} that the user want to create. These abstract classes represent {\it abstract} \om{} and they define the type of action to execute using them. Here we present the most important ones as example:}
+
+\begin{itemize}
+\item \pclass{AOM\_FirstConfigurationGeneration} $\rightarrow$ Represent \oms{} generating a first configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{ComputationData}} that returns a pointer to a \pclass{Solution}, that is an object containing all the information concerning a partial solution (configuration, variables domains, etc.)
+\item \pclass{AOM\_NeighborhoodFunction} $\rightarrow$ Represent \oms{} creating a neighborhood of a given configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{Solution}} that returns a pointer to an object \pclass{Neighborhood}, that contains a set of configurations representing a neighborhood of a given configuration, taking into account some criteria. These configuration are efficiently stored.
+\item \pclass{AOM\_SelectionFunction} $\rightarrow$ Represent \oms{} selecting a configuration from a neighborhood. The user must implement the method \pmethod{spcf\_execute}{\pclass{Neighborhood}} that returns a pointer to an object \pclass{DecisionPair}, that contains two solutions: the current and the selected.
+\item \pclass{AOM\_DecisionFunction} $\rightarrow$ Represent \oms{} deciding between two solutions, which one will be the current configuration for the next iteration. The user must implement the method \pmethod{spcf\_execute}{\pclass{DecisionPair}} that returns a pointer to an object \pclass{Solution} that is the current solution for the next iteration.
+\end{itemize}
 
 \subsection{Communication modules}
 

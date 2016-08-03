@@ -1,6 +1,6 @@
 Modules mentioned above are defined respecting the signature of some predefined abstract module. For example, the module showed in Figure~\ref{fig:om} is a \om{} based on an abstract module that receives a configuration and returns a neighborhood. In that sense, an example of a concrete \om{} (or just \om{} for simplification sake) can be a function receiving a configuration, and returns a neighborhood composed of $N$ configurations only differing from one value to the input configuration.
 
-In this stage an \as{} is coded through \posl{}. It takes abstract modules as {\it parameters} and combines them with operators. Through the abstract solver, we can also decide what information to be sent to other solvers, by using some operators to send the result of a computation module (see below). Following we present a formal and more detailed presentation of \posl{}'s operators specification. 
+In this stage an \as{} is coded through \posl{}. It takes abstract modules as {\it parameters} and combines them with operators. Through the \as, we can also decide what information to be sent to other solvers, by using some operators to send the result of a computation module (see below). Following we present a formal and more detailed presentation of \posl{}'s operators specification. 
 
 
 The \as{} is the solver's backbone. It joins the \oms{} and the \opchs{} coherently. It is independent from the \oms{} and \opchs{} used in the solver. It means they can be changed or modified during the execution, without altering the general algorithm, but still respecting the main structure. \modified{Each time we combine some of them using \posl's operators, we are creating a \cm. Following we define formally the concept of \textit{module} and \cm.}
@@ -27,9 +27,15 @@ For better understand the Definition~\ref{def:module}, Figure~\ref{fig:cm} shows
 	\label{fig:cm}
 \end{figure}
 
-\modified{We define an \as{} as a free-context grammar as follows:}
+\modified{As we said before, the \as{} is independent from the \oms{} and \opchs{} used in the solver, it means that one \as{} can be used to construct many different solvers, by implement it using different modules (see below the concept of \as{} instantiation). For that reason, the \as{} is defined only using {abstract} modules. Formally, we define an \as{} as follows:}
 
-\begin{definition}{\bf (\posl's Grammar)}
+\defname{Abstract Solver}{
+An \emph{Abstract Solver} $AS$ is a triple $\left(\mathbf{M},\mathcal{L}^m, \mathcal{L}^c\right)$, where: $\mathbf{M}$ is a \cm{} (also called \emph{root \cm{}}), $\mathcal{L}^m$ a list of abstract \oms{} appearing in $\mathcal{M}$, and $\mathcal{L}^c$ a list of \opchs{} appearing in $\mathcal{M}$
+}
+
+The \textit{root} \cm{} can be defined also as a free-context grammar as follows:
+
+\begin{definition}{\bf (root \cm{}'s grammar)}
 \label{def:grammar}
 $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 \begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
@@ -63,7 +69,7 @@ We would like to explain some of the concepts presented in Definition~\ref{def:g
 	\item The rest of terminals are \posl{} operators.
 \end{itemize}
 
-Following we define \posl{} operators. In order to group modules, like in Definition \ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|.\right|$ as generic grouper.
+Following we define \posl{} operators. In order to group modules, like in Definition~\ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|.\right|$ as generic grouper.
 
 %$M\textcircled{p}t$
 
@@ -342,13 +348,25 @@ Similarly we define the operator \textbf{Send Module}:
 \]
 \end{definition}
 
+Once all desired abstract modules are linked together with operators, we obtain the {\it root} \cm{}, important part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
 
-Once all desired abstract modules are linked together with operators, we obtain what we call an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
+An \as{} is defined as follow: after declaring an \mbox{\tet{\bf abstract solver}} and its name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined is the solver's body (the root \cm), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
 
-\tet{Including the topic of ROOT \cm}
+\modified{So, formally, we can present the declaration of an \as{} in the following simple regular expression:}
 
-An \as{} is defined as follow: after declaring an \mbox{\tet{\bf abstract solver}} and its name, the first line defines the list of signatures of \oms, the second one the list of signatures of \opchs, then the algorithm of the solver is defined is the solver's body, between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.  For instance, Algorithm~\ref{algo:as_example} illustrate the abstract solver corresponding to Figure~\ref{subfig:as}.
+\begin{center}
+\tet{\bf abstract solver} {\it name} \tet{\bf computation}: $L^m$ (\tet{\bf communication}: $L^c$)? \tet{\bf begin} $\mathcal{M}$ \tet{\bf end}
+\end{center}
 
+Where:
+\begin{itemize}
+\item {\it name} is the identifier of the \as{}, 
+\item $L^m$ the list of abstract \oms{},
+\item $L^c$ the list of abstract \opchs{}, and
+\item $\mathcal{M}$ the root \cm.
+\end{itemize}
+
+For instance, Algorithm~\ref{algo:as_example} illustrate the abstract solver corresponding to Figure~\ref{subfig:as}.
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -369,3 +387,4 @@ An \as{} is defined as follow: after declaring an \mbox{\tet{\bf abstract solver
 }
 \caption{\posl{} pseudo-code for the \as{} presented in Figure~\ref{subfig:as}}\label{algo:as_example}
 \end{algorithm}	
+
