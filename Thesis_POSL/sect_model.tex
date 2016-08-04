@@ -1,16 +1,16 @@
 %In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
-\modified{Target problems are modelized in \posl{} using the C++ programing language, respecting some rules of the object-oriented design. First of all, the benchmark must inherit from the class \pclass{Benchmark} provided by \posl. This class does not have any method to override or implement, but it receives in its constructor three objects, instances from classes that the user must create, inheriting from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy} respectively. In these classes we write the most important functionalities of the benchmark model.}
+Target problems are modeled in \posl{} using the C++ programing language, respecting some rules of the object-oriented design. First of all, the benchmark must inherit from the class \pclass{Benchmark} provided by \posl. This class does not have any method to be overridden or implemented, but receives in its constructor three objects, instances from classes that the user must create. Those classes must inherit from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy}, respectively. In these classes the most important functionalities of the benchmark model are defined.
 
-\underline{\textbf{SolutionCostStrategy}}: \modified{In this class is implemented the strategy to compute the \textit{cost} of a configuration. \posl{} is based on improving step by step an initial configuration, tacking into account a \textit{cost function} provided by the user through the model (implementing the function \pmethod{solutionCost}{$dots$}). The kind of problems that \posl{} solves are the \CSPs{}, so this \textit{cost function} must be a function returning an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ aims all the problem constraints. An example of \textit{cost function} can be returning the number of violated constraints. However, the more \tet{expressive} is the function cost, the better the behavior of \posl{} is leading to the solution.}
+\underline{\textbf{SolutionCostStrategy}}: In this class the strategy to compute the \textit{cost} of a configuration is implemented. \posl{} is based on improving step by step an initial configuration, taking into account a \textit{cost function} provided by the user through the model (by implementing the function \pmethod{solutionCost}{$dots$}). The kind of problems that \posl{} solves is the class of \CSPs{}, so this \textit{cost function} must return an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ fulfill all the problem constraints. An example of \textit{cost function} is one that returns the number of violated constraints. However, the more \tet{expressive} the function cost is, the better the performance of \posl{} leading to the solution.
 
-The method to implement in this class is:
+The method to be implemented in this class is:
 
 \begin{itemize}
-\item \verb|int solutionCost(std::vector<int> & c)| $\rightarrow$ It computes the cost of a given configuration (\verb|c|).
+\item \verb|int solutionCost(std::vector<int> & c)| $\rightarrow$ Computes the cost of a given configuration (\verb|c|).
 \end{itemize}
 
-\underline{\textbf{RelativeCostStrategy}}: \modified{In this classe the user implements the strategy to compute the \textit{cost} of a given configuration, with respect to another: the current one. If the user is able to compute the cost of a configuration, by knowing the performed changes with respect to the current configuration, the search process becomes more efficient, because this function is very often executed.}
+\underline{\textbf{RelativeCostStrategy}}: \modified{In this class the user implements the strategy to compute the \textit{cost} of a given configuration with respect to another. If the cost of some configuration has been calculated, sometimes it is possible to store some information in order to compute the cost of another configuration, if the differences between them are known. If it is possible, the algorithms is defined in this class. If it is not possible, this class must have the same functionality of \pclass{SolutionCostStrategy}.}
 
 The methods to implement in this class are:
 
@@ -19,17 +19,17 @@ The methods to implement in this class are:
 \item \verb|void updateConfiguration(std::vector<int> & c)| $\rightarrow$ Updates the information related to the cost.
 \item \verb|int relativeSolutionCost(std::vector<int> & c)| $\rightarrow$ Returns the relative cost of the configuration \verb|c| with respect to the current configuration.
 \item \verb|int currentCost()| $\rightarrow$ Property that returns the cost of the current configuration.
-\item \verb|int costOnVariable(int variable_index)| $\rightarrow$ Returns a measure of how much some variable is contributing to the total cost of a configuration. % \tet{AMPLIAR}
-\item \verb|int sickestVariable()| $\rightarrow$ Returns the variable contributing more to the cost.
+\item \verb|int costOnVariable(int variable_index)| $\rightarrow$ Returns a measure of the contribution of a variable to the total cost of a configuration. % \tet{AMPLIAR}
+\item \verb|int sickestVariable()| $\rightarrow$ Returns the variable contributing the most to the cost.
 \end{itemize}
 
-\underline{\textbf{SolutionCostStrategy}}: \modified{This class represents the way a benchmark shows a configuration, in order to be clearer and to give more information about the structure. For example, a configuration of the instance 3--3--2 of the \sgp{} (see bellow for more details about this benchmark) can be written as follows:}
+\underline{\textbf{SolutionCostStrategy}}: This class represents the way a benchmark shows a configuration, in order to provide more information about the structure. For example, a configuration of the instance 3--3--2 of the \sgp{} (see bellow for more details about this benchmark) can be written as follows:
 
 \begin{Verbatim}
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6, 7, 8, 9, 1, 2]
 \end{Verbatim}
 
-\modified{But this text is very difficult to read if the instance is bigger. For that reason, the user should implement this class in order to give more details and make easier the configuration read. For example, for the same instance of the problem, a solution is presented as follows:}
+This text is, nevertheless, very difficult to be read if the instance is larger. Therefore, it is recommended that the user implements this class in order to give more details and to make it easier to interpret the configuration. For example, for the same instance of the problem, a solution could be presented as follows:
 
 \begin{Verbatim}
 Golfers: players-3, groups-3, weeks-2
@@ -43,10 +43,10 @@ Golfers: players-3, groups-3, weeks-2
 --
 \end{Verbatim}
 
-The method to implement in this class is:
+The method to be implemented in this class is:
 
 \begin{itemize}
-\item \verb|std::string showSolution(std::shared_ptr<Solution> s)| $\rightarrow$ Returns a string to write in the standard output.
+\item \verb|std::string showSolution(std::shared_ptr<Solution> s)| $\rightarrow$ Returns a string to be written in the standard output.
 \end{itemize}
 
-\modified{Once we have modelized the target benchmark, we can solve it through \posl{}. In the following sections we describe how to use this parallel-oriented language to solve \CSPs.}
+Once we have modeled the target benchmark, it can be solved using \posl{}. In the following sections we describe how to use this parallel-oriented language to solve \CSPs.

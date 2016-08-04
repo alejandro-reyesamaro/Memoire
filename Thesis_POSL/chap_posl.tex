@@ -3,15 +3,15 @@
 %----------------------------------------------------------------------------------------------
 \chapter{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers}
 \label{chap:posl}
-\textit{In this chapter we introduce \posl{} as our main contribution and a new way to solve \csps{}. We resume its characteristics and advantages, and we get into details in the next sections. We describe a general outline to follow in order to build parallel solvers using \posl, and following each step is described in details.}
+\textit{In this chapter \posl{} is introduced as the main contribution, and a new way to solve \csps{}. Its characteristics and advantages are summarized, and a general procedure to be followed is described, in order to build parallel solvers using \posl, followed by a detailed description of each of the single steps.}
 \vfill
 \minitoc
 \newpage
 
-In this chapter we present the different steps to follow to build communicating parallel solvers with \posl. 
-First of all, the algorithm that we have conceived to solve the target problem is modeled by decomposing it into small modules of computation. After that, they are implemented as separated {\it functions}. We name them \oms{} (see Figure~\ref{subfig:modules}, blue shapes). The coder's experience is crucial to find a good decomposition of its algorithm, because it will have an important impact in its future re-usage  and variability. The next step is to decide what information is interesting to receive from other solvers. This information is encapsulated into another kind of component called \opch, allowing data transmission among solvers (see Figure~\ref{subfig:modules}, red shapes).
-In a third stage, is to glue the modules through \posl{}'s inner language (the reader can see an example in Appendix \tet{[...]}) to create independent solvers.
-The parallel-oriented language based on operators that \posl{} provides (see Figure~\ref{subfig:as}, green shapes) allows not only the information exchange, but also executing components in parallel. In this stage, the information that is interesting to share with other solvers, is sent using operators. After that, we can connect them using {\it communication operators}. We call this final entity a {\it solvers set} (see Figure~\ref{subfig:conn}).
+In this chapter we present the different steps to build communicating parallel solvers with \posl. 
+First of all, the algorithm we have conceived to solve the target problem is decomposed it into small modules of computation, which are implemented as separated {\it functions}. We name them \oms{} (see Figure~\ref{subfig:modules}, blue shapes). At this point it is crucial to find a good decomposition of its algorithm, because it will have a significant impact in its future re-usage  and variability. The next step is to decide which information is interesting to \textit{receive} from other solvers. This information is encapsulated into another kind of component called \opch, allowing data transmission between solvers (see Figure~\ref{subfig:modules}, red shapes).
+A third stage is to ensemble the modules through \posl{}'s inner language (the interested reader is referred to  Appendix~\tet{[...]}) to create independent solvers.
+The parallel-oriented language based on operators provided by \posl{} (see Figure~\ref{subfig:as}, green shapes) allows not only the information exchange, but also executing components in parallel. In this stage the information that is interesting to be shared with other solvers is sent using operators. After that we can connect them using {\it communication operators}. We call this final entity a {\it solvers set} (see Figure~\ref{subfig:conn}).
 
 \begin{figure}[h]
 	\centering
@@ -33,29 +33,29 @@ The parallel-oriented language based on operators that \posl{} provides (see Fig
 
 %Once the solvers set is ready, the last step is to model the problem to solve. To do so, the user must follow the framework specification to implement the benchmark, respecting some requirements. The most important one is to implement a {\it cost function} computing the cost for a given configuration, i.e., an integer indicating how much the configuration violates the set of constraints. This integer equals zero if the configuration is a solution.
 
-\modified{In the following sections we explain in details all these steps, but first, we explain how to modelize the target benchmark to be solved using \posl.}
+In the following sections we explain in details all these steps, but first, we explain how to model the target benchmark using \posl.
 
 \section{Modeling the target benchmark}
 \label{sec:model}
 
 \input{sect_model}
 
-\section{First Stage: Creating \posl's modules}
+\section{First stage: creating \posl's modules}
 \label{sec:1ststage}
 
 \input{sect_1}
 
-\section{Second Stage: Assembling \posl's modules}
+\section{Second stage: assembling \posl's modules}
 \label{sec:2ndstage}
 
 \input{sect_2}
 
-\section{Third Stage: Creating \posl{} solvers}
+\section{Third stage: creating \posl{} solvers}
 \label{sec:3rdstage}
 
 \input{sect_3}
 
-\section{Forth Stage: Connecting the solvers}
+\section{Forth stage: connecting the solvers}
 \label{sec:4thstage}
 
 \input{sect_4}

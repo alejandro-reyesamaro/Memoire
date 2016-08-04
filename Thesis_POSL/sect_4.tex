@@ -1,29 +1,29 @@
-We call \soset{} the pool of (concrete) solvers we plan to use in parallel to solve a problem. Once we have our solvers set, the last stage is to connect the solvers each others. Up to here, solvers are disconnected, but they have everything to establish the communication. \posl{} provides to the user a platform to easily define cooperative strategies that solvers must follow.
+We call \soset{} to the pool of (concrete) solvers that we plan to use in parallel to solve a problem. Once we have our solvers set, the last stage is to connect the solvers to each other. Up to this point, solvers are disconnected, but they are ready to establish the communication. \posl{} provides a platform  to the user such that cooperative strategies can be easily defined.
 
-Following, we present two important concepts before we can formalize the {\it communication operators}.
+In the following we present two important concepts necessary to formalize the {\it communication operators}.
 
 \begin{definition}\label{def:comm_jack}
-{\bf (Communication Jack)} Let a solver $\mathcal{S}$ be. Then, the operation $\mathcal{S}\cdot\mathcal{M}$ opens an outgoing connection from the solver $\mathcal{S}$ sending to the outside either 
+{\bf (Communication Jack)} Let $\mathcal{S}$ be a solver. Then the operation $\mathcal{S}\cdot\mathcal{M}$ opens an outgoing connection from the solver $\mathcal{S}$, sending to the outside either 
 \begin{inparaenum}[a)]
-	\item the output of $\mathcal{M}$ if it is affected by a {\it sending data operator} presented in Definition~\ref{op:osend}, or
-	\item $\mathcal{M}$ itself, if it is affected by a {\it sending module operator} presented in Definition~\ref{op:msend}.
+	\item the output of $\mathcal{M}$, if it is affected by a {\it sending data operator} as presented in Definition~\ref{op:osend}, or
+	\item $\mathcal{M}$ itself, if it is affected by a {\it sending module operator} as presented in Definition~\ref{op:msend}.
 \end{inparaenum}
 \end{definition} 
 
 \begin{definition}\label{def:comm_outlet}
-{\bf (Communication Outlet)} Let a solver $\mathcal{S}$ be. Then, the operation $\mathcal{S}\cdot\mathcal{CM}$ opens an ingoing connection to the solver $\mathcal{S}$ receiving from the outside either 
+{\bf (Communication Outlet)} Let $\mathcal{S}$ be a solver. Then, the operation $\mathcal{S}\cdot\mathcal{CM}$ opens an ingoing connection to the solver $\mathcal{S}$, receiving from the outside either 
 \begin{inparaenum}[a)]
-	\item the output of some \om{} if $\mathcal{CM}$ is a {\it data} \opch{}, or
-	\item a \om{} if $\mathcal{CM}$ is an {\it object} \opch.
+	\item the output of some \om{}, if $\mathcal{CM}$ is a {\it data} \opch{}, or
+	\item a \om{}, if $\mathcal{CM}$ is an {\it object} \opch.
 \end{inparaenum}
 \end{definition} 
 
 
-The communication is established by following the next rules guideline:
+The communication is established by following the following rules guideline:
 \begin{enumerate}%\begin{inparaenum}
 	\item Each time a solver sends any kind of information by using a {\it sending} operator, it creates a \jack.
 	\item Each time a solver defines a \opch, it creates a \outlet. 
-	\item Solvers can be connected each others by linking \jacks{} to \outlets.
+	\item Solvers can be connected to each other by linking \jacks{} to \outlets.
 \end{enumerate} %\end{inparaenum}
 
 %With the operator $(\cdot)$ we can have access to \oms{} sending information and to the \opch's names in a solver. 
@@ -34,37 +34,37 @@ Following, we define the \textit{connection operators} that \posl{} provides.
 \begin{definition}\label{op_conn:1to1}
 {\bf (Connection Operator One-to-One)} Let 
 \begin{enumerate}
-\item the list $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ of \jacks, and
-\item the list $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ of \outlets{}
-\end{enumerate} be. Then, the operation 
+\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and
+\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ be the list of \outlets{}
+\end{enumerate} Then the operation 
 \[
 \mathcal{J} \poslop{\rightarrow} \mathcal{O}
 \]
-Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ (see Figure~\ref{subfig:comm_simple}).
+connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ (see Figure~\ref{subfig:comm_simple}).
 \end{definition}
 
 \begin{definition}\label{op_conn:1ton}
 {\bf (Connection Operator One-to-N)} Let 
 \begin{enumerate} 
-\item the list $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ of \jacks, and 
-\item the list $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\cdot \mathcal{CM}_{M-1}\right]$ of \outlets{} 
-\end{enumerate} be. Then, the operation 
+\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and 
+\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\cdot \mathcal{CM}_{M-1}\right]$ be the list of \outlets{} 
+\end{enumerate} Then the operation 
 \[
 \mathcal{J} \poslop{\rightsquigarrow} \mathcal{O}
 \]
-Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with every \outlet{} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ and $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).
+connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with every \outlet{} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ and $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).
 \end{definition}
 
 \begin{definition}\label{op_conn:ring}
 {\bf (Connection Operator Ring)} Let 
 \begin{enumerate} 
-\item the list $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ of \jacks, and 
-\item the list $\mathcal{O} = \left[\mathcal{S}_0\cdot \mathcal{CM}_0, \mathcal{S}_1\cdot \mathcal{CM}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ of \outlets{} 
-\end{enumerate} be. Then, the operation 
+\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and 
+\item $\mathcal{O} = \left[\mathcal{S}_0\cdot \mathcal{CM}_0, \mathcal{S}_1\cdot \mathcal{CM}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ be the list of \outlets{} 
+\end{enumerate} Then the operation 
 \[
 \mathcal{J} \poslop{\leftrightarrow} \mathcal{O}
 \]
-Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_{(i+1)\%N}\cdot \mathcal{CM}_{(i+1)\%N} \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$  (see Figure~\ref{subfig:comm_ring}).
+connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_{(i+1)\%N}\cdot \mathcal{CM}_{(i+1)\%N} \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$  (see Figure~\ref{subfig:comm_ring}).
 \end{definition}
 
 \begin{figure}[h]
@@ -87,15 +87,15 @@ Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 \label{fig:comm}
 \end{figure}
 
-\modified{\posl{} allows also declare not communicating solvers to be executed in parallel, declaring only the list of solvers names:}
+\posl{} also allows to declare non-communicating solvers to be executed in parallel, declaring only the list of solver names:
 \[
 \left[\mathcal{S}_0, \mathcal{S}_1, \dots, \mathcal{S}_{N-1}\right]
 \]
 
 
-\modified{When we apply a connection operator $\circled{op}$ between a \jacks{} list $\mathcal{J}$ and a \outlets{} list $\mathcal{O}$, internally we are assigning an \textit{abstract computation unit} (typically a thread) to each solver that we declare in each list. This assignation receives the name of \textit{Solver Scheduling}. Before running the \soset{} this \textit{abstract unit of computation} is just an integer $\tau \in [0..N]$ as unique identifier for each solver. When the \soset{} is launched, the solver with the identifier $\tau$ runs into the computation unit $\tau$. This identifier assignation remains independent of the real availability of resources of computation. It just take into account the user declaration. It means that, if the user declares 30 solvers (15 senders and 15 receivers) and the \soset{} is launched using 20 cores, only the firsts 20 solvers will be executed, and in consequence, there will be 10 solvers sending information to nowhere. Users should take this into account at the time of declaring the \soset.}
+When we apply a connection operator $\circled{op}$ between a \jacks{} list $\mathcal{J}$ and a \outlets{} list $\mathcal{O}$, internally we are assigning an \textit{abstract computation unit} (typically a thread) to each solver that we declare in each list. This assignment receives the name of \textit{Solver Scheduling}. Before running the \soset{}, this \textit{abstract unit of computation} is just an integer $\tau \in [0..N]$ identifying uniquely each of the solvers. When the \soset{} is launched, the solver with the identifier $\tau$ runs into the computation unit $\tau$. This identifier assignation remains independent of the real availability of resources of computation. It just takes into account the user declaration. This means that, if the user declares 30 solvers (15 senders and 15 receivers) and the \soset{} is launched using 20 cores, only the first 20 solvers will be executed, and in consequence, there will be 10 solvers sending information to nowhere. Users should take this into account when declaring the \soset.
 
-\modified{The connection process depends on the applied conection operator. In each case the goal is to assign, to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) into the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.}
+The connection process depends on the applied conection operator. In each case the goal is to assign, to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) inside the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.
 
 \incmargin{1.4em}
 \linesnumbered
@@ -136,12 +136,12 @@ Connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 
 In Algorithm~\ref{algo:connecting}:
 \begin{itemize}
-\item \texttt{GetNext($\dots$)} Returns the next available solver-jack (or solver-outlet) in the list, depending on the connection operator, e.g., for the connection operator One-to-N, each \jack{} in $\mathcal{J}$ must be connected with each \outlet{} in $\mathcal{O}$.
-\item \texttt{GetSolverFromConnector($\dots$)} Returns the solver name given a connector declaration.
-\item \texttt{Schedule($\dots$)} Schedule a solver and returns its identifier.
-\item \texttt{Root($\dots$)} Returns the {\it root} \cm{} of a solver.
+\item \texttt{GetNext($\dots$)} returns the next available solver-jack (or solver-outlet) in the list, depending on the connection operator, e.g., for the connection operator One-to-N, each \jack{} in $\mathcal{J}$ must be connected with each \outlet{} in $\mathcal{O}$.
+\item \texttt{GetSolverFromConnector($\dots$)} returns the solver name given a connector declaration.
+\item \texttt{Schedule($\dots$)} schedules a solver and returns its identifier.
+\item \texttt{Root($\dots$)} returns the {\it root} \cm{} of a solver.
 \item \texttt{Connect($\dots$)} %is presented in Algorithm~\ref{algo:connect}. It 
-Searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and places the identifier $R_{id}$ into its list of destination solvers.
+searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and places the identifier $R_{id}$ into its list of destination solvers.
 \end{itemize}
 
 %\incmargin{1.4em}
@@ -185,17 +185,17 @@ Searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 
 \subsection{Solver name space expansion}
 
-\modified{One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel fast and easily. For that reason, \posl{} provides two ways of name space expansion, in order to create sets of solvers using already declared ones:}
+One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel fast and easily. For that reason, \posl{} provides two forms of namespace expansion, in order to create sets of solvers using already declared ones:
 
-\textbf{Solver name expansion - } Using an integer $K$ to denote how many times the solver name $S$ will appear in the declaration. $\left[\dots S_i\cdot\mathcal{M}(K),\dots\right]$ expands as $\left[\dots S_i\cdot\mathcal{M}, S_i^2\cdot\mathcal{M},\dots S_i^K\cdot\mathcal{M}\dots\right]$\\
+\textbf{Solver name expansion - } Uses an integer $K$ to denote how many times the solver name $S$ will appear in the declaration. $\left[\dots S_i\cdot\mathcal{M}(K),\dots\right]$ expands as $\left[\dots S_i\cdot\mathcal{M}, S_i^2\cdot\mathcal{M},\dots S_i^K\cdot\mathcal{M}\dots\right]$\\
 and all new solvers $S_i^j, j\in [2..K]$ are created using the same solver declaration of solver $S_i$.
 
-\textbf{Connection declaration expansion - } Using an integer $K$ to denote how many times the connection will be repeated in the declaration. Let 
+\textbf{Connection declaration expansion - } Uses an integer $K$ to denote how many times the connection will be repeated in the declaration. Let 
 \begin{inparaenum}[a)]
-\item the list $\left[\mathcal{S}_1\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}\cdot\mathcal{M}_{N}\right]$ of \jacks,
-\item the list $\left[\mathcal{R}_1\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{M}\cdot\mathcal{CM}_{M}\right]$ of \outlets{}, and
-\item an connection operator $\circled{op}$
-\end{inparaenum} be. Then, $$\left[\mathcal{S}_1\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}\cdot\mathcal{M}_{N}\right] \poslop{op} \left[\mathcal{R}_1\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{M}\cdot\mathcal{CM}_{M}\right]K$$ expands as
+\item $\left[\mathcal{S}_1\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}\cdot\mathcal{M}_{N}\right]$ and 
+\item $\left[\mathcal{R}_1\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{M}\cdot\mathcal{CM}_{M}\right]$ be the list of \jacks{} and \outlets, respectively, and
+\item $\circled{op}$ a connection operator.
+\end{inparaenum} Then $$\left[\mathcal{S}_1\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}\cdot\mathcal{M}_{N}\right] \poslop{op} \left[\mathcal{R}_1\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{M}\cdot\mathcal{CM}_{M}\right]K$$ expands as
 
 \begin{align*}
 \left[\mathcal{S}_1\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}\cdot\mathcal{M}_{N}\right] &\poslop{op} \left[\mathcal{R}_1\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{N}\cdot\mathcal{CM}_{N}\right]\\
@@ -203,4 +203,4 @@ and all new solvers $S_i^j, j\in [2..K]$ are created using the same solver decla
 &\dots\\
 \left[\mathcal{S}_1^K\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}^K\cdot\mathcal{M}_{N}\right] &\poslop{op} \left[\mathcal{R}_1^K\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{N}^K\cdot\mathcal{CM}_{N}\right]\\
 \end{align*}
-and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, with $k\in[2..K]$ are created using the same solver declaration of solvers $S_i$ and $R_j$ respectively.
+and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, $k\in[2..K]$, are created using the same solver declaration of solvers $S_i$ and $R_j$, respectively.

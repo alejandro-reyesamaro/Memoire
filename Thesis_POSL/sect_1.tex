@@ -1,10 +1,10 @@
-There exist two types of basic modules in \posl: \oms{} and \opchs{}. A \om{} is a function receiving an input, then executes an internal algorithm, and returns an output. A \opch{} is also a function receiving and returning information, but in contrast, the \opch{} can receive information from two different ways: through parameter or from outside, i.e. by communicating with a module from another solver.
+There exist two types of basic modules in \posl: \oms{} and \opchs{}. A \om{} is a function which received an input, then executes an internal algorithm, and returns an output. A \opch{} is also a function receiving and returning information, but in contrast, the \opch{} can receive information from two different sources: through input parameters or from outside, i.e., by communicating with a module from another solver.
 
 \subsection{Computation Module}
 
 %In this sub-section we expose the definition and the characteristics and the details of the \om, and give some examples. We explain how to create new \oms{} using the basic layer of the framework.
 
-A \om{} is the most basic and abstract way to define a piece of computation. It is a function receiving an input, then executing an internal algorithm, and returning an output. The input and output types will characterize the computation module signature. It can be dy\-na\-mi\-cally replaced by or combined with other computation modules, since they can be shared among solvers working in parallel. They are joined through \ass.
+A \om{} is the most basic and abstract way to define a piece of computation. \modified{It is a function which receives an instance of a \posl{} data type as input, then executes an internal algorithm, and returns an instance of a \posl{} data type as output. The input and output types will characterize the computation module signature. It can be dy\-na\-mi\-cally replaced by (or combined with) other computation modules, since they can be shared among solvers working in parallel. They are joined through \ass.}
 
 \defname{Computation Module}{
 A \om{} $Cm$ is a mapping defined by: 
@@ -14,7 +14,7 @@ Cm:D \rightarrow I
 \end{equation}
 }
 
-$D$ and $I$ can be either a set of configurations, or set of sets of configurations, or a set of values of some data type, etc.
+where $D$ and $I$ can be either a set of configurations, a set of sets of configurations, a set of values of some data type, etc.
 
 Consider a local search meta-heuristic solver. One of its \oms{} can be the function returning the set of configurations composing the neighborhood of a given configuration:
 
@@ -24,7 +24,7 @@ Cm_{neighborhood}:D_1\times D_2\times\dots\times D_n \rightarrow 2^{D_1\times D_
 
 \noindent where $D_i$ represents the definition domains of each variable of the input confi\-gura\-tion.
 
-Figure~\ref{fig:om} shows an example of computation module: it receives a configuration $S$ and then computes the set $\mathcal{V}$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
+Figure~\ref{fig:om} shows an example of \om: which receives a configuration $S$ and then computes the set $\mathcal{V}$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
 
 %\vspace{0.5cm}
 \begin{figure}
@@ -33,27 +33,27 @@ Figure~\ref{fig:om} shows an example of computation module: it receives a config
 	\caption{An example of a computation module computing a neighborhood}\label{fig:om}
 \end{figure}
 
-\subsubsection{Creating new communication modules}
+\subsubsection{Creating new \oms}
 \label{subsubsec:creatingoms}
 
-\modified{To create new \oms{} we use C++ programing language. \posl{} provides a hierarchy of data types to work with (\tet{See anexes}) and some abstract classes to inherit from, depending of the type of \om{} that the user want to create. These abstract classes represent {\it abstract} \om{} and they define the type of action to execute using them. Here we present the most important ones as example:}
+To create new \oms{} we use C++ programing language. \posl{} provides a hierarchy of data types to work with (\tet{See anexes}) and some abstract classes to inherit from, depending on the type of \om{} that the user wants to create. These abstract classes represent {\it abstract} \om{} and define a type of action to be executed. In the following we present the most important ones:
 
 \begin{itemize}
-\item \pclass{AOM\_FirstConfigurationGeneration} $\rightarrow$ Represent \oms{} generating a first configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{ComputationData}} that returns a pointer to a \pclass{Solution}, that is an object containing all the information concerning a partial solution (configuration, variables domains, etc.)
-\item \pclass{AOM\_NeighborhoodFunction} $\rightarrow$ Represent \oms{} creating a neighborhood of a given configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{Solution}} that returns a pointer to an object \pclass{Neighborhood}, that contains a set of configurations representing a neighborhood of a given configuration, taking into account some criteria. These configuration are efficiently stored.
-\item \pclass{AOM\_SelectionFunction} $\rightarrow$ Represent \oms{} selecting a configuration from a neighborhood. The user must implement the method \pmethod{spcf\_execute}{\pclass{Neighborhood}} that returns a pointer to an object \pclass{DecisionPair}, that contains two solutions: the current and the selected.
-\item \pclass{AOM\_DecisionFunction} $\rightarrow$ Represent \oms{} deciding between two solutions, which one will be the current configuration for the next iteration. The user must implement the method \pmethod{spcf\_execute}{\pclass{DecisionPair}} that returns a pointer to an object \pclass{Solution} that is the current solution for the next iteration.
+\item \pclass{AOM\_FirstConfigurationGeneration} $\rightarrow$ Represents \oms{} generating a first configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{ComputationData}} which returns a pointer to a \pclass{Solution}, that is, an object containing all the information concerning a partial solution (configuration, variable domains, etc.)
+\item \pclass{AOM\_NeighborhoodFunction} $\rightarrow$ Represent \oms{} creating a neighborhood of a given configuration. The user must implement the method \pmethod{spcf\_execute}{\pclass{Solution}} which returns a pointer to an object \pclass{Neighborhood}, containing a set of configurations which constitute the neighborhood of a given configuration, according to certain criteria. These configuration are efficiently stored.
+\item \pclass{AOM\_SelectionFunction} $\rightarrow$ Represents \oms{} selecting a configuration from a neighborhood. The user must implement the method \pmethod{spcf\_execute}{\pclass{Neighborhood}} which returns a pointer to an object \pclass{DecisionPair}, containing two solutions: the current and the selected one.
+\item \pclass{AOM\_DecisionFunction} $\rightarrow$ Represents \oms{} deciding which of the two solutions will be the current configuration for the next iteration. The user must implement the method \pmethod{spcf\_execute}{\pclass{DecisionPair}} which returns a pointer to an object \pclass{Solution}.
 \end{itemize}
 
 \subsection{Communication modules}
 
 %In this sub-section we expose the definition and the characteristics and the details of the \opch, and give some examples. We explain how to create new \opchs{} using the basic layer of the framework.
 
-A \opch{} is also a function receiving and returning its information, but in contrast, the \opch{} can receive information from two different ways: through input or from outside, i.e., by communicating with a module from another solver. A \opch{} is the component in charge of the information reception in the communication between solvers (we will talk about information transmission in the next section). They can interact with \oms{} through operators (see Figure~\ref{fig:och}).
+A \opch{} is also a function receiving and returning information, but in contrast, the \opch{} can also receive information by communicating with a module from another solver. A \opch{} is the component managing the information reception in the communication between solvers (we will talk about information transmission in the next section). They can interact with \oms{} through operators (see Figure~\ref{fig:och}).
 
-A \opch{} can receive two types of information, always coming from an external solver: data or \oms{}. It is important to notice that when we are talking about sending/receiving \oms, we mean sending/receiving only required information to identify it and being able to instantiate it.
+A \opch{} can receive two types of information from an external solver: data or \oms{}. It is important to notice that by sending/receiving \oms, we mean sending/receiving only required information to identify and being able to instantiate the \om.
 
-In order to distinguish from the two types of \opchs, we will call Data Communication Module the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and Object Communication Module the one responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
+In order to distinguish from the two types of \opchs, we will call Data Communication Module to the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and Object Communication Module to the one responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
 
 \defname{Data Communication Module}{
 A \emph{Data Communication Module} $Ch$ is a component that produces a mapping defined as follows: 
@@ -89,4 +89,4 @@ It returns the information $I$ coming from an external solver, no matter what th
 
 Users can implement new computation and connection modules but \posl{} already contains many useful modules for solving a broad range of problems.
 
-Due to the fact that \opchs{} receive information coming from outside and have no control on them, it is necessary to define the {\it NULL} information, to denote the absence of any information. If a Data Communication Module receives a piece of information, it is returned automatically. If a Object Communication Module receives a \om{}, the latter is instantiated and executed with the \opch's input, and its result is returned. In both cases, if no available information exists (no communications performed), the \opch{} returns the {\it NULL} object.
+Due to the fact that \opchs{} receive information coming from outside without having control on them, it is necessary to define the {\it NULL} information, in order to denote the absence of information. If a Data Communication Module receives a piece of information, is returned automatically. If a Object Communication Module receives a \om{}, it is instantiated and executed with the \opch's input and its result is returned. In both cases, if no available information exists (no communications performed), the \opch{} returns the {\it NULL} object.
