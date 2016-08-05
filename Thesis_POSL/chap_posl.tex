@@ -62,41 +62,42 @@ In the following sections we explain in details all these steps, but first, we e
 
 \section{Step-by-step \posl{} code example}
 
-In this section we explain how to create a solver using \posl{} through an example. \posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item they start by initializing some data structures (e.g. a \emph{tabu list} for \emph{Tabu Search}~\cite{Gendreau2010}, a \emph{temperature} for \emph{Simulated Annealing}~\cite{Nikolaev2010}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on some criterion.\end{inparaenum} An example of such data structure can be the penalizing features of local optima defined by Boussaïd et al~\cite{Boussaid2013} in their algorithm \emph{Guided Local Search}.
+In this section we explain how to create a solver using \posl{} through an example. \posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item They start by initializing some data structures (e.g., a \emph{tabu list} for \emph{Tabu Search}~\cite{Gendreau2010}, a \emph{temperature} for \emph{Simulated Annealing}~\cite{Nikolaev2010}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on a certain criterion.\end{inparaenum}
+An example of such data structure is the penalizing features of local optima defined by Boussaïd et al~\cite{Boussaid2013} in their algorithm \emph{Guided Local Search}.
 
 %Restarts are classic mechanisms to avoid becoming trapped in local minimum. They are trigged by reaching no improvements or a timeout.
 
-{\it Abstract} \oms{} composing \emph{local search meta--heuristics} are the following:
+{\it Abstract} \oms{} composing \emph{local search meta--heuristics} are:
 
 \begin{list}{\boxed{Abstract\hspace{4pt}Computation\hspace{4pt}module- \arabic{qcounter}~}}{\usecounter{qcounter}} \itemsep0em 
 	\item $I$: Generating a configuration $s$
 	\item $V$: Defining the neighborhood $\mathcal{V}\left(s\right)$
 	\item $S$: Selecting $s' \in \mathcal{V}\left(s\right)$
-	\item $A$: Evaluating an acceptance criteria for $s'$
+	\item $A$: Evaluating an acceptance criterion for $s'$
 \end{list}
 
-To be more specific in our example, we describe come concrete \oms{} that we can use:
+To be more specific in our example, we describe some concrete \oms{} that can be used:
 
 \begin{list}{\boxed{Computation\hspace{4pt}module- \arabic{qcounter}~}}{\usecounter{qcounter}} \itemsep0em 
 	\item $I_{rand}$: Generates a random configuration $s$ \label{estruct:S}
 	\item $V_{1ch}$: Defines the neighborhood $\mathcal{V}\left(s\right)$ changing only one element \label{estruct:V}
 	\item $S_{best}$: Selects the best configuration $s' \in \mathcal{V}\left(s\right)$ improving the current cost. \label{estruct:SS}
-	\item $A_{a.i.}$: Evaluates an acceptance criteria for $s'$. We have chosen the classical module selecting the configuration with the lowest global cost, {\it i.e.}, the one which is likely the closest to a solution. \label{estruct:A}
+	\item $A_{a.i.}$: Evaluates an acceptance criterion for $s'$. We have chosen the classical module, selecting the configuration with the lowest global cost, {\it i.e.}, the one which is likely the closest to a solution. \label{estruct:A}
 \end{list}
 
-\modified{We can combine modules to create more complex ones. For example, in the example we use in this section, we want to apply some selection criteria, but if there is not improvement in the current configuration, we select a configuration randomly. To do so, we use the operator~$\circled{?}$ to combine the \om{}~\ref{estruct:SS} with another:}
+We can combine modules to create more complex ones. In the example illustrated in this section, I want to apply some selection criteria, but if there is no improvements in the current configuration, a configuration randomly is selected. To do so, we use the operator~$\circled{?}$ to combine the \om{}~\ref{estruct:SS} with another module:
 
 \begin{list}{\boxed{Computation\hspace{4pt}module-3. \arabic{qcounter}~}}{\usecounter{qcounter}} \itemsep0em  
 	\item $S_{rand}$: Selects a random configuration $s' \in \mathcal{V}\left(s\right)$.
 \end{list}
 
-\modified{Let's make this solver a little bit more complex: in the time of applying the acceptance criteria, suppose that we want to receive a configuration from other solver, to compare it with ours and take it if its cost is lower. We can do that applying the operator~$\circled{m}$ to combine the \om{}~\ref{estruct:A} with a \opch:}
+Let us make consider a slightly more complex solver: When applying the acceptance criteria, suppose that we want to receive a configuration from other solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the operator~$\circled{m}$ to combine the \om{}~\ref{estruct:A} with a \opch:
 
 \begin{list}{\boxed{Communication\hspace{4pt}module- \arabic{qcounter}:~}}{\usecounter{qcounter}} \itemsep0em
 	\item $C.M.$: Receiving a configuration.\label{struct:opch}
 \end{list}
 
-\modified{Figure~\ref{fig:as_ex} shows a graphic representation of the \as{} that we create for our example. In this Figure all the modules are abstract, so we can instantiate them afterwards to create concrete solvers. Note that we also want to send the output of the \om{} $A$, in order to share the current configuration with other solvers.}
+Figure~\ref{fig:as_ex} shows a graphic representation of the \as{} that we create for our example. In this Figure all the modules are abstract, so we can instantiate them afterwards to create concrete solvers. Notice that we also want to send the output of the \om{} $A$, in order to share the current configuration with other solvers.
 
 \begin{figure}[h]
 	\centering	
@@ -104,9 +105,9 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 	\caption{Graphic representation of an \as}\label{fig:as_ex}
 \end{figure}
 
-\modified{Algorithm \ref{algo:as_ex} shows the \posl{} pseudo-code for the \as{} described above, using predefined operators, and Algorithm~\ref{algo:cs_ex} shows the concrete solver definition using the concrete \omprefix{} and \opchs{} already presented. In the later, we have used the concrete \opch{} $CM_{last}$, that receives all the configuration sent to it, and selects the last arrived.}
+Algorithm \ref{algo:as_ex} shows the \posl{} pseudo-code for the \as{} described above, using predefined operators. Algorithm~\ref{algo:cs_ex} shows the concrete solver definition using the concrete \omprefix{} and \opchs{} already presented. In the later, we have used the concrete \opch{} $CM_{last}$, that receives all the configurations sent to it, and selects the one arriving the last.
 
-\modified{In practice, \posl{} provides information regarding the execution process, such as number of {\sc Iterations}, solver execution {\sc Time}, {\sc Best} found solution, among others.}
+In practice, \posl{} provides information regarding the execution process, such as the number of {\sc Iterations}, solver execution {\sc Time}, {\sc Best} found solution, among others.
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -142,7 +143,7 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 \caption{An instantiation of the \as{} in Algorithm~\ref{algo:as_ex}}\label{algo:cs_ex}
 \end{algorithm}
 
-\modified{Now, supose that we want to create another solver \texttt{Z} using a different neighborhood function, that we will call $V_{2ch}$, performing two changes instead of only one. As a communication strategy, we want also connect them through the operator {\it 1~to~N}, using \texttt{Z} as sender and \texttt{S} as receiver. Then, we need to declare, using name spare expansions, how many solvers we want to connect each others. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy.}
+Now, suppose that I want to create another solver \texttt{Z} using a different neighborhood function, (that we will call $V_{2ch}$) performing two changes instead of only one. As a communication strategy, I also want to connect them through the operator {\it 1~to~N}, using \texttt{Z} as sender and \texttt{S} as receiver. Then,  using namespace expansions,  I need to declare how many solvers we want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy.
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -152,7 +153,7 @@ To be more specific in our example, we describe come concrete \oms{} that we can
 \caption{A communication strategy}\label{algo:comm_str_ex}
 \end{algorithm}
 
-\modified{Notice that the connection operation is affected also by the number $2$ at the end, to expand also the topology. In that sense, supposing that we have 12 units of computation available, we obtain a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn}.}
+\modified{Notice that the connection operation is affected also by the number $2$ at the end of the line, to expand also the topology. In that sense, supposing that we have 12 units of computation available, we obtain a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn}.}
 
 \begin{figure}[h]
 	\centering	
