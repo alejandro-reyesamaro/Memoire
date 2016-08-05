@@ -186,7 +186,7 @@ bookmarksopenlevel=2
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{verde}{#1}}
 \SetCommentSty{mycommfont}
 %\newsavebox{\mycode}
-\SetKwFor{While}{$[\circlearrowleft $}{\tet{\bf begin}}{\tet{\bf end}$]$}
+\SetKwFor{While}{$[\circlearrowleft $}{}{$]$} %{\tet{\bf begin}}{\tet{\bf end}$]$}
 \SetKwIF{Strategy}{}{}{\tet{\bf abstract solver}: }{}{}{}{}
 \SetKwIF{oModule}{}{}{\tet{\bf computation} : }{}{}{}{}
 \SetKwIF{oChannel}{}{}{\tet {\bf connection} : }{}{}{}{}
@@ -214,3 +214,33 @@ bookmarksopenlevel=2
 %\usepackage{xcolor}
 %\usepackage{newverbs}
 %\newverbcommand{\bverb}{\color{blue}}{}
+
+\newenvironment{example}{\fontsize{10pt}{12pt}\fontfamily{phv}\selectfont}{\par}
+
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}% Rule colour
+\makeatletter
+\newcommand{\mybox}[1]{%
+  \setbox0=\hbox{#1}%
+  \setlength{\@tempdima}{\dimexpr\wd0+13pt}%
+  \begin{tcolorbox}[colframe=mycolor,boxrule=0.5pt,arc=4pt,
+      left=6pt,right=6pt,top=6pt,bottom=6pt,boxsep=0pt,width=\@tempdima]
+    #1
+  \end{tcolorbox}
+}
+\makeatother
+
+
+
+\usepackage{mdframed}
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  skipabove=\topsep,
+  skipbelow=\topsep
+]{siderules}
+
+\newcommand{\poslexample}[1]{
+\begin{siderules}
+{\fontsize{10pt}{12pt}\fontfamily{phv}\selectfont #1}
+\end{siderules}
+}

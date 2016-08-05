@@ -92,10 +92,9 @@ connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 \left[\mathcal{S}_0, \mathcal{S}_1, \dots, \mathcal{S}_{N-1}\right]
 \]
 
-
 When we apply a connection operator $\circled{op}$ between a \jacks{} list $\mathcal{J}$ and a \outlets{} list $\mathcal{O}$, internally we are assigning an \textit{abstract computation unit} (typically a thread) to each solver that we declare in each list. This assignment receives the name of \textit{Solver Scheduling}. Before running the \soset{}, this \textit{abstract unit of computation} is just an integer $\tau \in [0..N]$ identifying uniquely each of the solvers. When the \soset{} is launched, the solver with the identifier $\tau$ runs into the computation unit $\tau$. This identifier assignation remains independent of the real availability of resources of computation. It just takes into account the user declaration. This means that, if the user declares 30 solvers (15 senders and 15 receivers) and the \soset{} is launched using 20 cores, only the first 20 solvers will be executed, and in consequence, there will be 10 solvers sending information to nowhere. Users should take this into account when declaring the \soset.
 
-The connection process depends on the applied conection operator. In each case the goal is to assign, to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) inside the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.
+The connection process depends on the applied connection operator. In each case the goal is to assign, to the sending operator ($\llparenthesis .\rrparenthesis^{o}$ or $\llparenthesis .\rrparenthesis^{m}$) inside the \as{}, the identifier of the solver (or solvers, depending on the connection operator) where the information will be sent. Algorithm~\ref{algo:connecting} presents the connection process.
 
 \incmargin{1.4em}
 \linesnumbered
@@ -144,46 +143,14 @@ In Algorithm~\ref{algo:connecting}:
 searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and places the identifier $R_{id}$ into its list of destination solvers.
 \end{itemize}
 
-%\incmargin{1.4em}
-%\linesnumbered
-%\begin{algorithm}[H]
-%\dontprintsemicolon
-%\SetLine
-%\SetKwFor{While}{while}{do}{end}
-%\SetKwData{Jacks}{$\mathcal{J}$}
-%\SetKwData{Outlets}{$\mathcal{O}$}
-%\SetKwData{Mroot}{$M$}
-%\SetKwData{MM}{$\eta$}
-%\SetKwData{ID}{$R_{id}$}
-%\SetKwData{OP}{$\circled{op}$}
-%\SetKwFunction{Oper}{Operator}
-%\SetKwFunction{Module}{ExtractModule}
-%\SetKwFunction{Connect}{Connect}
-%\SetKwInOut{Input}{input}
-%\SetKwInOut{Output}{output}
-%
-%\Input{\Mroot, \MM : \cms \\ \ID : integer}
-%\If{\Mroot is an \operation}
-%{
-%	\OP $\leftarrow$ \Oper{\Mroot}\;
-%	\If{$\circled{op} = \llparenthesis .\rrparenthesis^{o}\textbf{ OR } \circled{op} = \llparenthesis .\rrparenthesis^{m}$}
-%	{
-%		m = $\leftarrow$ \Module{\OP}\;
-%		\If{ m $=$ \MM }{
-%			Add \ID to the destinies list of \OP\;
-%		}
-%	}
-%}{
-%	\Conect{}
-%}
-%%\ElseIf{}{
-%%all is wrong\;
-%%\Return result52\;
-%%}
-%\caption{Scheduling and connection main algorithm}\label{algo:connect}
-%\end{algorithm}
+\poslexample{Let us suppose that we have declared two solvers $S$ and $Z$, both implementing the \as{} in Algorithm~\ref{algo:as_example}, so they can be either sender or receiver. The following code connects them using the operator {\bf 1~to~N}:
+$$\left[S\right] \poslop{\rightsquigarrow} \left[Z\right]$$
+If the operator {\bf 1~to~N} is used with only with one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
+$$\left[S_1, S_2, S_3\right]\poslop{\rightsquigarrow} \left[Z_1, Z_2, Z_3\right]$$
+\posl{} provides a mechanism to make this easier, through {\it namespace expansions}.
+}
 
-\subsection{Solver name space expansion}
+\subsection{Solver namespace expansion}
 
 One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel fast and easily. For that reason, \posl{} provides two forms of namespace expansion, in order to create sets of solvers using already declared ones:
 
@@ -204,3 +171,19 @@ and all new solvers $S_i^j, j\in [2..K]$ are created using the same solver decla
 \left[\mathcal{S}_1^K\cdot\mathcal{M}_1,\dots,\mathcal{S}_{N}^K\cdot\mathcal{M}_{N}\right] &\poslop{op} \left[\mathcal{R}_1^K\cdot\mathcal{CM}_1,\dots,\mathcal{R}_{N}^K\cdot\mathcal{CM}_{N}\right]\\
 \end{align*}
 and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, $k\in[2..K]$, are created using the same solver declaration of solvers $S_i$ and $R_j$, respectively.
+
+\poslexample{Now, suppose that I have created  solvers $S$ and $Z$ mentioned in the previews example. As a communication strategy, I want to connect them through the operator {\bf 1~to~N}, using $S$ as sender and $Z$ as receiver. Then,  using \textbf{namespace expansions},  I need to declare how many solvers I want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy. Notice in this example that the connection operation is affected also by the number $2$ at the end of the line, as {\bf connection declaration expansion}. In that sense, and supposing that 12 units of computation are available, a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn} can be obtained.}
+
+\begin{algorithm}[H]
+\dontprintsemicolon
+\SetNoline
+%\myproc{
+[ S$\cdot A$ (3) ] $\poslop{\rightsquigarrow}$ [ Z$\cdot CM_{last}$ (3) ] 2 ;
+\caption{A communication strategy}\label{algo:comm_str_ex}
+\end{algorithm}
+
+\begin{figure}[h]
+	\centering	
+	\includegraphics[width=0.6\linewidth]{ex_top.png}
+	\caption{An example of connection strategy for 12 units of computation}\label{fig:ex_conn}
+\end{figure}
