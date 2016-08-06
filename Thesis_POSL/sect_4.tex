@@ -144,9 +144,9 @@ searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 \end{itemize}
 
 \poslexample{Let us suppose that we have declared two solvers $S$ and $Z$, both implementing the \as{} in Algorithm~\ref{algo:as_example}, so they can be either sender or receiver. The following code connects them using the operator {\bf 1~to~N}:
-$$\left[S\right] \poslop{\rightsquigarrow} \left[Z\right]$$
+$$\left[S\cdot A\right] \poslop{\rightsquigarrow} \left[Z\cdot C.M.\right]$$
 If the operator {\bf 1~to~N} is used with only with one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
-$$\left[S_1, S_2, S_3\right]\poslop{\rightsquigarrow} \left[Z_1, Z_2, Z_3\right]$$
+$$\left[S_1\cdot A, S_2\cdot A, S_3\cdot A\right]\poslop{\rightsquigarrow} \left[Z_1\cdot C.M., Z_2\cdot C.M., Z_3\cdot C.M.\right]$$
 \posl{} provides a mechanism to make this easier, through {\it namespace expansions}.
 }
 
@@ -178,7 +178,7 @@ and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, $k\in[2..K]$, a
 \dontprintsemicolon
 \SetNoline
 %\myproc{
-[ S$\cdot A$ (3) ] $\poslop{\rightsquigarrow}$ [ Z$\cdot CM_{last}$ (3) ] 2 ;
+[ S$\cdot A$ (3) ] $\poslop{\rightsquigarrow}$ [ Z$\cdot C.M.$ (3) ] 2 ;
 \caption{A communication strategy}\label{algo:comm_str_ex}
 \end{algorithm}
 

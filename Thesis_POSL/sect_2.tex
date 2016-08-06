@@ -12,7 +12,7 @@ A {\bf module} is (and it is denoted by the letter $\mathcal{M}$):
 \item a \om{} or
 \item a \opch{} or
 \item $\left[\mathcal{M}_1 \text{ OP } \mathcal{M}_2\right]$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed sequentially, returning an output depending on the nature of the operator \emph{OP}; or\label{subdef:seq}
-\item $\lbk\mathcal{M}_1 \text{ OP } \mathcal{M}_2\rbk$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, (i.e. some modules will be executed sequentially although they were grouped this way); or sequentially otherwise.\label{subdef:par}
+\item $\lbk\mathcal{M}_1 \text{ OP } \mathcal{M}_2\rbk_p$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, (i.e. some modules will be executed sequentially although they were grouped this way); or sequentially otherwise.\label{subdef:par}
 \end{enumerate}
 We denote the space of the modules by $\mathbb{M}$ and call \cms{} to the composition of modules described in \ref{subdef:seq} and \ref{subdef:par}.
 \end{definition}
@@ -45,7 +45,7 @@ $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 		CM &\longmapsto \alpha \OR \beta \OR \llparenthesis CM \rrparenthesis^o \OR \llparenthesis CM \rrparenthesis^m \OR \left[OP\right] \OR \lbk OP\rbk_p \\
 		OP &\longmapsto CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM\\
 		OP &\longmapsto CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM \\
-		OP &\longmapsto CM \circlearrowleft (be) \left\{CM\right\}		
+		OP &\longmapsto CM \circlearrowleft (be) CM%\left\{CM\right\}		
 		\end{align*} is a set of {\it rules}
 \end{enumerate} 
 %For simplicity, we will use, from now on, the name of \emph{Module} to refer ether to an \module, to an \opch, or to a \cm.
@@ -62,7 +62,7 @@ In the following I explain some of the concepts in Definition~\ref{def:grammar}:
 		\item $\lbk\text{OP}\rbk_p$: The involved operator is executed in parallel if and only if \emph{OP} supports parallelism. Otherwise, an exception is thrown.
 	\end{enumerate}
 	\item The terminals $(\text{ and })$ are symbols for grouping the boolean expression in some operators.
-	\item The terminals $\{\text{ and } \}$ are symbols for grouping \cm s in some operators.
+	%\item The terminals $\{\text{ and } \}$ are symbols for grouping \cms{} in some operators.
 	\item The terminals $\llparenthesis. \rrparenthesis^m, \llparenthesis.\rrparenthesis^o,$ are operators to send information to other solvers (explained bellow).
 	\item The rest of terminals are \posl{} operators.
 \end{itemize}
@@ -72,7 +72,7 @@ In the following we define \posl{} operators. In order to group modules, like in
 %\begin{example}
 %\mybox{Example}
 \poslexample{
-\posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item They start by initializing some data structures (e.g., a \emph{tabu list} for \emph{Tabu Search}~\cite{Gendreau2010}, a \emph{temperature} for \emph{Simulated Annealing}~\cite{Nikolaev2010}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on a certain criterion.\end{inparaenum}
+\posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item They start by initializing some data structures (e.g., a \emph{tabu list} for \emph{Tabu Search}~\cite{Gendreau2010}, a \emph{temperature} for \emph{Simulated Annealing}~\cite{Nikolaev2010}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on a certain criterion. \end{inparaenum}
 An example of such data structure is the penalizing features of local optima defined by Boussaïd et al~\cite{Boussaid2013} in their algorithm \emph{Guided Local Search}.
 
 {\it Abstract} \oms{} composing \emph{local search meta--heuristics} are:
@@ -103,7 +103,7 @@ be modules, where $\mathcal{I}_1 \subseteq \mathcal{D}_2$. Then the operation $\
 This is an example of an operator that does not support the execution of its involved \cms{} in parallel, because the input of the second \cm{} is the output of the first one.
 
 \poslexample{
-Coming back to the example, I can use defined {\it abstract} \oms{} to create a solver that perform only one iteration of a local search, using the operator {\bf Sequential Execution}. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create an other \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
+Coming back to the example, I can use defined {\it abstract} \oms{} to create a \cm{} that perform only one iteration of a local search, using the operator {\bf Sequential Execution}. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create an other \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
 $$\left[\left[\left[I\poslop{\mapsto}V\right]\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]$$
 }
 
@@ -164,7 +164,7 @@ We can execute modules sequentially creating also cycles.
 \end{definition}
 
 \poslexample{
-Using this operator I can model a local search algorithm, by executing the {\it abstract} \om{} $I$ and then the other \oms{} ($V$, $S$ and $A$) cyclically, until finding a solution (i.e, a configuration with equal to zero) (see Figure~\ref{fig:cyc_example}):
+Using this operator I can model a local search algorithm, by executing the {\it abstract} \om{} $I$ and then the other \oms{} ($V$, $S$ and $A$) cyclically, until finding a solution (i.e, a configuration with cost equal to zero) (see Figure~\ref{fig:cyc_example}):
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]\right]\right]$$
 In the examples, I remove the clause $<cond>$ for simplification. 
 }
@@ -290,7 +290,7 @@ Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, 
 \]
 \end{definition}
 
-\poslexample{Comming back to the previews example, the {\bf minimum operator} an be applied to obtain a more interesting behavior in the solver: When applying the acceptance criteria, suppose that we want to receive a configuration from other solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the operator~$\circled{m}$ to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
+\poslexample{Comming back to the previews example, the {\bf minimum operator} can be applied to obtain a more interesting behavior in the solver: When applying the acceptance criteria, suppose that we want to receive a configuration from other solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the operator~$\circled{m}$ to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
 Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf minimum operator} supports parallelism.}
 
