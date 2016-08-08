@@ -1,0 +1,148 @@
+\modified{In this section I present the performed study using \grp{} (\GRP) as a benchmark.}
+
+\subsection{Problem definition}
+
+\modified{The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (i.e., the number of \textit{marks}) and $l$ is the length of the ruler (i.e., the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
+When I apply \posl{} to solve an instance of this problem sequentially, I can notice that it performs many {\it restarts} before finding a solution. For that reason I have chosen this problem to study a new communication strategy.}
+
+\subsection{Experiment design}
+
+\modified{I use \grp{} instances to study a different communication strategy. This time I communicate the current configuration, to avoid its neighborhood, i.e., a {\it tabu} configuration. I have reused some modules used in the resolution of \sg{} and \carr{} problems to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:}
+
+\begin{enumerate}
+	\item Generation module:
+	\subitem \modified{$I$: Generates a random configuration $s$, respecting the structure of the problem, i.e., the configuration is an ordered vector of integers. This module takes into account a set of {\it tabu} configurations arrived via solver-communication (and also from the same solver) to construct the new configuration far enough from them.}
+	\item Neighborhood module:
+	\subitem \modified{$V$: Defines the neighborhood $\mathcal{V}\left(s\right)$ by changing one value while keeping the order, i.e., replacing the value $s_i$ by all possible values $s'_i \in D_i$ that satisfy $s_{i-1} < s'_i < s_{i+1}$.}
+\end{enumerate}
+
+\modified{I also add a module to insert a configuration into a \textit{tabu} list inside the solver. In Algorithm~\ref{as:golomb_sender} the \as{} used to send information (sender \as) is presented. When the module $T$ is executed, the solver is unable to find a better configuration around the current one, so it is assumed to be a local minimum, and it is sent to the receiver solver. Algorithm~\ref{as:golomb_receiver} presents an \as{} used to receive information (receiver \as). Based on the connection operator used in the communication strategy, this solver might receives one or many configurations. These configurations are the input of the generation module ($I$), and this module inserts all received configurations into a {\it tabu} list, and then generates a new first configuration, far from all configurations in the {\it tabu} list.}
+
+\begin{algorithm}[H]
+\dontprintsemicolon
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_golomb\_sender \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
+	\tet{\bf computation} : $I, V, S, A, T$\;}{
+	\While{$\left(\textbf{\Iter < } K_1\right)$}{
+		$I \poslop{\mapsto}$ 
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^o$
+	}
+}
+\caption{\As{} for \GRP{} (sender)}\label{as:golomb_sender}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\dontprintsemicolon
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_golomb\_receiver \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
+	\tet{\bf computation} : $I, V, S, A, T$\;
+	\tet{\bf connection} : $C.M.$\;}{
+	\While{$\left(\textbf{\Iter < } K_1\right)$}{
+		$\left[C.M. \poslop{\mapsto} I \right] \poslop{\mapsto}$ 
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^o$
+	}
+}
+\caption{\As{} for \GRP{} (receiver)}\label{as:golomb_receiver}
+\end{algorithm}
+
+\subsection{Analysis of results}
+
+\modified{The benefit of the parallel approach is also proved for the \grp{} (see Table~\ref{tab:golomb_sec} with respect to \ref{tab:golomb_par_notabu}, \ref{tab:golomb_par_tabu}, \ref{tab:golomb_par_1-1} and \ref{tab:golomb_par_1-n}).} %The column labeled {\bf \%success} indicates the percentage of solvers that were able to find a solution before a time--out (5 minutes).
+
+\modified{For \grp, the communication strategy that we adopt was different. Solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration that we assume is a local minimum to be avoided. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood.}
+
+\modified{The first experiment compares the runs of non communitaing solvers not using a {\it tabu} list with non communicating solvers using a {\it tabu} list. The results in Tables~\ref{tab:golomb_par_notabu} and \ref{tab:golomb_par_tabu} demonstrate that using a {\it tabu} list can help the search process. Without communication, the improvement is not substantial (8\% for 8--34, 7\% for 10--55 and 5\% for 11--72) because only one configuration is inserted in the \textit{tabu} list after each restart. When we use \textit{one to one} communication, after the restart $k$, the receiving solver has twice the number of configurations in the \textit{tabu} list (one {\it tabu} configuration from itself and the received one after each restart). Table~\ref{tab:golomb_par_1-1} shows that this strategy is not sufficient for some instances, but when we use \textit{1~to~N} communication, the number of \textit{tabu} configurations after the restart $k$, in the receiving solver is considerably higher, e.g., after the restart $k$ a receiving solver has $k(N+1)$ configurations in his \textit{tabu} list. Hence, these solvers can generate configurations far enough from many potentially local minima. This phenomenon is more visible when the problem order increases. Table~\ref{tab:golomb_par_1-n} shows that the improvement for the higher case (11-72) is about 32\% with respect to non communicating solvers without using a {\it tabu} list (Table~\ref{tab:golomb_par_notabu}), and about 29\% with respect to non communicating solvers using a {\it tabu} list (Table~\ref{tab:golomb_par_tabu}).}
+
+\begin{table}
+	\captionsetup{belowskip=6pt,aboveskip=6pt}
+	\centering 
+	\renewcommand{\arraystretch}{1}
+		\begin{tabular}{p{2cm}|R{1.2cm}R{1.2cm}|R{1.5cm}R{1.5cm}|R{0.8cm}R{1.2cm}|R{1.5cm}}
+			\hline 	
+			{\bf Instance} & T & T(sd) & It. & It.(sd) & R & R(sd) & \% success\\
+			\hline
+			8--34 & 0.79 & 0.66 & 13,306 & 11,154 & 66 & 55.74 & 100.00\\
+			8--34 (t) & 0.66 & 0.63 & 10,745 & 10,259 & 53 & 51.35 & 100.00 \\
+			10--55 & 66.44 & 49.56 & 451,419 & 336,858 & 301 & 224.56 & 80.00\\			
+			10--55 (t) & 67.89 & 50.02 & 446,913 & 328,912 & 297 & 219.30 & 88.00\\
+			11--72 & 160.34 & 96.11 & 431,623 & 272,910 & 143 & 90.91 & 26.67\\
+			11--72 (t) & 117.49 & 85.62 & 382,617 & 275,747 & 127 & 91.85 & 30.00\\
+			\hline
+		\end{tabular}
+	\caption{\gr: a single sequential solver}
+	\label{tab:golomb_sec}
+\end{table}
+
+\begin{table}
+	\captionsetup{belowskip=6pt,aboveskip=6pt}
+	\centering 
+	\renewcommand{\arraystretch}{1}
+	\begin{tabular}{p{2cm}|R{1.2cm}R{1.2cm}|R{1.5cm}R{1.5cm}|R{0.8cm}R{1.2cm}}
+		\hline 	
+		{\bf Instance} & T & T(sd) & It. & It.(sd) & R & R(sd)\\
+		\hline
+		%\hline
+		8--34 & 0.47 & 34.82 & 436 & 330.10 & 2 & 1.63\\
+		10--55 & 5.31 & 38.63 & 22,577 & 16,488 & 15 & 11.00\\
+		11--72 & 89.76 & 55.85 & 164,763 & 102,931 & 54 & 34.32\\
+		\hline
+	\end{tabular}
+	\caption{\gr: parallel, without tabu list.}
+	\label{tab:golomb_par_notabu}
+\end{table}
+
+\begin{table}
+	\captionsetup{belowskip=6pt,aboveskip=6pt}
+	\centering 
+	\renewcommand{\arraystretch}{1}
+	\begin{tabular}{p{2cm}|R{1.2cm}R{1.2cm}|R{1.5cm}R{1.5cm}|R{0.8cm}R{1.2cm}}
+		\hline 	
+		{\bf Instance} & T & T(sd) & It. & It.(sd) & R & R(sd)\\
+		\hline
+		%\hline
+		8--34 & 0.43 & 0.37 & 349 & 334 & 1 & 1.64\\
+		10--55 & 4.92 & 4.68 & 20,504 & 19,742 & 13 & 13.07\\
+		11--72 & 85.02 & 67.22 & 155,251 & 121,928 & 51 & 40.64\\
+		\hline
+	\end{tabular}
+	\caption{\gr: parallel, with tabu list.}
+	\label{tab:golomb_par_tabu}
+\end{table}
+
+\begin{table}
+	\captionsetup{belowskip=6pt,aboveskip=6pt}
+	\centering 
+	\renewcommand{\arraystretch}{1}
+	\begin{tabular}{p{2cm}|R{1.2cm}R{1.2cm}|R{1.5cm}R{1.5cm}|R{0.8cm}R{1.2cm}}
+		\hline 	
+		{\bf Instance} & T & T(sd) & It. & It.(sd) & R & R(sd)\\
+		\hline
+		%\hline
+		8--34 & 0.44 & 0.31 & 309 & 233 & 1 & 1.23\\
+		10--55 & 3.90 & 3.22 & 15,437 & 12,788 & 10 & 8.52\\
+		11--72 & 85.43 & 52.60 & 156,211 & 97,329 & 52 & 32.43\\
+		\hline
+	\end{tabular}
+	\caption{\gr: parallel, communication 1 to 1.}
+	\label{tab:golomb_par_1-1}
+\end{table}
+
+\begin{table}
+	\captionsetup{belowskip=6pt,aboveskip=6pt}
+	\centering 
+	\renewcommand{\arraystretch}{1}
+	\begin{tabular}{p{2cm}|R{1.2cm}R{1.2cm}|R{1.5cm}R{1.5cm}|R{0.8cm}R{1.2cm}}
+		\hline 	
+		{\bf Instance} & T & T(sd) & It. & It.(sd) & R & R(sd)\\
+		\hline
+		%\hline
+		8--34 & 0.43 & 0.29 & 283 & 225 & 1 & 1.03\\
+		10--55 & 3.16 & 2.82 & 12,605 & 11,405 & 8 & 7.61\\
+		11--72 & 60.35 & 43.95 & 110,311 & 81,295 & 36 & 27.06\\
+		\hline
+	\end{tabular}
+	\caption{\gr: parallel, communication 1 to n.}
+	\label{tab:golomb_par_1-n}
+\end{table}
