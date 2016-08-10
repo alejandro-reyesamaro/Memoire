@@ -35,3 +35,17 @@ were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz.
 \label{sec:golomb}
 
 \input{res_golomb}
+
+\section{Summarizing}
+
+\modified{In this Chapter} I have chosen various \CSPs{} as benchmarks to \begin{inparaenum}[1.] \item evaluate the \posl{} behavior solving these kind of problems, and \item to study different solution strategies, specially communication strategies.\end{inparaenum} To this end, I have chosen benchmarks with different characteristics, to help me having a wide view of the \posl{} behavior.
+
+\modified{In the solution process} of \sgp{}, it was showed the success of an exploitation-oriented communication strategy, in which the current configuration is communicated to ask other solvers for help, concentrating the effort in a more promising area. I was able also to study some other unsuccessful strategies, to show that strategies based on the sub-division of the effort by weeks, is not a good idea.
+
+\modified{\nqp{}....}
+
+\modified{The \carrp{} is a very complicated constrained problem, and very sensitive to the methods to solve it. For that reason I used some ideas from already existent algorithms. However, thanks to some studies of different communication strategies, based on the communication of the current communication at different times times (places) in the algorithm, it was possible to find a communication strategy to improve the performance.}
+
+\modified{During the solution} process of the \grp{}, \posl{} needs to perform many restarts. For that reason this problem was chosen to study a different (and innovative up tu my knowledge) communication strategy, in which the communicated information is a potential local minimum to be avoided. This new communication strategy showed to be effective to solve these kind of problems.
+
+\modified{In all cases,} thanks to the operator-based language provided by \posl{} it was possible to test many different strategies (communicating and non-communicating) fast and easily. Whereas creating solvers implementing different solution strategies can be complex and tedious, \posl{} gives the possibility to make communicating and non-communicating solver prototypes and to evaluate them with few efforts. In this Chapter was possible to show that a good selection and management of inter-solvers communication can largely help to the search process, working with complex constrained problems.

@@ -287,3 +287,27 @@ Each time a \posl{} meta-solver is launched, many independent search solvers are
 That shows that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc). 
 \modified{Having many solvers searching in different places of the search space, the probability that one of them reaches a promising place is higher. Then, when a solver finds a good configuration, it can be communicated, and receiving the help of one or more solvers in order to find the solution.}
 For this problem we have reduced the spread in the running times and iterations of the results for the two last instances (9--4--8 and 11--7--5) applying the communication strategy (0.71 without communication versus 0.44 with communication, for 9--4--8, and 0.31 without communication versus 0.20 with communication for 11--7--5).
+
+\modified{Other two} strategies were analyzed in the resolution of this problem, with no success, both based on the sub-division of the work by weeks, i.e., solvers trying to improve a configuration only working with one or some weeks. To this end two strategies were designed:
+
+\begin{enumerate}[label=\Alph*]
+\item \textbf{Circular strategy:} In this strategy, $K$ solvers try to improve a configuration during a during a number of iteration, only working on one week. When no improvement is obtained, the current configuration is communicated to the next solver (circularly), which tries to do the same working on the next week (see Figure~\ref{subfig:golfers_bad_ring}).
+\subitem This strategy does not show better results than previews strategies. The reason is because, although the communication in \posl{} is asynchronous, most of the times solvers were trapped waiting for a configuration coming from its neighbor solver.
+
+\item \textbf{Dichotomy strategy:} In this strategy solvers are divided by levels. Solvers in level 1, only work on one week, solvers on level 2, only work on 2 consecutive weeks, and so on, until the solver that works on all (except the first one) weeks. Solvers in level 1 improve a configuration during some number of iteration, then this configuration is sent to the corresponding solver. A solver in level 2 do the same, but working on weeks $k$ to $k+1$. It means that it receives configurations from the solver working on week $k$ and from the solver working on week $k+1$, and sends its configuration to the corresponding solver working on weeks $k$ to $k+3$; and so on. The solver in the level works on all (except the first one) weeks and receive configuration from the solver working on weeks $2$ to $w/2$ and from the solver working on weeks $w/2+1$ to $w$ (see Figure\ref{subfig:golfers_bad_dic}). We tested this strategy with all possible levels. 
+\subitem The goal of this strategy was testing if focused searches rapidly communicated can help at the beginning of the search. However, The failure of this strategy is in the fact that most of the time the sent information arrives to late to the receiver solver.
+\end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\subfloat[][]{
+		\label{subfig:golfers_bad_ring}
+		\includegraphics[width=0.45\linewidth]{golfers_ring.png}
+	} %\hspace{0.1\linewidth}
+	\subfloat[][]{%
+		\label{subfig:golfers_bad_dic}
+		\includegraphics[width=0.45\linewidth]{golfers_dic.png}
+	}
+	\caption[]{Unsuccessful communication strategies to solve \SGP}
+	\label{fig:golfers_bad}
+\end{figure}
