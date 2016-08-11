@@ -26,6 +26,11 @@ were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz.
 
 \input{res_golfers}
 
+\section{Solving the \nqp}
+\label{sec:nqueens}
+
+\input{res_nqueens}
+
 \section{Solving the \carrp}
 \label{sec:costas}
 
@@ -42,7 +47,7 @@ were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz.
 
 \modified{In the solution process} of \sgp{}, it was showed the success of an exploitation-oriented communication strategy, in which the current configuration is communicated to ask other solvers for help, concentrating the effort in a more promising area. I was able also to study some other unsuccessful strategies, to show that strategies based on the sub-division of the effort by weeks, is not a good idea.
 
-\modified{\nqp{}....}
+\modified{It was showed that simple communication strategies} as they applied to solve \sgp{} does not improve enough the results without communication for the \nqp{}. However, a deep study of the \posl's behavior during the search process allows to design a communication strategy able to improve the results obtained using non-communicating strategies.
 
 \modified{The \carrp{} is a very complicated constrained problem, and very sensitive to the methods to solve it. For that reason I used some ideas from already existent algorithms. However, thanks to some studies of different communication strategies, based on the communication of the current communication at different times times (places) in the algorithm, it was possible to find a communication strategy to improve the performance.}
 
