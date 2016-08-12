@@ -76,7 +76,7 @@ The {\it Sub-sum Problem} is defined as follows: Given a set $E$ of integers, wi
 $$C_{grp} = \left\{c_1, c_1+s_1, \dots, c_{o-1}+s_{o-1}\right\}$$
 where $c_1 = 0$.
 
-In the selection module applied inside the module $I$ the selection step of the search process selects a configuration from the neighborhood {\it far} from the {\it tabu} configurations, with respect to certain vectorial norm and an epsilon. In other words, a configuration $C$ is selected if and only if:
+In the selection module applied inside the module $I$, the selection step of the search process selects a configuration from the neighborhood {\it far} from the {\it tabu} configurations, with respect to certain vectorial norm and an epsilon. In other words, a configuration $C$ is selected if and only if:
 \begin{enumerate}
 \item the cost of the configuration $C$ is lower than the current cost, and
 \item $\left|\left|C-C_t\right|\right|_p > \epsilon$, for all {\it tabu} configuration $C_t$

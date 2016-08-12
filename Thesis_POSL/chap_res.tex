@@ -1,23 +1,22 @@
 \chapter{Experiments design and results}
 \label{chap:expe}
-\textit{In this chapter I expose all details about the process of evaluation of \posl{}, i.e., all experiments I perform. For each benchmark, I explain also used strategies in the evaluation process.
-I explain the used environments were we run the experiments (description of my desktop machine, \textit{Curiosiphi} server). %, and eventually \textit{Grid5000}). 
+\textit{In this Chapter I expose all details about the evaluation process of \posl{}, i.e., all experiments I perform. For each benchmark, I explain used strategies in the evaluation process and the used environments were the runs were performed (\textit{Curiosiphi} server). %, and eventually \textit{Grid5000}). 
 I describe all the experiments and I expose a complete analysis of the obtained result.}
 \vfill
 \minitoc
 \newpage
 
 In this chapter I illustrate and analyze the versatility of \posl{} studying different ways to solve constraint problems based on local search meta-heuristics. 
-I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are two challenging yet differently structured problems. In this chapter I present formally each benchmark, I explain the structure of \posl's solvers that I generated for experiments and present a detailed analysis of obtained results.
+I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are challenging yet differently structured problems. In this Chapter I present formally each benchmark, I explain the structure of \posl's solvers that I have generated for experiments and present a detailed analysis of obtained results.
 
 The experiments\footnote{\posl{} source code is available on GitHub:\href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} 
-were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. Showed results are the means of 30 runs for each setup, presented in columns labeled {\bf T}, corresponding to the run-time in seconds, and {\bf It.} corresponding to the number of iterations; and their respective standard deviations ({\bf T(sd)} and {\bf It.(sd)}). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes).
+were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called \textit{Coriosiphi} and is located at \textit{Laboratoire d'Informatique de Nantes Atlantique}, at the Universiti of Nantes. Showed results are the means of 30 runs for each setup, presented in columns labeled {\bf T}, corresponding to the run-time in seconds, and {\bf It.} corresponding to the number of iterations; and their respective standard deviations ({\bf T(sd)} and {\bf It.(sd)}). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes).
 
-\modified{The experiments in this section are multi-walk runs using the same solver main structure (except differents w.r.t. communication operations). Parallel experiments use 40 cores for all problem instances.  It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.}
+\modified{The experiments in this Chapter are multi-walk runs}. Parallel experiments use 40 cores for all problem instances. It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
 
 \modified{All benchmarks were coded using the \posl{} low-level framework in C++.}
 
-\modified{First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} were we used \posl{} to solve the \sgp{} and study some communication strategies. It was the first version of \posl{}, therefore it was able to solve only relatively easy instances. However, the efficacy of the communication was showed using this tool.}
+\modified{First results using \posl{} to solve} constraint problems were published in \cite{Reyes-amaro} were we used \posl{} to solve the \sgp{} and study some communication strategies. It was the first version of \posl{}, therefore it was able to solve only relatively easy instances. However, the efficacy of the communication was showed using this tool.
 
 \modified{With the next and more optimized version of \posl{}, I decide to start to perform more detailed studies using the benchmark mentioned before and some others.}
 
@@ -49,8 +48,8 @@ were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz.
 
 \modified{It was showed that simple communication strategies} as they applied to solve \sgp{} does not improve enough the results without communication for the \nqp{}. However, a deep study of the \posl's behavior during the search process allows to design a communication strategy able to improve the results obtained using non-communicating strategies.
 
-\modified{The \carrp{} is a very complicated constrained problem, and very sensitive to the methods to solve it. For that reason I used some ideas from already existent algorithms. However, thanks to some studies of different communication strategies, based on the communication of the current communication at different times times (places) in the algorithm, it was possible to find a communication strategy to improve the performance.}
+\modified{The \carrp{} is a very complicated constrained problem, and very sensitive to the methods to solve it. For that reason I used some ideas from already existent algorithms. However, thanks to some studies of different communication strategies, based on the communication of the current communication at different times (places) in the algorithm, it was possible to find a communication strategy to improve the performance.}
 
-\modified{During the solution} process of the \grp{}, \posl{} needs to perform many restarts. For that reason this problem was chosen to study a different (and innovative up tu my knowledge) communication strategy, in which the communicated information is a potential local minimum to be avoided. This new communication strategy showed to be effective to solve these kind of problems.
+\modified{During the solution} process of the \grp{}, \posl{} needs to perform many restarts. For that reason, this problem was chosen to study a different (and innovative up tu my knowledge) communication strategy, in which the communicated information is a potential local minimum to be avoided. This new communication strategy showed to be effective to solve these kind of problems.
 
-\modified{In all cases,} thanks to the operator-based language provided by \posl{} it was possible to test many different strategies (communicating and non-communicating) fast and easily. Whereas creating solvers implementing different solution strategies can be complex and tedious, \posl{} gives the possibility to make communicating and non-communicating solver prototypes and to evaluate them with few efforts. In this Chapter was possible to show that a good selection and management of inter-solvers communication can largely help to the search process, working with complex constrained problems.
+\modified{In all cases,} thanks to the operator-based language provided by \posl{} it was possible to test many different strategies (communicating and non-communicating) fast and easily. Whereas creating solvers implementing different solution strategies can be complex and tedious, \posl{} gives the possibility to make communicating and non-communicating solver prototypes and to evaluate them with few efforts. In this Chapter it was possible to show that a good selection and management of inter-solvers communication can largely help to the search process, working with complex constrained problems.

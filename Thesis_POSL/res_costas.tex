@@ -8,16 +8,14 @@ The \carrp{} (\CARRP) consists in finding a \textit{costas array}, which is an $
 
 \subsection{Experiment design}
 
-To handle this problem, I have reused some modules used for the \sgp{} and \nqp: the {\it Neighborhood} \om{} used for \nq{}, and the \textit{Selection} and \textit{Acceptance} \oms{} used for both. The new modules are: 
-
-\begin{enumerate}
-	\item Generation module:
-	\subitem $I$: Generates a random configuration $s$, as a permutation of the vector $[1..n]$. 
-	\item Neighborhood module:
-	\subitem $V_{AS}$: Defines the neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost with other.
-\end{enumerate}
-
-\modified{First attempts to solve this problems were using the same strategy (\as) used to solve the \sgp{}, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the rights parameter of \textit{maximum number of restarts}, \textit{maximum number of iterations}, and \textit{maximum number of iterations with the same cost}, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: } I have added a {\it Reset} module ($R$).
+To handle this problem, I have reused all modules used for solving the \nqp.
+%\begin{enumerate}
+%	\item Generation module:
+%	\subitem $I$: Generates a random configuration $s$, as a permutation of the vector $[1..n]$. 
+%	\item Neighborhood module:
+%	\subitem $V_{AS}$: Defines the neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost with other.
+%\end{enumerate}
+\modified{First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the rights parameter of \textit{maximum number of restarts}, \textit{maximum number of iterations}, and \textit{maximum number of iterations with the same cost}, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: } I have added a {\it Reset} module ($R$).
 
 The basic solver I use to solve this problem is presented in Algorithm~\ref{as:costas}, and I take it as a base to build all the different communication strategies. \modified{Basically, it is a classical local search iteration, where instead of performing restarts, it performs resets. After a deep analysis of this implementation and results of some runs, I decided to use $K_1 = 24000$ (maximum number of iterations) big enough to solve the chosen instance $n = 17$; and $K_2 = 3$ (the number of iteration before performing the next \textit{reset}).} 
 
@@ -103,7 +101,7 @@ The \as{} for the sender solver is presented in Algorithm~\ref{as:costas_sender}
 
 \subsection{Analysis of results}
 
-\modified{We present in Table~\ref{tab:costas17} results of launching {\it solver sets} to solve each instance of \carrp{} sequentially. Runtimes and iteration means showed in this Table are bigger than those presented in Table~\ref{tab:costas17comm}, confirming once again the success of the parallel approach.} %The column labeled \textbf{\% success} indicates the percentage of solvers that were able to find a solution before a time--out (5 minutes).
+\modified{I present in Table~\ref{tab:costas17} results of launching {\it solver sets} to solve each instance of \carrp{} sequentially. Runtimes and iteration means showed in this table are bigger than those presented in Table~\ref{tab:costas17comm}, confirming once again the success of the parallel approach.} %The column labeled \textbf{\% success} indicates the percentage of solvers that were able to find a solution before a time--out (5 minutes).
 
 \begin{table}[h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -122,7 +120,7 @@ The \as{} for the sender solver is presented in Algorithm~\ref{as:costas_sender}
 \label{tab:costas17}
 \end{table}
 
-\modified{I chose directly the neighborhood module ($V_{AS}$), the selection module ($S_{First}$) and the acceptance module $A$, to create the solvers. I ran experiments to study parallel communicating strategies taken into account the structure of the communication, and the communication operator used, but in this problem, I perform the communication at two different times: at the time of applying the acceptance criteria, and at the time of performing the {\it reset}.}
+\modified{I chose directly the neighborhood module ($V_{AS}$), the selection module ($S_{First}$) and the acceptance module $A$, to create solvers. I ran experiments to study parallel communicating strategies taken into account the structure of the communication, and the communication operator used, but in this problem, I perform the communication at two different times: at the time of applying the acceptance criteria, and at the time of performing the {\it reset}.}
 
 \begin{table}
 \centering 
