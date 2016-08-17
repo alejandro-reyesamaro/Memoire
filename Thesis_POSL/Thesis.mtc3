@@ -1,15 +1,15 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Domain Split}{\reset@font\mtcSfont 30}{section.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.1}Domain Splitting. General point of view}{\reset@font\mtcSSfont 31}{subsection.3.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.2}Split strategies}{\reset@font\mtcSSfont 32}{subsection.3.1.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.3}Conclusion}{\reset@font\mtcSSfont 35}{subsection.3.1.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Tunning methods for local search algorithms}{\reset@font\mtcSfont 36}{section.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.1}Using ParamILS}{\reset@font\mtcSSfont 36}{subsection.3.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.2}Tuning scenario files}{\reset@font\mtcSSfont 37}{subsection.3.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.3}Building the wrapper}{\reset@font\mtcSSfont 39}{subsection.3.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.4}Using the wrapper}{\reset@font\mtcSSfont 40}{subsection.3.2.4}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.4.1}Factory call}{\reset@font\mtcSSSfont 41}{subsubsection.3.2.4.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.4.2}Main method}{\reset@font\mtcSSSfont 41}{subsubsection.3.2.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.5}Results}{\reset@font\mtcSSfont 42}{subsection.3.2.5}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.5.1} Tuning {\it Adaptive Search} for {\it All-Intervals Series Problem}}{\reset@font\mtcSSSfont 42}{subsubsection.3.2.5.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.5.2} Tuning {\it Adaptive Search} for {\it Costas Array}{} {\it Problem}}{\reset@font\mtcSSSfont 45}{subsubsection.3.2.5.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.6}Conclusion}{\reset@font\mtcSSfont 46}{subsection.3.2.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Domain Split}{\reset@font\mtcSfont 32}{section.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.1}Domain Splitting. General point of view}{\reset@font\mtcSSfont 33}{subsection.3.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.2}Split strategies}{\reset@font\mtcSSfont 34}{subsection.3.1.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.1.3}Conclusion}{\reset@font\mtcSSfont 37}{subsection.3.1.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Tunning methods for local search algorithms}{\reset@font\mtcSfont 38}{section.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.1}Using ParamILS}{\reset@font\mtcSSfont 38}{subsection.3.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.2}Tuning scenario files}{\reset@font\mtcSSfont 39}{subsection.3.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.3}Building the wrapper}{\reset@font\mtcSSfont 41}{subsection.3.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.4}Using the wrapper}{\reset@font\mtcSSfont 42}{subsection.3.2.4}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.4.1}Factory call}{\reset@font\mtcSSSfont 43}{subsubsection.3.2.4.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.4.2}Main method}{\reset@font\mtcSSSfont 43}{subsubsection.3.2.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.5}Results}{\reset@font\mtcSSfont 44}{subsection.3.2.5}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.5.1} Tuning {\it Adaptive Search} for {\it All-Intervals Series Problem}}{\reset@font\mtcSSSfont 44}{subsubsection.3.2.5.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.5.2} Tuning {\it Adaptive Search} for {\it Costas Array}{} {\it Problem}}{\reset@font\mtcSSSfont 47}{subsubsection.3.2.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.6}Conclusion}{\reset@font\mtcSSfont 48}{subsection.3.2.6}}

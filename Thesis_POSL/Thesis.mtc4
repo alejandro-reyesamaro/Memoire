@@ -1,10 +1,10 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Modeling the target benchmark}{\reset@font\mtcSfont 52}{section.4.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}First stage: creating {\sc POSL}'s modules}{\reset@font\mtcSfont 54}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Computation Module}{\reset@font\mtcSSfont 55}{subsection.4.2.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.1}Creating new {\it computation}{} {\it module}{\it s}}{\reset@font\mtcSSSfont 56}{subsubsection.4.2.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Communication modules}{\reset@font\mtcSSfont 56}{subsection.4.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Second stage: assembling {\sc POSL}'s modules}{\reset@font\mtcSfont 58}{section.4.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Third stage: creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 69}{section.4.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Forth stage: connecting the solvers}{\reset@font\mtcSfont 70}{section.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Solver namespace expansion}{\reset@font\mtcSSfont 74}{subsection.4.5.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summarize}{\reset@font\mtcSfont 75}{section.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Modeling the target benchmark}{\reset@font\mtcSfont 54}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}First stage: creating {\sc POSL}'s modules}{\reset@font\mtcSfont 56}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Computation Module}{\reset@font\mtcSSfont 57}{subsection.4.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.2.1.1}Creating new {\it computation}{} {\it module}{\it s}}{\reset@font\mtcSSSfont 58}{subsubsection.4.2.1.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Communication modules}{\reset@font\mtcSSfont 58}{subsection.4.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Second stage: assembling {\sc POSL}'s modules}{\reset@font\mtcSfont 60}{section.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Third stage: creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 71}{section.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Forth stage: connecting the solvers}{\reset@font\mtcSfont 72}{section.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Solver namespace expansion}{\reset@font\mtcSSfont 76}{subsection.4.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summarize}{\reset@font\mtcSfont 77}{section.4.6}}
