@@ -1,13 +1,2 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Combinatorial Optimization}{\reset@font\mtcSfont 10}{section.2.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Constraint propagation}{\reset@font\mtcSfont 11}{section.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.3}Meta-heuristic methods}{\reset@font\mtcSfont 13}{section.2.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.1}Single Solution Based Meta-heuristic}{\reset@font\mtcSSfont 14}{subsection.2.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.3.2}Population Based Meta-heuristic}{\reset@font\mtcSSfont 16}{subsection.2.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.4}Hyper-heuristic Methods}{\reset@font\mtcSfont 17}{section.2.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.5}Hybridization}{\reset@font\mtcSfont 18}{section.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.6}Parallel computing}{\reset@font\mtcSfont 20}{section.2.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.7}Solvers cooperation}{\reset@font\mtcSfont 24}{section.2.7}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.8}Parameter setting techniques}{\reset@font\mtcSfont 26}{section.2.8}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.8.1}Off-line tunning}{\reset@font\mtcSSfont 26}{subsection.2.8.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {2.8.2}On-line tunning}{\reset@font\mtcSSfont 27}{subsection.2.8.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.9}Summary and discussion}{\reset@font\mtcSfont 28}{section.2.9}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.1}Conclusions}{\reset@font\mtcSfont 32}{section.2.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {2.2}Future works}{\reset@font\mtcSfont 34}{section.2.2}}

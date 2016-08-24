@@ -62,7 +62,7 @@
 \newcommand{\mylaptopName}{Dell XPS 15}
 
 \newcommand{\pclass}[1]{\mbox{\textcolor{blue}{\textbf{#1}}}}
-\newcommand{\pmethod}[2]{\mbox{\textcolor{green}{\textbf{\it #1}}{\it (#2)}}}
+\newcommand{\pmethod}[2]{\mbox{\textcolor{green}{\textbf{\it #1}}({\it #2})}}
 
 \def\chapterautorefname{Chapter}
 \usepackage{xspace}
@@ -96,9 +96,10 @@
       width=\textwidth,
       boxrule=0.5pt,
       colback=black,
+      colupper=white,
       spartan,
       listing only,
-      listing options={style=mystyle},
+      %listing options={style=mystyle},
       breakable
 }
 % </ConsoleLikeListing>
@@ -244,3 +245,6 @@ bookmarksopenlevel=2
 {\fontsize{10pt}{12pt}\fontfamily{phv}\selectfont #1}
 \end{siderules}
 }
+
+
+\usepackage{enumerate}
