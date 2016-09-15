@@ -11,8 +11,8 @@
 \contentsline {subsubsection}{\numberline {1.3.1.1}Creating new computation{} modules}{12}{subsubsection.1.3.1.1}
 \contentsline {subsection}{\numberline {1.3.2}Communication modules}{13}{subsection.1.3.2}
 \contentsline {section}{\numberline {1.4}Second stage: assembling {\sc POSL}'s modules}{14}{section.1.4}
-\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{26}{section.1.5}
-\contentsline {section}{\numberline {1.6}Forth stage: connecting the solvers}{27}{section.1.6}
+\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{27}{section.1.5}
+\contentsline {section}{\numberline {1.6}Forth stage: connecting the solvers}{28}{section.1.6}
 \contentsline {subsection}{\numberline {1.6.1}Solver namespace expansion}{31}{subsection.1.6.1}
 \contentsline {section}{\numberline {1.7}Summarize}{32}{section.1.7}
-\contentsline {chapter}{\numberline {2}Bibliography}{33}{chapter.2}
+\contentsline {chapter}{\numberline {2}Bibliography}{35}{chapter.2}

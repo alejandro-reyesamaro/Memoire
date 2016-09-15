@@ -209,10 +209,10 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\ri
 
 \separation
 
-The following operator is very useful if the user needs to use a \opch{} inside an \as{}. As explained before, if a \opch{} does not receive any information from another solver, it returns {\it NULL}. This may cause the undesired termination of the solver if this case is not considered correctly. Next, I introduce the operator \textbf{Operator Not {\it NULL} Execution} and illustrate how to use it in practice with an example.
+The following operator is very useful if the user needs to use a \opch{} inside an \as{}. As explained before, if a \opch{} does not receive any information from another solver, it returns {\it NULL}. This may cause the undesired termination of the solver if this case is not correctly handled. Next, I introduce the \textbf{Not {\it NULL} Execution Operator} and illustrate how to use it in practice with an example.
 
 \begin{definition}\label{op:or}
-{\bf (Operator Not {\it NULL} Execution)} Let
+$\circled{$\vee$}$ {\bf Not {\it NULL} Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
@@ -231,30 +231,32 @@ Then, the operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ de
 	\item $C.M.$: Receiving a configuration.\label{struct:opch}
 \end{list}
 
-Figure~\ref{fig:2difBeh} shows how to combine a \opch{} with the \om{} $A$ through the operator $\circled{$\vee$}$. Here, the \om{} $A$ will be executed as long as the \opch{} remains \textit{NULL}, i.e., there is no information coming from outside. This behavior is represented in Figure~\ref{subfig:beh1} by the orange lines. If some data has been received through the \opch, the later is executed instead of the module $A$, represented in Figure~\ref{subfig:beh2} by blue lines. 
+Figure~\ref{fig:2difBeh} shows how to combine a \opch{} with the \om{} $A$ through the operator $\circled{$\vee$}$. Here, the \om{} $A$ will be executed as long as the \opch{} remains \textit{NULL}, i.e., there is no information coming from outside. This behavior is represented in Figure~\ref{subfig:beh1} by the blue lines. If some data has been received through the \opch, the later is executed instead of the module $A$, represented in Figure~\ref{subfig:beh2} by orange lines. 
 The code can be written as follows:
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[A\poslop{\vee}C.M.\right]\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[C.M.\poslop{\vee}A\right]\right]\right]\right]$$
 }
 
 \begin{figure}[h]
 \centering
 \subfloat[][The solver executes the computation module {\bf A} if no information is received through the connection module]{
 	\label{subfig:beh1}
-	\includegraphics[width=0.6\linewidth]{muta1_v4.png}
+	\includegraphics[width=0.6\linewidth]{muta2_v4.png}
 }\\
 %\hspace{0.05\textwidth}%
 \subfloat[][The solver uses the information coming from an external solver]{%
 	\label{subfig:beh2}
-	\includegraphics[width=0.6\linewidth]{muta2_v4.png}
+	\includegraphics[width=0.6\linewidth]{muta1_v4.png}
 }
 \caption[]{Two different behaviors within the same solver}
 \label{fig:2difBeh}
 \end{figure}
 
-This is {\it short-circuit} operator. It means that if the first argument (module) does not return {\it NULL}, the second will not be executed. \posl{} provides another operator with the same functionality but not {\it short-circuit}:
+\separation
+
+The operator that I have just defined is a {\it short-circuit} operator. It means that if the first argument (module) does not return {\it NULL}, the second will not be executed. \posl{} provides another operator with the same functionality but not {\it short-circuit}. \modified{This operator is necessary if the user wants a side effect by always executing the second module also.}
 
 \begin{definition}\label{op:and}
-{\bf (Operator {\it BOTH} Execution)} Let 
+$\circled{$\wedge$}$ {\bf {\it BOTH} Execution Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
@@ -267,39 +269,43 @@ Then the operation $\left|\mathcal{M}_1\circled{$\wedge$}\mathcal{M}_2\right|$ d
 \]
 \end{definition}
 
-In the following definitions, the concepts of {\it cooperative parallelism} and {\it competitive parallelism} are implicitly included. We say that cooperative parallelism exists when two or more processes are running separately, they are independent, and the general result will be some combination of the results of all the involved processes (e.g. Definitions~\ref{op:min} and~\ref{op:max}). \modified{On the other hand, competitive parallelism arise when the general result is the result of the process ending first (e.g. Definition~\ref{op:race}).}
+\separation
+
+In the following I introduce the concepts of {\it cooperative parallelism} and {\it competitive parallelism}. We say that cooperative parallelism exists when two or more processes are running separately, and the general result will be some combination of the results of at least some involved processes (e.g. Definitions~\ref{op:min} and~\ref{op:max}). \modified{On the other hand, competitive parallelism arise when the general result comes from a unique process, usialy the one finishing first (e.g. Definition~\ref{op:race}).}
 
 \begin{definition}\label{op:min}
-{\bf (Operator Minimum)} Let
+$\circled{m}$ {\bf Minimum Operator } Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists some order criteria between them. Then the operation $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{min}$ that executes $\mathcal{M}_1$ and returns $\min\left\{o_1,o_2\right\}$:
+Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the greatest value. Then the operation $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{min}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\min\left\{o_1,o_2\right\}$:
 
 \[
 \mathcal{M}_{min}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
-Similarly we define the operator \textbf{Maximum}:
+\separation
+
+Similarly we define the \textbf{Maximum} operator:
 
 \begin{definition}\label{op:max}
-{\bf (Operator Maximum)} Let
+$\circled{M}$ {\bf Maximum Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists some order criteria between them. Then the operation $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{max}$ that executes $\mathcal{M}_1$ and returns $\max\left\{o_1,o_2\right\}$:
+Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the smallest value. Then the operation $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{max}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\max\left\{o_1,o_2\right\}$:
 
 \[
 \mathcal{M}_{max}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
-\poslexample{Comming back to the previews example, the {\bf minimum operator} can be applied to obtain a more interesting behavior in the solver: When applying the acceptance criteria, suppose that we want to receive a configuration from other solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the operator~$\circled{m}$ to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
+\poslexample{The {\bf minimum operator} can be applied in the previews example to obtain an interesting behavior: When applying the acceptance criteria, suppose that we want to receive a configuration from another solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the $\circled{m}$ operator to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
 Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf minimum operator} supports parallelism.}
 
@@ -309,8 +315,10 @@ Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf
 	\caption{Using {\bf minimum} operator}\label{fig:min_example}
 \end{figure}
 
+\separation
+
 \begin{definition}\label{op:race}
-{\bf (Operator Race)} Let 
+$\circled{$\shortdownarrow$}$ {\bf Race Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
@@ -331,32 +339,36 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[\lbk V_1\poslop{\shor
 	\caption{Using {\bf race} operator}\label{fig:race_example}
 \end{figure}
 
-Some others operators can be useful when dealing with {\it sets}.
+\separation
+
+\modified{Some \posl's data types are related to sets, like neighborhoods. For that reasson, it is useful to define operators to handle that kind of data. Algthogh at this moment \posl{} is designed only to create solvers based on local-search meta-heuristic, is was conceived to be able to create population-based solvers as a future direction. In that sens, these operators are useful also.}
 
 \begin{definition}\label{op:union}
-{\bf (Operator Union)} Let 
+$\circled{$\cup$}$ {\bf Union Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cup$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cup}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cup V_2$:
+Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cup$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cup}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cup V_2$:
 
 \[
 \mathcal{M}_{\cup}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
 \]
 \end{definition}
 
+\separation
+
 Similarly we define the operators \textbf{Intersection} and \textbf{Subtraction}:
 
 \begin{definition}\label{op:intersec}
-{\bf (Operator Intersection)} Let 
+$\circled{$\cap$}$ {\bf Intersection Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cap$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cap}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cap V_2$:
+Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cap$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cap}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cap V_2$:
 
 \[
 \mathcal{M}_{\cap}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
