@@ -1,4 +1,4 @@
-There exist two types of basic modules in \posl: \oms{} and \opchs{}. A \om{} is basically a function and a \opch{} is also a function, but in contrast, the it can receive information from two different sources: through input parameters or from outside, i.e., by communicating with a module from another solver.
+There exist two types of basic modules in \posl: \INTROom{} and \INTROopch{}. A \om{} is basically a function and a \opch{} is also a function, but in contrast, the it can receive information from two different sources: through input parameters or from outside, i.e., by communicating with a module from another solver.
 
 \subsection{Computation module}
 
@@ -53,7 +53,7 @@ A \opch{} is the component managing the information reception in the communicati
 
 A \opch{} can receive two types of information from an external solver: data or \oms{}. It is important to notice that by sending/receiving \oms, I mean sending/receiving the required information to identify and being able to instantiate the \om. For instance, an integer identifier.
 
-In order to distinguish from the two types of \opchs, I will call Data Communication Module the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and Object Communication Module the one responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
+In order to distinguish from the two types of \opchs, I will call \INTROdopch{} the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and \INTROoopch{} the one responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
 
 \defname{Data Communication Module}{
 A \emph{Data Communication Module} $Ch$ is a module that produces a mapping defined as follows: 
@@ -65,7 +65,7 @@ No matter what the input $I$ is, it returns the information $D$ coming from an e
 }
 
 \defname{Object Communication Module}{
-	If we denote by $\mathbb{M}$ the space of all the \oms{} defined by Definition~\ref{def:om}, then an \emph{Object Communication Module} $Ch$ is a module that produces and executes a \om{} coming from an external solver as follows:
+	If we denote by $\mathbb{M}$ the space of all the \oms{} defined by Definition~\ref{def:om}, then an \emph{\oopch} $Ch$ is a module that produces and executes a \om{} coming from an external solver as follows:
 	\begin{equation}
 	\label{def:oopench}
 	Ch:I\times\left\{\mathbb{M}\cup\left\{NULL\right\}\right\} \rightarrow O \cup \left\{NULL\right\}

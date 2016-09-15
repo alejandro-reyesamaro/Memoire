@@ -1,20 +1,21 @@
-Modules mentioned above are defined respecting the signature of some predefined abstract module. For example, the module showed in Figure~\ref{fig:om} is a \om{} based on an abstract module that receives a configuration and returns a neighborhood. In that sense, an example of a concrete \om{} (or just \om{}) can be a function receiving a configuration, and returning a neighborhood constituted by $N$ configurations which only differ from the input configuration in one entry.
+Modules mentioned above are grouped \modified{according its signature. An \textit{abstract module} is a module that represents all modules with the same signature.} For example, the module showed in Figure~\ref{fig:om} is a \om{} based on an abstract module that receives a configuration and returns a neighborhood. %In that sense, an example of a concrete \om{} (or just \om{}) can be a function receiving a configuration, and returning a neighborhood constituted by $N$ configurations which only differ from the input configuration in one entry.
 
-In this stage an \as{} is coded using \posl{}. It takes abstract modules as {\it parameters} and combines them through operators. Through the \as, we can also decide which information to send to other solvers by using some operators to send the result of a computation module (see below). In the following we present a formal and more detailed specification of \posl{}'s operators. 
+In this stage an \INTROas{} is coded using \posl{}. It takes abstract modules as {\it parameters} and combines them through operators. Through the \as, we can also decide which information to send to other solvers. % by using some operators to send the result of a computation module (see below). In the following we present a formal and more detailed specification of \posl{}'s operators. 
 
-
-The \as{} is the solver's backbone. It joins the \oms{} and the \opchs{} coherently. It is independent from the \oms{} and \opchs{} used in the solver. It means that they can be changed or modified during the execution, without altering the general algorithm, but still respecting the main structure. Each time we combine some of them using \posl's operators, we are creating a \cm. Here we formally define the concept of \textit{module} and \cm.
+The \as{} is the solver's backbone. It joins the \oms{} and the \opchs{} coherently. It is independent from the \oms{} and \opchs{} used in the solver. It means that modules can be changed or modified during the execution, respecting the algorithm structure. Each time we combine some of them using \posl's operators, we are creating a \INTROcm. Here we formally define the concept of \textit{module} and \INTROcm.
 
 \begin{definition}
-	\label{def:module}
-A {\bf module} is (and it is denoted by the letter $\mathcal{M}$):
+\label{def:module}
+Denoted by the letter $\mathcal{M}$, a {\bf module} is:
 \begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
-\item a \om{} or
-\item a \opch{} or
-\item $\left[\mathcal{M}_1 \text{ OP } \mathcal{M}_2\right]$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed sequentially, returning an output depending on the nature of the operator \emph{OP}; or\label{subdef:seq}
-\item $\lbk\mathcal{M}_1 \text{ OP } \mathcal{M}_2\rbk_p$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, (i.e. some modules will be executed sequentially although they were grouped this way); or sequentially otherwise.\label{subdef:par}
+\item a \om{}; or
+\item a \opch{}; or
+\item $\left[\text{OP } \mathcal{M}\right]$, which is the composition of a module $\mathcal{M}$ to be executed sequentially, returning an output depending on the nature of the unary operator \emph{OP}; or\label{subdef:seq_uni}
+\item $\left[\mathcal{M}_1 \text{ OP } \mathcal{M}_2\right]$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed sequentially, returning an output depending on the nature of the binary operator \emph{OP}; or\label{subdef:seq}
+\item $\lbk\mathcal{M}_1 \text{ OP } \mathcal{M}_2\rbk_p$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the binary operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, %(i.e. some modules will be executed sequentially although they were grouped this way); 
+or it throws an exception otherwise.\label{subdef:par}
 \end{enumerate}
-We denote the space of the modules by $\mathbb{M}$ and call \cms{} to the composition of modules described in \ref{subdef:seq} and \ref{subdef:par}.
+I denote by $\mathbb{M}$ the space of the modules, and I call \cms{} to the composition of modules described in \ref{subdef:seq} and/or \ref{subdef:par}.
 \end{definition}
 
 For a better understanding of Definition~\ref{def:module}, Figure~\ref{fig:cm} shows graphically  the structure of a \cm.
@@ -22,30 +23,29 @@ For a better understanding of Definition~\ref{def:module}, Figure~\ref{fig:cm} s
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.5\linewidth]{cm.png}
-	\caption[]{A \cm}
+	\caption[]{A \cm{} made of two modules $M_1$ and $M_2$}
 	\label{fig:cm}
 \end{figure}
 
-As mentioned before, the \as{} is independent from the \oms{} and \opchs{} used in the solver. It means that one \as{} can be used to construct many different solvers, by implementing it using different modules (see below the related concept of \as{} instantiation). This is the reason why the \as{} is defined only using {abstract} modules. Formally, we define an \as{} as follows:
+As mentioned before, the \as{} is independent from the \oms{} and \opchs{} used in the solver. It means that one \as{} can be used to construct many different solvers, by implementing it using different modules. %(see below the related concept of \as{} instantiation). 
+This is the reason why the \as{} is defined only using {abstract} modules. Formally, we define an \as{} as follows:
 
 \defname{Abstract Solver}{
 An \emph{Abstract Solver} $AS$ is a triple $\left(\mathbf{M},\mathcal{L}^m, \mathcal{L}^c\right)$, where: $\mathbf{M}$ is a \cm{} (also called \emph{root \cm{}}), $\mathcal{L}^m$ a list of abstract \oms{} appearing in $\mathcal{M}$, and $\mathcal{L}^c$ a list of \opchs{} appearing in $\mathcal{M}$.}
 
-The \textit{root} \cm{} can be defined also as a free-context grammar as follows:
+\Cms{}, and in particular the \textit{root} \cm{}, can be defined also as a context-free grammar as follows:
 
-\begin{definition}{\bf (root \cm{}'s grammar)}
-\label{def:grammar}
-$G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
+\begin{definition}\label{def:grammar} A {\bf \cm{}'s grammar} is the set $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 \begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 	\item $\mathbf{V} = \left\{CM, OP\right\}$ is the set of {\it variables},
-	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, (, ), \{, \}, \llparenthesis, \rrparenthesis^m, \rrparenthesis^o, \circled{$\mapsto$},\circled{?},\circlearrowleft, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
+	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, \llparenthesis, \rrparenthesis^m, \rrparenthesis^o, \circled{$\mapsto$},\circled{?},\circlearrowleft, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
 	\item $\mathbf{S} = \left\{CM\right\}$ is the set of {\it start variables},
 	\item and $\mathbf{R} = $
 		\begin{align*} 
-		CM &\longmapsto \alpha \OR \beta \OR \llparenthesis CM \rrparenthesis^o \OR \llparenthesis CM \rrparenthesis^m \OR \left[OP\right] \OR \lbk OP\rbk_p \\
-		OP &\longmapsto CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM\\
-		OP &\longmapsto CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM \\
-		OP &\longmapsto CM \circlearrowleft (be) CM%\left\{CM\right\}		
+		CM \produce & \alpha \OR \beta \OR \llparenthesis CM \rrparenthesis^o \OR \llparenthesis CM \rrparenthesis^m \OR \left[OP\right] \OR \lbk OP\rbk_p\\
+		OP \produce & CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM  \OR\\
+		& CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM  \OR\\
+		& CM \circlearrowleft \text{ be } CM%\left\{CM\right\}		
 		\end{align*} is a set of {\it rules}
 \end{enumerate} 
 %For simplicity, we will use, from now on, the name of \emph{Module} to refer ether to an \module, to an \opch, or to a \cm.
@@ -53,31 +53,29 @@ $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 
 In the following I explain some of the concepts in Definition~\ref{def:grammar}: 
 \begin{itemize}
-	\item The variables $CM$ and $OP$ are two very important entities in the language, as it can be seen in the grammar. We name them \cm{} and {\it operator}, respectively.
+	\item The variables $CM$ and $OP$ correspond to a \cm{} and an {\it operator}, respectively.
 	\item The terminals $\alpha$ and $\beta$ represent a \om{} and a \opch{}, respectively.
 	\item The terminal $be$ is a boolean expression.
-	\item The terminals $[\text{ } ], \lbk\text{ } \rbk_p$ are symbols for grouping and defining the way the involved \cms are executed. Depending on the nature of the operator, this can be either sequentially or in parallel:
+	\item The terminals $[\text{ } ], \lbk\text{ } \rbk_p$ are symbols for grouping and defining the way the involved \cms{} are executed. Depending on the nature of the operator, this can be either sequentially or in parallel:
 	\begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
-		\item $\left[\text{OP}\right]$: The involved operator is executed sequentially.
-		\item $\lbk\text{OP}\rbk_p$: The involved operator is executed in parallel if and only if \emph{OP} supports parallelism. Otherwise, an exception is thrown.
+		\item $\left[\text{OP}\right]$: The involved operator will always executed sequentially.
+		\item $\lbk\text{OP}\rbk_p$: The involved operator will be executed in parallel if and only if \emph{OP} supports parallelism. Otherwise, an exception is thrown.
 	\end{enumerate}
-	\item The terminals $(\text{ and })$ are symbols for grouping the boolean expression in some operators.
-	%\item The terminals $\{\text{ and } \}$ are symbols for grouping \cms{} in some operators.
 	\item The terminals $\llparenthesis. \rrparenthesis^m, \llparenthesis.\rrparenthesis^o,$ are operators to send information to other solvers (explained bellow).
-	\item The rest of terminals are \posl{} operators.
+	\item All other terminals are \posl{} operators that are detailed later.
 \end{itemize}
 
-In the following we define \posl{} operators. In order to group modules, like in Definition~\ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|.\right|$ as generic grouper. \modified{In order to help the reader to easely understand how to use the operators, I use an example of a solver that I build step by step, while presenting the definitions.}
+In the following we define \posl{} operators. In order to group modules, like in Definition~\ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|OP\right|$ as generic grouper. \modified{In order to help the reader to easily understand how to use operators, I use an example of a solver that I build step by step, while presenting the definitions.}
 
 %\begin{example}
 %\mybox{Example}
 \poslexample{
-\posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item They start by initializing some data structures (e.g., a \emph{tabu list} for \emph{Tabu Search}~\cite{Gendreau2010}, a \emph{temperature} for \emph{Simulated Annealing}~\cite{Nikolaev2010}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on a certain criterion. \end{inparaenum}
-An example of such data structure is the penalizing features of local optima defined by Boussaïd et al~\cite{Boussaid2013} in their algorithm \emph{Guided Local Search}.
+\posl{} creates solvers based on local search meta-heuristics algorithms. These algorithms have a common structure: \begin{inparaenum}[1.] \item They start by initializing some data structures (e.g., a \emph{tabu list} for \emph{Tabu Search}, a \emph{temperature} for \emph{Simulated Annealing}, etc.). \item An initial configuration $s$ is generated. \item A new configuration $s'$ is selected from the neighborhood $\mathcal{V}\left(s\right)$. \item If $s'$ is a solution for the problem $P$, then the process stops, and $s'$ is returned. If not, the data structures are updated, and $s'$ is accepted or not for the next iteration, depending on a certain criterion. \end{inparaenum}
+%An example of such data structure is the penalizing features of local optima in \emph{Guided Local Search} algorithm.
 
-{\it Abstract} \oms{} composing \emph{local search meta--heuristics} are:
+Abstract \oms{} composing local search meta--heuristics are:
 
-\begin{list}{\boxed{Abstract\hspace{4pt}Computation\hspace{4pt}module- \arabic{qcounter}~}}{\usecounter{qcounter}} \itemsep0em 
+\begin{list}{\boxed{Abstract\hspace{4pt}computation\hspace{4pt}module- \arabic{qcounter}~}}{\usecounter{qcounter}} \itemsep0em 
 	\item $I$: Generating a configuration $s$
 	\item $V$: Defining the neighborhood $\mathcal{V}\left(s\right)$
 	\item $S$: Selecting $s' \in \mathcal{V}\left(s\right)$
@@ -85,10 +83,12 @@ An example of such data structure is the penalizing features of local optima def
 \end{list}
 } %\end{example}
 
-\modified{The list of modules to be used in the examples have been presented. Now I present the \posl{} operators.}
+The list of modules to be used in the examples have been presented. Now I present \posl{} operators.
+
+\separation
 
 \begin{definition}\label{op:seqexec}
-{\bf (Operator Sequential Execution)} Let
+$\circled{$\mapsto$}$ {\bf Sequential Execution Operator.} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and 
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$, 
@@ -103,8 +103,9 @@ be modules, where $\mathcal{I}_1 \subseteq \mathcal{D}_2$. Then the operation $\
 This is an example of an operator that does not support the execution of its involved \cms{} in parallel, because the input of the second \cm{} is the output of the first one.
 
 \poslexample{
-Coming back to the example, I can use defined {\it abstract} \oms{} to create a \cm{} that perform only one iteration of a local search, using the operator {\bf Sequential Execution}. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create an other \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
+Coming back to the example, I can use defined abstract \oms{} to create a \cm{} that perform only one iteration of a local search, using the {\bf Sequential Execution} operator. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create an other \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
 $$\left[\left[\left[I\poslop{\mapsto}V\right]\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]$$
+In the figure, each rectangle is a \cm.
 }
 
 \begin{figure}[h]
@@ -125,15 +126,17 @@ $$\left[\left[\left[I\poslop{\mapsto}V\right]\poslop{\mapsto}S\right]\poslop{\ma
 	\label{fig:seq_example}
 \end{figure}
 
+\separation
+
 The following operator is very useful to execute modules sequentially creating bifurcations, subject to some boolean condition:
 
 \begin{definition}\label{op:conditional}
-{\bf (Operator Conditional Execution)} Let
+$\circled{?}$ {\bf Conditional Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules, where $\mathcal{D}_1 \cap \mathcal{D}_2 \neq \emptyset$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then the operation $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{cond}$ as result of the sequential execution of $\mathcal{M}_1$ if $<cond>$ is {\bf true} or $\mathcal{M}_2$, otherwise:
 
 \[
@@ -153,10 +156,12 @@ In examples I remove the clause $<cond>$ for simplification.
 	\caption{Using {\bf conditional execution} operator}\label{fig:cond_example}
 \end{figure}
 
+\separation
+
 We can execute modules sequentially creating also cycles.
 
 \begin{definition}\label{op:cyclic}
-{\bf (Operator Cyclic Execution)} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ as result of the sequential execution of $\mathcal{M}$ repeated while $<cond>$ remains {\bf true}:
+$\circlearrowleft$ {\bf Operator Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
 
 \[
 \mathcal{M}_{cyc}:\mathcal{D} \rightarrow \mathcal{I} 
@@ -164,7 +169,7 @@ We can execute modules sequentially creating also cycles.
 \end{definition}
 
 \poslexample{
-Using this operator I can model a local search algorithm, by executing the {\it abstract} \om{} $I$ and then the other \oms{} ($V$, $S$ and $A$) cyclically, until finding a solution (i.e, a configuration with cost equal to zero) (see Figure~\ref{fig:cyc_example}):
+Using this operator I can model a local search algorithm, by executing the {\it abstract} \om{} $I$ and then the other \oms{} ($V$, $S$ and $A$) cyclically, until finding a solution (i.e, a configuration with cost equals to zero) (see Figure~\ref{fig:cyc_example}):
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]\right]\right]$$
 In the examples, I remove the clause $<cond>$ for simplification. 
 }
@@ -175,14 +180,16 @@ In the examples, I remove the clause $<cond>$ for simplification.
 	\caption{Using {\bf cyclic execution} operator}\label{fig:cyc_example}
 \end{figure}
 
+\separation
+
 \begin{definition}\label{op:rho}
 {\bf (Operator Random Choice)} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
 	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subset \mathcal{D}_2$ % and $\mathcal{I}_1 \subset \mathcal{I}_2$, 
-and a real value $\rho$. Then the operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{rho}$ that executes and returns the output of $\mathcal{M}_1$ with probability $\rho$, or executes and returns the output of $\mathcal{M}_2$ with probability $(1-\rho)$:
+be modules, where $\mathcal{D}_1 \subset \mathcal{D}_2$, % and $\mathcal{I}_1 \subset \mathcal{I}_2$, 
+and a real value $\rho \in (0,1)$. Then the operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{rho}$ executing $\mathcal{M}_1$ with probability $\rho$, or executing $\mathcal{M}_2$ with probability $(1-\rho)$:
 
 \[
 \mathcal{M}_{rho}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
@@ -190,15 +197,17 @@ and a real value $\rho$. Then the operation $\left|M_1\circled{$\rho$}\mathcal{M
 \end{definition}
 
 \poslexample{
-In the example I can create a \cm{} to execute two {\it abstract} \oms{} $A_1$ and $A_2$ following certain probability $\rho$ using the operator {\bf random execution} as follows (see Figure~\ref{fig:rho_example}):
+In the example I can create a \cm{} to execute two {\it abstract} \oms{} $A_1$ and $A_2$ following certain probability $\rho$ using the {\bf random choice} operator as follows (see Figure~\ref{fig:rho_example}):
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[A_1\poslop{\rho}A_2\right]\right]\right]\right]$$
 }
 
 \begin{figure}[h]
 	\centering	
 	\includegraphics[width=0.6\linewidth]{rho.png}
-	\caption{Using {\bf random execution} operator}\label{fig:rho_example}
+	\caption{Using {\bf random choice} operator}\label{fig:rho_example}
 \end{figure}
+
+\separation
 
 The following operator is very useful if the user needs to use a \opch{} inside an \as{}. As explained before, if a \opch{} does not receive any information from another solver, it returns {\it NULL}. This may cause the undesired termination of the solver if this case is not considered correctly. Next, I introduce the operator \textbf{Operator Not {\it NULL} Execution} and illustrate how to use it in practice with an example.
 

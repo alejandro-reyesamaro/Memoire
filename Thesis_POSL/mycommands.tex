@@ -19,38 +19,56 @@
 \newcommand{\commentary}[1]{\textcolor{verde}{#1}}
 \newcommand{\hsep}[1]{\hspace{7pt} #1}
 
+\newcommand{\gracias}[1]{\textcolor{red}{\bf #1}}
+\newcommand{\receiver}[1]{\textcolor{dred}{\bf #1}}
+\newcommand{\sender}[1]{\textcolor{blue}{\bf #1}}
+\newcommand{\nocomm}[1]{\textcolor{black}{\bf #1}}
+
 \newcommand{\ale}{Alejandro {\sc Reyes Amaro}}
 \newcommand{\titre}{{\sc POSL}: A Parallel-Oriented Solver Language}
 \newcommand{\posl}{{\sc POSL}}
 
-\newcommand{\opch}{{\it communication module}}
-\newcommand{\opchs}{\opch{\it s}}
-\newcommand{\dopch}{{\it data communication module}}
-\newcommand{\oopch}{{\it object communication module}}
-\newcommand{\comstr}{{\it communication strategy}}
-\newcommand{\comstrs}{{\it communication strategies}}
-\newcommand{\omprefix}{{\it computation}}
-\newcommand{\om}{\omprefix{} {\it module}}
-\newcommand{\oms}{\om{\it s}}
+\newcommand{\om}{\omprefix{} module}
+\newcommand{\oms}{\om s}
+\newcommand{\INTROom}{{\it \omprefix{} module}}
+\newcommand{\opch}{communication module}
+\newcommand{\opchs}{\opch s}
+\newcommand{\INTROopch}{{\it \opch}}
+\newcommand{\dopch}{data \opch}
+\newcommand{\INTROdopch}{{\it \dopch}}
+\newcommand{\oopch}{object \opch}
+\newcommand{\INTROoopch}{{\it \oopch}}
+\newcommand{\comstr}{communication strategy}
+\newcommand{\comstrs}{communication strategies}
+\newcommand{\INTROcomstr}{{\it \comstr}}
+\newcommand{\omprefix}{computation}
 \newcommand{\bothmodules}{\omprefix{} and \opchs}
-\newcommand{\m}{{\it module}}
-\newcommand{\ms}{\m{\it s}}
-\newcommand{\as}{{\it abstract solver}}
-\newcommand{\As}{{\it Abstract solver}}
-\newcommand{\ass}{\as{\it s}}
-\newcommand{\cm}{{\it compound module}}
-\newcommand{\cms}{\cm {\it s}}
-\newcommand{\soset}{{\it solver set}}
-\newcommand{\jack}{{\it communication jack}}
-\newcommand{\jacks}{\jack{\it s}}
-\newcommand{\outlet}{{\it communication outlet}}
-\newcommand{\outlets}{\outlet{\it s}}
-\newcommand{\operation}{{\it operation}}
+\newcommand{\m}{module}
+\newcommand{\ms}{\m s}
+\newcommand{\INTROm}{{\it \m}}
+\newcommand{\as}{abstract solver}
+\newcommand{\ass}{\as s}
+\newcommand{\Ass}{Abstract solvers}
+\newcommand{\INTROas}{{\it \as}}
+\newcommand{\cm}{compound module}
+\newcommand{\cms}{\cm  s}
+\newcommand{\Cms}{Compound modules}
+\newcommand{\INTROcm}{{\it compound module}}
+\newcommand{\soset}{solver set}
+\newcommand{\INTROsoset}{{\it \soset}}
+\newcommand{\jack}{communication jack}
+\newcommand{\jacks}{\jack s}
+\newcommand{\INTROjack}{{\it \jack}}
+\newcommand{\outlet}{communication outlet}
+\newcommand{\outlets}{\outlet s}
+\newcommand{\INTROoutlet}{{\it \outlet}}
+\newcommand{\operation}{operation}
+\newcommand{\INTROoperation}{{\it \operation}}
 
 \usepackage{stmaryrd}
 \newcommand{\lbk}{\left\llbracket}
 \newcommand{\rbk}{\right\rrbracket}
-\newcommand{\produce}{&\rightarrow}
+\newcommand{\produce}{\hspace{5pt}\longmapsto\hspace{5pt}}
 \newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
 
 \newcommand{\TM}{$^{\scalebox{0.6}{\mbox{TM}}}$}
@@ -246,5 +264,11 @@ bookmarksopenlevel=2
 \end{siderules}
 }
 
-
 \usepackage{enumerate}
+\usepackage{bbding}
+\newcommand{\separation}{
+\begin{center}
+{\small \Asterisk{} \Asterisk{} \Asterisk{}}
+\end{center}
+\vspace{10pt}
+}

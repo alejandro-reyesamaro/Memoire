@@ -36,7 +36,7 @@ In this chapter is presented \posl{}, the main contribution of this thesis, as w
 \item Deciding which information is interesting to \textit{receive} from other solvers. This information is encapsulated into another kind of component called \opch, allowing data transmission between solvers (see Figure~\ref{subfig:modules}, red shapes).
 \item A third stage is to ensemble the modules through \posl{}'s inner language %(the interested reader is referred to  Appendix~\tet{[...]}) 
 to create independent solvers.
-\item The parallel-oriented language based on operators provided by \posl{} (see Figure~\ref{subfig:as}, green shapes) allows the information exchange, and executing modules in parallel. In this stage the information that is interesting to be shared with other solvers is sent using operators. After that we can connect them using {\it communication operators}. We call this final entity a \soset{} (see Figure~\ref{subfig:conn}).
+\item The parallel-oriented language based on operators provided by \posl{} (see Figure~\ref{subfig:as}, green shapes) allows the information exchange, and executing modules in parallel. In this stage the information that is interesting to be shared with other solvers is sent using operators. After that we can connect them using {\it communication operators}. This final entity is called a \INTROsoset{} (see Figure~\ref{subfig:conn}).
 \end{enumerate}
 
 \begin{figure}[h]

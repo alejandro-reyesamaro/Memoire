@@ -76,7 +76,7 @@ The \as{} for the sender solver is presented in Algorithm~\ref{as:costas_sender}
 	\tet{\bf communication} : $C.M.$\;}{%
 	$I \poslop{\mapsto}$\\
 	\While{$\left(\textbf{\Iter < } K_1\right)$}{
-		$\left[R \poslopcond{\Sci < K_3} \left[R \poslop{m} C.M.\right]\right] \poslop{\mapsto}$
+		$\left[R \poslopcond{\Sci \% K_3} \left[R \poslop{m} C.M.\right]\right] \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
 	}
 }
