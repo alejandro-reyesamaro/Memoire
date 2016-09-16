@@ -64,10 +64,24 @@
 \newcommand{\INTROoutlet}{{\it \outlet}}
 \newcommand{\operation}{operation}
 \newcommand{\INTROoperation}{{\it \operation}}
+\newcommand{\INTROcommoper}{\it communication operator}
+\newcommand{\INTROcommopers}{\it \INTROcommoper s}
+\newcommand{\commoper}{communication operator}
+\newcommand{\commopera}{\commoper s}
+
+\newcommand{\poslop}[1]{\textbf{  }\circled{$#1$}\textbf{  }}
+\newcommand{\poslopcond}[1]{\textbf{  }\circled{?}_{#1}\textbf{  }}
 
 \usepackage{stmaryrd}
 \newcommand{\lbk}{\left\llbracket}
 \newcommand{\rbk}{\right\rrbracket}
+\newcommand{\parallelexec}[1]{\lbk#1\rbk_p}
+\newcommand{\lsendpar}{\llparenthesis}
+\newcommand{\rsenddatapar}{\rrparenthesis^d}
+\newcommand{\rsendmodulepar}{\rrparenthesis^m}
+\newcommand{\senddataop}[1]{\lsendpar#1\rsenddatapar}
+\newcommand{\sendmoduleop}[1]{\lsendpar#1\rsendmodulepar}
+
 \newcommand{\produce}{\hspace{5pt}\longmapsto\hspace{5pt}}
 \newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
 
@@ -221,8 +235,7 @@ bookmarksopenlevel=2
 \SetKwFunction{solver}{\bf solver}
 \newcommand{\whileinline}[2] {$[\circlearrowleft $ #1 #2 $]$}%{$[\circlearrowleft $ #1 \tet{\bf begin} #2 \tet{\bf end}$]$}
 
-\newcommand{\poslop}[1]{\textbf{  }\circled{$#1$}\textbf{  }}
-\newcommand{\poslopcond}[1]{\textbf{  }\circled{?}_{#1}\textbf{  }}
+
 \newcounter{qcounter}
 
 \usepackage{array}

@@ -81,7 +81,7 @@ In the following sections all these steps are explained in details, but first, I
 
 \input{sect_3}
 
-\section{Forth stage: connecting the solvers}
+\section{Forth stage: connecting solvers}
 \label{sec:4thstage}
 
 \input{sect_4}
@@ -91,6 +91,6 @@ In the following sections all these steps are explained in details, but first, I
 
 In this chapter \posl{} have been formally presented, as a Parallel--Oriented Solver Language to build meta-heuristic-based solver to solve \CSPs{}. This language provides a set of \oms{} useful to solve a wide range of constrained problems. It is also possible to create new ones, through the low-level framework in C++ programming language. \posl{} also provides a set of \opchs{}, essential features to share information between solvers.
 
-One of the most important advantages of \posl{} is the possibility of creating \ass{} using an operator-based language, that remains independent from used \bothmodules{}. That is the reason why it is possible to create many different solvers using the same solution strategy (the \as) by instantiating it with different modules (\bothmodules). It is also possible to create different \comstrs{} by using {\it connection operators} that \posl{} provides.
+One of the \posl's advantages is the possibility of creating, using an operator-based language, \ass{} remaining independent from concrete \bothmodules{}. It is then possible to create many different solvers builded upon the same \as{} by only instantiating different modules. It is also possible to create different \comstrs{} upon the same \soset{} by using {\it connection operators} that \posl{} provides.
 
-In the next chapter, a detailed study of various communicating and non-communicating strategies is presented, using some \CSPs{} as benchmarks. In this study, is showed the efficacy of \posl{} to analyze quickly and easily these strategies.
+In the next chapter, a detailed study of various communicating and non-communicating strategies is presented using some \CSPs{} as benchmarks. %In this study, is showed the efficacy of \posl{} to analyze quickly and easily these strategies.

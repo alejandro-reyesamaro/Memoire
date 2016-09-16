@@ -12,7 +12,7 @@ Denoted by the letter $\mathcal{M}$, a {\bf module} is:
 \item a \opch{}; or
 \item $\left[\text{OP } \mathcal{M}\right]$, which is the composition of a module $\mathcal{M}$ to be executed sequentially, returning an output depending on the nature of the unary operator \emph{OP}; or\label{subdef:seq_uni}
 \item $\left[\mathcal{M}_1 \text{ OP } \mathcal{M}_2\right]$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed sequentially, returning an output depending on the nature of the binary operator \emph{OP}; or\label{subdef:seq}
-\item $\lbk\mathcal{M}_1 \text{ OP } \mathcal{M}_2\rbk_p$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the binary operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, %(i.e. some modules will be executed sequentially although they were grouped this way); 
+\item $\parallelexec{\mathcal{M}_1 \text{ OP } \mathcal{M}_2}$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the binary operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, %(i.e. some modules will be executed sequentially although they were grouped this way); 
 or it throws an exception otherwise.\label{subdef:par}
 \end{enumerate}
 I denote by $\mathbb{M}$ the space of the modules, and I call \cms{} to the composition of modules described in \ref{subdef:seq} and/or \ref{subdef:par}.
@@ -38,11 +38,11 @@ An \emph{Abstract Solver} $AS$ is a triple $\left(\mathbf{M},\mathcal{L}^m, \mat
 \begin{definition}\label{def:grammar} A {\bf \cm{}'s grammar} is the set $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 \begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 	\item $\mathbf{V} = \left\{CM, OP\right\}$ is the set of {\it variables},
-	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, \llparenthesis, \rrparenthesis^m, \rrparenthesis^o, \circled{$\mapsto$},\circled{?},\circlearrowleft, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
+	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, \lsendpar, \rsenddatapar, \rsendmodulepar, \circled{$\mapsto$},\circled{?},\circlearrowleft, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
 	\item $\mathbf{S} = \left\{CM\right\}$ is the set of {\it start variables},
 	\item and $\mathbf{R} = $
 		\begin{align*} 
-		CM \produce & \alpha \OR \beta \OR \llparenthesis CM \rrparenthesis^o \OR \llparenthesis CM \rrparenthesis^m \OR \left[OP\right] \OR \lbk OP\rbk_p\\
+		CM \produce & \alpha \OR \beta \OR \senddataop{CM} \OR \sendmoduleop{CM} \OR \left[OP\right] \OR \lbk OP\rbk_p\\
 		OP \produce & CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM  \OR\\
 		& CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM  \OR\\
 		& CM \circlearrowleft \text{ be } CM%\left\{CM\right\}		
@@ -56,12 +56,12 @@ In the following I explain some of the concepts in Definition~\ref{def:grammar}:
 	\item The variables $CM$ and $OP$ correspond to a \cm{} and an {\it operator}, respectively.
 	\item The terminals $\alpha$ and $\beta$ represent a \om{} and a \opch{}, respectively.
 	\item The terminal $be$ is a boolean expression.
-	\item The terminals $[\text{ } ], \lbk\text{ } \rbk_p$ are symbols for grouping and defining the way the involved \cms{} are executed. Depending on the nature of the operator, this can be either sequentially or in parallel:
+	\item The terminals $[\text{ } ], \parallelexec{\text{ }}$ are symbols for grouping and defining the way the involved \cms{} are executed. Depending on the nature of the operator, this can be either sequentially or in parallel:
 	\begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 		\item $\left[\text{OP}\right]$: The involved operator will always executed sequentially.
-		\item $\lbk\text{OP}\rbk_p$: The involved operator will be executed in parallel if and only if \emph{OP} supports parallelism. Otherwise, an exception is thrown.
+		\item $\parallelexec{\text{OP}}$: The involved operator will be executed in parallel if and only if \emph{OP} supports parallelism. Otherwise, an exception is thrown.
 	\end{enumerate}
-	\item The terminals $\llparenthesis. \rrparenthesis^m, \llparenthesis.\rrparenthesis^o,$ are operators to send information to other solvers (explained bellow).
+	\item The terminals $\senddataop{.}, \sendmoduleop{.}$ are operators to send information to other solvers (explained bellow).
 	\item All other terminals are \posl{} operators that are detailed later.
 \end{itemize}
 
@@ -130,17 +130,20 @@ In the figure, each rectangle is a \cm.
 
 The following operator is very useful to execute modules sequentially creating bifurcations, subject to some boolean condition:
 
+%---------------------------------------------------------
+%-----   Conditional Execution Operator
+%---------------------------------------------------------
 \begin{definition}\label{op:conditional}
 $\circled{?}$ {\bf Conditional Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \cap \mathcal{D}_2 \neq \emptyset$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then the operation $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{cond}$ as result of the sequential execution of $\mathcal{M}_1$ if $<cond>$ is {\bf true} or $\mathcal{M}_2$, otherwise:
 
 \[
-\mathcal{M}_{cond}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{cond}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -161,7 +164,7 @@ In examples I remove the clause $<cond>$ for simplification.
 We can execute modules sequentially creating also cycles.
 
 \begin{definition}\label{op:cyclic}
-$\circlearrowleft$ {\bf Operator Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
+$\circlearrowleft$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
 
 \[
 \mathcal{M}_{cyc}:\mathcal{D} \rightarrow \mathcal{I} 
@@ -182,17 +185,20 @@ In the examples, I remove the clause $<cond>$ for simplification.
 
 \separation
 
+%---------------------------------------------------------
+%-----   Random Choice Operator
+%---------------------------------------------------------
 \begin{definition}\label{op:rho}
-{\bf (Operator Random Choice)} Let
+$\circled{$\rho$}$ {\bf Random Choice Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subset \mathcal{D}_2$, % and $\mathcal{I}_1 \subset \mathcal{I}_2$, 
+be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$, % and $\mathcal{I}_1 \subset \mathcal{I}_2$, 
 and a real value $\rho \in (0,1)$. Then the operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{rho}$ executing $\mathcal{M}_1$ with probability $\rho$, or executing $\mathcal{M}_2$ with probability $(1-\rho)$:
 
 \[
-\mathcal{M}_{rho}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{rho}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -211,17 +217,20 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\ri
 
 The following operator is very useful if the user needs to use a \opch{} inside an \as{}. As explained before, if a \opch{} does not receive any information from another solver, it returns {\it NULL}. This may cause the undesired termination of the solver if this case is not correctly handled. Next, I introduce the \textbf{Not {\it NULL} Execution Operator} and illustrate how to use it in practice with an example.
 
+%---------------------------------------------------------
+%-----   Not Null Operator
+%---------------------------------------------------------
 \begin{definition}\label{op:or}
 $\circled{$\vee$}$ {\bf Not {\it NULL} Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then, the operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{non}$ that executes $\mathcal{M}_1$ and returns its output if it is not {\it NULL}, or executes $\mathcal{M}_2$ and returns its output otherwise:
 
 \[
-\mathcal{M}_{non}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{non}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -258,14 +267,14 @@ The operator that I have just defined is a {\it short-circuit} operator. It mean
 \begin{definition}\label{op:and}
 $\circled{$\wedge$}$ {\bf {\it BOTH} Execution Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then the operation $\left|\mathcal{M}_1\circled{$\wedge$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{both}$ that executes both $\mathcal{M}_1$ and $\mathcal{M}_2$, then returns the output of $\mathcal{M}_1$ if it is not {\it NULL}, or the output of $\mathcal{M}_2$ otherwise:
 
 \[
-\mathcal{M}_{both}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{both}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -276,14 +285,14 @@ In the following I introduce the concepts of {\it cooperative parallelism} and {
 \begin{definition}\label{op:min}
 $\circled{m}$ {\bf Minimum Operator } Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the greatest value. Then the operation $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{min}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\min\left\{o_1,o_2\right\}$:
 
 \[
-\mathcal{M}_{min}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{min}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -294,14 +303,14 @@ Similarly we define the \textbf{Maximum} operator:
 \begin{definition}\label{op:max}
 $\circled{M}$ {\bf Maximum Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the smallest value. Then the operation $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{max}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\max\left\{o_1,o_2\right\}$:
 
 \[
-\mathcal{M}_{max}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{max}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -320,13 +329,13 @@ Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf
 \begin{definition}\label{op:race}
 $\circled{$\shortdownarrow$}$ {\bf Race Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$ and $\mathcal{I}_1 \subset \mathcal{I}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{race}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns the output of the module ending first:
 
 \[
-\mathcal{M}_{race}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{race}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
 \]
 \end{definition}
 
@@ -346,14 +355,14 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[\lbk V_1\poslop{\shor
 \begin{definition}\label{op:union}
 $\circled{$\cup$}$ {\bf Union Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cup$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cup}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cup V_2$:
 
 \[
-\mathcal{M}_{\cup}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
+\mathcal{M}_{\cup}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
 \]
 \end{definition}
 
@@ -364,49 +373,55 @@ Similarly we define the operators \textbf{Intersection} and \textbf{Subtraction}
 \begin{definition}\label{op:intersec}
 $\circled{$\cap$}$ {\bf Intersection Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cap$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cap}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cap V_2$:
 
 \[
-\mathcal{M}_{\cap}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
+\mathcal{M}_{\cap}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
 \]
 \end{definition}
+
+\separation
 
 \begin{definition}\label{op:subst}
-{\bf (Operator Subtraction)} Let 
+$\circled{$\setminus$}$ {\bf Subtraction Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{-}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{-}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1 - V_2$:
+be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
+Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\setminus$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\setminus}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1 \setminus V_2$:
 
 \[
-\mathcal{M}_{-}:\mathcal{D}_1\cap\mathcal{D}_2 \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
+\mathcal{M}_{\setminus}:\mathcal{D} \rightarrow \mathcal{I}_1
 \]
 \end{definition}
+
+\separation
 
 Now, I define the operators which allows to send information to other solvers. Two types of information can be sent: 
 \begin{inparaenum}[i)]
 	\item the output of the \om{} and send its output, or 
 	\item the \om{} itself.
-\end{inparaenum}. This utility is very useful in terms of sharing behaviors between solvers.
+\end{inparaenum} This feature is very useful in terms of sharing behaviors between solvers.
 
 \begin{definition}\label{op:osend}
-{\bf (Sending Data Operator)} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\llparenthesis \mathcal{M}\rrparenthesis^{o}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output outside:
+$\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\senddataop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output to a communication module:
 
 \[
 \mathcal{M}_{sendD}:\mathcal{D} \rightarrow \mathcal{I}
 \]
 \end{definition}
 
-Similarly we define the operator \textbf{Send Module}:
+\separation
+
+Similarly we define the \textbf{Send Module} operator:
 
 \begin{definition}\label{op:msend}
-{\bf (Sending Module Operator)} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\llparenthesis \mathcal{M}\rrparenthesis^{m}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself outside:
+$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself a communication module:
 
 \[
 \mathcal{M}_{sendM}:\mathcal{D} \rightarrow \mathcal{I}
@@ -417,7 +432,7 @@ Similarly we define the operator \textbf{Send Module}:
 $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
 
 I also build another, as its complement: sending the accepted configuration to outside, using the {\bf sending data operator} (see Figure\ref{subfig:sender_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\llparenthesis A\rrparenthesis^{o}\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\senddataop{A}\right]\right]\right]$$
 
 In the Section~\ref{sec:4thstage} I explain how to connect solvers to each other.
 }
@@ -436,9 +451,13 @@ In the Section~\ref{sec:4thstage} I explain how to connect solvers to each other
 \label{fig:send_recv}
 \end{figure}
 
-Once all desired abstract modules are linked together with operators, we obtain the {\it root} \cm{}, an important part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
+\tet{Sending \ms{} through this operator is performed by sending an identifier, in the case of \oms, or the corresponding \posl{} code in the case of \cms. The receptor \dopch{} create the \m, executes it and returns its output. There exists other way to do this task more efficiently, for example, compiling modules in a pre--processing stage and store them in memory, to be executed afterwards by sending only the reference. However, \posl{} does it in this way, because it was thought to be able to apply learning techniques to the received modules in the future, to adapt them to the experience of the solver during the search.}
 
-An \as{} is defined as follows: after declaring the \mbox{\tet{\bf abstract solver}}'s name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined as the solver's body (the root \cm), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
+\separation
+
+Once all desired abstract modules are linked together with operators, we obtain the root \cm{}, i.e., the algorithmic part part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
+
+An \as{} is defined as follows: after declaring the \mbox{\tet{\bf \as}}'s name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined as the solver's body (the root \cm{} $\mathcal{M}$), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
 
 An \as{} can be declared through the  simple regular expression:
 
@@ -468,7 +487,7 @@ For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver co
 		%{
 			$I$ \sec \; %\circled{$\mapsto$}$\;
 			\While{$($\Iter \% $K_1)$}{
-				$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \llparenthesis A\rrparenthesis^o\right]\right]$\;
+				$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$\;
 			}
 		%}
 	}
