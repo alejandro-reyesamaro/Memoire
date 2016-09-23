@@ -49,6 +49,7 @@
 \newcommand{\as}{abstract solver}
 \newcommand{\ass}{\as s}
 \newcommand{\Ass}{Abstract solvers}
+\newcommand{\As}{Abstract solver}
 \newcommand{\INTROas}{{\it \as}}
 \newcommand{\cm}{compound module}
 \newcommand{\cms}{\cm  s}
@@ -68,6 +69,10 @@
 \newcommand{\INTROcommopers}{\it \INTROcommoper s}
 \newcommand{\commoper}{communication operator}
 \newcommand{\commopera}{\commoper s}
+\newcommand{\commstr}{communication strategy}
+\newcommand{\commstrs}{communication strategies}
+\newcommand{\oneTone}{one~to~one}
+\newcommand{\oneTn}{one~to~N}
 
 \newcommand{\poslop}[1]{\textbf{  }\circled{$#1$}\textbf{  }}
 \newcommand{\poslopcond}[1]{\textbf{  }\circled{?}_{#1}\textbf{  }}
@@ -81,6 +86,9 @@
 \newcommand{\rsendmodulepar}{\rrparenthesis^m}
 \newcommand{\senddataop}[1]{\lsendpar#1\rsenddatapar}
 \newcommand{\sendmoduleop}[1]{\lsendpar#1\rsendmodulepar}
+
+\newcommand{\onetoone}{\poslop{\rightarrow}}
+\newcommand{\oneton}{\poslop{\rightsquigarrow}}
 
 \newcommand{\produce}{\hspace{5pt}\longmapsto\hspace{5pt}}
 \newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
@@ -234,6 +242,7 @@ bookmarksopenlevel=2
 \SetKwFunction{str}{\bf strategy}
 \SetKwFunction{solver}{\bf solver}
 \newcommand{\whileinline}[2] {$[\circlearrowleft $ #1 #2 $]$}%{$[\circlearrowleft $ #1 \tet{\bf begin} #2 \tet{\bf end}$]$}
+\newcommand{\algoindent}{\hspace{16pt}}
 
 
 \newcounter{qcounter}
