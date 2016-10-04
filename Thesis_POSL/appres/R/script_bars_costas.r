@@ -1,0 +1,29 @@
+script_bars_costas <- function(){
+
+values <- matrix(c(
+21/30*100, 18/30*100, 22/30*100, 27/30*100, 9/30*100, 6/30*100, 15/30*100, 9/30*100, #receivers
+9/30*100, 12/30*100, 8/30*100, 3/30*100, 6/30*100, 9/30*100, 2/30*100, 1/30*100, #senders
+0, 0, 0, 0, 15/30*100, 15/30*100, 13/30*100, 20/30*100), #non communicating
+nrow = 3,ncol = 8, byrow = TRUE)
+
+colors <- c("red","blue","black")
+strs <- c("A1-1","B1-1","A1-n","B1-n","50A1-1","50B1-1","50A1-n","50B1-n")
+solvers <- c("Receiver","Sender","Non communicating")
+
+# Give the chart file a name.
+dev=pdf("c19_per_BP.pdf", height=14, width=21)
+par(cex.axis=1.7)
+par(cex.lab=2.5)
+par(mar=c(8,6,1,1)+.1)
+
+# Create the bar chart.
+barplot(values, ylim=c(0,125), names.arg = strs, ylab="Percents", col = colors)
+
+# Add the legend to the chart.
+legend("topright", solvers, cex = 2, fill = colors)
+mtext("Communication strategy", side=1, line=5, cex=2.5)
+
+# Save the file.
+dev.off()
+
+}

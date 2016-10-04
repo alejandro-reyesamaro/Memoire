@@ -1,0 +1,44 @@
+\chapter{Results of experiments with \carrp}
+\label{app:cap}
+\textit{This Appendix, presents graphically a summary of individuals runs using \carrp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
+\vfill
+\newpage
+
+In Figure~\ref{boxplot:comm} labels of the x-axis correspond to the following strategies:
+\begin{enumerate}[itemsep=-1mm]
+\item \textbf{NC}: Non communication strategy, 
+\item \textbf{A1-1}: 100\% of communicating solvers performing the \commstr{} A \oneTone, 
+\item \textbf{B1-1}: 100\% of communicating solvers performing the \commstr{} B \oneTone,
+\item \textbf{A1-n}: 100\% of communicating solvers performing the \commstr{} A \oneTn,
+\item \textbf{B1-n}: 100\% of communicating solvers performing the \commstr{} B \oneTn,
+\item \textbf{50A1-1}: 50\% of communicating solvers performing the \commstr{} A \oneTone, 
+\item \textbf{50B1-1}: 50\% of communicating solvers performing the \commstr{} B \oneTone,
+\item \textbf{50A1-n}: 50\% of communicating solvers performing the \commstr{} A \oneTn,
+\item \textbf{50B1-n}: 50\% of communicating solvers performing the \commstr{} B \oneTn,
+\end{enumerate}
+
+Figure~\ref{barplot:19} represents the percentage of winner solvers for each communication strategy, according to four different types:
+\begin{enumerate}[itemsep=-1mm]
+\item \receiver{Receiver}: Receiver solver wining thanks to the received information, 
+\item \sender{Sender}: Sender solver, 
+%\item \nonreceiver{Pasive receiver}: Receiver solver wining without using the received information,
+\item \textbf{Non communicating}: Non communicating solver.
+\end{enumerate}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{c19_select_BP.pdf}
+\caption{Comparison between sequential and parallel runs to solve \CARRP{} 19 using \posl}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{c19_comm_BP.pdf}
+\caption{Different communication strategies to solve \CARRP{} 19 using \posl}\label{boxplot:comm}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.8\textwidth]{c19_per_BP.pdf}
+\caption{Solver proportion for each communication strategy to solve \CARRP{} 19 using \posl}\label{barplot:19}
+\end{figure}
