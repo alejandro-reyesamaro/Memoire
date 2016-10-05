@@ -1,7 +1,7 @@
 %----------------------------------------------------------------------------------------------
 %------ POSL
 %----------------------------------------------------------------------------------------------
-\chapter{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers}
+\chapter{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}
 \label{chap:posl}
 \textit{In this chapter \posl{} is introduced as the main contribution of this thesis, and a new way to solve \csps{}. Its characteristics and advantages are summarized, and a general procedure to be followed is described, in order to build parallel solvers using \posl, followed by a detailed description of each of the single steps.}
 \vfill
@@ -10,15 +10,15 @@
 
 \section{Introduction}
 
-Meta-heuristic methods, despite showing very good results solving \CSPs, they are frequently not enough for solve them, when they are applied to problem instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction of this thesis was tackling the one of the weakest points of meta-heuristic methods: the parameters. In Chapter~\ref{chap:prior} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings was presented. This experiment did not produce encouraging results, and for that reason it was decided to abandon the idea as the main direction of the thesis. However, I believe that it can be an idea to be considered as a future work.
+Meta-heuristic methods, despite showing very good results solving \CSPs, they are frequently not enough for solve them, when they are applied to problem instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction of this thesis was tackling the one of the weakest points of meta-heuristic methods: theirs parameters. In Chapter~\ref{chap:prior} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings was presented. This experiment did not produce encouraging results. That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
 
-With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided focusing completely on the parallel approach. In Chapter~\ref{chap:prior} it was presented a study in which the problem-subdivision approach was applied to the resolution of {\it K-Medoids Problem}. The main goal of this work was generalizing the proposed ideas to similar problems. It was only a theoretical study because it was realised in parallel with what would latter be the main scientific contribution of this thesis.
+With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided to focus the thesis completely on the parallel approach. In Chapter~\ref{chap:prior} it was presented a study in which the problem-subdivision approach was applied to the resolution of {\it K-Medoids Problem}. The main goal of this work was generalizing the proposed ideas to similar problems. It was only a theoretical study, performed in parallel with what would latter be the main scientific contribution of this thesis.
 
-After analyzing all weak point of the most important previews works, another issue arises, frequently undervalued: the codding time, that is always long when codding parallel programs. This was the main motivation to start searching techniques for implementing parallel solution strategies with or without communication in a fast and easy way. The main goal was creating a tool providing:
+After analyzing all weak points of the most important previews works, another issue arises, frequently undervalued: the codding time, that is always long when codding parallel programs. This was the main motivation to start searching techniques for implementing parallel solution strategies with or without communication in a fast and easy way. The main goal was creating a tool providing:
 \begin{enumerate}
 \item An simple way to create \textit{flexible} solvers, i.e., solvers ables to be modified with a few effort.
 \item Fast and simple mechanisms to connect solvers, ables to exchange information.
-\item A way to create numerous and different parallel strategies designs, where different communicating and not communicating solvers can be combined, exploiting to the maximum computation resources. 
+\item A way to create numerous and different parallel strategies, where different communicating and not communicating solvers can be combined, exploiting to the maximum computation resources. 
 \end{enumerate}
 
 \subsection{Precedents}
@@ -91,6 +91,6 @@ In the following sections all these steps are explained in details, but first, I
 
 In this chapter \posl{} have been formally presented, as a Parallel--Oriented Solver Language to build meta-heuristic-based solver to solve \CSPs{}. This language provides a set of \oms{} useful to solve a wide range of constrained problems. It is also possible to create new ones, through the low-level framework in C++ programming language. \posl{} also provides a set of \opchs{}, essential features to share information between solvers.
 
-One of the \posl's advantages is the possibility of creating, using an operator-based language, \ass{} remaining independent from concrete \bothmodules{}. It is then possible to create many different solvers builded upon the same \as{} by only instantiating different modules. It is also possible to create different \comstrs{} upon the same \soset{} by using {\it connection operators} that \posl{} provides.
+One of the \posl's advantages is the possibility of creating, using an operator-based language, \ass{} remaining independent from concrete \bothmodules{}. It is then possible to create many different solvers builded upon the same \as{} by only instantiating different modules. It is also possible to create different \comstrs{} upon the same \soset{} by using \commopers{} that \posl{} provides.
 
 In the next chapter, a detailed study of various communicating and non-communicating strategies is presented using some \CSPs{} as benchmarks. %In this study, is showed the efficacy of \posl{} to analyze quickly and easily these strategies.

@@ -100,7 +100,7 @@ values <- matrix(c(
 nrow = 4,ncol = 12, byrow = TRUE)
 script_boxcom_golfers(data, "g8_comm_BP.pdf", 11, mean(par), mean(com11_100_v2), 0.7, col_par_box, col_comm_box)
 data<-data.frame(sec,best,par) #par = first improvement
-script_boxsel_golfers(data, "g8_select_BP.pdf", 2.9, mean(sec), mean(par), col_par_box, col_comm_box)
+script_boxsel_golfers(data, "g8_select_BP.pdf", 1.23, mean(sec), mean(par), col_par_box, col_comm_box)
 script_bars_golfers(values, "g8_per_BP.pdf")
 
 #-------- costas
@@ -122,9 +122,9 @@ data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol8_comm_BP.pdf", mean(parT), mean(com1n), 0.2, col_par_box, col_comm_box)
 values <- matrix(c(
 13/30*100, 15/30*100, #receivers
-17/30*100, 15/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+17/30*100, 15/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol8_per_BP.pdf")
 
 
@@ -141,9 +141,9 @@ data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol10_comm_BP.pdf", mean(parT), mean(com1n), 15.2, col_par_box, col_comm_box)
 values <- matrix(c(
 13/30*100, 14/30*100, #receivers
-17/30*100, 16/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+17/30*100, 16/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol10_per_BP.pdf")
 
 
@@ -160,7 +160,7 @@ data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol11_comm_BP.pdf", mean(parT), mean(com1n), 225, col_par_box, col_comm_box)
 values <- matrix(c(
 16/30*100, 21/30*100, #receivers
-14/30*100, 9/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+14/30*100, 9/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol11_per_BP.pdf")

@@ -1,4 +1,4 @@
-We call \INTROsoset{} to the pool of (concrete) solvers that we plan to use in parallel to solve a problem. Once we have our \soset, the last stage is to connect solvers to each other. Up to this point, solvers are disconnected, but they are ready to establish the communication. \posl{} provides tools  to the user to easily define cooperative strategies based on communication jacks and outlets.
+Once a set of solvers is created, the last stage is to connect them to each other. Up to this point, solvers are disconnected, but they are ready to establish the communication. \posl{} provides tools  to the user to easily define cooperative strategies based on communication jacks and outlets. The pool of (concrete) connected solvers to be executed in parallel to solve a problem is called a \INTROsoset{}. 
 
 %In the following we present two important concepts necessary to formalize \INTROcommoper.
 
@@ -18,6 +18,7 @@ We call \INTROsoset{} to the pool of (concrete) solvers that we plan to use in p
 \end{inparaenum}
 \end{definition} 
 
+\separation
 
 The communication is established by following the following rules guideline:
 \begin{enumerate}%\begin{inparaenum}
@@ -28,8 +29,6 @@ The communication is established by following the following rules guideline:
 
 %With the operator $(\cdot)$ we can have access to \oms{} sending information and to the \opch's names in a solver. 
 %For example: $Solver_0\cdot \mathcal{M}$ provides access to the \om{} $\mathcal{M}$ in $Solver_0$ if and only if it is affected by a {\it sending} operator, and $Solver_1\cdot CM$ provides access to the \opch{} $CM$ in $Solver_1$.
-
-\separation
 
 Following, we define \textit{connection operators} that \posl{} provides.
 
@@ -42,7 +41,7 @@ $\poslop{\rightarrow}$ {\bf Connection One-to-One Operator} Let
 \[
 \mathcal{J} \poslop{\rightarrow} \mathcal{O}
 \]
-connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ (see Figure~\ref{subfig:comm_simple}).
+connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ (see Figure~\ref{subfig:comm_simple}).
 \end{definition}
 
 \separation
@@ -56,7 +55,7 @@ $\poslop{\rightsquigarrow}$ {\bf Connection One-to-N Operator} Let
 \[
 \mathcal{J} \poslop{\rightsquigarrow} \mathcal{O}
 \]
-connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with every \outlet{} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$ and $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).
+connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with every \outlet{} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ and $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).
 \end{definition}
 
 \separation
@@ -173,13 +172,13 @@ searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 $$\left[S\cdot A\right] \poslop{\rightsquigarrow} \left[Z\cdot C.M.\right]$$
 If the operator {\bf 1~to~N} is used with only with one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
 $$\left[S_1\cdot A, S_2\cdot A, S_3\cdot A\right]\poslop{\rightsquigarrow} \left[Z_1\cdot C.M., Z_2\cdot C.M., Z_3\cdot C.M.\right]$$
-\posl{} provides a mechanism to make this easier, through {\it namespace expansions}.
+\posl{} provides a mechanism to make this easier, through two {\it syntactic sugars} explained below.
 }
 
 %\subsection{Solver namespace expansion}
 \separation
 
-One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel easily. For that reason, \posl{} provides two \textit{syntactic sugars} %forms of namespace expansion, 
+One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel easily. For that reason, \posl{} provides two syntactic sugars %forms of namespace expansion, 
 in order to create sets of solvers using already declared ones:
 \begin{enumerate}
 \item Using an integer to denote how many times a solver name will appear in the declaration.
@@ -206,7 +205,9 @@ The following example explains clearly these syntactic sugars:
 %\end{align*}
 %and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, $k\in[2..K]$, are created using the same solver declaration of solvers $S_i$ and $R_j$, respectively.
 
-\poslexample{Suppose that I have created  solvers $S$ and $Z$ mentioned in the previews example. As a communication strategy, I want to connect them through the operator {\bf 1~to~N}, using $S$ as sender and $Z$ as receiver. Then,  using \textbf{namespace expansions},  I need to declare how many solvers I want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy. Notice in this example that the connection operation is affected also by the number $2$ at the end of the line, as {\bf connection declaration expansion}. In that sense, and supposing that 12 units of computation are available, a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn} can be obtained.}
+\poslexample{Suppose that I have created  solvers $S$ and $Z$ mentioned in the previews example. As a communication strategy, I want to connect them through the operator {\bf 1~to~N}, using $S$ as sender and $Z$ as receiver. Then,  %using \textbf{namespace expansions}, 
+we need to declare how many solvers I want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy. Notice in this example that the connection operation is affected also by the number $2$ at the end of the line. %, as {\bf connection declaration expansion}. 
+In that sense, and supposing that 12 units of computation are available, a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn} can be obtained.}
 
 \begin{algorithm}[H]
 \dontprintsemicolon

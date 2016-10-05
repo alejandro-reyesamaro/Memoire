@@ -11,7 +11,7 @@ strs <- c("A1-1","B1-1","A1-n","B1-n","50A1-1","50B1-1","50A1-n","50B1-n")
 solvers <- c("Receiver","Sender","Non communicating")
 
 # Give the chart file a name.
-dev=pdf("c19_per_BP.pdf", height=14, width=21)
+dev=pdf("c19_per_BP.pdf", height=14, width=12)
 par(cex.axis=1.7)
 par(cex.lab=2.5)
 par(mar=c(8,6,1,1)+.1)
@@ -25,5 +25,4 @@ mtext("Communication strategy", side=1, line=5, cex=2.5)
 
 # Save the file.
 dev.off()
-
 }

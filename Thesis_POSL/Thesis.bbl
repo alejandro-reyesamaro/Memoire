@@ -1,4 +1,30 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Brownlee2014}
+Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
+\newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
+  research}.
+\newblock In {\em Proceedings of the Companion Publication of the 2014 Annual
+  Conference on Genetic and Evolutionary Computation}, GECCO Comp '14, pages
+  1133--1140, Vancouver, BC, 2014. ACM.
+
+\bibitem{Fukunaga2008}
+Alex~S Fukunaga.
+\newblock {Automated discovery of local search heuristics for satisfiability
+  testing.}
+\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
+
+\bibitem{Landtsheer2015}
+Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
+\newblock {Combining Neighborhoods into Local Search Strategies}.
+\newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
+  Springer.
+
+\bibitem{Martin2016}
+Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
+  and Edmund~K Burke.
+\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
+\newblock {\em European Journal of Operational Research}, 2016.
 
 \bibitem{Reyes-amaro}
 Alejandro Reyes-amaro, {\'{E}}ric Monfroy, and Florian Richoux.

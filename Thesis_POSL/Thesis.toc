@@ -1,25 +1,20 @@
 \select@language {english}
-\contentsline {part}{I\hspace {1em}Presentation}{1}{part.1}
-\contentsline {part}{II\hspace {1em}Study and evaluation of {\sc POSL}}{3}{part.2}
-\contentsline {chapter}{\numberline {1}Experiments design and results}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Solving the {\it Social Golfers}{} {\it Problem}}{6}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Problem definition}{7}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Experiment design and results}{7}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Solving the {\it N-Queens}{} {\it Problem}}{17}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Problem definition}{18}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Experiment design Nr. 1}{18}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Results analysis of experiment Nr. 1}{19}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Experiment design Nr. 2}{20}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}Results analysis of experiment Nr. 2}{22}{subsection.1.2.5}
-\contentsline {section}{\numberline {1.3}Solving the {\it Costas Array}{} {\it Problem}}{23}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Problem definition}{23}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Experiment design and results}{23}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Solving the {\it Golomb Ruler}{} {\it Problem}}{27}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Problem definition}{28}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Experiment design and results}{28}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}Summarizing}{33}{section.1.5}
-\contentsline {chapter}{\numberline {2}Bibliography}{35}{chapter.2}
-\contentsline {part}{III\hspace {1em}Appendix}{37}{part.3}
-\contentsline {chapter}{\numberline {3}Results of experiments with {\it Social Golfers}{} {\it Problem}}{39}{chapter.3}
-\contentsline {chapter}{\numberline {4}Results of experiments with {\it Costas Array}{} {\it Problem}}{47}{chapter.4}
-\contentsline {chapter}{\numberline {5}Results of experiments with {\it Golomb Ruler}{} {\it Problem}}{51}{chapter.5}
+\contentsline {part}{I\hspace {1em}{\sc POSL}{}: Parallel \penalty \@M {Oriented} Solver~Language\hfill }{1}{part.1}
+\contentsline {chapter}{\numberline {1}A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction}{4}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Precedents}{5}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}POSL}{5}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Modeling the target benchmark}{6}{section.1.2}
+\contentsline {section}{\numberline {1.3}First stage: creating {\sc POSL}'s modules}{9}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Computation module}{9}{subsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.1.1}Creating new computation{} modules}{10}{subsubsection.1.3.1.1}
+\contentsline {subsection}{\numberline {1.3.2}Communication modules}{11}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Second stage: assembling {\sc POSL}'s modules}{13}{section.1.4}
+\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{26}{section.1.5}
+\contentsline {section}{\numberline {1.6}Forth stage: connecting solvers}{26}{section.1.6}
+\contentsline {section}{\numberline {1.7}Summarize}{31}{section.1.7}
+\contentsline {chapter}{\numberline {2}Bibliography}{33}{chapter.2}
+\contentsline {part}{II\hspace {1em}Appendix}{35}{part.2}
+\contentsline {chapter}{\numberline {3}Results of experiments with {\it Social Golfers}{} {\it Problem}}{37}{chapter.3}
+\contentsline {chapter}{\numberline {4}Results of experiments with {\it Costas Array}{} {\it Problem}}{43}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results of experiments with {\it Golomb Ruler}{} {\it Problem}}{47}{chapter.5}

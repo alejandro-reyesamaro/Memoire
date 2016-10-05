@@ -1,4 +1,4 @@
-Modules mentioned above are grouped \modified{according its signature. An \textit{abstract module} is a module that represents all modules with the same signature.} For example, the module showed in Figure~\ref{fig:om} is a \om{} based on an abstract module that receives a configuration and returns a neighborhood. %In that sense, an example of a concrete \om{} (or just \om{}) can be a function receiving a configuration, and returning a neighborhood constituted by $N$ configurations which only differ from the input configuration in one entry.
+Modules mentioned above are grouped according to its signature. An \textit{abstract module} is a module that represents all modules with the same signature. For example, the module showed in Figure~\ref{fig:om} is a \om{} based on an abstract module that receives a configuration and returns a neighborhood. %In that sense, an example of a concrete \om{} (or just \om{}) can be a function receiving a configuration, and returning a neighborhood constituted by $N$ configurations which only differ from the input configuration in one entry.
 
 In this stage an \INTROas{} is coded using \posl{}. It takes abstract modules as {\it parameters} and combines them through operators. Through the \as, we can also decide which information to send to other solvers. % by using some operators to send the result of a computation module (see below). In the following we present a formal and more detailed specification of \posl{}'s operators. 
 
@@ -45,7 +45,7 @@ An \emph{Abstract Solver} $AS$ is a triple $\left(\mathbf{M},\mathcal{L}^m, \mat
 		CM \produce & \alpha \OR \beta \OR \senddataop{CM} \OR \sendmoduleop{CM} \OR \left[OP\right] \OR \lbk OP\rbk_p\\
 		OP \produce & CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM  \OR\\
 		& CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM  \OR\\
-		& CM \circlearrowleft \text{ be } CM%\left\{CM\right\}		
+		& \circlearrowleft \text{ be } CM%\left\{CM\right\}		
 		\end{align*} is a set of {\it rules}
 \end{enumerate} 
 %For simplicity, we will use, from now on, the name of \emph{Module} to refer ether to an \module, to an \opch, or to a \cm.
@@ -65,7 +65,7 @@ In the following I explain some of the concepts in Definition~\ref{def:grammar}:
 	\item All other terminals are \posl{} operators that are detailed later.
 \end{itemize}
 
-In the following we define \posl{} operators. In order to group modules, like in Definition~\ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|OP\right|$ as generic grouper. \modified{In order to help the reader to easily understand how to use operators, I use an example of a solver that I build step by step, while presenting the definitions.}
+In the following we define \posl{} operators. For grouping modules, like in Definition~\ref{def:module}(\ref{subdef:seq}) and \ref{def:module}(\ref{subdef:par}), we will use $\left|OP\right|$ as generic grouper. In order to help the reader to easily understand how to use operators, I use an example of a solver that I build step by step, while presenting the definitions.
 
 %\begin{example}
 %\mybox{Example}
@@ -103,7 +103,7 @@ be modules, where $\mathcal{I}_1 \subseteq \mathcal{D}_2$. Then the operation $\
 This is an example of an operator that does not support the execution of its involved \cms{} in parallel, because the input of the second \cm{} is the output of the first one.
 
 \poslexample{
-Coming back to the example, I can use defined abstract \oms{} to create a \cm{} that perform only one iteration of a local search, using the {\bf Sequential Execution} operator. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create an other \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
+Coming back to the example, I can use defined abstract \oms{} to create a \cm{} that performs only one iteration of a local search, using the {\bf Sequential Execution} operator. I create a \cm{} to execute sequentially $I$ and $V$ (see Figure~\ref{subfig:ex_seq1}), then I create another \cm{} to execute sequentially the \cm{} already created and $S$ (see Figure~\ref{subfig:ex_seq2}), and finally this \cm{} and the \om{} $A$ are executed sequentially (see Figure~\ref{subfig:ex_seq3}). The \cm{} presented in Figure~\ref{subfig:ex_seq3} can be coded as follows:
 $$\left[\left[\left[I\poslop{\mapsto}V\right]\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]$$
 In the figure, each rectangle is a \cm.
 }
@@ -262,7 +262,7 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\ri
 
 \separation
 
-The operator that I have just defined is a {\it short-circuit} operator. It means that if the first argument (module) does not return {\it NULL}, the second will not be executed. \posl{} provides another operator with the same functionality but not {\it short-circuit}. \modified{This operator is necessary if the user wants a side effect by always executing the second module also.}
+The operator that I have just defined is a {\it short-circuit} operator. It means that if the first argument (module) does not return {\it NULL}, the second will not be executed. \posl{} provides another operator with the same functionality but not {\it short-circuit}. This operator is necessary if the user wants a side effect by always executing the second module also.
 
 \begin{definition}\label{op:and}
 $\circled{$\wedge$}$ {\bf {\it BOTH} Execution Operator} Let 
@@ -280,7 +280,7 @@ Then the operation $\left|\mathcal{M}_1\circled{$\wedge$}\mathcal{M}_2\right|$ d
 
 \separation
 
-In the following I introduce the concepts of {\it cooperative parallelism} and {\it competitive parallelism}. We say that cooperative parallelism exists when two or more processes are running separately, and the general result will be some combination of the results of at least some involved processes (e.g. Definitions~\ref{op:min} and~\ref{op:max}). \modified{On the other hand, competitive parallelism arise when the general result comes from a unique process, usialy the one finishing first (e.g. Definition~\ref{op:race}).}
+In the following I introduce the concepts of {\it cooperative parallelism} and {\it competitive parallelism}. We say that cooperative parallelism exists when two or more processes are running separately, and the general result will be some combination of the results of at least some involved processes (e.g. Definitions~\ref{op:min} and~\ref{op:max}). On the other hand, competitive parallelism arise when the general result comes from an unique process, usialy the one finishing first (e.g. Definition~\ref{op:race}).
 
 \begin{definition}\label{op:min}
 $\circled{m}$ {\bf Minimum Operator } Let
@@ -350,7 +350,7 @@ $$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[\lbk V_1\poslop{\shor
 
 \separation
 
-\modified{Some \posl's data types are related to sets, like neighborhoods. For that reasson, it is useful to define operators to handle that kind of data. Algthogh at this moment \posl{} is designed only to create solvers based on local-search meta-heuristic, is was conceived to be able to create population-based solvers as a future direction. In that sens, these operators are useful also.}
+Some \posl's data types are related to sets, like neighborhoods. For that reasson, it is useful to define operators to handle that kind of data. Algthogh at this moment \posl{} is designed only to create solvers based on local-search meta-heuristic, is was conceived to be able to create population-based solvers as a future direction. In that sens, these operators are useful also.
 
 \begin{definition}\label{op:union}
 $\circled{$\cup$}$ {\bf Union Operator} Let 
@@ -404,7 +404,7 @@ Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, 
 
 Now, I define the operators which allows to send information to other solvers. Two types of information can be sent: 
 \begin{inparaenum}[i)]
-	\item the output of the \om{} and send its output, or 
+	\item the output of the \om{} as result of its execution, or 
 	\item the \om{} itself.
 \end{inparaenum} This feature is very useful in terms of sharing behaviors between solvers.
 
@@ -421,7 +421,7 @@ $\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rig
 Similarly we define the \textbf{Send Module} operator:
 
 \begin{definition}\label{op:msend}
-$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself a communication module:
+$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself to a communication module:
 
 \[
 \mathcal{M}_{sendM}:\mathcal{D} \rightarrow \mathcal{I}
@@ -451,26 +451,26 @@ In the Section~\ref{sec:4thstage} I explain how to connect solvers to each other
 \label{fig:send_recv}
 \end{figure}
 
-\tet{Sending \ms{} through this operator is performed by sending an identifier, in the case of \oms, or the corresponding \posl{} code in the case of \cms. The receptor \dopch{} create the \m, executes it and returns its output. There exists other way to do this task more efficiently, for example, compiling modules in a pre--processing stage and store them in memory, to be executed afterwards by sending only the reference. However, \posl{} does it in this way, because it was thought to be able to apply learning techniques to the received modules in the future, to adapt them to the experience of the solver during the search.}
+Sending \ms{} through this operator is performed by sending an identifier, in the case of \oms, or the corresponding \posl{} code in the case of \cms. The receptor \dopch{} create the \m, executes it and returns its output. There exists other way to do this task more efficiently, for example, compiling modules in a pre--processing stage and store them in memory, to be executed afterwards by sending only the reference. However, \posl{} does it in this way, because it was thought to be able to apply learning techniques to the received modules in the future, to adapt them to the experience of the solver during the search.
 
 \separation
 
 Once all desired abstract modules are linked together with operators, we obtain the root \cm{}, i.e., the algorithmic part part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
 
-An \as{} is defined as follows: after declaring the \mbox{\tet{\bf \as}}'s name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined as the solver's body (the root \cm{} $\mathcal{M}$), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
+An \as{} is declared as follows: after declaring the \mbox{\tet{\bf \as}}'s name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined as the solver's body (the root \cm{} $\mathbf{M}$), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
 
 An \as{} can be declared through the  simple regular expression:
 
 \begin{center}
-\tet{\bf abstract solver} {\it name} \tet{\bf computation}: $L^m$ (\tet{\bf communication}: $L^c$)? \tet{\bf begin} $\mathcal{M}$ \tet{\bf end}
+\tet{\bf abstract solver} {\it name} \tet{\bf computation}: $\mathcal{L}^m$ (\tet{\bf communication}: $\mathcal{L}^c$)? \tet{\bf begin} $\mathbf{M}$ \tet{\bf end}
 \end{center}
 
 where:
 \begin{itemize}
 \item {\it name} is the identifier of the \as{}, 
-\item $L^m$ is the list of abstract \oms{},
-\item $L^c$ is the list of abstract \opchs{}, and
-\item $\mathcal{M}$ is the root \cm.
+\item $\mathcal{L}^m$ is the list of abstract \oms{},
+\item $\mathcal{L}^c$ is the list of abstract \opchs{}, and
+\item $\mathbf{M}$ is the root \cm.
 \end{itemize}
 
 For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver corresponding to Figure~\ref{subfig:as}.
@@ -483,13 +483,10 @@ For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver co
 \tet{\bf computation} : $I, V, S, A$ \; 
 \tet{\bf connection}: $C.M.$}{
 	\Begin{
-		%\While{$($\Iter $< K_1)$}
-		%{
-			$I$ \sec \; %\circled{$\mapsto$}$\;
-			\While{$($\Iter \% $K_1)$}{
-				$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$\;
-			}
-		%}
+		$I \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
+			$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$%
+		}
 	}
 }
 \caption{\posl{} pseudo-code for the \as{} presented in Figure~\ref{subfig:as}}\label{algo:as_example}

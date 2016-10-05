@@ -100,7 +100,7 @@ values <- matrix(c(
 nrow = 4,ncol = 12, byrow = TRUE)
 script_boxcom_golfers(data, "g8_comm_BP.pdf", 11, mean(par), mean(com11_100_v2), 0.7, col_par_box, col_comm_box)
 data<-data.frame(sec,best,par) #par = first improvement
-script_boxsel_golfers(data, "g8_select_BP.pdf", 2.9, mean(sec), mean(par), col_par_box, col_comm_box)
+script_boxsel_golfers(data, "g8_select_BP.pdf", 1.23, mean(sec), mean(par), col_par_box, col_comm_box)
 script_bars_golfers(values, "g8_per_BP.pdf")
 
 #-------- costas
@@ -122,9 +122,9 @@ data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol8_comm_BP.pdf", mean(parT), mean(com1n), 0.2, col_par_box, col_comm_box)
 values <- matrix(c(
 13/30*100, 15/30*100, #receivers
-17/30*100, 15/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+17/30*100, 15/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol8_per_BP.pdf")
 
 
@@ -141,9 +141,9 @@ data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol10_comm_BP.pdf", mean(parT), mean(com1n), 15.2, col_par_box, col_comm_box)
 values <- matrix(c(
 13/30*100, 14/30*100, #receivers
-17/30*100, 16/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+17/30*100, 16/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol10_per_BP.pdf")
 
 
@@ -155,12 +155,12 @@ parT=c(32.170,86.650,161.460,220.280,74.050,66.420,179.500,117.350,103.960,9.800
 com11=c(58.150,211.410,5.580,81.170,44.770,92.430,62.460,48.680,50.410,192.780,84.510,174.050,62.130,116.400,69.700,78.790,53.510,42.740,73.150,38.160,12.310,96.690,190.280,78.940,98.090,159.820,96.030,78.610,24.700,86.470)
 com1n=c(170.270,62.810,14.140,53.730,16.230,24.030,39.870,59.800,16.660,79.380,95.520,118.760,21.140,19.580,124.340,85.260,10.690,75.000,26.580,154.340,7.170,44.110,90.380,32.580,47.430,114.890,47.620,13.730,77.170,67.510)
 data<-data.frame(seqNT, seqT, parNT, parT)
-script_boxsel_golomb(data, "gol11_select_BP.pdf", 300, mean(seqT), mean(parT), col_par_box, col_comm_box)
+script_boxsel_golomb(data, "gol11_select_BP.pdf", 300, mean(seqT[1:8]), mean(parT), col_par_box, col_comm_box)
 data<-data.frame(parNT, parT, com11, com1n)
 script_boxcom_golomb(data, "gol11_comm_BP.pdf", mean(parT), mean(com1n), 225, col_par_box, col_comm_box)
 values <- matrix(c(
 16/30*100, 21/30*100, #receivers
-14/30*100, 9/30*100, #senders 
-0, 0),
-nrow = 3,ncol = 2, byrow = TRUE)
+14/30*100, 9/30*100), #senders 
+#0, 0),
+nrow = 2,ncol = 2, byrow = TRUE)
 script_bars_golomb(values, "gol11_per_BP.pdf")
