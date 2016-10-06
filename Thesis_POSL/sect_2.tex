@@ -15,7 +15,7 @@ Denoted by the letter $\mathcal{M}$, a {\bf module} is:
 \item $\parallelexec{\mathcal{M}_1 \text{ OP } \mathcal{M}_2}$, which is the composition of two modules $\mathcal{M}_1$ and $\mathcal{M}_2$ to be executed, returning an output depending on the nature of the binary operator \emph{OP}. These two modules will be executed in parallel if and only if \emph{OP} supports parallelism, %(i.e. some modules will be executed sequentially although they were grouped this way); 
 or it throws an exception otherwise.\label{subdef:par}
 \end{enumerate}
-I denote by $\mathbb{M}$ the space of the modules, and I call \cms{} to the composition of modules described in \ref{subdef:seq} and/or \ref{subdef:par}.
+I denote by $\mathbb{M}$ the space of the modules, and I call \cms{} to the composition of modules described in \ref{subdef:seq_uni}, \ref{subdef:seq} and/or \ref{subdef:par}.
 \end{definition}
 
 For a better understanding of Definition~\ref{def:module}, Figure~\ref{fig:cm} shows graphically  the structure of a \cm.
@@ -409,7 +409,7 @@ Now, I define the operators which allows to send information to other solvers. T
 \end{inparaenum} This feature is very useful in terms of sharing behaviors between solvers.
 
 \begin{definition}\label{op:osend}
-$\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\senddataop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output to a communication module:
+$\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\senddataop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output to a \opch:
 
 \[
 \mathcal{M}_{sendD}:\mathcal{D} \rightarrow \mathcal{I}
@@ -421,7 +421,7 @@ $\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rig
 Similarly we define the \textbf{Send Module} operator:
 
 \begin{definition}\label{op:msend}
-$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself to a communication module:
+$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself to a \opch:
 
 \[
 \mathcal{M}_{sendM}:\mathcal{D} \rightarrow \mathcal{I}
@@ -455,7 +455,7 @@ Sending \ms{} through this operator is performed by sending an identifier, in th
 
 \separation
 
-Once all desired abstract modules are linked together with operators, we obtain the root \cm{}, i.e., the algorithmic part part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
+Once all desired abstract modules are linked together with operators, we obtain the root \cm{}, i.e., the algorithmic part of an \as. To implement a concrete solver from an \as, one must instantiate each abstract module with a concrete one respecting the required signature. From the same \as, one can implement many different concrete solvers simply by instantiating abstract modules with different concrete modules.
 
 An \as{} is declared as follows: after declaring the \mbox{\tet{\bf \as}}'s name, the first line defines the list of abstract \oms, the second one the list of abstract \opchs, then the algorithm of the solver is defined as the solver's body (the root \cm{} $\mathbf{M}$), between \mbox{\tet{\bf begin}} and \mbox{\tet{\bf end}}.
 
