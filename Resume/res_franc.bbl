@@ -1,0 +1,60 @@
+\begin{thebibliography}{1}
+
+\bibitem{Brownlee2014}
+Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
+\newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
+  research}.
+\newblock In {\em Proceedings of the Companion Publication of the 2014 Annual
+  Conference on Genetic and Evolutionary Computation}, GECCO Comp '14, pages
+  1133--1140, Vancouver, BC, 2014. ACM.
+
+\bibitem{Diaz}
+Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
+  Abreu.
+\newblock {Constraint-Based Local Search for the Costas Array Problem}.
+\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
+  Springer, 2012.
+
+\bibitem{Frank2003}
+Stephan Frank, Petra Hofstedt, and Pierre~R. Mai.
+\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
+\newblock In {\em Florida AI Research Society (FLAIRS) Conference}, pages
+  177--181, 2003.
+
+\bibitem{Fukunaga2008}
+Alex~S Fukunaga.
+\newblock {Automated discovery of local search heuristics for satisfiability
+  testing.}
+\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
+
+\bibitem{Landtsheer2015}
+Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
+\newblock {Combining Neighborhoods into Local Search Strategies}.
+\newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
+  Springer.
+
+\bibitem{Martin2016}
+Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
+  and Edmund~K Burke.
+\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
+\newblock {\em European Journal of Operational Research}, 2016.
+
+\bibitem{Munera}
+Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
+\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
+  volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
+
+\bibitem{Swan2015}
+Jerry Swan and Nathan Burles.
+\newblock {Templar - a framework for template-method hyper-heuristics}.
+\newblock In {\em Genetic Programming}, volume 9025 of {\em LNCS}, pages
+  205--216. Springer International Publishing, 2015.
+
+\bibitem{El-Ghazali2013}
+El-Ghazali Talbi.
+\newblock {Combining metaheuristics with mathematical programming, constraint
+  programming and machine learning}.
+\newblock {\em 4or}, 11(2):101--150, 2013.
+
+\end{thebibliography}

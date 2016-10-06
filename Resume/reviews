@@ -1,0 +1,155 @@
+----------------------- REVIEW 1 ---------------------
+PAPER: 37
+TITLE: A Parallel-Oriented Language for Modeling Constraint-Based Solvers
+AUTHORS: Alejandro Reyes Amaro, Eric Monfroy and Florian Richoux
+
+OVERALL EVALUATION: 0 (borderline paper)
+
+----------- REVIEW ----------- 
+
+Cet article présente un langage permettant d'exprimer des solveurs
+parallèles à partir de solveurs de base, de les interconnecter et
+d'exprimer le partage d'information et de comportement.
+
+L'approche se fonde sur 4 briques de base : operation modules, open
+channels, computation strategy et communication channels.  Il est à
+noter que ces éléments ne sont pas de même nature et que leur
+interaction est précisément définie par le langage.  Le cadre proposé
+est très abstrait et on aimerait bien être guidé par un exemple lors
+de l'introduction des définitions et non à la fin.
+
+Il est à noter que ce travail n'est pas encore implémenté, ce qui fait
+que je me permets d'être un peu critique sur certains choix ;)
+
+Dans la section 3, je trouve que certaines définitions sont confuses,
+et du coup entretiennent certaines ambiguïtés sur les compositions
+possibles.  En particulier, l'algèbre de modules définie devrait
+pouvoir être définie de façon plus élégante.
+
+- les notations pour la composition séquentielle et parallèle sont
+  très proches (simple crochet contre double crochet)
+
+- si on combine en parallèle un opérateur qui ne supporte pas le
+  parallélisme, alors on obtient une composition séquentielle, comme
+  par exemple [[M1 -> M2]].  Il vaudrait mieux donner des axiomes de
+  réduction dépendant des opérateurs.
+
+- je n'arrive pas à bien comprendre quels sont les "OP" de la
+  définition 3.  Apparemment il s'agit de ceux qui sont définis
+  ensuite à partir de la définition 4, mais dans ce cas il manque
+  l'opérateur de composition parallèle.  En fait, ce qui est bizarre
+  est la double nature de la composition séquentielle, par des [.]
+  dans la définition 3 et par -> dans la définition 4.  Et la
+  composition parallèle n'a pas son opérateur explicite.
+
+- l'opérateur produit cartésien est susceptible de produire de grandes
+  quantités de données
+
+- l'opérateur \/ (définition 8) est un peu obscur.  En effet, il
+  exécute M1 si M1 n'est pas null.  Or null n'est pas un objet défini.
+  Donc soit il faut définir le module null (ce qui a du sens dans une
+  approche algébrique), soit on ne comprend pas bien comment on peut
+  savoir si M1 est null sans l'exécuter d'abord !
+
+- le fait de pouvoir envoyer soit une donnée soit un module en output
+  de l'opérateur M^o ou M^m pose un problème de typage.  De plus, il
+  manque un exemple concret d'utilisation de cette possibilité pour
+  bien comprendre sa nécessité.
+
+- dans l'exemple de la figure 5, on comprend bien comment une
+  exécution peut choisir entre un module null au début et un module
+  interne "par défaut", mais est-ce que le module importé peut
+  changer ?  peut-il redevenir null au cours de l'exécution ?
+
+Un autre aspect qu'il serait intéressant de développer est la
+motivation pour ce travail.  En effet, on peut comprendre qu'il est
+intéressant de disposer d'une spécification de haut niveau des
+comportements d'un solveur, mais on aimerait connaitre l'apport
+concret d'un tel langage.  En effet, il est naturel de penser qu'une
+stratégie de résolution bien implémentée devrait être plus efficace
+que la composition issue du langage POSL.  Une raison valable pourrait
+être de faire évoluer l'expression algébrique du solveur au cours de
+la résolution.  Cet aspect est mentionné mais pas clairement illustré.
+
+Il serait intéressant de citer en introduction d'autres travaux
+récents utilisant des approches différentes (pas des métaheuristiques)
+comme par exemple : Jean-Charles Régin, Mohamed Rezgui, Arnaud
+Malapert: Embarrassingly Parallel Search. CP 2013: 596-610.
+
+En résumé, il s'agit d'un travail en cours.  Je trouve que le niveau
+est intermédiaire entre une algèbre de composition et un langage
+concret et qu'il faudrait mieux distinguer les deux aspects.
+
+
+Commentaires mineurs :
+- cet article est en anglais !
+- definition 1 : an mapping -> a mapping
+- la qualité des figures n'est pas optimale (bitmap)
+
+
+----------------------- REVIEW 2 ---------------------
+PAPER: 37
+TITLE: A Parallel-Oriented Language for Modeling Constraint-Based Solvers
+AUTHORS: Alejandro Reyes Amaro, Eric Monfroy and Florian Richoux
+
+OVERALL EVALUATION: 1 (weak accept)
+
+----------- REVIEW ----------- 
+
+Cet article décrit un cadre pour le développement de solveurs
+parallèles pour les CSP.  Dans ce cadre, un solveur est considéré
+comme constitué de composants distincts qui peuvent être combinés ou
+même partagés entre différents solveurs. L'article décrit les
+principales idées de conception du cadre, y compris un ensemble
+d'opérateurs qui peuvent être utilisés pour combiner des modules de
+solveurs.
+
+Il y a quelques idées intéressantes (par exemple, le comportement de
+partage entre les solveurs), mais elles sont seulement présentées à un
+niveau très élevé. Il n'est pas facile de les évaluer réellement à
+moins qu'une mise en oeuvre et des expériences soient
+effectuées. Aller d'une description abstraite d'un solveur (ou tout
+autre système logiciel complexe) à une mise en oeuvre concrète peut
+être très difficile. C'est encore plus vrai dans le cas du
+parallélisme où les questions telles que la synchronisation, le
+partage de la mémoire, etc. entrent en jeu.
+
+Aujourd'hui, plusieurs cadres de résolution de contraintes permettent
+le développement de solveurs parallèles (par exemple Gecode,
+Choco). Il serait intéressant de décrire les différences / nouveautés
+que l'approche proposée introduit. Par exemple, la possibilité de
+partager les modules entre différents solveurs est-elle entièrement
+nouvelle ou certains cadres existants peuvent la fournir ?
+
+
+----------------------- REVIEW 3 ---------------------
+PAPER: 37
+TITLE: A Parallel-Oriented Language for Modeling Constraint-Based Solvers
+AUTHORS: Alejandro Reyes Amaro, Eric Monfroy and Florian Richoux
+
+OVERALL EVALUATION: 1 (weak accept)
+
+----------- REVIEW -----------
+
+Cet article présente POSL, un framework permettant de combiner des
+composants de solveurs afin de créer un système d'éléments qui
+coopèrent et interagissent en parallèle.
+
+L'idée en elle-même est assez séduisante, notamment le concept de ne
+pas seulement échanger des données mais également des
+comportements. J'aurais souhaité une comparaison un peu plus en détail
+avec les approches mentionnées dans l'introduction. À noter que dans
+la lignée de Hyperion, il y a maintenant aussi Templar
+(http://link.springer.com/chapter/10.1007%2F978-3-319-16501-1_17).
+
+Ce travail étant en cours, l'article ne présente qu'un aperçu de ce
+qui serait hypothétiquement possible. Dans ce contexte, je ne suis pas
+sûr que consacrer une bonne partie de l'article à des définitions soit
+vraiment utile. Par contre, j'ai apprécié l'exemple de la Section 4
+même si les aspects de communication et de parallélisme auraient pu
+être mis plus en avant.
+
+Cette version en anglais se lit relativement facilement. Je note
+toutefois plusieurs erreurs d'orthographe et de grammaire. Attention,
+donc, à la version française si l'article est accepté aux JFPC.
+
