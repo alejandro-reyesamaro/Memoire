@@ -699,7 +699,7 @@ Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset
 
 Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{}, parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant  l'intensification.
 
-\section{Golomb Ruler Problem}
+\subsection{Golomb Ruler Problem}
 
 Le \grp{} (\GRP) consiste à trouver un vecteur ordonné de $n$ entiers non négatifs différents, appelés \textit{marques}, $m_1<\dots<m_n$, tel que toutes les différences $m_i- m_j$, $(i>j)$ sont toutes différentes. Une instance de ce problème est défini par le paire $(o,l)$ où $o$ est l'ordre du problème, (le nombre de \textit{marques}) et  $l$ est la longueur de la règle (la dernière {\it marque}). Nous supposons que la première \textit{marque} est toujours 0. Lorsque nous appliquons \posl{} pour résoudre une instance de problème séquentiellement, nous pouvons remarquer qu'il effectue de nombreux {\it restars} avant de trouver une solution. Pour cette raison, nous avons choisi ce problème pour étudier une stratégie de communication intéressante: communiquer la configuration actuelle afin d'éviter son voisinage, c'est à dire, une configuration {\it tabu}.
 
