@@ -35,7 +35,7 @@
 \begin{resume} % environnement pour le résumé en anglais
 La technologie multi-c\oe ur et les architectures massivement parallèles sont de plus en plus accessibles à tous, à travers des matériaux comme le Xeon Phi ou les cartes GPU. Cette stratégie d'architecture a été communément adoptée par les producteurs pour faire face à la loi de Moore. Or, ces nouvelles architectures impliquent d'autres manières de concevoir et d'implémenter les algorithmes, pour exploiter complètement leur potentiel, en particulier dans le cas des solveurs de contraintes traitant de problèmes d'optimisation combinatoire.
 
-Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it  puzzle}") : un système pour construire des méta-heuristiques interconnectées travaillant en  parallèle. Le but de ce travail  est d'obtenir  un système  pour facilement  construire des solveurs et  réduire l'effort  de leur  développement en  proposant un mécanisme de réutilisation  de code entre les  différents solveurs. La nouveauté de cette approche porte sur le fait que l'on voit un solveur comme un ensemble de  composants spécifiques,  écris dans  un langage orienté parallèle basé sur des opérateurs. \posl{}  permets aux composants d'un solveur d'être transmis  et exécutés par d'autres  solveurs. Il propose également une couche supplémentaire permettant de définir des connexions entre solveurs.
+Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it  puzzle}") : un système pour construire des méta-heuristiques interconnectées travaillant en parallèle. Le but de ce travail est d'obtenir un système pour facilement construire des solveurs et réduire l'effort  de leur  développement en  proposant un mécanisme de réutilisation de code entre les différents solveurs. La nouveauté de cette approche porte sur le fait que l'on voit un solveur comme un ensemble de composants spécifiques, écris dans un langage orienté parallèle basé sur des opérateurs. \posl{}  permets aux composants d'un solveur d'être transmis et exécutés par d'autres  solveurs. Il propose également une couche supplémentaire permettant de définir des connexions entre solveurs.
 \end{resume}
 
 
@@ -541,7 +541,7 @@ L'algorithme~\ref{as:golfers_eager} montre l'\as{} utilisé pour résoudre me mani
 \item $A_{AI}$ retourne toujours la configuration sélectionnée ($s'$).
 \end{enumerate}
 
-Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur "compagnon", incapable de trouver une solution au final, mais capable de trouver des configurations avec an coût considérablement plus petit que ceci trouvé par le solveur \textit{standard} dans le même instant de temps, au début de la recherche. L'idée c'est d'échanger leurs configurations cycliquement, jusqu'à trouver une solution. Les algorithmes~\ref{as:golfers_full} et \ref{as:golfers_partial} montrent les solveurs utilisés pour cette stratégie, ou $V_{BP}(p)$ est le \om{} de voisinage pour le solveur "compagnon", qui cherche des configurations seulement changeant des joueurs parmi $p$ semaines.
+Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur "compagnon", incapable de trouver une solution au final, mais capable de trouver des configurations avec an coût considérablement plus petit que ceci trouvé par le solveur \textit{standard} dans le même instant de temps, au début de la recherche. L'idée c'est d'échanger leurs configurations cycliquement, jusqu'à trouver une solution. Les algorithmes~\ref{as:golfers_full} et \ref{as:golfers_partial} montrent les solveurs utilisés pour cette stratégie, ou $V_{BP}(p)$ est le \om{} de voisinage pour le solveur "compagnon", qui cherche des configurations seulement changeant des joueurs parmi $p$ semaines. Le \opch{} instancié $CM_{last}$, prend en compte la dernière configuration reçue quand il est au moment de l'exécution.
 
 \begin{algorithm}
 \dontprintsemicolon
@@ -587,7 +587,7 @@ Nous avons dessiné aussi des différentes stratégies de communication, en combina
 \centering
 \renewcommand{\arraystretch}{1}
 \resizebox{\columnwidth}{!}{%
-\begin{tabular}{p{1.2cm}|R{1cm}R{1cm}|R{1cm}R{1cm}|R{1.3cm}R{1.3cm}}
+\begin{tabular}{p{1.4cm}|R{1cm}R{1cm}|R{1cm}R{1cm}|R{1.3cm}R{1.3cm}}
 \hline
 {\bf Instance} & \multicolumn{2}{c|}{\textbf{Séquentielle}} & \multicolumn{2}{c|}{\textbf{Parallèle}} & \multicolumn{2}{c}{\textbf{Coopérative}}\\
 \cline{2-7}
@@ -607,63 +607,229 @@ Nous avons dessiné aussi des différentes stratégies de communication, en combina
 Comme nous nous attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succès de l'approche parallèle sur le séquentielle. Plus intéressante, les expériences confirment que la stratégie de communication proposée pour cet benchmark est la correcte: en comparant par rapport aux runs en parallèle sans communication, il améliore les runtimes par un facteur de 1.98 (facteur moyen parmi les trois instances). Les résultats coopératifs de ce tableau on été obtenus en utilisant l'opérateur de communication \oneTone{} avec 100\% de solveurs communicatifs. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsection{Costas Array Problem}
 
 Le problème \carr{} (\CARRP) consiste à trouver une matrice {\it Costas}, qui est une grille de $n \times n$ contenant $n$ marques avec exactement une marque par ligne et par colonne et les $n(n-1)/2 $ vecteurs reliant chaque couple de marques de cette grille doivent tous être différents. Ceci est un problème très complexe trouvant une application utile dans certains domaines comme le sonar et l'ingénierie de radar, et présente de nombreux problèmes mathématiques ouverts. Ce problème a aussi une caractéristique intéressante: même si son espace de recherche grandit factoriellement, à partir de l'ordre 17 le nombre de solutions diminue drastiquement.
 
+Pour ce problème nous avons testé une stratégie de communication simple, où l'information a communiquer est la configuration courante. Pour construire les solveurs, nous avons réutilisé les \oms{} de sélection ($S_{first}$) et de d'acceptation ($S_{AI}$) et le \opch{} utilisés dans la résolution de \SGP{}. Les autres \oms{} sont les suivantes :
 
+\begin{enumerate}
+	\item $I_{perm}$: génère une configuration aléatoire $s$, comme une permutation du vecteur $[1..n]$. 
+	\item $V_{AS}$: définit le voisinage $V \left(s\right)$ permutant la variable qui a contribué le plus au coût, avec d'autres.
+\end{enumerate}
 
+Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset} ($T_{AS}$) comme machinisme d'exploration. L'algorithme~\ref{as:costas} montre le solveur utilisé pour résoudre ce problème séquentiellement. Les résultats des runs en séquentiel et en parallèle sans communication sont montrés dans le tableau~\ref{tab:costas19}. Ils montrent le succès de l'approche en parallèle est montré encore une fois. Afin d'améliorer ces résultats, nous avons appliqué uns stratégies   simple de communication : communiquer la configuration courante au moment d'exécuter le critère d'acceptation. Les algorithmes~\ref{as:costas_sender} et~\ref{as:costas_receiver} montrent les solveurs envoyeur et récepteur.
 
+\begin{algorithm}
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_hard \;
+	\tet{\bf computation} : $I, T, V, S, A$\;}{
+	$I \poslop{\mapsto}$\\
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$T \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
+	}
+}
+\tet{\bf solver} \solverposl{1} \tet{\bf implements} as\_hard\;
+\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \;
+\caption{Solveur pour \CARRP}\label{as:costas}
+\end{algorithm}
 
+\begin{table}[t]
+\captionsetup{belowskip=6pt,aboveskip=6pt}
+\centering
+\renewcommand{\arraystretch}{1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{3.2cm}|R{1.2cm}R{1.5cm}R{1.5cm}}
+	\hline
+	{\bf STRATÉGIE} & T & It. & \% success\\
+	\hline
+	%\hline
+	Séquentielle  & 132.73 & 2,332,088 & 40.00\\
+	Parallèle & 25.51 & 231,262 & 100.00\\
+	Coopérative & \good{10.83} & \good{79,551} & 100.00\\
+	\hline
+\end{tabular}
+}
+\caption{Résultats pour \CARRP{} 19}
+\label{tab:costas19}
+\end{table}
 
+\begin{algorithm}
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_hard\_sen \; 
+	\tet{\bf computation} : $I, T, V, S, A$\;}{
+	$I \poslop{\mapsto}$\\
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$T \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d\right]$}
+	}
+}
+\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_hard\_sen\;
+\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \;
+\caption{Solveur envoyeur pour \CARRP}\label{as:costas_sender}
+\end{algorithm}
 
+\begin{algorithm}
+\dontprintsemicolon
+\scriptsize
+\SetInd{2pt}{2pt}
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_hard\_rec \; 
+	\tet{\bf computation} : $I, T, V, S, A$ \; 
+	\tet{\bf communication} : $C.M.$\;}{ 
+	$I \poslop{\mapsto}$\\
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$T \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \left[A\poslop{m}C.M.\right]\right]$}
+	}
+}
+\tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_hard\_rec\;
+\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \; 
+\algoindent\tet{\bf communication}: $CM_{last}$\;
+\caption{Solveur récepteur pour \CARRP}\label{as:costas-receiver}
+\end{algorithm}
+
+Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{}, parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant  l'intensification.
+
+\section{Golomb Ruler Problem}
+
+Le \grp{} (\GRP) consiste à trouver un vecteur ordonné de $n$ entiers non négatifs différents, appelés \textit{marques}, $m_1<\dots<m_n$, tel que toutes les différences $m_i- m_j$, $(i>j)$ sont toutes différentes. Une instance de ce problème est défini par le paire $(o,l)$ où $o$ est l'ordre du problème, (le nombre de \textit{marques}) et  $l$ est la longueur de la règle (la dernière {\it marque}). Nous supposons que la première \textit{marque} est toujours 0. Lorsque nous appliquons \posl{} pour résoudre une instance de problème séquentiellement, nous pouvons remarquer qu'il effectue de nombreux {\it restars} avant de trouver une solution. Pour cette raison, nous avons choisi ce problème pour étudier une stratégie de communication intéressante: communiquer la configuration actuelle afin d'éviter son voisinage, c'est à dire, une configuration {\it tabu}.
+
+Nous réutilisons les \ms{} de sélection et d'acceptation des études antérieures ($S_{first}$ et$A_{AI}$) pour concevoir les \ass. Les nouvelles \ms{} sont:
+\begin{enumerate}
+\item $I_{sort}$: renvoie une configuration aléatoire $s$ en tant que vecteur d'entiers trié. La configuration est générée \textit{loin} de l'ensemble des configurations {\it tabu} arrivés via communication entre solveurs.
+\item $V_{sort}$: donné une configuration, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
+\end{enumerate}
+
+Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée \modified{tal cual}. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
+
+\begin{algorithm}
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_golomb\_sender\;
+	\tet{\bf computation} : $I, V, S, A, T$\;}{
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$I \poslop{\mapsto}$ 
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^d$
+	}
+}
+\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_golomb\_sender\;
+\algoindent\tet{\bf computation} : $I_{sort}, V_{sort}, S_{first}, A_{AI}, , T_{tabu}$ \; 
+\caption{Solveur envoyeur pour  \GRP}\label{as:golomb_sender}
+\end{algorithm}
+
+Le module $T_{tabu}$ est exécuté lorsque le solveur est incapable de trouver une meilleure configuration autour de l'actuelle: elle est supposée être un minimum local, et elle est envoyée au solveur récepteur. L'algorithme~\ref{as:golomb_receiver} présente solveur utilisé pour recevoir l'information. Le \opch{} $CM_{set}$ reçoit plusieurs configurations qui sont reçus par le \om{} $I_{sort}$ comme entrées.
+ 
+\begin{algorithm}
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_golomb\_receiver\;
+	\tet{\bf computation} : $I, V, S, A, T$\;
+	\tet{\bf connection} : $C.M.$\;}{
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$\left[C.M. \poslop{\mapsto} I \right] \poslop{\mapsto}$ \\
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} T$
+	}
+}
+\tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_golomb\_receiver\;
+\algoindent\tet{\bf computation} : $I_{sort}, V_{sort}, S_{first}, A_{AI}, , T_{tabu}$ \; 
+\algoindent\tet{\bf communication}: $CM_{set}$\;
+\caption{Solveur récepteur pour \GRP}\label{as:golomb_receiver}
+\end{algorithm}
+
+Le bénéfice de l'approche en  parallèle avec \posl{} est aussi prouvé pour le \GRP{} (voir les tableaux~\ref{tab:golomb_seq} et~\ref{tab:golomb_seq}). Dans ces tableaux, la colonne \textbf{R} représente le nombre de redémarrages exécutées. Cette expérience a été réalisée en utilisant des solveurs similaires à ceux présentés précédemment, mais sans \opchs.
+
+\begin{table}
+\captionsetup{belowskip=6pt,aboveskip=6pt}
+\centering 
+\renewcommand{\arraystretch}{1}
+%\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{1.4cm}|R{1.1cm}R{1.3cm}R{0.6cm}R{1.5cm}}
+\hline
+{\bf Instance} & T & It. & R & \% success \\
+\hline
+%\hline
+8--34 & 0.66 & 10,745 & 53 & 100.00 \\
+10--55 & 67.89 & 446,913 & 297 & 88.00 \\
+11--72 & 117.49 & 382,617 & 127 & 30.00 \\
+\hline
+\end{tabular}
+%}
+\caption{Résultats séquentielles pour \GRP{}}
+\label{tab:golomb_seq}
+\end{table}
+
+\begin{table}
+\captionsetup{belowskip=6pt,aboveskip=6pt}
+\centering 
+\renewcommand{\arraystretch}{1}
+%\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{1.4cm}|R{0.9cm}R{1.3cm}R{0.6cm}}
+\hline 	
+{\bf Instance} & T & It. & R \\
+\hline
+%\hline
+8--34 & 0.43 & 349 & 1\\
+10--55 & 4.92 & 20,504 & 13\\
+11--72 & 85.02 & 155,251 & 51\\
+\hline
+\end{tabular}
+%}
+\caption{Résultats en parallèle non coopératifs pour \GRP{}}
+\label{tab:golomb_par}
+\end{table}
+
+Pour \GRP, la stratégie de communication que nous adoptions a été différente. L'idée de cette stratégie est de profiter des nombreux redémarrages indiqués dans les tableaux~\ref{tab:golomb_seq} et~\ref{tab:golomb_par}. Chaque fois qu'un solveur redémarre, la configuration actuelle est communiquée pour alerter les solveurs et éviter son voisinage. De cette façon, chaque fois qu'un solveur redémarre, il génère une nouvelle configuration assez loin de ces "zones pénalisées".
+
+Sur la base de l'opérateur de connexion utilisé dans la stratégie de communication, ce solveur peut recevoir une ou plusieurs configurations. Ces configurations sont l'entrée du \m{} de génération ($I_{sort}$). Ce module insère toutes les configurations reçues dans une liste {\it tabu}, puis il génère une nouvelle première configuration loin de toutes les configurations dans la liste {\it tabu}. 
+
+Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{tab:golomb_comm_tab} l'amélioration en temps d'exécution avec communication est plus visible quand on utilise l'opérateur de communication \oneTn{}, parce-que à chaque nouvelle itération, le solveur récepteur a plus d'information afin de générer une nouvelle configuration loin des "zones pénalisées".
+
+\begin{table}[t]
+\captionsetup{belowskip=6pt,aboveskip=6pt}
+\centering 
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{p{1.4cm}|R{0.9cm}R{1.2cm}R{0.8cm}}
+	\hline 	
+	{\bf Instance} & T & It. & R \\
+	\hline
+	8--34 & 0.44 & 309 & 1 \\
+	10--55 & 3.90 & 15,437 & 10 \\
+	11--72 & 85.43 & 156,211 & 52 \\
+	\hline
+\end{tabular}
+\caption{Résultats avec communication sans liste tabu pour \GRP.}
+\label{tab:golomb_comm_notab}
+\end{table}
+
+\begin{table}[t]
+\captionsetup{belowskip=6pt,aboveskip=6pt}
+\centering 
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{p{1.4cm}|R{1cm}R{1.3cm}R{0.8cm}}
+	\hline 	
+	{\bf Instance} & T & It. & R \\
+	\hline
+	8--34 & \good{0.43} & 283 & 1\\
+	10--55 & \good{3.16} & 12,605 & 8\\
+	11--72 & \good{60.35} & 110,311 & 36\\
+	\hline
+\end{tabular}
+\caption{Résultats avec communication avec liste tabu pour \GRP.}
+\label{tab:golomb_comm_tab}
+\end{table}
 
 \section{Conclusions}
 
@@ -681,13 +847,3 @@ En même temps, nous prévoyons d'enrichir le langage en proposant de nouveaux opé
 \bibliography{biblio201608}
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
