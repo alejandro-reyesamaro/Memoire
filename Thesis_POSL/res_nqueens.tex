@@ -1,33 +1,65 @@
-\modified{In this section I present the performed study using \nqp{} (\NQP) as a benchmark.}
+In this section I present the performed study using \nqp{} (\NQP) as a benchmark. The \commstr{} analyzed here consists exchanging cyclically the configuration between solvers using different neighborhood functions, in order to accelerate the process of generating very promising configurations. Final obtained results show that this \commstr{} works pretty well for some instances of this problem.
 
 \subsection{Problem definition}
 
-The \nqp{} (\NQP) asks how to place $N$ queens on a chess board so that none of them can hit any other in one move. \modified{This problem was introduced in 1848 by the chess player Max Bezzelas as the \textit{8-queen problem}, and years latter it was generalized as \textit{N-queen problem} by Franz Nauck. Since then many mathematicians, including Gauss, have worked on this problem. It finds a lot of applications, e.g., parallel memory storage schemes, traffic control, deadlock prevention, neural networks, constraint satisfaction problems, among others \cite{Bell2009}. Some studies suggest that the number of solution grows exponentially with the number of queens ($N$), but local search methods have been shown very good results for this problem \cite{Sosic1994}. For that reason we tested some communication strategies using \posl{}, to solve a problem relatively easy to solve using non communication strategies.}
+The \nqp{} (\NQP) asks how to place $N$ queens on a chess board so that none of them can hit any other in one move. This problem was introduced in 1848 by the chess player Max Bezzelas as the \textit{8-queen problem}, and years latter it was generalized as \textit{N-queen problem} by Franz Nauck. Since then many mathematicians, including Gauss, have worked on this problem. It finds a lot of applications, e.g., parallel memory storage schemes, traffic control, deadlock prevention, neural networks, constraint satisfaction problems, among others \cite{Bell2009}. Some studies suggest that the number of solution grows exponentially with the number of queens ($N$), but local search methods have been shown very good results for this problem \cite{Sosic1994}. For that reason we tested some communication strategies using \posl{}, to solve a problem relatively easy to solve using non communication strategies.
 
-\modified{The cost function for this benchmark was implemented in C++ based on the current implementation of {\it Adaptive Search}\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}.}
+The cost function for this benchmark was implemented in C++ based on the current implementation of {\it Adaptive Search}\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}.
 
-\subsection{Experiment design Nr. 1}
+\subsection{Experiments and results}
 
-To handle this problem, I reused some modules used for the \sgp: the \textit{Selection} and \textit{Acceptance} modules. The new module is: 
-
-\begin{enumerate}
-	\item Neighborhood module:
-	\subitem $V_{AS}$: Defines the neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost with other.
-\end{enumerate}
-
-\modified{Fors this problem I used a simple \as{} showing good results with no communication, based on the idea introduced in the section \ref{sec:golfers}, using the \om{} $S_{rand}$ to scape from local minima. The \as{} is presented in Algorithm~\ref{as:nq}.}
+To handle this problem, some modules used for the \sgp{} have been reused: the selection \oms{} $S_{first}$ and $S_{best}$, and the acceptance \om{} $A_{AI}$. It was used a simple \as{} presented in Algorithm~\ref{as:nq}:
 
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
-\myproc{as\_eager \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
-	\tet{\bf computation} : $I, V, S_1, S_2, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}}{
+\myproc{as\_simple \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
+	\tet{\bf computation} : $I, V, S, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}}{
 	$I \poslop{\mapsto}$
-		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci < K_2} S_2\right] \poslop{\mapsto} A$}	
+		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} A$}	
 }
+\tet{\bf solver} \solverposl{as} \tet{\bf implements} as\_simple\;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{AS}, S_{first}, A_{AI}$ \;
+\tet{\bf solver} \solverposl{selective} \tet{\bf implements} as\_simple\;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(p), S_{first}, A_{AI}$ \; 
+%\tet{\bf connection}: $CM_{last}$\;
 \caption{\As{} for \NQP}\label{as:nq}
 \end{algorithm}
+
+Solvers used for the experiments without communications, are presented in Algorithm~\ref{as:nq}, where the \as{} is instantiated in the solver \solverposl{as} with the neighborhood \om{} $V_{AS}$, which given a configuration, returns a neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost, with all others. This solver was able to find solutions but taking too much time (a minute for 6000-queens, for example). For that reason it was implemented a neighborhood \om{} $S_{PAS}(p)$ which performs the same algorithm of $S_{AS}$, but instead of generating neighbors swapping the most costly variable with all others, it is swapped only with a percentage of rest of variables. Solver \solverposl{selective} instantiates the \as{} with this \om{} and it showing much better results than \solverposl{as}.
+
+Table~\ref{tab:nqueens_seqpar} shows that the improvement of the parallel scheme using \posl{} is not big. \tet{Si bien la cantidad de soluciones de este problema es solo conocida hasta un numero muy pequenno de N (23), estudios sugieren que la cantidad de soluciones crece exponencialmente con N. Esto implica que a medida que el problema crece en orden, es más fácil arrivar a una solucion utilizando local search methods. El comportamiento de \posl{} matches justamente con esta hipotesis: el proceso de busqueda en instancias grandes es más estable y la convergencia es más directa. En un espacio de busqueda bien repartido, el paralelismo no aporta gran cosa, a no ser que se utilicen muchos más cores (propuesto para estudio futuro).}
+
+\begin{table}
+\centering 
+\renewcommand{\arraystretch}{1}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{1.3cm}|R{1.3cm}R{1.3cm}R{1.3cm}R{1.3cm}|R{1.3cm}R{1.3cm}R{1.3cm}R{1.3cm}}
+	\hline %\noalign{\smallskip}	
+	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{4}{c|}{\bf Sequential} & \multicolumn{4}{c}{\bf Parallel} \\
+	\cline{2-9}
+	& T & T(sd) & It. & It.(sd) & T & T(sd) & It. & It.(sd) \\	
+	\hline
+	250 & 0.29 & 0.072 & 8,898 & 2,158 & 0.19 & 0.003 & 4,139 & 913 \\
+	500 & 0.35 & 0.087 & 4,203 & 998 & 0.24 & 0.036 & 2,675 & 366 \\
+	1000 & 0.35 & 0.126 & 2,766 & 445 & 0.30 & 0.037 & 2,102 & 222 \\
+	3000 & 1.50 & 0.138 & 2,191 & 77 & 1.33 & 0.055 & 2,168 & 71 \\
+	6000 & 4.709 & 0.183 & 3,339 & 51 & 4.57 & 0.123 & 3,323 & 43 \\
+	\hline
+\end{tabular}
+}
+\caption{Results for \NQP{} (sequential and parallel without communication)}\label{tab:nqueens_seqpar}
+\end{table}
+
+
+
+
+
+
+
+
+
 
 Using solvers implementing this \as{} we create communicating solvers to compare their performance with the non communicating strategies. The shared information is the current configuration. Algorithms~\ref{as:nq_sender}~and~\ref{as:nq_receiver} show that the communication is performed while selecting a new configuration for the next iteration. We design different communication strategies. Either I execute a full connected solvers set, or a tuned combination of connected and unconnected solvers. Between connected solvers, I have applied two different connections operations: connecting each sender solver with one receiver solver ({\it 1~to~1}), or connecting each sender solver with all receiver solvers ({\it 1~to~N}).
 
@@ -60,26 +92,7 @@ Using solvers implementing this \as{} we create communicating solvers to compare
 
 \modified{I use directly the neighborhood module $V_{AS}$ based on the {\it Adaptive Search} algorithm, and the selection module $S_{First}$ which selects the first configuration inside the neighborhood improving the current cost, to create solvers, and studying communicating and non communicating strategies.}
 
-\begin{table}[h]
-\centering 
-\renewcommand{\arraystretch}{1}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{p{1.3cm}|R{1.3cm}R{1.3cm}R{1.3cm}R{1.3cm}|R{1.3cm}R{1.3cm}R{1.3cm}R{1.3cm}}
-	\hline %\noalign{\smallskip}	
-	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{4}{c|}{\bf Sequential (1 core)} & \multicolumn{4}{c}{\bf No Comm. (40 cores)} \\
-	\cline{2-9}
-	& T & T(sd) & It. & It.(sd) & T & T(sd) & It. & It.(sd) \\	
-	\hline
-	2000 & 6.20 & 0.12 & 947 & 21 & 6.15 & 0.20 & 952 & 20 \\
-	3000 & 14.19 & 0.21 & 1,415 & 22 & 14.06 & 0.33 & 1,413 & 25 \\
-	4000 & 25.63 & 0.36 & 1,900 & 28 & 25.46 & 0.51 & 1,898 & 34 \\
-	5000 & 41.37 & 0.44 & 2,367 & 26 & 40.57 & 0.91 & 2,377 & 32 \\
-	6000 & 60.42 & 0.52 & 2,837 & 31 & 60.10 & 0.70 & 2,849 & 43 \\
-	\hline
-\end{tabular}
-}
-\caption{Results for \NQP{} (no communication)}\label{tab:nqueens_seq}
-\end{table}
+
 
 \begin{table}[h]
 \centering 

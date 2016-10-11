@@ -1,19 +1,19 @@
-\BOOKMARK [-1][-]{part.1}{I POSL: Parallel Oriented Solver Language}{}% 1
-\BOOKMARK [0][-]{chapter.1}{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 3
-\BOOKMARK [2][-]{subsection.1.1.1}{Precedents}{section.1.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.2}{POSL}{section.1.1}% 5
-\BOOKMARK [1][-]{section.1.2}{Modeling the target benchmark}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.3}{First stage: creating POSL's modules}{chapter.1}% 7
-\BOOKMARK [2][-]{subsection.1.3.1}{Computation module}{section.1.3}% 8
-\BOOKMARK [2][-]{subsection.1.3.2}{Communication modules}{section.1.3}% 9
-\BOOKMARK [1][-]{section.1.4}{Second stage: assembling POSL's modules}{chapter.1}% 10
-\BOOKMARK [1][-]{section.1.5}{Third stage: creating POSL solvers}{chapter.1}% 11
-\BOOKMARK [1][-]{section.1.6}{Forth stage: connecting solvers}{chapter.1}% 12
-\BOOKMARK [1][-]{section.1.7}{Summarize}{chapter.1}% 13
-\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 14
-\BOOKMARK [-1][-]{part.2}{II Appendix}{}% 15
-\BOOKMARK [0][-]{chapter.3}{Results of experiments with Social Golfers Problem}{part.2}% 16
-\BOOKMARK [0][-]{chapter.4}{Results of experiments with Costas Array Problem}{part.2}% 17
-\BOOKMARK [0][-]{chapter.5}{Results of experiments with Golomb Ruler Problem}{part.2}% 18
-\BOOKMARK [0][-]{chapter.6}{Results of experiments with N-Queens Problem}{part.2}% 19
+\BOOKMARK [-1][-]{part.1}{I Study and evaluation of POSL}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Experiments design and results}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Solving the Social Golfers Problem}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.1.1}{Problem definition}{section.1.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.2}{Experiment design and results}{section.1.1}% 5
+\BOOKMARK [1][-]{section.1.2}{Solving the N-Queens Problem}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.2.1}{Problem definition}{section.1.2}% 7
+\BOOKMARK [2][-]{subsection.1.2.2}{Experiments and results}{section.1.2}% 8
+\BOOKMARK [2][-]{subsection.1.2.3}{Results analysis of experiment Nr. 1}{section.1.2}% 9
+\BOOKMARK [2][-]{subsection.1.2.4}{Experiment design Nr. 2}{section.1.2}% 10
+\BOOKMARK [2][-]{subsection.1.2.5}{Results analysis of experiment Nr. 2}{section.1.2}% 11
+\BOOKMARK [1][-]{section.1.3}{Solving the Costas Array Problem}{chapter.1}% 12
+\BOOKMARK [2][-]{subsection.1.3.1}{Problem definition}{section.1.3}% 13
+\BOOKMARK [2][-]{subsection.1.3.2}{Experiment design and results}{section.1.3}% 14
+\BOOKMARK [1][-]{section.1.4}{Solving the Golomb Ruler Problem}{chapter.1}% 15
+\BOOKMARK [2][-]{subsection.1.4.1}{Problem definition}{section.1.4}% 16
+\BOOKMARK [2][-]{subsection.1.4.2}{Experiment design and results}{section.1.4}% 17
+\BOOKMARK [1][-]{section.1.5}{Summarizing}{chapter.1}% 18
+\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 19
