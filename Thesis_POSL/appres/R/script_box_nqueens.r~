@@ -1,4 +1,4 @@
-script_box_nqueens <- function(data, file_name, mean_seq, mean_par, mean_com, y_max, col_seq_box, col_par_box, col_pc11, col_pc1n){
+script_box_nqueens <- function(data, file_name, mean_seq, mean_par, mean_com, y_min, y_max, col_seq_box, col_par_box, col_pc11, col_pc1n){
 
 dev=pdf(file_name, height=14, width=21)
 par(cex.axis=2)
@@ -6,7 +6,7 @@ par(mar=c(13,6,1,1)+.1)
 p_ylim=c(0,y_max);
 
 
-col_boxes = c(col_seq_box, col_par_box,col_pc11, colpc1n,rep.int("white",4))
+col_boxes = c(col_seq_box, col_par_box,col_pc11, col_pc1n,rep.int("white",4))
 
 boxplot(data, las = 2, names = c("Seq", "NC","Cyc1-1","Cyc1-n","S1-1","S1-n","S1-n/2","S1-n/4"), 
 		  cex = 2, ylim=p_ylim, col=col_boxes)
