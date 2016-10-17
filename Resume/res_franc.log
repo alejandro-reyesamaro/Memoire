@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  7 OCT 2016 15:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  17 OCT 2016 18:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1196,142 +1196,168 @@ File: cm.png Graphic file (type png)
  <use cm.png>
 Package pdftex.def Info: cm.png used on input line 165.
 (pdftex.def)             Requested size: 164.04317pt x 82.10109pt.
- [4 <./D_OCh.png> <./O_OCh.png> <./cm.png>]
-Underfull \hbox (badness 2126) in paragraph at lines 270--276
-[]\T1/aer/bx/n/10 Not \T1/aer/m/it/10 NULL \T1/aer/bx/n/10 Exe-cu-tion Ope-ra-t
-or
- []
 
-[5]
-Underfull \hbox (badness 1168) in paragraph at lines 393--394
-[]\T1/aer/bx/n/10 Sending Mo-dule Ope-ra-tor \T1/aer/m/it/10 Soit
+Underfull \hbox (badness 2173) in paragraph at lines 176--177
+[]$[]$ \T1/aer/m/n/10 : []L'opé-ra-tion
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 427
+Underfull \hbox (badness 1024) in paragraph at lines 176--177
+[]$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule $\OMS/cmsy/m/n/10 M[]$
+ []
+
+
+Underfull \hbox (badness 4872) in paragraph at lines 178--179
+[]$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+[]$[]$ \T1/aer/m/n/10 : []L'opé-ra-tion
+ []
+
+[4 <./D_OCh.png> <./O_OCh.png> <./cm.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
+[]$[]$ \T1/aer/m/n/10 : []L'ope-ra-tion
+ []
+
+
+Underfull \hbox (badness 4279) in paragraph at lines 182--183
+[]$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule $\OMS/cmsy/m/n/10 M[]$
+ []
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 231
+|[]|
+ []
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 245
 |[]|
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Overfull \hbox (0.79999pt too wide) detected at line 441
-|[]|
+[5]
+Underfull \hbox (badness 3386) in paragraph at lines 275--277
+[]\T1/aer/bx/n/10 Connection One-to-N Ope-ra-tor
  []
 
-[6] <comm_11.png, id=84, 461.725pt x 424.58624pt>
+<comm_11.png, id=81, 461.725pt x 424.58624pt>
 File: comm_11.png Graphic file (type png)
  <use comm_11.png>
-Package pdftex.def Info: comm_11.png used on input line 493.
+Package pdftex.def Info: comm_11.png used on input line 297.
 (pdftex.def)             Requested size: 93.73793pt x 86.19852pt.
 
-<comm_1n.png, id=85, 461.725pt x 424.58624pt>
+<comm_1n.png, id=82, 461.725pt x 424.58624pt>
 File: comm_1n.png Graphic file (type png)
  <use comm_1n.png>
-Package pdftex.def Info: comm_1n.png used on input line 498.
+Package pdftex.def Info: comm_1n.png used on input line 302.
 (pdftex.def)             Requested size: 93.73793pt x 86.19852pt.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 509.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 371.
 
 
 (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 509.
- [7 <./comm_11.png> <./comm_1n.png>]
-Overfull \hbox (0.79999pt too wide) detected at line 532
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 371.
+ [6 <./comm_11.png> <./comm_1n.png>]
+Overfull \hbox (0.79999pt too wide) detected at line 394
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 563
+Overfull \hbox (0.79999pt too wide) detected at line 425
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 582
+Overfull \hbox (0.79999pt too wide) detected at line 444
 |[]|
  []
 
 
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 602--602
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 464--464
 []|\T1/aer/bx/n/10 Instance| 
  []
 
-[8]
-Underfull \hbox (badness 1163) in paragraph at lines 617--618
+[7]
+Underfull \hbox (badness 1163) in paragraph at lines 479--480
 []$\OML/cmm/m/it/10 I[]$ \T1/aer/m/n/10 : gé-nère une confi-gu-ra-tion aléa-toi
 re $\OML/cmm/m/it/10 s$\T1/aer/m/n/10 ,
  []
 
 
-LaTeX Warning: Reference `as:costas_receiver' on page 9 undefined on input line
- 621.
+LaTeX Warning: Reference `as:costas_receiver' on page 8 undefined on input line
+ 483.
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 639
+Overfull \hbox (0.79999pt too wide) detected at line 501
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 677
+Overfull \hbox (0.79999pt too wide) detected at line 539
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 698
+Overfull \hbox (0.79999pt too wide) detected at line 560
 |[]|
+ []
+
+[8]
+Overfull \hbox (0.79999pt too wide) detected at line 591
+|[]|
+ []
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 612
+|[]|
+ []
+
+
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 623--623
+[]|\T1/aer/bx/n/10 Instance| 
+ []
+
+
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 643--643
+[]|\T1/aer/bx/n/10 Instance| 
  []
 
 [9]
-Overfull \hbox (0.79999pt too wide) detected at line 729
-|[]|
- []
-
-
-Overfull \hbox (0.79999pt too wide) detected at line 750
-|[]|
- []
-
-
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 761--761
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 668--668
 []|\T1/aer/bx/n/10 Instance| 
  []
 
 
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 781--781
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 685--685
 []|\T1/aer/bx/n/10 Instance| 
  []
 
-
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 806--806
-[]|\T1/aer/bx/n/10 Instance| 
- []
-
-
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 823--823
-[]|\T1/aer/bx/n/10 Instance| 
- []
-
-[10] (./res_franc.bbl
+(./res_franc.bbl [10]
 Underfull \hbox (badness 3396) in paragraph at lines 31--35
 []\T1/aer/m/n/10 Renaud De Landt-sheer, Yoann Guyot, Gus-
  []
 
-) [11] (./res_franc.aux)
+) [11
+
+] (./res_franc.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 32307 strings out of 494272
- 695214 string characters out of 6160999
- 853985 words of memory out of 5000000
- 34838 multiletter control sequences out of 15000+600000
+ 32297 strings out of 494272
+ 695114 string characters out of 6160999
+ 856895 words of memory out of 5000000
+ 34828 multiletter control sequences out of 15000+600000
  90007 words of font info for 167 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
- 65i,25n,81p,10466b,925s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,25n,81p,10466b,927s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -1368,7 +1394,7 @@ ts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/
 stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary7
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary9.pfb>
-Output written on res_franc.pdf (11 pages, 894217 bytes).
+Output written on res_franc.pdf (11 pages, 890805 bytes).
 PDF statistics:
  233 PDF objects out of 1000 (max. 8388607)
  147 compressed objects within 2 object streams

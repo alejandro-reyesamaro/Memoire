@@ -1,22 +1,22 @@
-In this section the performed study using \grp{} (\GRP) as a benchmark, is presented. Using this benchmark, a different communication strategy was tested: we communicate the current configuration in order to avoid its neighborhood, i.e., a {\it tabu} configuration.
+In this section, the performed study using \grp{} (\GRP) as a benchmark is presented. Using this benchmark, a different communication strategy was tested: we communicate the current configuration in order to avoid its neighborhood, i.e., a {\it tabu} configuration.
 
 \subsection{Problem definition}
 
 The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (i.e., the number of \textit{marks}) and $l$ is the length of the ruler (i.e., the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
-When I apply \posl{} to solve an instance of this problem sequentially, I can notice that it performs many {\it restarts} before finding a solution. For that reason I have chosen this problem to study a new communication strategy.
+When \posl{} is applied to solve an instance of this problem sequentially, It can be noticed that it performs many {\it restarts} before finding a solution. For that reason this problem was chosen to study a new \commstr.
 
-The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). I also store all distances where a variable is participating. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like {\it Adaptive Search}. This cost is calculated in $O\left(o^2 + l\right)$.
+The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). All distances where a variable is participating are also stored. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like {\it Adaptive Search}. This cost is calculated in $O\left(o^2 + l\right)$.
 
 \subsection{Experiment design and results}
 
-I use \grp{} instances to study a different communication strategy. This time I communicate the current configuration, to avoid its neighborhood, i.e., a {\it tabu} configuration. I have reused some modules used in the resolution of \sg{} and \carr{} problems to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
+\grp{} instances were used to study a different \commstr. This time the current configuration is communicated, to avoid its neighborhood, i.e., a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
 
 \begin{enumerate}
 	\item$I_{sort}$: returns a random configuration $s$ as an ordered vector of integers. The configuration is generated \textit{far} from the set of {\it tabu} configurations arrived via solver-communication (in communicating strategies) (based on the \textit{generation} \absm{} $I$).
 	\item $V_{sort}$: given a configuration, returns the neighborhood $V\left(s\right)$ by changing one value while keeping the order, i.e., replacing the value $s_i$ by all possible values $s'_i \in D_i$ satisfying $s_{i-1} < s'_i < s_{i+1}$ (based on the \textit{neighborhood} \absm{} $V$).
 \end{enumerate}
 
-We also added an abstract module $R$ for reset: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. As Algorithm~\ref{as:golomb_tabu} shows, this module is executed just before performing a restart, so the solver was unable to find a better configuration around the current one. Therefore, the current configuration is assumed to be a local minimum, and it is inserted in a tabu list.
+It was also added an abstract module $R$ for reset: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. As Algorithm~\ref{as:golomb_tabu} shows, this module is executed just before performing a restart, so the solver was unable to find a better configuration around the current one. Therefore, the current configuration is assumed to be a local minimum, and it is inserted into a tabu list.
 
 Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, using a tabu list and without using it. They were used to obtain results presented in Tables~\ref{tab:golomb_sec_notabu} and~\ref{tab:golomb_sec_tabu} to show that the approach explained above provides some gain in terms of runtime. 
 
@@ -88,7 +88,7 @@ Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, 
 	\label{tab:golomb_sec_tabu}
 \end{table}
 
-The benefit of the parallel approach is also proved for the \grp{}, as we can see in Table~\ref{tab:golomb_par_tabu}. However, without communication, the improvement is not substantial (8\% for 8--34, 7\% for 10--55 and 5\% for 11--72). The reason is because only one configuration is inserted in the tabu list after each restart. When we use \oneTone{} communication, after the restart $k$, the receiving solver has twice the number of configurations in the tabu list (one tabu configuration from itself and the received one after each restart).
+The benefit of the parallel approach is also proved for the \grp{}, as we can see in Table~\ref{tab:golomb_par_tabu}. However, without communication, the improvement is not substantial (8\% for 8--34, 7\% for 10--55 and 5\% for 11--72). The reason is because only one configuration is inserted in the tabu list after each restart. %When we use \oneTone{} communication, after the restart $k$, the receiving solver has twice the number of configurations in the tabu list (one tabu configuration from itself and the received one after each restart).
 
 \begin{table}[h]
 %\captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -110,7 +110,7 @@ The benefit of the parallel approach is also proved for the \grp{}, as we can se
 
 \separation
 
-The main goal of choosing this benchmark was to study a different communication strategy, since for solving this problem, \posl{} needs to perform some restarts. In this \commstr, solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration that we assume is a local minimum to be avoided. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it will communicate this configuration just before performing the restart. 
+The main goal of choosing this benchmark was to study a different \commstr, since for solving this problem, \posl{} needs to perform some restarts. In this \commstr, solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration that we assume is a local minimum to be avoided. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it will communicate this configuration just before performing the restart. 
 
 Algorithm~\ref{as:golomb_sender} presents the sender solver and Algorithm~\ref{as:golomb_receiver} presents the receiver solver. Based on the connection operator used in the communication strategy, this solver might receives one or many configurations. These configurations are the input of the generation module ($I$), and this module inserts all received configurations into a {\it tabu} list, and then generates a new first configuration, far from all configurations in the {\it tabu} list.
 
@@ -122,7 +122,7 @@ Algorithm~\ref{as:golomb_sender} presents the sender solver and Algorithm~\ref{a
 	\tet{\bf computation} : $I, V, S, A, R$\;}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 		$I \poslop{\mapsto}$ 
-		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^o$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis R \rrparenthesis^o$
 	}
 }
 \tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_golomb\_sender\;
@@ -139,7 +139,7 @@ Algorithm~\ref{as:golomb_sender} presents the sender solver and Algorithm~\ref{a
 	\tet{\bf connection} : $C.M.$\;}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 		$\left[C.M. \poslop{\mapsto} I \right] \poslop{\mapsto}$ 
-		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^o$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} R$
 	}
 }
 \tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_golomb\_receiver\;
@@ -160,9 +160,9 @@ The idea of this strategy (\as) follows the following steps:
 \poslexample{
 \mybox{Step 1}
 
-The \om{} generates an initial configuration tacking into account a set of configurations into a {\it tabu list}. The configuration arriving to this {\it tabu list} come from the same solver (Step 3) or from outside (other solvers) depending on the strategy (non-communicating or communicating).
+The \om{} $I_{sort}$ generates an initial configuration tacking into account a set of configurations into a tabu list. The configuration arriving to this tabu list come from the same solver (Step 3) and/or from outside (other solvers) depending on the strategy (non-communicating or communicating), and on the type of the solver (sender or receiver).
 
-This module applies some other modules provided by \posl{} to solve the {\it Sub-Sum Problem} in order to generates {\it valid} configurations for \grp{}. A valid configuration $s$ for \grp{} is a configuration that fulfills the following constraints:
+This module executes some other modules provided by \posl{} to solve the {\it Sub-Sum Problem} in order to generates {\it valid} configurations for \grp{}. A valid configuration $s$ for \grp{} is a configuration that fulfills the following constraints:
 
 \begin{itemize}
 \item $s = \left(a_1, \dots, a_o\right)$ where $a_i < a_j, \forall i < j$, and
@@ -187,29 +187,31 @@ I experimented with 3 different values for $p$. Each value defines a different t
 \item $p = \infty$:  $\left|\left|x\right|\right|_{\infty} = \max{(x)}$
 \end{itemize}
 
-After many experimental runs with these values I choose $p = \infty$ and $\epsilon = 4$ for the communication strategy study. I also made experiments trying to find the right size for the {\it tabu} list and the conclusion was that the right sizes were $15$ for non-communicating strategies and $40$ for communicating strategies, taking into account that in the latter, I work with 20 receivers solvers.
+After many experimental runs with these values I choose $p = \infty$ and $\epsilon = 4$ for the study of the \commstr. I also made experiments trying to find the right size for the {\it tabu} list and the conclusion was that the right sizes were $15$ for non-communicating strategies and $40$ for communicating strategies, taking into account that in the latter, I work with 20 receivers solvers.
 }
 
 \poslexample{
 \mybox{Step 2}
 
-After generating the first configuration, the next step is to apply a local search to improve it. In this step I use the neighborhood \om{} $V$, that creates neighborhood $\mathcal{V}\left(s\right)$ by changing one value while keeping the order in the configuration, and the other modules (selection and acceptance). The local search is executed a number $K_2$ of times, or until a solution is obtained.
+After generating the first configuration, the next step is to apply a local search to improve it. In this step I use the neighborhood \om{} $V_{sort}$, that creates neighborhood $\mathcal{V}\left(s\right)$ by changing one value while keeping the order in the configuration, and the other modules (selection and acceptance). The local search is executed a number $K_2$ of times, or until a solution is obtained.
 }
 
 \poslexample{
 \mybox{Step 3}
 
-If no improvement is reached, the current configuration is classified as a {\it potential local minimum} and inserted into the {\it tabu} list. Then, the process returns to the Step 1. 
+If no improvement is reached, the current configuration is classified as a {\it potential local minimum} and inserted into the {\it tabu} list, then send it (on the case of sender solvers). Then, the process returns to the Step 1. 
 }
 
-The \posl{} code of the \commstr{} using the \oneTn{} operator is the following:
+The \posl{} code of the \commstr{} using the \oneTn{} operator is presented in Algorithm~\ref{comm:golomb_1n}.
 
-\begin{equation}
-\label{eq:conn_golomb}
-\left[S_{sender}\cdot T(20)\right] \oneton \left[S_{receiver}\cdot C.M.(20)\right]
-\end{equation}
+\begin{algorithm}[h]
+\dontprintsemicolon
+\SetNoline
+$\left[\eqsolverposl{sender}\cdot R(20)\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(20)\right];$
+\caption{Communication strategy \oneTn{} for \GRP}\label{comm:golomb_1n}
+\end{algorithm}
 
-\modified{When we use communication \oneTone, after $k$ restarts the receiver solver has $2k$ configurations in its tabu list: its own tabu configurations and the received ones. Table~\ref{tab:golomb_par_1-1} shows that this strategy is not sufficient for some instances, but when we use communication \oneTn, the number of tabu configurations after $k$ restarts in the receiver solver is considerably higher: $k(N+1)$: its own tabu configurations and the ones received from $N$ sender solvers the receiver solver is connected with. Hence, these solvers can generate configurations far enough from many potentially local minima.}
+When we use communication \oneTone, after $k$ restarts the receiver solver has $2k$ configurations inside its tabu list: its own tabu configurations and the received ones. Table~\ref{tab:golomb_par_1-1} shows that this strategy is not sufficient for some instances, but when we use communication \oneTn, the number of tabu configurations after $k$ restarts in the receiver solver is considerably higher: $k(N+1)$: its own tabu configurations and the ones received from $N$ sender solvers the receiver solver is connected with. Hence, these solvers can generate configurations far enough from many potentially local minima.
 This phenomenon is more visible when the problem order $o$ increases. Table~\ref{tab:golomb_par_1-n} shows that the improvement for the higher case (11-72) is about 29\% w.r.t non communicating solvers (Table~\ref{tab:golomb_par_tabu}).
 
 \begin{table}[h]

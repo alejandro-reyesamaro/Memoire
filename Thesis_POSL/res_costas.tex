@@ -8,9 +8,9 @@ The cost function for this benchmark was implemented in C++ based on the current
 
 \subsection{Experiment design and results}
 
-To handle this problem, I have reused all modules used for solving the \nqp. First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the rights parameter of \textit{maximum number of restarts}, \textit{maximum number of iterations}, and \textit{maximum number of iterations with the same cost}, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: I have added a {\it Reset} \om{} $R_{AS}$ based on the abstract \om{} $R$. The rest of \oms{} were the same used for solving the \nqp.
+To handle this problem, I have reused all modules used for solving the \nqp. First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the right parameters of \textit{maximum number of restarts}, \textit{maximum number of iterations}, and \textit{maximum number of iterations with the same cost}, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: I have added a {\it Reset} \om{} $R_{AS}$ based on the abstract \om{} $R$. The rest of \oms{} were the same used for solving the \nqp.
 
-The basic solver I use to solve this problem is presented in Algorithm~\ref{as:costas}, and I take it as a base to build all the different communication strategies. Basically, it is a classical local search iteration, where instead of performing restarts, it performs resets. After a deep analysis of this implementation and results of some runs, I decided to use $K_1 = 24000$ (maximum number of iterations) big enough to solve the chosen instance $n = 17$; and $K_2 = 3$ (the number of iteration before performing the next \textit{reset}).
+The basic solver used to solve this problem is presented in Algorithm~\ref{as:costas}, and it was taken as a base to build all the different communication strategies. Basically, it is a classical local search iteration, where instead of performing restarts, it performs resets. After a deep analysis of this implementation and results of some runs, I decided to use $K_1 = 2,000,000$ (maximum number of iterations) big enough to solve the chosen instance $n = 19$; and $K_2 = 3$ (the number of iteration before performing the next \textit{reset}).
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -30,7 +30,7 @@ The basic solver I use to solve this problem is presented in Algorithm~\ref{as:c
 \caption{Reset-based \as{} for \CARRP}\label{as:costas}
 \end{algorithm}
 
-I present in Table~\ref{tab:costas19} results of launching {\it solver sets} to solve each instance of \carrp{} 19 sequentially and in parallel without communication. Runtimes and iteration means showed in this confirm once again the success of the parallel approach. 
+Table~\ref{tab:costas19} shows results of launching \sosets{} to solve each instance of \carrp{} 19 sequentially and in parallel without communication. Runtimes and iteration means showed in this confirm once again the success of the parallel approach. 
 
 \begin{table}[h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -57,7 +57,7 @@ In order to improve results, a simple communication strategy was applied: commun
 \dontprintsemicolon
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
-\myproc{as\_hard\_sen \; %\hspace{3pt}
+\myproc{as\_hard\_sender \; %\hspace{3pt}
 	\tet{\bf computation} : $I, R, V, S, A$\;}{
 	$I \poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
@@ -65,13 +65,13 @@ In order to improve results, a simple communication strategy was applied: commun
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d\right]$}
 	}
 }
-\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_hard\_sen\;
+\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_hard\_sender\;
 \algoindent \tet{\bf computation} : $I_{perm}, R_{AS}, V_{AS}, S_{first}, A_{AI}$ \;
 %\tet{\bf connection}: $CM_{last}$\;
 \caption{Sender solver for \CARRP}\label{as:costas_sender}
 \end{algorithm}
 
-Studying some runs of \posl{} for solving \CARRP{}, it was observed that the cost of the current configuration of the first solver finding a solution. This cost describes an oscillatory descent due to the repeated resets. For that reason, it was decided to apply a simple \commstr{} that shares the current configuration while applying the acceptance criterion: its goal is to  accelerate the cost descent. To do so, a \opch{} using a \textit{minimum} operator $\poslop{m}$ together with the abstract \om{} $A$ was inserted, as shown in Algorithm~\ref{as:costas_receiver_a}.
+Studying some runs of \posl{} solving \CARRP{}, it was observed that the cost of the current configuration of the first solver finding a solution, describes an oscillatory descent due to the repeated resets, but not so pronounced. For that reason, it was decided to apply a simple \commstr{} that shares the current configuration while applying the acceptance criterion: its goal is to  accelerate the cost descent. To do so, a \opch{} using a \textit{minimum} operator $\poslop{m}$ together with the abstract \om{} $A$ was inserted, as shown in Algorithm~\ref{as:costas_receiver_a}.
 
 One of the main purpose of this study is to explore different communication strategies. We have then implemented and tested different variations of the strategy exposed above by combining two communication operators (\oneTone{} and \oneTn) and different percentages of communicating solvers.
 For this problem, it was study also the behavior of the communication performed at two different moments: while applying the acceptance criteria (Algorithm~\ref{as:costas_receiver_a}), and while performing a {\it reset} (Algorithm~\ref{as:costas_receiver_b}).
@@ -114,7 +114,7 @@ For this problem, it was study also the behavior of the communication performed 
 \caption{Receiver solver for \CARRP{} (variant B)}\label{as:costas_receiver_b}
 \end{algorithm}
 
-The instantiation for the receiver solvers instantiates the abstract \opch{} $C.M.$ with the concrete \opch{} $CM_{last}$, which takes into account the last received configuration when it is running.
+The instantiation for receiver solvers instantiates the abstract \opch{} $C.M.$ with the concrete \opch{} $CM_{last}$, which takes into account the last received configuration at the time of its execution.
 
 \begin{table}
 \centering 
@@ -137,18 +137,19 @@ The instantiation for the receiver solvers instantiates the abstract \opch{} $C.
 \label{tab:costas19comm}
 \end{table}
 
-Table~\ref{tab:costas19comm} shows that \sosets{} executing the strategy {\it A} (receiving the configuration at the time of applying the acceptance criteria) is more effective. The reason is that the others, interfere with the proper performance of the {\it reset}, that is a very important step in the algorithm. This step can be performed on three different ways:
+Table~\ref{tab:costas19comm} shows that \sosets{} executing the strategy {\it A} (receiving the configuration at the time of applying the acceptance criteria) is more effective. The reason is that the others, interfere with the proper performance of the {\it reset}, which is a very important step in the algorithm. This step can be performed on three different ways:
 \begin{enumerate}
 \item Trying to shift left/right all sub-vectors starting or ending by the variable which contributes the most to the cost, and selecting the configuration with the lowest cost.
 \item Trying to add a constant (circularly) to each element in the configuration.
 \item Trying to shift left from the beginning to some culprit variable (i.e., a variable contributing to the cost).
 \end{enumerate}
-Then, one of these 3 generated configuration has the sabe probability of being selected, to be the result of the \textit{reset} step. In that sense, some different \textit{resets} can be performed for the same configuration. Here is when the communication play its important role: receiver and sender solvers apply different \textit{reset} in the same configuration, and results showed the efficacy of this communication strategy.
+Then, one of these 3 generated configuration has the same probability of being selected, to be the result of the \textit{reset} step. In that sense, some different \textit{resets} can be performed for the same configuration. Here is when the communication play its important role: receiver and sender solvers apply different \textit{reset} in the same configuration, providing an exploratory factor. Results showed the efficacy of this communication strategy.
  
 Analyzing the whole information obtained during the experiments, we can observe that the percentage of communicating solvers finding the solution thanks to the received information was high. That shows that the communicated information was very helpful during the search process. 
 With the simplicity of the operator-based language provided by \posl{}, we were able to find a simple \commstr{} to obtain better results than applying sequential and parallel independent multi-walk approaches. As expected, the best strategy was based on 100\% of communication and a \oneTn{} communication, because this strategy allows to communicate a promising place inside the search space to a maximum of solvers, helping the decisive intensification process.
 %(a good compromise between local computation and data exchange/a fully based communication/ etc)
-Algorithm~\ref{comm:costas1001N} shows the code of this \commstr{}, where  20 is used as  \textit{syntactic sugar} to declare easily a list of 20 solvers of each type (20 senders and 20 receivers). Using the \oneTn{} operator $\oneton$ each sender solver sends information to every receiver solver. 
+Algorithm~\ref{comm:costas1001N} shows the code of this \commstr{}. %, where  20 is used as  \textit{syntactic sugar} to declare easily a list of 20 solvers of each type (20 senders and 20 receivers). 
+Using the \oneTn{} operator $\oneton$ each sender solver sends information to every receiver solver. 
 
 \begin{algorithm}
 \dontprintsemicolon

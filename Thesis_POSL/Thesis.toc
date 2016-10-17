@@ -1,20 +1,17 @@
 \select@language {english}
-\contentsline {part}{I\hspace {1em}Study and evaluation of {\sc POSL}}{1}{part.1}
-\contentsline {chapter}{\numberline {1}Experiments design and results}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Solving the {\it Social Golfers}{} {\it Problem}}{4}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Problem definition}{5}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Experiment design and results}{5}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Solving the {\it N-Queens}{} {\it Problem}}{15}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Problem definition}{16}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Experiments and results}{16}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Results analysis of experiment Nr. 1}{18}{subsection.1.2.3}
-\contentsline {subsection}{\numberline {1.2.4}Experiment design Nr. 2}{20}{subsection.1.2.4}
-\contentsline {subsection}{\numberline {1.2.5}Results analysis of experiment Nr. 2}{21}{subsection.1.2.5}
-\contentsline {section}{\numberline {1.3}Solving the {\it Costas Array}{} {\it Problem}}{22}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Problem definition}{22}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Experiment design and results}{22}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Solving the {\it Golomb Ruler}{} {\it Problem}}{26}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Problem definition}{26}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Experiment design and results}{26}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}Summarizing}{31}{section.1.5}
-\contentsline {chapter}{\numberline {2}Bibliography}{35}{chapter.2}
+\contentsline {part}{I\hspace {1em}Presentation}{1}{part.1}
+\contentsline {chapter}{\numberline {1}State of the art}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Combinatorial Optimization}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}Constraint programming}{5}{section.1.2}
+\contentsline {section}{\numberline {1.3}Meta-heuristic methods}{9}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Single Solution Based Meta-heuristic}{9}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Population Based Meta-heuristic}{12}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Hyper-heuristic Methods}{13}{section.1.4}
+\contentsline {section}{\numberline {1.5}Hybridization}{14}{section.1.5}
+\contentsline {section}{\numberline {1.6}Parallel computing}{15}{section.1.6}
+\contentsline {section}{\numberline {1.7}Solvers cooperation}{20}{section.1.7}
+\contentsline {section}{\numberline {1.8}Parameter setting techniques}{21}{section.1.8}
+\contentsline {subsection}{\numberline {1.8.1}Off-line tunning}{22}{subsection.1.8.1}
+\contentsline {subsection}{\numberline {1.8.2}On-line tunning}{23}{subsection.1.8.2}
+\contentsline {section}{\numberline {1.9}Summary and discussion}{24}{section.1.9}
+\contentsline {chapter}{\numberline {2}Bibliography}{25}{chapter.2}

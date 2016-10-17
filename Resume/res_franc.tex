@@ -169,235 +169,39 @@ Pour illustrer la définition~\ref{def:cm}, la figure~\ref{fig:cm} montre graphiq
 
 Dans le  cas particulier  où un  des \cms{}  impliqués est  un \opch{}, chaque opérateur gère l'information {\it NULL} à sa manière.
 
-Afin   de  grouper   des   modules,  nous   utiliserons  la   notation $\left|.\right|$ comme  un groupe générique qui pourra être indifféremment interprété comme $[.]$ ou comme $\lbk . \rbk_p$.
+Afin   de  grouper   des   modules,  nous   utiliserons  la   notation $\left|.\right|$ comme un groupe générique qui pourra être indifféremment interprété comme $[.]$ ou comme $\lbk . \rbk_p$.
 
-L'opérateur suivant nous permet d'exécuter deux modules séquentiellement, l'un après l'autre.
+Ensuite, les opérateurs fournis par \posl{} sont présentés. 
 
-\begin{definition}\label{def:seqexec} {\bf (Sequential Execution Operator)} 
-Soient
-\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ et
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$.
-\end{inparaenum}
-deux \ms{} différents. \new{Alors l'opération  $\left|\mathcal{M}_1\poslop{\mapsto}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{seq}$ comme le résultat de l'exécution de $\mathcal{M}_1$ suivi de $\mathcal{M}_2$.}
+\underline{\bf Sequential Execution Operator}: \new{L'opération $\left|\mathcal{M}_1\poslop{\mapsto}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{seq}$ comme le résultat de l'exécution de $\mathcal{M}_1$ suivi de $\mathcal{M}_2$. C'est un exemple d'opérateur ne  supportant pas une exécution parallèle de ses \cms impliqués, puisque l'entrée du second \cm{} est la sortie du premier.}
 
-\[
-\mathcal{M}_{seq}:\mathcal{D}_1 \rightarrow \mathcal{I}_2
-\]
-\end{definition}
+\underline{\bf Conditional Execution Operator}: \new{L'opération $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{cond}$ le résultat de l'exécution en séquentiel de $\mathcal{M}_1$ si $<cond>$ es {\bf vrai} or $\mathcal{M}_2$, autrement.}
 
+\underline{\bf Cyclic Execution Operator}: \new{L'opération $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ définit le \cm{} $\mathcal{M}_{cyc}$ en répétant séquentiellement l'exécution de $\mathcal{M}$ tant que $<cond>$ est {\bf vrai}.}
 
-L'opérateur  présenté  dans  la  définition~\ref{def:seqexec}  est  un exemple d'opérateur ne  supportant pas une exécution  parallèle de ses \cms impliqués, puisque l'entrée du second \cm{} est la sortie du premier.
+\underline{\bf Random Choice Operator}: \new{L'operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{rho}$ qui exécute $\mathcal{M}_1$ en suivant une probabilité $\rho$, ou en exécutant $\mathcal{M}_2$ en suivant une probabilité $(1-\rho)$.}
 
-%\begin{tabular}{ll}
-%	$\left[\mathcal{M}_1\poslop{\mapsto}\mathcal{M}_2\right]$ & \textcolor{darkgreen}{\bf OK!}\\
-%	$\lbk\mathcal{M}_1\poslop{\mapsto}\mathcal{M}_2\rbk_p$ & \textcolor{red}{\bf Impossible}
-%\end{tabular}
+\underline{\bf Not {\it NULL}}: \new{L'operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{non}$ qui exécute $\mathcal{M}_1$ et retourne une sortie si elle n'est pas {\it NULL}, ou exécute $\mathcal{M}_2$ et retourne une sortie autrement.}
 
-L'opérateur suivant  est utile  pour exécuter des  modules séquentiels créant des branchements de calcul selon une condition booléenne :
+\underline{\bf Minimum Operator}: \new{Soient $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus grand valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{min}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\min\left\{o_1,o_2\right\}$.}
 
-\begin{definition}\label{op:conditional}
-{\bf (Conditional Execution Operator)} Soient 
-\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ et 
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{inparaenum} 
-deux \ms{} différents. \new{Alors l'opération $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{cond}$ le résultat de l'exécution en séquentiel de $\mathcal{M}_1$ si $<cond>$ es {\bf vrai} or $\mathcal{M}_2$, autrement}:
+\underline{\bf Maximum Operator}: \new{Soient $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus petite valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{max}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\max\left\{o_1,o_2\right\}$.}
 
-\[
-\mathcal{M}_{cond}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
+\underline{\bf Race Operator}: \new{L'opération $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{race}$ qui exécute les deux \ms{} $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne la sortie du \m{} qui termine en premier}
 
-Nous pouvons exécuter séquentiellement  des modules créant des boucles de calcul, en définissant les \cms{} avec un autre opérateur conditionnel:
+Les opérateurs $\circled{$\rho$}$, $\circled{$\vee$}$ et $\circled{m}$ sont très  utiles en  terme de  partage d'informations entre   solveurs, mais également en terme de partage de comportements. Si un  des opérandes est un \opch{} alors l'opérateur peut recevoir le \om{} d'un autre solveur, donnant la possibilité d'instancier ce module dans le solveur le réceptionnant. L'opérateur va soit instancier le module s'il  n'est pas {\it NULL} et l'exécuter, soit exécuter le module donné par le second opérande.
 
-\begin{definition}\label{op:cyclic}
-{\bf (Cyclic Execution Operator)} Soit $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ un \m, où $\mathcal{I} \subseteq \mathcal{D}$. \new{Alors, l'opération $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ définit le \cm{} $\mathcal{M}_{cyc}$ en répétant séquentiellement l'exécution de $\mathcal{M}$ tant que $<cond>$ est {\bf vrai}:}
-
-\[
-\mathcal{M}_{cyc}:\mathcal{D} \rightarrow \mathcal{I} 
-\]
-\end{definition}
-
-%Dans la figure~\ref{fig:ex1}, on  présente un exemple simple combinant des \ms utilisant les opérateurs de \posl{} introduis ci-dessus. L'algorithme~\ref{algo:ex1} montre le code correspondant. Cet exemple montre  trois \ms{} faisant  partie d'un \cm{} avec pour but de générer  une configuration initiale à partir de laquelle débutera un solveur de recherche locale. Nous avons ainsi :
-%
-%\begin{itemize}
-%\item $\mathcal{M}_1$, générant une configuration aléatoire.
-%\item {$\mathcal{M}_2$, sélectionnant une variable aléatoire  d'une  configuration donnée, et recopiant sa valeur dans une autre variable.}
-%\item $\mathcal{M}_3$, stockant la meilleure configuration trouvée.
-%\end{itemize}
-
-%{Dans cet exemple, l'\module{} $\mathcal{M}_2$ est d'abord exécuté, suivi
-%de $\mathcal{M}_3$  si tous les  éléments de la  configuration générée
-%sont  différents} (\verb!<  cond  >!). {Sinon,  seul l'\module{}
-%$\mathcal{M}_3$ est  exécuté. Cette  opération est répétée  un certain
-%nombre de fois} (\verb!< stop_cond >!).
-%
-%\figalgosbs{
-%	\centering
-%% eric
-%%	\includegraphics[width=\linewidth]{Ex1v2.eps}
-%	\includegraphics[width=0.8\linewidth]{Ex1v2}
-%	\caption{}\label{fig:ex1}
-%}{
-%%\caption{\af{} code for Figure \ref{fig:ex1}}
-%\caption{Code \af{} de la figure \ref{fig:ex1}}
-%\dontprintsemicolon
-%\SetNoline
-%
-%\While{$<\text{stop\_cond}>$}{		
-%	$\left[\mathcal{M}_1 \xmapsto[<cond>]{} \left\{\mathcal{M}_2;\left[\mathcal{M}_2 \longmapsto\mathcal{M}_3\right]\right\}\right]$\;			
-%}
-%\label{algo:ex1}
-%}%fr
-
-\posl{} offre la possibilité de faire muter les solveurs. En fonction de l'opération, un  ou plusieurs \m{} opérande(s) sera exécutée(s), mais seule la sortie de l'un d'entre  eux sera retournée par le \cm. Nous présentons  ces opérateurs  dans deux  définitions, groupant  ceux qui exécutent uniquement un opérande  de \m{}~(définition~\ref{op:rho} et \ref{op:or}) et ceux exécutant les deux opérandes~(définition~\ref{op:min}, \ref{op:max} et~\ref{op:race}).
-
-\begin{definition}\label{op:rho}
-{\bf Random Choice Operator} Soient
-\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ et
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{inparaenum} 
-deux \ms{} différents, et un numéro réel $\rho \in (0,1)$. \new{Alors, l'operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{rho}$ qui exécute $\mathcal{M}_1$ en suivant une probabilité $\rho$, ou en exécutant $\mathcal{M}_2$ en suivant une probabilité $(1-\rho)$:}
-
-\[
-\mathcal{M}_{rho}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
-
-\begin{definition}\label{op:or}
-{\bf Not {\it NULL} Execution Operator} Soient
-\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ et  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{inparaenum} 
-deux \ms{} différents. \new{Alors, l'operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{non}$ qui exécute $\mathcal{M}_1$ et retourne une sortie si elle n'est pas{\it NULL}, ou exécute $\mathcal{M}_2$ et retourne une sortie autrement:}
-
-\[
-\mathcal{M}_{non}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
-
-La définition suivante  fait appelle aux notions  de {\it parallélisme coopératif} et de {\it parallélisme compétitif}. Nous disons qu'il y a  parallélisme  coopératif  quand  deux  unités  de  calcul  ou  plus s'exécutent simultanément, et que le résultat obtenu provient de la combinaison des  résultats calculés par  chaque unité de  calcul (voir définitions~\ref{op:min} et \ref{op:max}). À l'opposé, nous  considérons qu'il y  a parallélisme compétitif  lorsque le résultat obtenu  est une solution ne provenant  que d'un seul processus exécuté  en parallèle; en  général   le  premier   processus  à  terminer   (voir  définition \ref{op:race}). 
-
-\begin{definition}\label{op:min}
-{\bf Minimum Operator } Soient 
-\begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ et
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{enumerate}%\end{inparaenum} 
-deux \ms{} différents. \new{Soient aussi $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus grand valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{min}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\min\left\{o_1,o_2\right\}$:}
-
-\[
-\mathcal{M}_{min}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
-
-De la même manière nous définissons l'opérateur \textbf{Maximum}:
-
-\begin{definition}\label{op:max}
-{\bf Minimum Operator} Soient 
-\begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ et
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{enumerate}%\end{inparaenum} 
-deux \ms{} différents. \new{Soient aussi $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus petite valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{max}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\max\left\{o_1,o_2\right\}$:}
-
-\[
-\mathcal{M}_{max}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
-
-%\poslexample{The {\bf minimum operator} can be applied in the previews example to obtain an interesting behavior: When applying the acceptance criteria, suppose that we want to receive a configuration from another solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the $\circled{m}$ operator to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
-%$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
-%Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf minimum operator} supports parallelism.}
-%
-%\begin{figure}[h]
-%	\centering	
-%	\includegraphics[width=0.6\linewidth]{min.png}
-%	\caption{Using {\bf minimum} operator}\label{fig:min_example}
-%\end{figure}
-
-\begin{definition}\label{op:race}
-{\bf Race Operator} Soient
-\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$  et
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
-\end{inparaenum} deux \ms{} différents, où $\mathcal{D}_1 \subseteq \mathcal{D}_2$ et $\mathcal{I}_1 \subset \mathcal{I}_2$. \new{Alors, l'opération $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{race}$ qui exécute les deux \ms{} $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne la sortie du \m{} qui termine en premier:}
-
-\[
-\mathcal{M}_{race}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
-\]
-\end{definition}
-
-%\figalgosbs{\
-%	\centering
-%% eric
-%%	\includegraphics[width=\linewidth]{Ex2v2.eps}
-%	\includegraphics[width=0.8\linewidth]{Ex2v2}
-%	\caption{}\label{fig:ex2}
-%}{
-%%\caption{\af{} code for Figure \ref{fig:ex2}}
-%\caption{Code \af{} de la figure \ref{fig:ex2}}
-%\dontprintsemicolon
-%\SetNoline	
-%$\mathcal{M}_1 \longmapsto \lbk\mathcal{M}_2\circled{$\times$}\lbk\mathcal{M}_3 \circled{$\shortdownarrow$} \mathcal{M}_4\rbk_p\rbk_p\longmapsto\mathcal{M}_5$\;			
-%\label{algo:ex2}
-%}%fr
-%
-%Nous  illustrons un  de  ces  trois opérateurs  dans  l'exemple de  la
-%figure~\ref{fig:ex2}. Les modules rentrant en jeu sont :
-%
-%\begin{itemize}
-%	\item $\mathcal{M}_1$, retournant une configuration
-%	\item $\mathcal{M}_2$, calculant un paramètre de tolérance $\epsilon$
-%	\item   $\mathcal{M}_3$  et   $\mathcal{M}_4$,  calculant   le
-%          voisinage  $\mathcal{N}$ de  la  configuration provenant  de
-%          $\mathcal{M}_1$.  Ces deux  \modules    calcule  $\mathcal{N}$ de  manière
-%          différente, mais ils sont combinés de façon à ce que seul la
-%          sortie du premier module terminant son calcul soit retournée.
-%	\item  $\mathcal{M}_5$, sélectionnant  une configuration  dans
-%          $\mathcal{N}$ améliorant  le coût  global avec  un tolérance
-%          $\epsilon$,  à  la  manière   du  {\it  Threshold  Accepting
-%            Method}~\cite{Boussaid2013}
-%\end{itemize}
-%
-%Dans   l'algorithme~\ref{algo:ex2},   les    \ms   $\mathcal{M}_3$   et
-%$\mathcal{M}_4$ sont  exécutés en  parallèle, mais  seule la  sortie du
-%premier module à terminer son calcul sera retournée. 
-%
-%De  la   même  manière,  le   \cm{}  composé  de   $\mathcal{M}_3$  et
-%$\mathcal{M}_4$ peut  être exécuté en parallèle  avec $\mathcal{M}_2$,
-%parce qu'ils sont  indépendants l'un de l'autre et  que l'opérateur le
-%permet. Il est important de souligner qu'ils peuvent être exécutés par
-%l'opérateur $\circled{$\times$}$, puisqu'ils reçoivent la même entrée.
-
-Les  opérateurs   introduits  par  les   définitions~\ref{op:rho}, \ref{op:or} et \ref{op:min} sont très  utiles en  terme de  partage d'informations entre   solveurs, mais également en terme de partage de comportements. Si un  des opérandes est un  \opch{} alors l'opérateur peut recevoir le \om{} d'un autre solveur, donnant la possibilité d'instancier ce module dans le solveur le réceptionnant. L'opérateur va soit instancier le module s'il  n'est pas {\it NULL} et l'exécuter, soit exécuter le module donné par le second opérande.
-
-Maintenant, nous définissons les  opérateurs nous permettant d'envoyer de  l'information vers  d'autres  solveurs. Deux  types d'envois  sont possibles :
+Maintenant, nous présentons les opérateurs nous permettant d'envoyer de l'information vers d'autres solveurs. Deux types d'envois sont possibles :
 \begin{inparaenum}[i)]
 	\item on exécute un \m{} et on envoie sa sortie,
 	\item ou on envoie le \m{} lui-même.
 \end{inparaenum}
 
-\begin{definition}\label{op:osend}
-{\bf Sending Data Operator} Soit $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ un \m. \new{Alors, l'opération $\left|\senddataop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendD}$ qui exécute le \m{} $\mathcal{M}$ puis envoie la sortie vers un \opch:}
+\underline{\bf Sending Data Operator}: \new{L'opération $\left|\senddataop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendD}$ qui exécute le \m{} $\mathcal{M}$ puis envoie la sortie vers un \opch.}
 
-\[
-\mathcal{M}_{sendD}:\mathcal{D} \rightarrow \mathcal{I}
-\]
-\end{definition}
+\underline{\bf Sending Module Operator}: \new{L'opération $\left|\sendmoduleop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendM}$ qui exécute le \m{} $\mathcal{M}$, puis envoie le \m{} lui même  vers un \opch.}
 
-\begin{definition}\label{op:msend}
-{\bf Sending Module Operator} Soit $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ un \m. \new{Alors, l'opération $\left|\sendmoduleop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendM}$ qui exécute le \m{} $\mathcal{M}$, puis envoie le \m{} lui même  vers un \opch:}
-
-\[
-\mathcal{M}_{sendM}:\mathcal{D} \rightarrow \mathcal{I}
-\]
-\end{definition}
-
-Avec  les opérateurs  présentés jusqu'ici,  nous sommes  en mesure  de concevoir les \ass{} (ou algorithme) de résolution d'un problème de contraintes. Une fois un  tel \as{} définie, on  peut changer les composants (\oms{} et \opchs) auxquels elle fait appel, permettant  ainsi d'implémenter différents solveurs à partir du même \as{} mais composés de différents \ms, du moment que ces derniers respectent  la signature attendue, à savoir le types des entrées et sorties.
+Avec  les opérateurs  présentés jusqu'ici, nous sommes  en mesure  de concevoir les \ass{} (ou algorithme) de résolution d'un problème de contraintes. Une fois un tel \as{} définie, on peut changer les composants (\oms{} et \opchs) auxquels elle fait appel, permettant ainsi d'implémenter différents solveurs à partir du même \as{} mais composés de différents \ms, du moment que ces derniers respectent la signature attendue, à savoir le types des entrées et sorties.
 
 \new{Un \as{} est déclaré comme suit: après déclarer les noms de l'\mbox{\tet{\bf \as}} ({\it name}), la première ligne définit la liste des \oms{} abstraites ($\mathcal{L}^m$), la seconde ligne, la liste des \opchs{} abstraites ($\mathbf{M}$), puis l'algorithme du solver est définit comment le corps su solver (the root \cm{} $\mathbf{M}$), entre \mbox{\tet{\bf begin}} et \mbox{\tet{\bf end}}.}
 
@@ -451,7 +255,7 @@ Les communications sont établies en respectant les règles suivantes :
 \item Les solveurs peuvent être connectés entre eux en reliant {\it prises mâles} et {\it femelles}.
 \end{enumerate}
 
-Avec l'opérateur~$(\cdot)$, nous  pouvons  avoir  accès aux  \oms{} envoyant une information et aux noms des \opchs d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit  un accès à le \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{o}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
+Avec l'opérateur~$(\cdot)$, nous  pouvons  avoir  accès aux  \oms{} envoyant une information et aux noms des \opchs d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit  un accès à le \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
 
 Maintenant, nous définissons les opérateurs de communication que \posl{} fournit.
 
@@ -499,6 +303,64 @@ Maintenant, nous définissons les opérateurs de communication que \posl{} fournit
 \caption[]{Représentation graphique des opérateurs de communication}
 \label{fig:comm}
 \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{Les résultats}
 

@@ -1,0 +1,1218 @@
+POSL: Un langage orient´
+e parall`
+ele pour
+mod´
+eliser des solveurs de contraintes
+Alejandro Reyes Amaro
+LINA - UMR 6241, TASC - INRIA Universit´e de Nantes, France.
+alejandro.reyes@univ-nantes.fr
+R´
+esum´
+e
+
+est l’ensemble des domaines associ´es `a chaque variable
+dans X ; et C = {c1 , c2 , . . . , cm }, est un ensemble de
+contraintes. Chaque contrainte est d´efinie en impliquant un ensemble de variables, et sp´ecifie les combinaisons possibles de valeurs de ces variables. Une
+configuration s ∈ D1 × D2 × . . . × Dn , est une combinaison de valeurs des variables dans X. Nous disons
+que s est une solution de P si et seulement si s satisfait
+toutes les contraintes ci ∈ C.
+Les CSPs sont connus pour ˆetre des probl`emes extrˆemement difficiles. Parfois les m´ethodes compl`etes ne
+sont pas capables de passer `a l’´echelle de probl`emes de
+taille industriel. C’est la raison pour laquelle les techniques m´eta–heuristiques sont de plus en plus utilis´ees
+pour la r´esolution de ces derniers. Par contre, dans
+la plupart des cas industriels, l’espace de recherche
+est assez important et devient donc intraitable, mˆeme
+pour les m´ethodes m´eta-heuristiques. Cependant, les
+r´ecents progr`es dans l’architecture de l’ordinateur nous
+conduisent vers les ordinateurs multi/many–cœur, en
+proposant une nouvelle fa¸con de trouver des solutions
+`a ces probl`emes d’une mani`ere plus r´ealiste, ce qui r´eduit le temps de recherche.
+Grˆace `a ces d´eveloppements, les algorithmes parall`eles ont ouvert de nouvelles fa¸cons de r´esoudre les
+probl`emes de contraintes : Adaptive Search [2] est un
+algorithme efficace, montrant de tr`es bonnes performances et passant `a l’´echelle de plusieurs centaines ou
+mˆeme milliers de cœurs, en utilisant la recherche locale
+multi-walk en parall`ele. Munera et al. [7] ont pr´esent´e
+une autre impl´ementation d’Adaptive Search en utilisant la coop´eration entre des strat´egies de recherche.
+Meta–S est une impl´ementation d’un cadre th´eorique
+pr´esent´e dans [3], qui permet d’attaquer les probl`emes
+par la coop´eration de solveurs de contraintes de domaine sp´ecifique. Ces travaux ont montr´e l’efficacit´e
+du sch´ema parall`ele multi-walk.
+
+La technologie multi-cœur et les architectures massivement parall`eles sont de plus en plus accessibles `
+a
+tous, `
+a travers des mat´eriaux comme le Xeon Phi ou les
+cartes GPU. Cette strat´egie d’architecture a ´et´e commun´ement adopt´ee par les producteurs pour faire face `
+a la
+loi de Moore. Or, ces nouvelles architectures impliquent
+d’autres mani`eres de concevoir et d’impl´ementer les algorithmes, pour exploiter compl`etement leur potentiel,
+en particulier dans le cas des solveurs de contraintes traitant de probl`emes d’optimisation combinatoire.
+Cette th`ese pr´esente Parallel-Oriented Solver Language (POSL, prononc´e ”puzzle”) : un syst`eme pour
+construire des m´eta-heuristiques interconnect´ees travaillant en parall`ele. Le but de ce travail est d’obtenir
+un syst`eme pour facilement construire des solveurs et
+r´eduire l’effort de leur d´eveloppement en proposant un
+m´ecanisme de r´eutilisation de code entre les diff´erents
+solveurs. La nouveaut´e de cette approche porte sur le fait
+que l’on voit un solveur comme un ensemble de composants sp´ecifiques, ´ecris dans un langage orient´e parall`ele
+bas´e sur des op´erateurs. POSL permets aux composants
+d’un solveur d’ˆetre transmis et ex´ecut´es par d’autres solveurs. Il propose ´egalement une couche suppl´ementaire
+permettant de d´efinir des connexions entre solveurs.
+
+1
+
+Introduction
+
+L’optimisation combinatoire a plusieurs applications
+dans diff´erents domaines tels que l’apprentissage de la
+machine, l’intelligence artificielle, et le g´enie du logiciel. Dans certains cas, le but principal est seulement
+de trouver une solution, comme pour les Probl`emes de
+Satisfaction de Contraintes (CSP). Une solution sera
+une affectation de variables r´epondant aux contraintes
+fix´ees, en d’autres termes : une solution faisable.
+Plus formellement, un CSP (d´enot´e par P) est d´efini par le trio X, D, C o`
+u X = {x1 , x2 , . . . , xn } est
+un ensemble fini de variables ; D = {D1 , D2 , . . . , Dn },
+1
+
+De plus, le temps de d´eveloppement n´ecessaire pour
+coder des solveurs en parall`ele est souvent sous-estim´e,
+et dessiner des algorithmes efficaces pour r´esoudre
+certains probl`emes consomment trop de temps. Dans
+cette th`ese nous pr´esentons POSL, un langage orient´e
+parall`ele pour construire des solveurs de contraintes
+bas´es sur des m´eta-heuristiques, qui r´esolvent des
+CSPs. Il fournit un m´ecanisme pour coder des strat´egies de communication ind´ependantes du Le but de
+cet article est de proposer des nouveaux op´erateurs
+de communication, tr`es utiles pour dessiner des strat´egies de communication, et de pr´esenter une analyse
+d´etaill´ee des r´esultats obtenus en r´esolvant plusieurs
+instances des probl`emes CSP. Sachant que cr´eer des
+solveurs utilisant diff´erentes strat´egies de solution peut
+ˆetre compliqu´e et p´enible, POSL donne la possibilit´e
+de faire des prototypes de solveurs communicants facilement.
+
+2
+
+Des travaux reli´
+es
+
+Beaucoup de chercheurs se concentrent sur la programmation par contraintes, particuli`erement dans le
+d´eveloppement de solution `
+a haut-niveau qui facilitent
+la construction de strat´egies de recherche. Cela permet
+de citer plusieurs contributions.
+Hyperion [1] est un syst`eme cod´e en Java pour
+m´eta et hyper-heuristiques bas´e sur le principe d’interop´erabilit´e, fournissant des patrons g´en´eriques pour
+une vari´et´e d’algorithmes de recherche locale et ´evolutionnaire, et permettant des prototypages rapides
+avec la possibilit´e de r´eutiliser le code source. POSL
+offre ces avantages, mais il fournit ´egalement un m´ecanisme permettant de d´efinir des protocoles de communication entre solveurs. Il fournit aussi, `
+a travers d’un
+simple langage bas´e sur des op´erateurs, un moyen de
+construire des abstract solvers, en combinant des modules d´ej`
+a d´efinis (computation modules et communication modules). Une id´ee similaire a ´et´e propos´ee
+dans [4] sans communication, qui introduit une approche ´evolutive en utilisant une simple composition
+d’op´erateurs pour d´ecouvrir automatiquement les nouvelles heuristiques de recherche locale pour SAT et les
+visualiser comme des combinaisons d’un ensemble de
+blocs.
+R´ecemment, [9] a montr´e l’efficacit´e de combiner diff´erentes techniques pour r´esoudre un probl`eme donn´e
+(hybridation). Pour cette raison, lorsque les composant du solveurs peuvent ˆetre combin´es, POSL est
+dessin´e pour ex´ecuter en parall`ele des ensembles de
+solveurs diff´erents, avec ou sans communication. Une
+autre id´ee int´eressante est propos´ee dans Templar.
+Il s’agit d’un syst`eme qui g´en`ere des algorithmes en
+changeant des composants pr´ed´efinis, et en utilisant
+
+des m´ethodes hyper-heuristiques [8]. Dans la derni`ere
+phase du processus de codage avec POSL, les solveurs
+peuvent ˆetre connect´es les uns aux autres, en fonction
+de la structure de leurs communication modules, et
+de cette fa¸con, ils peuvent partager non seulement des
+informations, mais aussi leur comportement, en partageant leurs computation modules. Cette approche
+donne aux solveurs la capacit´e d’´evoluer au cours de
+l’ex´ecution.
+Renaud De Landtsheer et al. pr´esentent dans [5] un
+cadre facilitant le d´eveloppement des syst`emes de recherches en utilisant des combinators pour dessiner les
+caract´eristiques trouv´ees tr`es souvent dans les proc´edures de recherches comme des briques, et les assembler. Dans [6] est propos´ee une approche qui utilise
+des syst`emes coop´eratifs de recherche locale bas´ee sur
+des m´eta-heuristiques. Celle-ci se sert de protocoles de
+transfert de messages. POSL combine ces deux id´ees
+pour assembler des composants de recherche locale `
+a
+travers des op´erateurs fournis (ou en cr´eant des nouveaux), mais il fournit aussi un m´ecanisme bas´e sur
+op´erateurs pour connecter et combiner des solveurs,
+en cr´eant des strat´egies de communication.
+Dans cette th`ese, nous pr´esentons quelques nouveaux op´erateurs de communication afin de concevoir
+des strat´egies de communication. Avant de clore cet
+article par une br`eve conclusion et de travaux futurs,
+nous pr´esentons quelques r´esultats obtenus en utilisant POSL pour r´esoudre certaines instances des probl`emes Social Golfers, Costas Array, N-Queens et Golomb Ruler.
+
+3
+
+Solveurs parall`
+eles POSL
+
+POSL permet de construire des solveurs suivant diff´erentes ´etapes :
+1. L’algorithme du solveur consid´er´e est exprim´e via
+une d´ecomposition en modules de calcul. Ces modules sont impl´ement´es `a la mani`ere de fonctions
+s´epar´ees. Nous appelons computation module ces
+morceaux de calcul (figure 1a, blocs bleus). En
+suite, il faut d´ecider quelles sont les types d’informations que l’on souhaite recevoir des autres
+solveurs. Ces informations sont encapsul´ees dans
+des composants appel´es communication module,
+permettant de transmettre des donn´ees entre solveurs (figure 1a, bloc rouge)
+2. Une strat´egie g´en´erique est cod´ee `a travers POSL,
+en utilisant les op´erateurs fournis par le langage
+appliqu´es sur des modules abstraite qui repr´esentent les signatures des composants donn´es lors
+l’´etape 1, pour cr´eer abstract solvers. Cette strat´egie d´efinie non seulement les informations ´echang´ees, mais d´etermine ´egalement l’ex´ecution paral-
+
+(a) Definition du modules et l’communication modules
+
+(b) Definition de l’abstract solver
+
+(c) Definition de la strategie de communication
+
+Figure 1 – Construire des solveurs parall`eles avec
+POSL
+
+Definition 1 (Computation Module) Un computation module Om est une application d´efinie par :
+Cm : I → O
+
+Dans (1), la nature de D et I d´epend du type de
+computation module. Ils peuvent ˆetre soit une configuration, ou un ensemble de configurations, ou un ensemble de valeurs de diff´erents types de donn´ees, etc.
+Soit une m´eta-heuristique de recherche locale, bas´ee sur un algorithme bien connu, comme par exemple
+Tabu Search. Prenons l’exemple d’un computation module retournant le voisinage d’une configuration donn´ee, pour une certaine m´etrique de voisinage. Cet computation module peut ˆetre d´efini par la fonction suivante :
+
+Cm : D1 × D2 × . . . × Dn → 2D1 ×D2 ×...×Dn
+l`ele de composants. Lors de cette ´etape, les informations `
+a partager sont transmises via les op´erateurs ad-hoc. On peut voir cette ´etape comme la
+d´efinition de la colonne vert´ebrale des solveurs.
+3. Les solveurs sont cr´e´es en instanciant l’abstract
+solver, par computation modules et communication module (figure 1b).
+4. Les solveurs sont assembl´es en utilisant les op´erateurs de communication fournis par le langage,
+pour cre´er des strategies de communication. Cet
+entit´e final s’appelle solver set(figure 1c).
+Les sous-sections suivantes expliquent en d´etail chacune des ´etapes ci-dessus.
+3.1
+
+Computation module
+
+Un computation module est la plus basique et abstraite mani`ere de d´efinir un composant de calcul. Il
+re¸coit une entr´ee, ex´ecute un algorithme interne et retourne une sortie. Dans ce papier, nous utilisons ce
+concept afin de d´ecrire et d´efinir les composants de
+base d’un solveur, qui seront assembl´es par l’abstract
+solver.
+Un computation module repr´esente un morceau de
+l’algorithme du solveur qui est susceptible de changer au cours de l’ex´ecution. Il peut ˆetre dynamiquement remplac´e ou combin´e avec d’autres computation
+modules, puisque les computation modules sont ´egalement des informations ´echangeables entre les solveurs.
+De cette mani`ere, le solveur peut changer/adapter son
+comportement `
+a chaud, en combinant ses computation
+modules avec ceux des autres solveurs. Ils sont repr´esent´es par des blocs bleus dans la figure 1.
+
+(1)
+
+(2)
+
+o`
+u Di repr´esente la d´efinition des domaines de chacune des variables de la configuration d’entr´ee.
+3.2
+
+Communication module
+
+Les communication modules sont les composants
+des solveurs en charge de la r´eception des informations communiqu´ees entre solveurs. Ils peuvent interagir avec les computation modules, en fonction de
+l’abstract solver. Les communication modules jouent
+le rˆole de prise, permettant aux solveurs de se brancher et de recevoir des informations. Il sont repr´esent´es
+en rouge dans la figure 1a.
+Un communication module peut recevoir deux types
+d’informations, provenant toujours d’un solveur tiers :
+des donn´ees et des computation modules. En ce qui
+concerne les computation modules, leur communication peut se faire via la transmission d’identifiants permettant `a chaque solveur de les instancier.
+Pour faire la distinction entre les deux diff´erents
+types de communication modules, nous appelons data
+communication module les communication modules
+responsables de la r´eception de donn´ees et object communication module ceux s’occupant de la r´eception et
+de l’instanciation de computation modules.
+Definition 2 (Data communication module) Un
+data communication module Ch est un composant produisant une application d´efinie comme suit :
+Ch : I × {D ∪ {N U LL}} → D ∪ {N U LL}
+
+(3)
+
+et retournant l’information I provenant d’un solveur
+tiers,quelque soit l’entr´ee U.
+
+(a) Data communication module
+
+Figure 3 – Un compound module
+Definition 4 Not´e par la lettre M, un module est :
+1. un computation module ; ou
+2. un communication module ; ou
+(b) Object communication module
+
+Figure 2 – M´ecanisme interne du communication module
+Definition 3 (Object communication module) Si
+nous notons M l’espace de tous les computation modules de la d´efinition 1, alors un object communication
+module Ch est un composant produisant un computation module venant d’un solveur tiers d´efini ainsi :
+Ch : I × {M ∪ {N U LL}} → O ∪ {N U LL}
+
+(4)
+
+Puisque les communication modules re¸coivent des
+informations provenant d’autres solveurs sans pour autant avoir de contrˆ
+ole sur celles-ci, il est n´ecessaire de
+d´efinir l’information NULL, signifiant l’absence d’information. La figure 2 montre le m´ecanisme interne
+d’un communication module. Si un data communication module re¸coit une information, celle-ci est automatiquement retourn´ee (figure 2a, lignes bleues). Si un
+object communication module re¸coit un computation
+module, ce dernier est instanci´e et ex´ecut´e avec l’entr´ee
+de l’communication module, et le r´esultat est retourn´e
+(figure 2b, lignes bleues). Dans les deux cas, si aucune
+information n’est re¸cue, l’communication module retourne l’objet NULL (figure 2, lignes rouges).
+3.3
+
+Abstract solver
+
+L’abstract solver est le cœur du solveur. Il joint les
+computation modules et les communication modules
+de mani`ere coh´erente, tout en leur restant ind´ependant. Ceci signifie qu’elle peut changer ou ˆetre modifi´ee durant l’ex´ecution, sans alt´erer l’algorithme g´en´e` travers
+ral et en respectant la structure du solveur. A
+l’abstract solver, on peut d´ecider ´egalement des informations `
+a envoyer aux autres solveurs. Chaque fois que
+nous combinons certains composants en utilisant des
+op´erateurs POSL, nous cr´eons un module.
+
+3. [OP M], la composition d’un module M ex´ecut´e
+sequentielement, en retournant une sortie, en d´ependant de la nature de l’op´erateur unaire OP ;
+ou
+4. [M1 OP M2 ], la composition de deux modules
+M1 et M2 ex´ecut´e s´equentiellement, en retournant une sortie, en d´ependant de la nature de
+l’op´erateur binaire OP.
+5. [M1 OP M2 ], la composition de deux modules
+M1 et M2 ex´ecut´e, en retournant une sortie, en
+d´ependant de la nature de l’op´erateur binaire OP.
+Ces deux op´erateurs vont ˆetre ex´ecutes en parall`ele si et seulement si OP support le parall´elisme,
+ou il lance une exception en cas contraire.
+Nous notons par M l’espace des modules, et nous appelons compound modules `
+a la composition de modules
+pr´esent´es en 3 4, et/ou 5.
+Pour illustrer la d´efinition 4, la figure 3 montre graphiquement le concept de compound module.
+Dans le cas particulier o`
+u un des compound modules
+impliqu´es est un communication module, chaque op´erateur g`ere l’information NULL `a sa mani`ere.
+Afin de grouper des modules, nous utiliserons la notation |.| comme un groupe g´en´erique qui pourra ˆetre
+indiff´eremment interpr´et´e comme [.] ou comme . p .
+L’op´erateur suivant nous permet d’ex´ecuter deux
+modules s´equentiellement, l’un apr`es l’autre.
+Definition 5 (Sequential Execution Operator)
+Soient i) M1 : D1 → I1 et ii) M2 : D2 → I2 . deux
+modules diff´erents. Alors l’op´eration M1 → M2
+d´efinit le compound module Mseq comme le r´esultat
+de l’ex´ecution de M1 suivi de M2 .
+Mseq : D1 → I2
+L’op´erateur pr´esent´e dans la d´efinition 5 est un
+exemple d’op´erateur ne supportant pas une ex´ecution
+parall`ele de ses compound modulesimpliqu´es, puisque
+
+l’entr´ee du second compound module est la sortie du
+premier.
+L’op´erateur suivant est utile pour ex´ecuter des modules s´equentiels cr´eant des branchements de calcul
+selon une condition bool´eenne :
+Definition 6 (Conditional Execution Operator)
+Soient i) M1 : D → I1 et ii) M2 : D → I2 , deux modules diff´erents. Alors l’op´eration M1 ? <cond> M2
+d´efinit le compound module Mcond le r´esultat de l’ex´ecution en s´equentiel de M1 si < cond > es vrai or
+M2 , autrement :
+Mcond : D → I1 ∪ I2
+
+La d´efinition suivante fait appelle aux notions de parall´elisme coop´eratif et de parall´elisme comp´etitif. Nous
+disons qu’il y a parall´elisme coop´eratif quand deux unit´es de calcul ou plus s’ex´ecutent simultan´ement, et que
+le r´esultat obtenu provient de la combinaison des r´esultats calcul´es par chaque unit´e de calcul (voir d´efi` l’oppos´e, nous consid´erons qu’il
+nitions 10 et 11). A
+y a parall´elisme comp´etitif lorsque le r´esultat obtenu
+est une solution ne provenant que d’un seul processus
+ex´ecut´e en parall`ele ; en g´en´eral le premier processus `
+a
+terminer (voir d´efinition 12).
+Definition 10 Minimum Operator Soient
+1. M1 : D → I1 et
+2. M2 : D → I2 ,
+
+Nous pouvons ex´ecuter s´equentiellement des modules cr´eant des boucles de calcul, en d´efinissant les
+compound modules avec un autre op´erateur conditionnel :
+Definition 7 (Cyclic Execution Operator) Soit
+M : D → I un module, o`
+u I ⊆ D. Alors, l’op´eration | <cond> M| d´efinit le compound module Mcyc
+en r´ep´etant s´equentiellement l’ex´ecution de M tant
+que < cond > est vrai :
+Mcyc : D → I
+
+deux modules diff´erents. Soient aussi o1 et o2 les
+sorties de M1 et M2 , respectivement. Nous assumons qu’il existe un ordre total dans I1 ∪ I2 o`
+u l’objet NULL est la plus grand valeur. Alors, l’op´eration
+M1 m M2 d´efinit le compound module Mmin qui
+ex´ecute M1 et M2 , et retourne min {o1 , o2 } :
+Mmin : D → I1 ∪ I2
+De la mˆeme mani`ere nous d´efinissons l’op´erateur
+Maximum :
+
+POSL offre la possibilit´e de faire muter les solveurs.
+En fonction de l’op´eration, un ou plusieurs module
+op´erande(s) sera ex´ecut´ee(s), mais seule la sortie de
+l’un d’entre eux sera retourn´ee par le compound module. Nous pr´esentons ces op´erateurs dans deux d´efinitions, groupant ceux qui ex´ecutent uniquement un
+op´erande de module (d´efinition 8 et 9) et ceux ex´ecutant les deux op´erandes (d´efinition 10, 11 et 12).
+
+Definition 11 Minimum Operator Soient
+
+Definition 8 Random Choice Operator Soient
+i) M1 : D → I1 et ii) M2 : D → I2 , deux modules
+diff´erents, et un num´ero r´eel ρ ∈ (0, 1). Alors, l’ope-
+
+ex´ecute M1 et M2 , et retourne max {o1 , o2 } :
+
+ration M1 ρ M2 d´efinit le compound module Mrho
+qui ex´ecute M1 en suivant une probabilit´e ρ, ou en
+ex´ecutant M2 en suivant une probabilit´e (1 − ρ) :
+Mrho : D → I1 ∪ I2
+Definition 9 Not NULL Execution Operator
+Soient i) M1 : D → I1 et ii) M2 : D → I2 , deux
+modules diff´erents. Alors, l’operation M1 ∨ M2 d´efinit le compound module Mnon qui ex´ecute M1 et
+retourne une sortie si elle n’est pasNULL, ou ex´ecute
+M2 et retourne une sortie autrement :
+Mnon : D → I1 ∪ I2
+
+1. M1 : D → I1 et
+2. M2 : D → I2 ,
+deux modules diff´erents. Soient aussi o1 et o2 les
+sorties de M1 et M2 , respectivement. Nous assumons qu’il existe un ordre total dans I1 ∪ I2 o`
+u l’objet NULL est la plus petite valeur. Alors, l’op´eration
+M1 M M2 d´efinit le compound module Mmax qui
+
+Mmax : D → I1 ∪ I2
+Definition 12 Race Operator Soient i) M1 : D →
+I1 et ii) M2 : D → I2 , deux modules diff´erents, o`
+u
+D1 ⊆ D2 et I1 ⊂ I2 . Alors, l’op´eration M1 M2
+d´efinit le compound module Mrace qui ex´ecute les deux
+modules M1 et M2 , et retourne la sortie du module
+qui termine en premier :
+Mrace : D → I1 ∪ I2
+Les op´erateurs introduits par les d´efinitions 8, 9 et
+10 sont tr`es utiles en terme de partage d’informations
+entre solveurs, mais ´egalement en terme de partage
+de comportements. Si un des op´erandes est un communication module alors l’op´erateur peut recevoir le
+
+computation module d’un autre solveur, donnant la
+possibilit´e d’instancier ce module dans le solveur le r´eceptionnant. L’op´erateur va soit instancier le module
+s’il n’est pas NULL et l’ex´ecuter, soit ex´ecuter le module donn´e par le second op´erande.
+Maintenant, nous d´efinissons les op´erateurs nous
+permettant d’envoyer de l’information vers d’autres
+solveurs. Deux types d’envois sont possibles : i) on
+ex´ecute un module et on envoie sa sortie, ii) ou on
+envoie le module lui-mˆeme.
+Definition 13 Sending Data Operator Soit M :
+D → I un module. Alors, l’op´eration M d d´efinit le
+compound module MsendD qui ex´ecute le module M
+puis envoie la sortie vers un communication module :
+MsendD : D → I
+Definition 14 Sending Module Operator Soit
+M : D → I un module. Alors, l’op´eration | M m |
+d´efinit le compound module MsendM qui ex´ecute le
+module M, puis envoie le module lui mˆeme vers un
+communication module :
+MsendM : D → I
+Avec les op´erateurs pr´esent´es jusqu’ici, nous sommes
+en mesure de concevoir les abstract solvers (ou algorithme) de r´esolution d’un probl`eme de contraintes.
+Une fois un tel abstract solver d´efinie, on peut changer les composants (computation modules et communication modules) auxquels elle fait appel, permettant ainsi d’impl´ementer diff´erents solveurs `
+a partir
+du mˆeme abstract solver mais compos´es de diff´erents
+modules, du moment que ces derniers respectent la signature attendue, a` savoir le types des entr´ees et sorties.
+Un abstract solver est d´eclar´e comme suit : apr`es d´eclarer les noms de l’abstract solver (name), la premi`ere ligne d´efinit la liste des computation modules
+abstraites (Lm ), la seconde ligne, la liste des communication modules abstraites (M), puis l’algorithme du
+solver est d´efinit comment le corps su solver (the root
+compound module M), entre begin et end.
+Un abstract solver peut ˆetre d´eclar´e par l’expression
+r´eguli`ere suivante :
+abstract solver name computation : Lm
+(communication : Lc ) ? begin M end
+Par exemple, l’algorithme 1 montre l’abstract solver
+correspondant a la figure 1b.
+3.4
+
+Cr´
+eer les solveurs
+
+Maintenant on peut cr´eer les solveurs en instanciant
+les modules. Il est possible de faire ceci en sp´ecifiant
+
+Algorithm 1: Pseudo-code POSL pour l’abstract
+solver de la figure 1b
+abstract solver as 01
+computation : I, V, S, A
+connection : C.M.
+begin
+I →
+[
+
+(Itr < K1 )
+V → S →
+
+C.M. m
+
+A
+
+d
+
+]
+end
+
+que un solver donn´e doit impl´ementer (en utilisant le
+mot cl´e implements) un abstract solver donn´e, suivi
+par la liste de computation puis communication modules. Ces modules doivent correspondre avec les signatures exig´e par l’abstract solver.
+Algorithm 2: Une instanciation de l’abstract solver pr´esent´e dans l’algorithme 1
+solver solver 01 implements as 01
+computation : Irand , V1ch , Sbest , AAI
+connection : CMlast
+
+3.5
+
+Connecter les solveurs : cr´
+eer le solver set
+
+La derni`ere ´etape est connecter les solveurs entre
+eux. POSL fournit des outils pour cr´eer des strat´egies
+de communication tr`es facilement. L’ensemble des solveurs connect´es qui seront ex´ecut´es en parall`ele pour
+r´esoudre un CSP s’appelle solver set.
+Les communications sont ´etablies en respectant les
+r`egles suivantes :
+` chaque fois qu’un solveur envoie une informa1. A
+tion via les op´erateurs . d ou . m , il cr´e´e une
+prise mˆ
+ale de communication
+`
+2. A chaque fois qu’un solveur contient un communication module, il cr´e´e une prise femelle de communication
+3. Les solveurs peuvent ˆetre connect´es entre eux en
+reliant prises mˆ
+ales et femelles.
+Avec l’op´erateur (·), nous pouvons avoir acc`es aux
+computation modules envoyant une information et aux
+noms des communication modulesd’un solveur. Par
+exemple : Solver1 · M1 fournit un acc`es `a le computation module M1 du Solver1 si et seulement s’il est
+utilis´e par l’op´erateur . o (ou . m ), et Solver2 · Ch2
+fournit un acc`es au communication module Ch2 de
+Solver2 .
+
+Maintenant, nous d´efinissons les op´erateurs de communication que POSL fournit.
+Definition 15 Connection One-to-One Operator Soient
+1. J = [S0 · M0 , S1 · M1 , . . . , SN −1 · MN −1 ] une
+liste de prises mˆ
+ales, et
+2. O = [Z0 · CM0 , Z1 · CM1 , . . . , ZN −1 · CMN −1 ]
+une liste de prises femelles
+Alors, l’op´eration
+J → O
+connecte chaque prise mˆ
+ales Si ·Mi ∈ J avec la correspondante prise femelle Zi · CMi ∈ O, ∀ 0 ≤ i ≤ N − 1
+(voir figure 4a).
+Definition 16 Connection One-to-N Operator
+Soient
+1. J = [S0 · M0 , S1 · M1 , . . . , SN −1 · MN −1 ] une
+liste de prises mˆ
+ales, et
+2. O = [Z0 · CM0 , Z1 · CM1 , . . . , ZM −1 · CMM −1 ]
+une liste de prises femelles
+Alors, l’op´eration
+J
+
+O
+
+connecte chaque prise mˆ
+ales Si · Mi ∈ J avec chaque
+prise femelle Zj · CMj ∈ O, ∀ 0 ≤ i ≤ N − 1 et
+0 ≤ j ≤ M − 1 (see Figure 4b).
+POSL permet aussi de d´eclarer des solveurs non
+communicatifs pour les ex´ecuter en parall`ele, en d´eclarant seulement la liste des noms :
+
+4
+
+Le but principal de cette section est de s´electionner quelques instances de probl`emes de r´ef´erence, pour
+analyser et illustrer la versatilit´e de POSL pour ´etudier des strat´egies de solution bas´ees sur la recherche
+locale m´eta-heuristique avec communication. Grˆ
+ace `
+a
+POSL nous pouvons analyser des r´esultats et formuler des conclusions sur le comportement de la strat´egie
+de recherche, mais aussi sur la structure de l’espace de
+recherche du probl`eme. Dans cette section, nous expliquons la structure des solveurs de POSL que nous
+avons g´en´er´es pour les exp´eriences, et les r´esultats.
+Nous avons choisi l’une des m´ethodes de solutions
+les plus classique pour des probl`emes combinatoires :
+l’algorithme m´eta-heuristique de recherche locale. Ces
+algorithmes ont une structure commune : ils commencent par l’initialisation des structures de donn´ees.
+Ensuite, une configuration initiale s est g´en´er´ee. Apr`es
+cela, une nouvelle configuration s est s´electionn´ee
+dans le voisinage V (s). Si s est une solution pour le
+probl`eme P , alors le processus s’arrˆete, et s est renvoy´ee. Dans le cas contraire, les structures de donn´ees
+sont mises `a jour, et s est accept´ee, ou non, pour l’it´eration suivante, en fonction de certains crit`eres (par
+exemple, en p´enalisant les caract´eristiques des optimums locaux).
+Les exp´eriences ont ´et´e effectu´ees sur un processeur Intel R Xeon TM E5-2680 v2, 10 × 4 cœurs,
+2.80GHz. Les r´esultats montr´es dans cette section sont
+les moyennes de 30 runs pour chaque configuration.
+Dans les tableaux de r´esultats, les colonnes marqu´ees
+T correspondent au temps de l’ex´ecution en secondes
+et les colonnes marqu´ees It. correspondent au nombre
+d’it´erations. Toutes les exp´eriences de cette section
+sont bas´ees sur diff´erentes strat´egies en parall`ele, avec
+40 cœurs.
+4.1
+
+[S0 , S1 , . . . , SN −1 ]
+
+(a) Communication 1 `
+a1
+
+(b) Communication 1 `
+aN
+
+Figure 4 – Repr´esentation graphique des op´erateurs
+de communication
+
+Les r´
+esultats
+
+Social Golfers Problem
+
+Le probl`eme de Social Golfers (SGP) consiste `
+a planifier n = g × p golfeurs en g groupes de p joueurs
+chaque semaine pendant w semaines, de telle mani`ere
+que deux joueurs jouent dans le mˆeme groupe au plus
+une fois. Une instance de ce probl`eme peut ˆetre repr´esent´ee par le triplet g −p−w. Ce probl`eme, et d’autres
+probl`emes ´etroitement li´es, trouvent de nombreuses
+applications pratiques telles que le codage, le cryptage
+et les probl`emes couvrants. Sa structure nous a sembl´e
+int´eressante car elle est similaire `a d’autres probl`emes,
+comme Kirkman’s Schoolgirl et Steiner Triple System,
+donc nous pouvons construire des modules efficaces
+pour r´esoudre un grand ´eventail de probl`emes.
+Nous avons utilis´e uns strat´egie de communication
+cyclique pour r´esoudre ce probl`eme, en ´echangeant la
+
+configuration courante entre deux solveurs avec des
+caract´eristiques diff´erentes. Les r´esultats montrent que
+cette strat´egie marche tr`es bien pour ce probl`eme.
+
+Algorithm 4: Solveur standard pour SGP
+abstract solver as standard
+computation : I, V, S1 , S2 , A
+communication : C.M.
+begin
+
+Algorithm 3: Solveur pour SGP
+
+I →
+
+abstract solver as eager // Itr → nombre d’it´
+erations
+computation : I, V, S1 , S2 , A
+
+// Sci → nombre d’it´
+erations avec le m^
+eme co^
+ut
+begin
+I →
+[
+
+(Itr < K1 )
+V
+
+→
+
+S1
+
+?
+
+Sci%K2
+
+S2
+
+→ A
+
+[
+
+(Itr < K1 )
+V
+
+→
+
+S1
+
+?
+
+Sci%K2
+
+S2
+
+→
+
+C.M. m
+
+A
+
+d
+
+]
+end
+solver Solverstandard implements as standard
+computation : IBP , VBAS , Sf irst , Srand , AAI
+communication : CMlast
+
+]
+end
+solver Solvereager implements as eager
+computation : IBP , VBAS , Sf irst , Srand , AAI
+
+L’algorithme 3 montre l’abstract solver utilis´e pour
+r´esoudre me mani`ere s´equentielle le SGP. L’utilisation
+de deux modules de s´election (S1 et S2 ) est un simple
+chamanisme pour ´eviter les minimums locaux : il tente
+d’am´eliorer le coˆ
+ut un certain nombre de fois, en ex´ecutant le computation module S1 . S’il n’y arrive pas, il
+ex´ecute le computation module S2 . L’abstract solver a
+´et´e instanci´e par les computation modules suivantes :
+1. SBP g´en`ere une configuration al´eatoire s, en respectant la structure du probl`eme, c’est-`
+a-dire que
+la configuration est un ensemble de w permutations du vecteur [1..n].
+2. VBAS d´efinit le voisinage V (s) permutant le
+joueur qui a contribu´e le plus au coˆ
+ut, avec
+d’autres joueurs dans la mˆeme semaine.
+3. Srirst s´electionne la premi`ere configuration s ∈
+V (s) qui am´eliore le coˆ
+ut actuel, et retourne
+(s, s )
+4. Srand s´electionne une configuration al´eatoire s ∈
+V (s), et retourne (s, s )
+5. AAI retourne toujours la configuration s´electionn´ee (s ).
+Pour SGP, nous avons utilis´e une strat´egie de communication, o`
+u un solveur ”compagnon”, incapable de
+trouver une solution au final, mais capable de trouver des configurations avec an coˆ
+ut consid´erablement
+plus petit que ceci trouv´e par le solveur standard dans
+le mˆeme instant de temps, au d´ebut de la recherche.
+L’id´ee c’est d’´echanger leurs configurations cycliquement, jusqu’`
+a trouver une solution. Les algorithmes 4
+et 5 montrent les solveurs utilis´es pour cette strat´egie, ou VBP (p) est le computation module de voisinage
+pour le solveur ”compagnon”, qui cherche des configurations seulement changeant des joueurs parmi p semaines. Le communication module instanci´e CMlast ,
+prend en compte la derni`ere configuration re¸cue quand
+il est au moment de l’ex´ecution.
+
+Algorithm 5: Solveur compagnon pour SGP
+abstract solver as compagnon
+computation : I, V, S1 , S2 , A
+communication : C.M.
+begin
+I →
+[
+
+(Itr < K1 )
+V
+
+→
+
+S1
+
+?
+
+Sci%K2
+
+S2
+
+→
+
+C.M. ∨
+
+A
+
+d
+
+]
+end
+solver Solvercompagnonandard implements as compagnon
+computation : IBP , VBP (p), Sf irst , Srand , AAI
+communication : CMlast
+
+Nous avons dessin´e aussi des diff´erentes strat´egies
+de communication, en combinant des solveurs connect´es et non-connect´es, et en appliquant des diff´erents
+op´erateurs de communication : one to one et one to N.
+Comme nous nous attendions, le tableau 1 confirme
+le succ`es de l’approche parall`ele sur le s´equentielle.
+Plus int´eressante, les exp´eriences confirment que la
+strat´egie de communication propos´ee pour cet benchmark est la correcte : en comparant par rapport aux
+runs en parall`ele sans communication, il am´eliore les
+runtimes par un facteur de 1.98 (facteur moyen parmi
+les trois instances). Les r´esultats coop´eratifs de ce tableau on ´et´e obtenus en utilisant l’op´erateur de communication one to one avec 100% de solveurs communicatifs.
+4.2
+
+Costas Array Problem
+
+Le probl`eme Costas Array (CAP) consiste `a trouver
+une matrice Costas, qui est une grille de n × n contenant n marques avec exactement une marque par ligne
+et par colonne et les n(n−1)/2 vecteurs reliant chaque
+couple de marques de cette grille doivent tous ˆetre diff´erents. Ceci est un probl`eme tr`es complexe trouvant
+une application utile dans certains domaines comme
+le sonar et l’ing´enierie de radar, et pr´esente de nombreux probl`emes math´ematiques ouverts. Ce probl`eme
+a aussi une caract´eristique int´eressante : mˆeme si son
+espace de recherche grandit factoriellement, `a partir
+
+Instance
+
+S´
+equentielle
+T
+It.
+1.25
+2,903
+0.60
+338
+1.04
+346
+
+5–3–7
+8–4–7
+9–4–8
+
+Parall`
+ele
+T
+It.
+0.23
+144
+0.28
+93
+0.59
+139
+
+Coop´
+erative
+T
+It.
+0.10
+98
+0.14
+54
+0.36
+146
+
+´
+STRATEGIE
+S´equentielle
+Parall`ele
+Coop´erative
+
+1. Iperm : g´en`ere une configuration al´eatoire s,
+comme une permutation du vecteur [1..n].
+2. VAS : d´efinit le voisinage V (s) permutant la
+variable qui a contribu´e le plus au coˆ
+ut, avec
+d’autres.
+Pour r´esoudre CAP nous avons eu besoin d’utiliser un computation module de reset (TAS ) comme
+machinisme d’exploration. L’algorithme 6 montre le
+solveur utilis´e pour r´esoudre ce probl`eme s´equentiellement. Les r´esultats des runs en s´equentiel et en parall`ele sans communication sont montr´es dans le tableau 2. Ils montrent le succ`es de l’approche en parall`ele est montr´e encore une fois. Afin d’am´eliorer ces
+r´esultats, nous avons appliqu´e uns strat´egies simple de
+communication : communiquer la configuration courante au moment d’ex´ecuter le crit`ere d’acceptation.
+Les algorithmes 7 et ?? montrent les solveurs envoyeur
+et r´ecepteur.
+Algorithm 6: Solveur pour CAP
+abstract solver as hard
+computation : I, T, V, S, A
+begin
+
+It.
+2,332,088
+231,262
+79,551
+
+% success
+40.00
+100.00
+100.00
+
+Table 2 – R´esultats pour CAP 19
+
+Table 1 – R´esultats pour SGP
+de l’ordre 17 le nombre de solutions diminue drastiquement.
+Pour ce probl`eme nous avons test´e une strat´egie de
+communication simple, o`
+u l’information a communiquer est la configuration courante. Pour construire les
+solveurs, nous avons r´eutilis´e les computation modules
+de s´election (Sf irst ) et de d’acceptation (SAI ) et le
+communication module utilis´es dans la r´esolution de
+SGP. Les autres computation modules sont les suivantes :
+
+T
+132.73
+25.51
+10.83
+
+Algorithm 7: Solveur envoyeur pour CAP
+abstract solver as hard sen
+computation : I, T, V, S, A
+begin
+I →
+[
+
+(Itr < K1 )
+T →
+
+[
+
+(Itr % K2 ) V
+
+→ S →
+
+A
+
+d
+
+]
+
+]
+end
+solver Solversender implements as hard sen
+computation : Iperm , TAS , VAS , Sf irst , AAI
+
+et des pourcentages diff´erents de solveurs communicantes. Comme pr´evu, la meilleure strat´egie ´etait bas´ee
+sur 100% de communication avec l’op´erateur one to N,
+parce que cette strat´egie permet de communiquer un
+lieu prometteur `a l’int´erieur de l’espace de recherche `
+a
+un maximum de solveurs, en refor¸cant l’intensification.
+4.3
+
+Golomb Ruler Problem
+
+Le Golomb Ruler Problem (GRP) consiste `
+a trouver
+un vecteur ordonn´e de n entiers non n´egatifs diff´erents,
+appel´es marques, m1 < . . . < mn , tel que toutes les diff´erences mi − mj , (i > j) sont toutes diff´erentes. Une
+instance de ce probl`eme est d´efini par le paire (o, l)
+o`
+u o est l’ordre du probl`eme, (le nombre de marques)
+et l est la longueur de la r`egle (la derni`ere marque).
+Nous supposons que la premi`ere marque est toujours
+0. Lorsque nous appliquons POSL pour r´esoudre une
+instance de probl`eme s´equentiellement, nous pouvons
+remarquer qu’il effectue de nombreux restars avant de
+trouver une solution. Pour cette raison, nous avons
+choisi ce probl`eme pour ´etudier une strat´egie de com-
+
+I →
+[
+
+(Itr < K1 )
+T →
+
+[
+
+Algorithm 8: Solveur r´ecepteur pour CAP
+(Itr % K2 ) V
+
+→ S → A ]
+
+]
+end
+solver Solver1 implements as hard
+computation : Iperm , TAS , VAS , Sf irst , AAI
+
+abstract solver as hard rec
+computation : I, T, V, S, A
+communication : C.M.
+begin
+I →
+[
+
+Un des buts principaux de cette ´etude a ´et´e d’explorer des diff´erentes strat´egies de communication. Nous
+avons ensuite mis en place et test´e diff´erentes variantes
+de la strat´egie expos´ee ci-dessus en combinant deux
+op´erateurs de communication (one to one et one to N)
+
+(Itr < K1 )
+T →
+
+[
+
+(Itr % K2 ) V
+
+→ S →
+
+A m C.M.
+
+]
+end
+solver Solverreceiver implements as hard rec
+computation : Iperm , TAS , VAS , Sf irst , AAI
+communication : CMlast
+
+]
+
+munication int´eressante : communiquer la configuration actuelle afin d’´eviter son voisinage, c’est `
+a dire,
+une configuration tabu.
+Nous r´eutilisons les modules de s´election et d’acceptation des ´etudes ant´erieures (Sf irst etAAI ) pour
+concevoir les abstract solvers. Les nouvelles modules
+sont :
+
+Algorithm 10: Solveur r´ecepteur pour GRP
+abstract solver as golomb receiver
+computation : I, V, S, A, T
+connection : C.M.
+begin
+[ (Itr < K1 )
+C.M. → I
+[
+
+→
+
+(Itr % K2 ) V
+
+→ S → A ]
+
+→ T
+
+1. Isort : renvoie une configuration al´eatoire s en tant
+que vecteur d’entiers tri´e. La configuration est g´en´er´ee loin de l’ensemble des configurations tabu
+arriv´es via communication entre solveurs.
+
+]
+end
+solver Solverreceiver implements as golomb receiver
+computation : Isort , Vsort , Sf irst , AAI , , Ttabu
+communication : CMset
+
+2. Vsort : donn´e une configuration, retourne le voisinage en changeant une valeur tout en gardant
+l’ordre, `
+a savoir, le remplacement de la valeur si
+par toutes les valeurs possibles si ∈ Di en satisfaisant si−1 < si < si+1 .
+
+Instance
+8–34
+10–55
+11–72
+
+Nous avons ´egalement ajout´e un module de reset
+T : il re¸coit et renvoie une configuration. Le computation module utilis´e pour l’instancier (Ttabu ) ins`ere la
+configuration re¸cue dans une liste tabu `
+a l’int´erieur du
+solveur et retourne la configuration d’entr´ee tal cual.
+L’algorithme 9 pr´esente le solveur utilis´e pour envoyer
+des informations (solveur envoyeur).
+Algorithm 9: Solveur envoyeur pour GRP
+abstract solver as golomb sender
+computation : I, V, S, A, T
+begin
+[ (Itr < K1 )
+I →
+
+[
+
+(Itr % K2 ) V
+
+→ S → A ]
+
+→
+
+T
+
+d
+
+]
+end
+solver Solversender implements as golomb sender
+computation : Isort , Vsort , Sf irst , AAI , , Ttabu
+
+Le module Ttabu est ex´ecut´e lorsque le solveur est
+incapable de trouver une meilleure configuration autour de l’actuelle : elle est suppos´ee ˆetre un minimum
+local, et elle est envoy´ee au solveur r´ecepteur. L’algorithme 10 pr´esente solveur utilis´e pour recevoir l’information. Le communication module CMset re¸coit plusieurs configurations qui sont re¸cus par le computation
+module Isort comme entr´ees.
+Le b´en´efice de l’approche en parall`ele avec POSL est
+aussi prouv´e pour le GRP (voir les tableaux 3 et 3).
+Dans ces tableaux, la colonne R repr´esente le nombre
+de red´emarrages ex´ecut´ees. Cette exp´erience a ´et´e r´ealis´ee en utilisant des solveurs similaires `
+a ceux pr´esent´es pr´ec´edemment, mais sans communication modules.
+Pour GRP, la strat´egie de communication que nous
+adoptions a ´et´e diff´erente. L’id´ee de cette strat´egie est
+de profiter des nombreux red´emarrages indiqu´es dans
+les tableaux 3 et 4. Chaque fois qu’un solveur red´emarre, la configuration actuelle est communiqu´ee pour
+
+T
+0.66
+67.89
+117.49
+
+It.
+10,745
+446,913
+382,617
+
+R
+53
+297
+127
+
+% success
+100.00
+88.00
+30.00
+
+Table 3 – R´esultats s´equentielles pour GRP
+
+alerter les solveurs et ´eviter son voisinage. De cette fa¸con, chaque fois qu’un solveur red´emarre, il g´en`ere une
+nouvelle configuration assez loin de ces ”zones p´enalis´ees”.
+Sur la base de l’op´erateur de connexion utilis´e dans
+la strat´egie de communication, ce solveur peut recevoir une ou plusieurs configurations. Ces configurations sont l’entr´ee du module de g´en´eration (Isort ). Ce
+module ins`ere toutes les configurations re¸cues dans une
+liste tabu, puis il g´en`ere une nouvelle premi`ere configuration loin de toutes les configurations dans la liste
+tabu.
+Comme nous pouvons voir dans les tableaux 5 et 6
+l’am´elioration en temps d’ex´ecution avec communication est plus visible quand on utilise l’op´erateur de
+communication one to N, parce-que `a chaque nouvelle
+it´eration, le solveur r´ecepteur a plus d’information afin
+de g´en´erer une nouvelle configuration loin des ”zones
+p´enalis´ees”.
+
+5
+
+Conclusions
+
+Dans cette th`ese, nous avons pr´esent´e POSL, un
+syst`eme pour construire des solveurs parall`eles coop´eInstance
+8–34
+10–55
+11–72
+
+T
+0.43
+4.92
+85.02
+
+It.
+349
+20,504
+155,251
+
+R
+1
+13
+51
+
+Table 4 – R´esultats en parall`ele non coop´eratifs pour
+GRP
+
+Instance
+8–34
+10–55
+11–72
+
+T
+0.44
+3.90
+85.43
+
+It.
+309
+15,437
+156,211
+
+R
+1
+10
+52
+
+Table 5 – R´esultats avec communication sans liste
+tabu pour GRP.
+
+rapide et plus facile des ensembles de nombreux nouveaux solveurs. En plus, nous aimerions ´elargir le langage des op´erateurs de communication, afin de cr´eer
+des strat´egies de communication polyvalentes et plus
+complexes, utiles pour ´etudier le comportement des
+solveurs.
+
+R´
+ef´
+erences
+Instance
+8–34
+10–55
+11–72
+
+T
+0.43
+3.16
+60.35
+
+It.
+283
+12,605
+110,311
+
+R
+1
+8
+36
+
+Table 6 – R´esultats avec communication avec liste
+tabu pour GRP.
+
+ratifs. Il propose une mani`ere modulable pour cr´eer
+des solveurs capables d’´echanger n’importe quel type
+d’informations, comme par exemple leur comportement mˆeme, en partageant leurs computation modules. Avec POSL, de nombreux solveurs diff´erents
+pourront ˆetre cr´e´es et lanc´es en parall`ele, en utilisant
+une unique strat´egie g´en´erique mais en instanciant diff´erents computation modules et communication modules pour chaque solveur.
+Il est possible d’impl´ementer diff´erentes strat´egies
+de communication, puisque POSL fournit une couche
+pour d´efinir les canaux de communication connectant
+les solveurs entre eux.
+Nous avons pr´esent´e aussi des r´esultats en utilisant POSL pour r´esoudre des instances des probl`emes
+classiques CSP. Il a ´et´e possible d’impl´ementer diff´erentes strat´egies communicatives et non communicatives, grˆ
+ace au langage bas´e sur des op´erateurs fournis, pour combiner diff´erents computation modules.
+POSL donne la possibilit´e de relier dynamiquement
+des solveurs, ´etant capable de d´efinir des strat´egies diff´erentes en terme de pourcentage de solveurs communicatifs. Les r´esultats montrent la capacit´e de POSL `a
+r´esoudre ces probl`emes, en montrant en mˆeme temps
+que la communication peut jouer un rˆ
+ole d´ecisif dans
+le processus de recherche.
+POSL a d´ej`
+a une importante biblioth`eque de computation modules et de communication modules prˆete
+a utiliser, sur la base d’une ´etude approfondie sur les
+`
+algorithmes m´eta-heuristiques classiques pour la r´esolution de probl`emes combinatoires. Dans un avenir
+proche, nous pr´evoyons de la faire grandir, afin d’augmenter les capacit´es de POSL.
+En mˆeme temps, nous pr´evoyons d’enrichir le langage en proposant de nouveaux op´erateurs. Il est n´ecessaire, par exemple, d’am´eliorer le langage de d´efinition du solveur, pour permettre la construction plus
+
+¨
+[1] Alexander E.I. Brownlee, Jerry Swan, Ender Ozcan, and Andrew J. Parkes. Hyperion 2. A toolkit for {meta- , hyper-} heuristic research. In
+Proceedings of the Companion Publication of the
+2014 Annual Conference on Genetic and Evolutionary Computation, GECCO Comp ’14, pages
+1133–1140, Vancouver, BC, 2014. ACM.
+[2] Daniel Diaz, Florian Richoux, Philippe Codognet,
+Yves Caniou, and Salvador Abreu. ConstraintBased Local Search for the Costas Array Problem.
+In Learning and Intelligent Optimization, pages
+378–383. Springer, 2012.
+[3] Stephan Frank, Petra Hofstedt, and Pierre R. Mai.
+Meta-S : A Strategy-Oriented Meta-Solver Framework. In Florida AI Research Society (FLAIRS)
+Conference, pages 177–181, 2003.
+[4] Alex S Fukunaga. Automated discovery of local
+search heuristics for satisfiability testing. Evolutionary computation, 16(1) :31–61, 2008.
+[5] Renaud De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard. Combining Neighborhoods into Local Search Strategies.
+In 11th MetaHeuristics International Conference,
+Agadir, 2015. Springer.
+[6] Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel A Juan, and Edmund K
+Burke. A Multi-Agent Based Cooperative Approach To Scheduling and Routing. European
+Journal of Operational Research, 2016.
+[7] Danny Munera, Daniel Diaz, Salvador Abreu, and
+Philippe Codognet. A Parametric Framework for
+Cooperative Parallel Local Search. In Evolutionary Computation in Combinatorial Optimisation,
+volume 8600 of LNCS, pages 13–24. Springer, 2014.
+[8] Jerry Swan and Nathan Burles. Templar - a framework for template-method hyper-heuristics. In Genetic Programming, volume 9025 of LNCS, pages
+205–216. Springer International Publishing, 2015.
+[9] El-Ghazali Talbi. Combining metaheuristics with
+mathematical programming, constraint programming and machine learning. 4or, 11(2) :101–150,
+2013.
+
+
