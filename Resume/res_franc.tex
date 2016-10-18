@@ -1,6 +1,8 @@
 \documentclass{jfpc-preprint}
 %\documentclass{article}
 \usepackage{etex}
+
+
 \input{mycommands}
 
 \annee{2015}
@@ -48,11 +50,11 @@ Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it
 \begin{enumerate}
 \item  L'algorithme du solveur considéré est  exprimé via une décomposition  en modules de calcul. Ces modules sont implémentés à la   manière de {\it fonctions} séparées. Nous appelons \INTROom{} ces morceaux de calcul (figure \ref{subfig:modules}, \new{blocs bleus}). \new{En suite, il faut décider  quelles  sont les  types d'informations que l'on souhaite  recevoir des autres solveurs.  Ces informations sont encapsulées  dans des composants appelés  \opch{},  permettant  de transmettre  des  données entre solveurs (figure \ref{subfig:modules}, \new{bloc rouge})} \label{stages:module}
 
-\item  Une {\it stratégie générique}  est codée  à travers  \posl{}, en utilisant les  opérateurs fournis par le langage appliqués  sur des \new{\ms{} \textit{abstraite} qui représentent les \textit{signatures} des} composants donnés lors l'étape \ref{stages:module}, pour créer \ass. Cette  stratégie   définie  non  seulement  les informations   échangées,  mais   détermine  également   l'exécution parallèle de  composants. Lors  de cette  étape, les  informations à partager sont  transmises via  les opérateurs  ad-hoc. On  peut voir cette étape comme la définition de la colonne vertébrale des solveurs.
+\item  Une {\it stratégie générique}  est codée  à travers  \posl{}, en utilisant les  opérateurs fournis par le langage appliqués  sur des \new{\ms{} \textit{abstraite} qui représentent les \textit{signatures} des} composants donnés lors l'étape \ref{stages:module}, pour créer \ass. Cette  stratégie   définie  non  seulement  les informations   échangées,  mais   détermine  également   l'exécution parallèle de  composants. Lors  de cette  étape, les  informations à partager sont  transmises via  les opérateurs  ad-hoc. On  peut voir cette étape comme la définition de la colonne vertébrale des solveurs (figure \ref{subfig:as}).
 
-\item  Les solveurs sont créés en instanciant \new{l'\as, par \oms{} et \opch} (figure \ref{subfig:as}). %puis en les assemblant 
+\item  Les solveurs sont créés en instanciant \new{l'\as, par \oms{} et \opch}. %puis en les assemblant 
 
-\item \new{Les solveurs sont assemblés en utilisant les opérateurs de communication fournis par le langage, pour creér des strategies de communication. Cet entité final s'appelle \INTROsoset (figure \ref{subfig:comm}).}
+\item \new{Les solveurs sont assemblés en utilisant les opérateurs de communication fournis par le langage, pour creér des strategies de communication. Cet entité final s'appelle \INTROsoset{} (figure \ref{subfig:comm}).}
 \end{enumerate}
 
 \begin{figure}
@@ -215,14 +217,16 @@ Par exemple, l'algorithme~\ref{algo:as_example} montre l'\as{} correspondant a l
 
 \begin{algorithm}[h]
 \dontprintsemicolon
+\scriptsize
+\SetInd{2pt}{3pt}
 \SetNoline
 \SetKwProg{myproc}{}{}{}
 \myproc{\tet{\bf abstract solver} as\_01\;
 \tet{\bf computation} : $I, V, S, A$ \; 
 \tet{\bf connection}: $C.M.$}{
 	\Begin{
-		$I \poslop{\mapsto}$\\
-		\While{$\left(\textbf{\Iter < } K_1\right)$}{
+		$I \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 			$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$%
 		}
 	}
@@ -236,6 +240,7 @@ Par exemple, l'algorithme~\ref{algo:as_example} montre l'\as{} correspondant a l
 
 \begin{algorithm}[h]
 \dontprintsemicolon
+\scriptsize
 \SetNoline
 \SetKwProg{myproc}{}{}{}
 \tet{\bf solver} solver\_01 \tet{\bf implements} as\_01\;
@@ -306,61 +311,9 @@ Maintenant, nous définissons les opérateurs de communication que \posl{} fournit
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+% -----------------------------------------------
+% ---------- R E S U L T S ----------------------
+% -----------------------------------------------
 
 \section{Les résultats}
 
@@ -379,12 +332,13 @@ Nous avons utilisé uns stratégie de communication cyclique pour résoudre ce prob
 \begin{algorithm}
 \dontprintsemicolon
 \scriptsize
+\SetInd{2pt}{3pt}
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_eager \tcp*{{\sc Itr} $\rightarrow$ nombre d'itérations}
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\;\tcp*{{\sc Sci} $\rightarrow$ nombre d'itérations avec le même coût}}{%
-	$I \poslop{\mapsto}$\\
-	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+	$I \poslop{\mapsto}$
+	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci \% K_2} S_2\right] \poslop{\mapsto} A$		
 	}
 }
@@ -473,7 +427,7 @@ Comme nous nous attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succ
 
 Le problème \carr{} (\CARRP) consiste à trouver une matrice {\it Costas}, qui est une grille de $n \times n$ contenant $n$ marques avec exactement une marque par ligne et par colonne et les $n(n-1)/2 $ vecteurs reliant chaque couple de marques de cette grille doivent tous être différents. Ceci est un problème très complexe trouvant une application utile dans certains domaines comme le sonar et l'ingénierie de radar, et présente de nombreux problèmes mathématiques ouverts. Ce problème a aussi une caractéristique intéressante: même si son espace de recherche grandit factoriellement, à partir de l'ordre 17 le nombre de solutions diminue drastiquement.
 
-Pour ce problème nous avons testé une stratégie de communication simple, où l'information a communiquer est la configuration courante. Pour construire les solveurs, nous avons réutilisé les \oms{} de sélection ($S_{first}$) et de d'acceptation ($S_{AI}$) et le \opch{} utilisés dans la résolution de \SGP{}. Les autres \oms{} sont les suivantes :
+Pour ce problème nous avons testé une stratégie de communication simple, où l'information a communiquer est la configuration courante. Pour construire les solveurs, nous avons réutilisé les \oms{} de sélection ($S_{first}$) et de d'acceptation ($A_{AI}$) et le \opch{} utilisés dans la résolution de \SGP{}. Les autres \oms{} sont les suivantes :
 
 \begin{enumerate}
 	\item $I_{perm}$: génère une configuration aléatoire $s$, comme une permutation du vecteur $[1..n]$. 
@@ -482,15 +436,16 @@ Pour ce problème nous avons testé une stratégie de communication simple, où l'in
 
 Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset} ($T_{AS}$) comme machinisme d'exploration. L'algorithme~\ref{as:costas} montre le solveur utilisé pour résoudre ce problème séquentiellement. Les résultats des runs en séquentiel et en parallèle sans communication sont montrés dans le tableau~\ref{tab:costas19}. Ils montrent le succès de l'approche en parallèle est montré encore une fois. Afin d'améliorer ces résultats, nous avons appliqué uns stratégies   simple de communication : communiquer la configuration courante au moment d'exécuter le critère d'acceptation. Les algorithmes~\ref{as:costas_sender} et~\ref{as:costas_receiver} montrent les solveurs envoyeur et récepteur.
 
-\begin{algorithm}
+\begin{algorithm}[!h]
 \dontprintsemicolon
 \scriptsize
+\SetInd{2pt}{3pt}
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_hard \;
 	\tet{\bf computation} : $I, T, V, S, A$\;}{
 	$I \poslop{\mapsto}$\\
-	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$T \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
 	}
@@ -500,7 +455,47 @@ Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset
 \caption{Solveur pour \CARRP}\label{as:costas}
 \end{algorithm}
 
-\begin{table}[t]
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetInd{2pt}{3pt}
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_hard\_sen \; 
+	\tet{\bf computation} : $I, T, V, S, A$\;}{
+	$I \poslop{\mapsto}$\\
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$T \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d\right]$}
+	}
+}
+\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_hard\_sen\;
+\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \;
+\caption{Solveur envoyeur pour \CARRP}\label{as:costas_sender}
+\end{algorithm}
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetInd{2pt}{2pt}
+\SetNoline
+\SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
+\myproc{as\_hard\_rec \; 
+	\tet{\bf computation} : $I, T, V, S, A$ \; 
+	\tet{\bf communication} : $C.M.$\;}{ 
+	$I \poslop{\mapsto}$\\
+	\While{$\left(\textbf{\Iter} < K_1\right)$}{
+		$T \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \left[A\poslop{m}C.M.\right]\right]$}
+	}
+}
+\tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_hard\_rec\;
+\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \; 
+\algoindent\tet{\bf communication}: $CM_{last}$\;
+\caption{Solveur récepteur pour \CARRP}\label{as:costas_receiver}
+\end{algorithm}
+
+\begin{table}[!h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
 \centering
 \renewcommand{\arraystretch}{1}
@@ -520,46 +515,113 @@ Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset
 \label{tab:costas19}
 \end{table}
 
-\begin{algorithm}
+Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. 
+
+Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{}, parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant  l'intensification.
+
+
+% -----------------------------------------------
+% ------- N - QUEENS ----------------------------
+% -----------------------------------------------
+
+
+\subsection{N-Queens Problem}
+
+\new{Le problème \nq{} (\NQP) demande de placer $N$ rennes sur un échiquier, tel que aucune d'elles peuvent attaquer une autre avec un seul mouvement. C'est un problème introduit en 1848 par le joueur d'échecs Max Bezzelas comme le problème \textit{8-Queens}, et un an après il a été généralisé comme le problème \textit{N-Queens} par Franz Nauck. Depuis sa création, plusieurs mathématiciens, Gauss inclut, ont travaillé en ce problème. Il a beaucoup d'applications, par exemple, en le stockage en parallèle de la mémoire, le contrôle du trafique, la prévention des deadlocks, les réseaux neurales, etc. \cite{Bell2009}. Quelques études suggèrent que le numéro de solutions augmente  exponentiellement avec numéro de rennes ($N$), mais les méthodes de recherche local ont montré des bons résultats avec ce problème \cite{Sosic1994}. C'est pour cela que nous avons testé quelques stratégies de communication en utilisant \posl{}, pour résoudre en problème relativement facile a résoudre, mais un utilisant la communication.}
+
+\new{Pour construire les solveurs, nous avons réutilisé presque tous les \oms{} utilisés pour résoudre le problème \carr{} ($S_{first}$, $S_{first}, A_{AI}$, et aussi le \opch{} $CM_{last}$.} %L'\as{} utilisé est présenté dans l'algorithme~\ref{as:nq}:
+\new{Les solveurs utilisés pour les expériences sans communication sont présentés dans l'algorithme~\ref{as:nq}, ou l'\as{} est instancié dans le solveurs \solverposl{selective} avec le \om{} de voisinage $V_{PAS}(p)$, qui re\c{c}oie une configuration, et retourne un voisinage $V\left(s\right)$ en permutant la variable qui a contribué le plus au coût, avec un pourcentage $p$ des autres.}
+
+\begin{algorithm}[!h]
 \dontprintsemicolon
 \scriptsize
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
-\myproc{as\_hard\_sen \; 
-	\tet{\bf computation} : $I, T, V, S, A$\;}{
-	$I \poslop{\mapsto}$\\
-	\While{$\left(\textbf{\Iter} < K_1\right)$}{
-		$T \poslop{\mapsto}$
-		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d\right]$}
-	}
+\myproc{as\_simple\;
+	\tet{\bf computation} : $I, V, S, A$\;}{
+	$I \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} A$}	
 }
-\tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_hard\_sen\;
-\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \;
-\caption{Solveur envoyeur pour \CARRP}\label{as:costas_sender}
+\tet{\bf solver} \solverposl{selective} \tet{\bf implements} as\_simple\;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(p), S_{first}, A_{AI}$ \; 
+%\tet{\bf connection}: $CM_{last}$\;
+\caption{Solveur simple pour \NQP}\label{as:nq}
 \end{algorithm}
 
-\begin{algorithm}
+
+\new{Le tableau~\ref{tab:nqueens_seqpar} présente les résultats des runs en séquentielle et en parallèle. Ces résultats montrent que l'amélioration de l'approche en parallèle par rapport à l'approche séquentielle en utilisant \posl{}} \tet{disminuye a medida que el order del problema crece}.
+
+\begin{table}[t]
+\centering 
+\renewcommand{\arraystretch}{1}
+\begin{tabular}{p{1.3cm}|R{1cm}R{1cm}|R{1cm}R{1cm}}
+	\hline	
+	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{2}{c|}{\bf Sequential} & \multicolumn{2}{c}{\bf Parallel} \\
+	\cline{2-5}
+	& T &  It. &  T &  It. \\	
+	\hline
+	250 & 0.29 & 8,898 & 0.19 & 4,139 \\
+	500 & 0.35 & 4,203 & 0.24 & 2,675 \\
+	1000 & 0.35 & 2,766 & 0.30 & 2,102 \\
+	3000 & 1.50 & 2,191 & 1.33 & 2,168 \\
+	6000 & 4.71 & 3,339 & 4.57 & 3,323 \\
+	\hline
+\end{tabular}
+\caption{Résultats pour \NQP{} (séquentielle et en parallèle sans communication)}\label{tab:nqueens_seqpar}
+\end{table}
+
+\new{Pour appliquer l'approche coopératif a la résolution de ce problème, nous avons implémenté une stratégie de communication similaire à cela appliquée avec \SGP{}, mais dans ce cas, avec des solveurs qui utilisent le même \m{} de voisinage $V_{PAS}(p)$ mais avec une valeur différente de $p$ et avec un \m{} de sélection différent aussi. Dans cette stratégie de communication la configuration courante est échangée cycliquement entre les solveurs différents. Un solveur \textit{compagnon} utilise le \om{} $V_{PAS}(p)$ avec une valeur plus petite de $p$ et le \om{}$S_{best}$, donc capable de trouver des configurations prometteuses plus rapidement, mais avec une convergence lente. 
+L'autre solveur est très similaire au solveur utilisé pour les expériences sans communication, mais dans cette stratégie de communication, les solveurs sont à la fois des envoyeurs et des récepteurs (voir l'algorithme~\ref{as:nq_cyc}).}
+
+\begin{algorithm}[!h]
 \dontprintsemicolon
 \scriptsize
-\SetInd{2pt}{2pt}
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
-\myproc{as\_hard\_rec \; 
-	\tet{\bf computation} : $I, T, V, S, A$ \; 
-	\tet{\bf communication} : $C.M.$\;}{ 
+\myproc{as\_cyc \;
+	\tet{\bf computation} : $I, V, S_1, S_2, A$\;
+	\tet{\bf communication} : $C.M.$\;}{%
 	$I \poslop{\mapsto}$\\
-	\While{$\left(\textbf{\Iter} < K_1\right)$}{
-		$T \poslop{\mapsto}$
-		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \left[A\poslop{m}C.M.\right]\right]$}
-	}
+		\While{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} \left[A \poslopcond{\Iter \% K_2} \left[\llparenthesis A \rrparenthesis^d \poslop{m} C.M.\right]\right]$}
 }
-\tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_hard\_rec\;
-\algoindent\tet{\bf computation} : $I_{perm}, T_{AS}, V_{AS}, S_{first}, A_{AI}$ \; 
-\algoindent\tet{\bf communication}: $CM_{last}$\;
-\caption{Solveur récepteur pour \CARRP}\label{as:costas-receiver}
+\tet{\bf solver} \solverposl{standard} \tet{\bf implements} as\_cyc\;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(2.5), S_{first}, A_{AI}$ \;
+\algoindent \tet{\bf communication}: $CM_{last}$\;
+\tet{\bf solver} \solverposl{companion} \tet{\bf implements} as\_cyc\;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(1), S_{best}, A_{AI}$ \;
+\algoindent \tet{\bf communication}: $CM_{last}$\;
+\caption{Des solveurs cycliques pour \NQP{}}\label{as:nq_cyc}
 \end{algorithm}
 
-Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{}, parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant  l'intensification.
+\begin{table}[h]
+\centering 
+\renewcommand{\arraystretch}{1}
+\newcommand{\cwnq}{1.1cm}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{1.3cm}|R{\cwnq}R{\cwnq}|R{\cwnq}R{\cwnq}|R{\cwnq}}
+	\hline %\noalign{\smallskip}	
+	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{2}{c|}{\bf Communication 1-1} & \multicolumn{2}{c|}{\bf Communication 1-n}&\multirow{2}{*}{\centering {\bf I.R.}}\\
+	\cline{2-5}
+	& T & It. & T &  It.& \\	
+	\hline
+	250 & \good{0.09} & 1,169 & 0.10 & 1,224 & 2.00\\ 
+	500 & \good{0.14} & 864 & 0.15 & 977 & 1.65\\
+	1000 & 0.22 & 889 & \good{0.21} & 807 & 1.39\\
+	3000 & 1.25 & 1,602 & \good{1.02} & 1,613 & 1.17\\
+	6000 & 4.83 & 2,938 & \good{4.24} & 2,537 & 1.01\\	
+	\hline
+\end{tabular}
+}
+\caption{Résultats de la communication cyclique avec \NQP}\label{tab:nqueens_cyc}
+\end{table}
+
+\new{Grâce a cette expérience nous avons été capables de trouver une stratégie de communication pour améliorer les temps d'exécution, mais seulement pour des instances petites du problème. Ce résultat confirme l'hypothèse de que quand l'ordre du problème monte, le gain en utilisant la communication pendant la recherche de la solution diminue. Le tableau~\ref{tab:nqueens_cyc} montre comment l'\textit{improvement ratio} (colonne \textbf{I.R.}) diminue avec l'ordre $N$. }
+
+
+% -----------------------------------------------
+% -------- GOLOMB RULER -------------------------
+% -----------------------------------------------
+
 
 \subsection{Golomb Ruler Problem}
 
@@ -571,7 +633,7 @@ Nous réutilisons les \ms{} de sélection et d'acceptation des études antérieures 
 \item $V_{sort}$: donné une configuration, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
 \end{enumerate}
 
-Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée \modified{tal cual}. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
+Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée \tet{tal cual}. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
 
 \begin{algorithm}
 \dontprintsemicolon
@@ -695,10 +757,10 @@ Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{ta
 
 \section{Conclusions}
 
-Dans cette thèse, nous avons  présenté \posl{}, un système pour construire des solveurs parallèles coopératifs. Il propose une manière modulable  pour créer   des  solveurs   capables   d'échanger   n'importe  quel   type d'informations, comme par exemple leur comportement même, en partageant
-leurs \oms.  Avec \posl{},  de nombreux solveurs  différents pourront être créés et  lancés en parallèle, en utilisant  une unique stratégie générique mais en instanciant différents  \oms{} et \opchs{} pour chaque solveur. 
+Dans cette thèse, nous avons présenté \posl{}, un système pour construire des solveurs parallèles coopératifs. Il propose une manière modulable  pour créer des solveurs capables d'échanger n'importe quel type d'informations, comme par exemple leur comportement même, en partageant
+leurs \oms. Avec \posl{}, de nombreux solveurs différents pourront être créés et lancés en parallèle, en utilisant une unique stratégie générique mais en instanciant différents  \oms{} et \opchs{} pour chaque solveur. 
 
-Il est possible d'implémenter différentes stratégies de communication, puisque  \posl{} fournit une couche pour définir les canaux de communication connectant les solveurs entre eux.
+Il est possible d'implémenter différentes stratégies de communication, puisque \posl{} fournit une couche pour définir les canaux de communication connectant les solveurs entre eux.
 
 Nous avons présenté aussi des résultats en utilisant \posl{} pour résoudre des instances des problèmes classiques CSP. Il a été possible d'implémenter différentes stratégies communicatives et non communicatives, grâce au langage basé sur des opérateurs fournis, pour combiner différents \oms{}. \posl{} donne la possibilité de relier dynamiquement des solveurs, étant capable de définir des stratégies différentes en terme de pourcentage de solveurs communicatifs. Les résultats montrent la capacité de \posl{} à résoudre ces problèmes, en montrant en même temps que la communication peut jouer un rôle décisif dans le processus de recherche.
 

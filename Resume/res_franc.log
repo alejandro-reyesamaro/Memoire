@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  17 OCT 2016 18:01
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  18 OCT 2016 17:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -659,9 +659,12 @@ Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '2.70'
 Library (tcolorbox): 'tcbbreakable.code.tex' version '2.70'
 \tcb@totalupperbox=\box51
 \tcb@totallowerbox=\box52
+) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen180
 )
 \c@definition=\count150
- (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
@@ -741,12 +744,12 @@ Package: l3file 2013/10/13 v4596 L3 File and I/O operations
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3skip.sty
 Package: l3skip 2013/07/28 v4581 L3 Dimensions and skips
-\c_zero_dim=\dimen180
-\c_max_dim=\dimen181
-\l_tmpa_dim=\dimen182
-\l_tmpb_dim=\dimen183
-\g_tmpa_dim=\dimen184
-\g_tmpb_dim=\dimen185
+\c_zero_dim=\dimen181
+\c_max_dim=\dimen182
+\l_tmpa_dim=\dimen183
+\l_tmpb_dim=\dimen184
+\g_tmpa_dim=\dimen185
+\g_tmpb_dim=\dimen186
 \c_zero_skip=\skip54
 \c_max_skip=\skip55
 \l_tmpa_skip=\skip56
@@ -788,13 +791,13 @@ Package: l3box 2013/07/28 v4581 L3 Experimental boxes
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3coffins.sty
 Package: l3coffins 2013/12/14 v4624 L3 Coffin code layer
 \l__coffin_internal_box=\box58
-\l__coffin_internal_dim=\dimen186
-\l__coffin_offset_x_dim=\dimen187
-\l__coffin_offset_y_dim=\dimen188
-\l__coffin_x_dim=\dimen189
-\l__coffin_y_dim=\dimen190
-\l__coffin_x_prime_dim=\dimen191
-\l__coffin_y_prime_dim=\dimen192
+\l__coffin_internal_dim=\dimen187
+\l__coffin_offset_x_dim=\dimen188
+\l__coffin_offset_y_dim=\dimen189
+\l__coffin_x_dim=\dimen190
+\l__coffin_y_dim=\dimen191
+\l__coffin_x_prime_dim=\dimen192
+\l__coffin_y_prime_dim=\dimen193
 \c_empty_coffin=\box59
 \l__coffin_aligned_coffin=\box60
 \l__coffin_aligned_internal_coffin=\box61
@@ -803,9 +806,9 @@ Package: l3coffins 2013/12/14 v4624 L3 Coffin code layer
 \l__coffin_display_coffin=\box64
 \l__coffin_display_coord_coffin=\box65
 \l__coffin_display_pole_coffin=\box66
-\l__coffin_display_offset_dim=\dimen193
-\l__coffin_display_x_dim=\dimen194
-\l__coffin_display_y_dim=\dimen195
+\l__coffin_display_offset_dim=\dimen194
+\l__coffin_display_x_dim=\dimen195
+\l__coffin_display_y_dim=\dimen196
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3color.sty
 Package: l3color 2012/08/29 v4156 L3 Experimental color support
@@ -817,23 +820,23 @@ Package: l3luatex 2013/07/28 v4581 L3 Experimental LuaTeX-specific functions
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3candidates.sty
 Package: l3candidates 2014/01/06 v4643 L3 Experimental additions to l3kernel
-\l__box_top_dim=\dimen196
-\l__box_bottom_dim=\dimen197
-\l__box_left_dim=\dimen198
-\l__box_right_dim=\dimen199
-\l__box_top_new_dim=\dimen200
-\l__box_bottom_new_dim=\dimen201
+\l__box_top_dim=\dimen197
+\l__box_bottom_dim=\dimen198
+\l__box_left_dim=\dimen199
+\l__box_right_dim=\dimen200
+\l__box_top_new_dim=\dimen201
 Normal \dimen register pool exhausted, switching to extended pool.
-\l__box_left_new_dim=\dimen256
-\l__box_right_new_dim=\dimen257
+\l__box_bottom_new_dim=\dimen256
+\l__box_left_new_dim=\dimen257
+\l__box_right_new_dim=\dimen258
 \l__box_internal_box=\box67
-\l__coffin_bounding_shift_dim=\dimen258
-\l__coffin_left_corner_dim=\dimen259
-\l__coffin_right_corner_dim=\dimen260
-\l__coffin_bottom_corner_dim=\dimen261
-\l__coffin_top_corner_dim=\dimen262
-\l__coffin_scaled_total_height_dim=\dimen263
-\l__coffin_scaled_width_dim=\dimen264
+\l__coffin_bounding_shift_dim=\dimen259
+\l__coffin_left_corner_dim=\dimen260
+\l__coffin_right_corner_dim=\dimen261
+\l__coffin_bottom_corner_dim=\dimen262
+\l__coffin_top_corner_dim=\dimen263
+\l__coffin_scaled_total_height_dim=\dimen264
+\l__coffin_scaled_width_dim=\dimen265
 )
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
@@ -1016,12 +1019,12 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \skiplength=\skip132
 \algomargin=\skip133
 \skipalgocfslide=\skip134
-\algowidth=\dimen265
-\inoutsize=\dimen266
-\inoutindent=\dimen267
-\interspacetitleruled=\dimen268
-\interspacealgoruled=\dimen269
-\interspacetitleboxruled=\dimen270
+\algowidth=\dimen266
+\inoutsize=\dimen267
+\inoutindent=\dimen268
+\interspacetitleruled=\dimen269
+\interspacealgoruled=\dimen270
+\interspacetitleboxruled=\dimen271
 \algocf@inoutbox=\box73
 \algocf@inputbox=\box74
 \AlCapSkip=\skip135
@@ -1045,8 +1048,8 @@ subscribe by emailing sympa@lirmm.fr with 'subscribe <list> <firstname name>'
 \c@qcounter=\count191
  (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen271
-\extrarowheight=\dimen272
+\col@sep=\dimen272
+\extrarowheight=\dimen273
 \NC@list=\toks38
 \extratabsurround=\skip143
 \backup@length=\skip144
@@ -1069,32 +1072,32 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 (./res_franc.aux)
 \openout1 = `res_franc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Info: Redefining \degres on input line 22.
-LaTeX Info: Redefining \dots on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Info: Redefining \degres on input line 24.
+LaTeX Info: Redefining \dots on input line 24.
 
 
 Package frenchb.ldf Warning: Setting StandardItemizeEnv=true for
 (frenchb.ldf)                compatibility with paralist package,
-(frenchb.ldf)                 on input line 22.
+(frenchb.ldf)                 on input line 24.
 
 
 Package frenchb.ldf Warning: Setting StandardEnumerateEnv=true for
 (frenchb.ldf)                compatibility with paralist package,
-(frenchb.ldf)                 on input line 22.
+(frenchb.ldf)                 on input line 24.
 
-LaTeX Info: Redefining \up on input line 22.
+LaTeX Info: Redefining \up on input line 24.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
@@ -1102,13 +1105,13 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count192
-\scratchdimen=\dimen273
+\scratchdimen=\dimen274
 \scratchbox=\box81
 \nofMPsegments=\count193
 \nofMParguments=\count194
 \everyMPshowfont=\toks41
 \MPscratchCnt=\count195
-\MPscratchDim=\dimen274
+\MPscratchDim=\dimen275
 \MPnumerator=\count196
 \makeMPintoPDFobject=\count197
 \everyMPtoPDFconversion=\toks42
@@ -1133,24 +1136,24 @@ s been generated with the most recent feature set (\pgfplotsset{compat=1.9}).
 
 \c@lstlisting=\count198
 \AtBeginShipoutBox=\box82
-LaTeX Font Info:    Try loading font information for T1+aess on input line 25.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 27.
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 25.
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+stmry on input line 25.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Try loading font information for T1+aett on input line 25.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ae/t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
@@ -1164,173 +1167,173 @@ Underfull \vbox (badness 1147) has occurred while \output is active []
 <modules_1.png, id=41, 705.63625pt x 101.37875pt>
 File: modules_1.png Graphic file (type png)
  <use modules_1.png>
-Package pdftex.def Info: modules_1.png used on input line 63.
+Package pdftex.def Info: modules_1.png used on input line 65.
 (pdftex.def)             Requested size: 117.17421pt x 16.8335pt.
 
 <as_1.png, id=43, 1184.425pt x 297.11pt>
 File: as_1.png Graphic file (type png)
  <use as_1.png>
-Package pdftex.def Info: as_1.png used on input line 67.
+Package pdftex.def Info: as_1.png used on input line 69.
 (pdftex.def)             Requested size: 210.91214pt x 52.90627pt.
 
 <conn_1.png, id=44, 1288.815pt x 212.795pt>
 File: conn_1.png Graphic file (type png)
  <use conn_1.png>
-Package pdftex.def Info: conn_1.png used on input line 71.
+Package pdftex.def Info: conn_1.png used on input line 73.
 (pdftex.def)             Requested size: 210.91214pt x 34.82066pt.
  [3 <./modules_1.png> <./as_1.png> <./conn_1.png>] <D_OCh.png, id=57, 960.58875
 pt x 344.28625pt>
 File: D_OCh.png Graphic file (type png)
 
 <use D_OCh.png>
-Package pdftex.def Info: D_OCh.png used on input line 135.
+Package pdftex.def Info: D_OCh.png used on input line 137.
 (pdftex.def)             Requested size: 164.04317pt x 58.79054pt.
  <O_OCh.png, id=58, 1003.75pt x 602.25pt>
 File: O_OCh.png Graphic file (type png)
  <use O_OCh.png>
-Package pdftex.def Info: O_OCh.png used on input line 140.
+Package pdftex.def Info: O_OCh.png used on input line 142.
 (pdftex.def)             Requested size: 164.04317pt x 98.42043pt.
 
 <cm.png, id=59, 960.58875pt x 480.79625pt>
 File: cm.png Graphic file (type png)
  <use cm.png>
-Package pdftex.def Info: cm.png used on input line 165.
+Package pdftex.def Info: cm.png used on input line 167.
 (pdftex.def)             Requested size: 164.04317pt x 82.10109pt.
 
-Underfull \hbox (badness 2173) in paragraph at lines 176--177
+Underfull \hbox (badness 2173) in paragraph at lines 178--179
 []$[]$ \T1/aer/m/n/10 : []L'opé-ra-tion
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 176--177
+Underfull \hbox (badness 1024) in paragraph at lines 178--179
 []$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule $\OMS/cmsy/m/n/10 M[]$
  []
 
 
-Underfull \hbox (badness 4872) in paragraph at lines 178--179
+Underfull \hbox (badness 4872) in paragraph at lines 180--181
 []$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 []$[]$ \T1/aer/m/n/10 : []L'opé-ra-tion
  []
 
 [4 <./D_OCh.png> <./O_OCh.png> <./cm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 []$[]$ \T1/aer/m/n/10 : []L'ope-ra-tion
  []
 
 
-Underfull \hbox (badness 4279) in paragraph at lines 182--183
+Underfull \hbox (badness 4279) in paragraph at lines 184--185
 []$ \T1/aer/m/n/10 dé-fi-nit le com-pound mo-dule $\OMS/cmsy/m/n/10 M[]$
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 231
+Overfull \hbox (0.79999pt too wide) detected at line 235
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 245
+Overfull \hbox (0.79999pt too wide) detected at line 250
 |[]|
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 [5]
-Underfull \hbox (badness 3386) in paragraph at lines 275--277
+Underfull \hbox (badness 3386) in paragraph at lines 280--282
 []\T1/aer/bx/n/10 Connection One-to-N Ope-ra-tor
  []
 
-<comm_11.png, id=81, 461.725pt x 424.58624pt>
+<comm_11.png, id=79, 461.725pt x 424.58624pt>
 File: comm_11.png Graphic file (type png)
  <use comm_11.png>
-Package pdftex.def Info: comm_11.png used on input line 297.
+Package pdftex.def Info: comm_11.png used on input line 302.
 (pdftex.def)             Requested size: 93.73793pt x 86.19852pt.
 
-<comm_1n.png, id=82, 461.725pt x 424.58624pt>
+<comm_1n.png, id=80, 461.725pt x 424.58624pt>
 File: comm_1n.png Graphic file (type png)
  <use comm_1n.png>
-Package pdftex.def Info: comm_1n.png used on input line 302.
+Package pdftex.def Info: comm_1n.png used on input line 307.
 (pdftex.def)             Requested size: 93.73793pt x 86.19852pt.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 371.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 324.
 
 
 (/usr/share/texmf/tex/latex/R/tex/latex/omsaer.fd
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 371.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 324.
  [6 <./comm_11.png> <./comm_1n.png>]
-Overfull \hbox (0.79999pt too wide) detected at line 394
+Overfull \hbox (0.79999pt too wide) detected at line 348
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 425
+Overfull \hbox (0.79999pt too wide) detected at line 379
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 444
+Overfull \hbox (0.79999pt too wide) detected at line 398
 |[]|
  []
 
 
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 464--464
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 418--418
 []|\T1/aer/bx/n/10 Instance| 
  []
 
 [7]
-Underfull \hbox (badness 1163) in paragraph at lines 479--480
+Underfull \hbox (badness 1163) in paragraph at lines 433--434
 []$\OML/cmm/m/it/10 I[]$ \T1/aer/m/n/10 : gé-nère une confi-gu-ra-tion aléa-toi
 re $\OML/cmm/m/it/10 s$\T1/aer/m/n/10 ,
  []
 
 
-LaTeX Warning: Reference `as:costas_receiver' on page 8 undefined on input line
- 483.
-
-
-Overfull \hbox (0.79999pt too wide) detected at line 501
+Overfull \hbox (0.79999pt too wide) detected at line 456
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 539
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 475
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 560
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 496
 |[]|
  []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8]
-Overfull \hbox (0.79999pt too wide) detected at line 591
+Overfull \hbox (0.79999pt too wide) detected at line 549
 |[]|
  []
 
 
-Overfull \hbox (0.79999pt too wide) detected at line 612
+Overfull \hbox (0.79999pt too wide) detected at line 594
 |[]|
- []
-
-
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 623--623
-[]|\T1/aer/bx/n/10 Instance| 
- []
-
-
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 643--643
-[]|\T1/aer/bx/n/10 Instance| 
  []
 
 [9]
-Overfull \hbox (2.25574pt too wide) in paragraph at lines 668--668
-[]|\T1/aer/bx/n/10 Instance| 
+Overfull \hbox (0.79999pt too wide) detected at line 653
+|[]|
+ []
+
+
+Overfull \hbox (0.79999pt too wide) detected at line 674
+|[]|
  []
 
 
@@ -1338,66 +1341,72 @@ Overfull \hbox (2.25574pt too wide) in paragraph at lines 685--685
 []|\T1/aer/bx/n/10 Instance| 
  []
 
-(./res_franc.bbl [10]
-Underfull \hbox (badness 3396) in paragraph at lines 31--35
-[]\T1/aer/m/n/10 Renaud De Landt-sheer, Yoann Guyot, Gus-
+
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 705--705
+[]|\T1/aer/bx/n/10 Instance| 
  []
 
-) [11
+[10]
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 730--730
+[]|\T1/aer/bx/n/10 Instance| 
+ []
 
-] (./res_franc.aux)
 
-LaTeX Warning: There were undefined references.
+Overfull \hbox (2.25574pt too wide) in paragraph at lines 747--747
+[]|\T1/aer/bx/n/10 Instance| 
+ []
 
- ) 
+(./res_franc.bbl
+Underfull \hbox (badness 1270) in paragraph at lines 36--40
+\T1/aer/m/it/10 11th Me-ta-Heu-ris-tics In-ter-na-tio-nal Confe-rence\T1/aer/m/
+n/10 ,
+ []
+
+[11]) [12
+
+] (./res_franc.aux) ) 
 Here is how much of TeX's memory you used:
  32297 strings out of 494272
- 695114 string characters out of 6160999
- 856895 words of memory out of 5000000
- 34828 multiletter control sequences out of 15000+600000
- 90007 words of font info for 167 fonts, out of 8000000 for 9000
+ 695271 string characters out of 6160999
+ 857171 words of memory out of 5000000
+ 34831 multiletter control sequences out of 15000+600000
+ 84332 words of font info for 156 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
- 65i,25n,81p,10466b,927s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ss9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/
-stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary7
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary9.pfb>
-Output written on res_franc.pdf (11 pages, 890805 bytes).
+ 65i,22n,81p,10466b,886s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary7.pfb>
+Output written on res_franc.pdf (12 pages, 847231 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 147 compressed objects within 2 object streams
+ 208 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  149 words of extra memory for PDF output out of 10000 (max. 10000000)
 

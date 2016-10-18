@@ -1,4 +1,9 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{Bell2009}
+Jordan Bell and Brett Stevens.
+\newblock {A survey of known results and research areas for n-queens}.
+\newblock {\em Discrete Mathematics}, 309(1):1--31, 2009.
 
 \bibitem{Brownlee2014}
 Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
@@ -44,6 +49,13 @@ Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
 \newblock {A Parametric Framework for Cooperative Parallel Local Search}.
 \newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
   volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
+
+\bibitem{Sosic1994}
+Rok Sosic and Jun Gu.
+\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
+  the N-Queens Problem}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  6:661--668, 1994.
 
 \bibitem{Swan2015}
 Jerry Swan and Nathan Burles.

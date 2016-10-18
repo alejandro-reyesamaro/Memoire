@@ -49,9 +49,9 @@
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Pseudo-code {\sc  POSL}{} pour l'abstract solver{} de la figure~\ref  {subfig:as}\relax }}{5}}
 \newlabel{algo:as_example}{{1}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Cr\'eer les solveurs}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Connecter les solveurs : cr\'eer le solver set}{5}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Une instanciation de l'abstract solver{} pr\'esent\'e dans l'algorithme~\ref  {algo:as_example}\relax }}{6}}
-\newlabel{algo:solver_def}{{2}{6}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Une instanciation de l'abstract solver{} pr\'esent\'e dans l'algorithme~\ref  {algo:as_example}\relax }}{5}}
+\newlabel{algo:solver_def}{{2}{5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Connecter les solveurs : cr\'eer le solver set}{6}}
 \newlabel{op_conn:1to1}{{5}{6}}
 \newlabel{op_conn:1ton}{{6}{6}}
 \newlabel{subfig:comm_simple}{{4a}{6}}
@@ -65,8 +65,10 @@
 \newlabel{as:golfers_eager}{{3}{7}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces Solveur standard pour {\it  SGP}\relax }}{7}}
 \newlabel{as:golfers_full}{{4}{7}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Solveur compagnon pour {\it  SGP}\relax }}{8}}
-\newlabel{as:golfers_partial}{{5}{8}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Solveur compagnon pour {\it  SGP}\relax }}{7}}
+\newlabel{as:golfers_partial}{{5}{7}}
+\citation{Bell2009}
+\citation{Sosic1994}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces R\'esultats pour {\it  SGP}\relax }}{8}}
 \newlabel{tab:golfers_seqpar}{{1}{8}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Costas Array Problem}{8}}
@@ -75,30 +77,41 @@
 \@writefile{loa}{\contentsline {algocf}{\numberline {7}{\ignorespaces Solveur envoyeur pour {\it  CAP}\relax }}{8}}
 \newlabel{as:costas_sender}{{7}{8}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Solveur r\'ecepteur pour {\it  CAP}\relax }}{8}}
-\newlabel{as:costas-receiver}{{8}{8}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces R\'esultats pour {\it  CAP}{} 19\relax }}{9}}
-\newlabel{tab:costas19}{{2}{9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Golomb Ruler Problem}{9}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Solveur envoyeur pour {\it  GRP}\relax }}{9}}
-\newlabel{as:golomb_sender}{{9}{9}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Solveur r\'ecepteur pour {\it  GRP}\relax }}{9}}
-\newlabel{as:golomb_receiver}{{10}{9}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces R\'esultats s\'equentielles pour {\it  GRP}{}\relax }}{9}}
-\newlabel{tab:golomb_seq}{{3}{9}}
+\newlabel{as:costas_receiver}{{8}{8}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces R\'esultats pour {\it  CAP}{} 19\relax }}{8}}
+\newlabel{tab:costas19}{{2}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}N-Queens Problem}{9}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Solveur simple pour {\it  NQP}\relax }}{9}}
+\newlabel{as:nq}{{9}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces R\'esultats pour {\it  NQP}{} (s\'equentielle et en parall\`ele sans communication)\relax }}{9}}
+\newlabel{tab:nqueens_seqpar}{{3}{9}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Des solveurs cycliques pour {\it  NQP}{}\relax }}{9}}
+\newlabel{as:nq_cyc}{{10}{9}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces R\'esultats de la communication cyclique avec {\it  NQP}\relax }}{9}}
+\newlabel{tab:nqueens_cyc}{{4}{9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Golomb Ruler Problem}{10}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {11}{\ignorespaces Solveur envoyeur pour {\it  GRP}\relax }}{10}}
+\newlabel{as:golomb_sender}{{11}{10}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {12}{\ignorespaces Solveur r\'ecepteur pour {\it  GRP}\relax }}{10}}
+\newlabel{as:golomb_receiver}{{12}{10}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces R\'esultats s\'equentielles pour {\it  GRP}{}\relax }}{10}}
+\newlabel{tab:golomb_seq}{{5}{10}}
 \bibdata{biblio201608}
-\bibcite{Brownlee2014}{1}
-\bibcite{Diaz}{2}
-\bibcite{Frank2003}{3}
-\bibcite{Fukunaga2008}{4}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces R\'esultats en parall\`ele non coop\'eratifs pour {\it  GRP}{}\relax }}{10}}
-\newlabel{tab:golomb_par}{{4}{10}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces R\'esultats avec communication sans liste tabu pour {\it  GRP}.\relax }}{10}}
-\newlabel{tab:golomb_comm_notab}{{5}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{10}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces R\'esultats avec communication avec liste tabu pour {\it  GRP}.\relax }}{10}}
-\newlabel{tab:golomb_comm_tab}{{6}{10}}
-\bibcite{Landtsheer2015}{5}
-\bibcite{Martin2016}{6}
-\bibcite{Munera}{7}
-\bibcite{Swan2015}{8}
-\bibcite{El-Ghazali2013}{9}
+\bibcite{Bell2009}{1}
+\bibcite{Brownlee2014}{2}
+\bibcite{Diaz}{3}
+\bibcite{Frank2003}{4}
+\bibcite{Fukunaga2008}{5}
+\bibcite{Landtsheer2015}{6}
+\bibcite{Martin2016}{7}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces R\'esultats en parall\`ele non coop\'eratifs pour {\it  GRP}{}\relax }}{11}}
+\newlabel{tab:golomb_par}{{6}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces R\'esultats avec communication sans liste tabu pour {\it  GRP}.\relax }}{11}}
+\newlabel{tab:golomb_comm_notab}{{7}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces R\'esultats avec communication avec liste tabu pour {\it  GRP}.\relax }}{11}}
+\newlabel{tab:golomb_comm_tab}{{8}{11}}
+\bibcite{Munera}{8}
+\bibcite{Sosic1994}{9}
+\bibcite{Swan2015}{10}
+\bibcite{El-Ghazali2013}{11}
