@@ -86,7 +86,7 @@
 \renewenvironment{abstract}{\hfil \sffamily\textbf{Abstract} \hfil \begin{resumeenv}\small}{\end{resumeenv}}
 
 \def\@title{
-  %{\footnotesize\it\sffamily Actes JFPC \@lannee}
+  {\footnotesize\it\sffamily ED STIM \@lannee}
   \hfill
   \rule[0.5ex]{\textwidth-25mm}{0.3mm}\\
   \vspace{3mm}

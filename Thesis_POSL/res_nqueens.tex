@@ -185,7 +185,7 @@ $\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{compa
 \SetNoline
 $\left[\eqsolverposl{companion}\cdot A(2)\right] \oneton \left[\eqsolverposl{standard}\cdot C.M.\right]13;$\;
 $\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{companion}\cdot C.M.(2)\right]13;$
-\caption{Cyclic \commstr{} \oneTone{} for \NQP}\label{comm:nqueens_cyc_1n}
+\caption{Cyclic \commstr{} \oneTn{} for \NQP}\label{comm:nqueens_cyc_1n}
 \end{algorithm}
 
 \begin{table}[h]
@@ -210,7 +210,7 @@ $\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{compani
 \caption{Cyclic \commstr{} for \NQP}\label{tab:nqueens_cyc}
 \end{table}
 
-With this experiment, it was possible to find a \commstr{} which improves runtimes significantly, but only for small instances of the problem, where the number of solutions, with respect to the order $N$, is lower. This result confirms experimentally the hypothesis already introduced, which propose that as the size of the problem grows, (and with it, the number ef solutions inside the search space with respect to $N$) lower is the gain using communication during the search process. Table~\ref{tab:nqueens_cyc} shows how the \textit{improvement ratio} (column \textbf{T.R.}) decreases with the instance order $N$. This ratio was computed using the following equation:
+With this experiment, it was possible to find a \commstr{} which improves runtimes significantly, but only for small instances of the problem, where the number of solutions, with respect to the order $N$, is lower. This result confirms experimentally the hypothesis already introduced, which propose that as the size of the problem grows, (and with it, the number ef solutions inside the search space with respect to $N$) lower is the gain using communication during the search process. Table~\ref{tab:nqueens_cyc} shows how the \textit{improvement ratio} (column \textbf{I.R.}) decreases with the instance order $N$. This ratio was computed using the following equation:
 
 \[
 \frac{\mbox{runtime without communication}}{\frac{\left(\mbox{runtime using communication 1-1} + \mbox{runtime using communication 1-n}\right)}{2}}

@@ -13,15 +13,16 @@
 \@writefile{lof}{\select@language{french}}
 \@writefile{lot}{\select@language{french}}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Des travaux reli\'es}{1}}
 \citation{Brownlee2014}
 \citation{Fukunaga2008}
 \citation{El-Ghazali2013}
 \citation{Swan2015}
 \citation{Landtsheer2015}
 \citation{Martin2016}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Des travaux reli\'es}{2}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Solveurs parall\`eles POSL}{2}}
 \newlabel{stages:module}{{1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Computation module}{2}}
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{subfig:modules}{{1a}{3}}
 \newlabel{sub@subfig:modules}{{(a)}{a}}
@@ -30,28 +31,27 @@
 \newlabel{subfig:comm}{{1c}{3}}
 \newlabel{sub@subfig:comm}{{(c)}{c}}
 \newlabel{fig:posl}{{1}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Computation module}{3}}
 \newlabel{def:module}{{1}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Communication module}{3}}
 \newlabel{def:dopench}{{3}{3}}
+\newlabel{def:oopench}{{3}{3}}
 \newlabel{subfig:doch}{{2a}{4}}
 \newlabel{sub@subfig:doch}{{(a)}{a}}
 \newlabel{subfig:ooch}{{2b}{4}}
 \newlabel{sub@subfig:ooch}{{(b)}{b}}
 \newlabel{fig:ochperform}{{2}{4}}
-\newlabel{def:oopench}{{3}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Abstract solver}{4}}
-\newlabel{fig:cm}{{3}{4}}
 \newlabel{def:cm}{{4}{4}}
 \newlabel{subdef:seq_uni}{{3}{4}}
 \newlabel{subdef:seq}{{4}{4}}
 \newlabel{subdef:par}{{5}{4}}
+\newlabel{fig:cm}{{3}{4}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {1}{\ignorespaces Pseudo-code {\sc  POSL}{} pour l'abstract solver{} de la figure~\ref  {subfig:as}\relax }}{5}}
 \newlabel{algo:as_example}{{1}{5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Cr\'eer les solveurs}{5}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {2}{\ignorespaces Une instanciation de l'abstract solver{} pr\'esent\'e dans l'algorithme~\ref  {algo:as_example}\relax }}{5}}
 \newlabel{algo:solver_def}{{2}{5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Connecter les solveurs : cr\'eer le solver set}{6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Connecter les solveurs : cr\'eer le solver set}{5}}
 \newlabel{op_conn:1to1}{{5}{6}}
 \newlabel{op_conn:1ton}{{6}{6}}
 \newlabel{subfig:comm_simple}{{4a}{6}}
@@ -60,57 +60,65 @@
 \newlabel{sub@subfig:comm_diff}{{(b)}{b}}
 \newlabel{fig:comm}{{4}{6}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Les r\'esultats}{6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Social Golfers Problem}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Social Golfers Problem}{6}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {3}{\ignorespaces Solveur pour {\it  SGP}\relax }}{7}}
 \newlabel{as:golfers_eager}{{3}{7}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {4}{\ignorespaces Solveur standard pour {\it  SGP}\relax }}{7}}
 \newlabel{as:golfers_full}{{4}{7}}
 \@writefile{loa}{\contentsline {algocf}{\numberline {5}{\ignorespaces Solveur compagnon pour {\it  SGP}\relax }}{7}}
 \newlabel{as:golfers_partial}{{5}{7}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {6}{\ignorespaces Strat\'egie 100\% de communication \textit  {compagnon}\relax }}{7}}
+\newlabel{comm:golfers_v2_100}{{6}{7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Costas Array Problem}{7}}
 \citation{Bell2009}
 \citation{Sosic1994}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces R\'esultats pour {\it  SGP}\relax }}{8}}
 \newlabel{tab:golfers_seqpar}{{1}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Costas Array Problem}{8}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {6}{\ignorespaces Solveur pour {\it  CAP}\relax }}{8}}
-\newlabel{as:costas}{{6}{8}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {7}{\ignorespaces Solveur envoyeur pour {\it  CAP}\relax }}{8}}
-\newlabel{as:costas_sender}{{7}{8}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Solveur r\'ecepteur pour {\it  CAP}\relax }}{8}}
-\newlabel{as:costas_receiver}{{8}{8}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {7}{\ignorespaces Solveur pour {\it  CAP}\relax }}{8}}
+\newlabel{as:costas}{{7}{8}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {8}{\ignorespaces Solveur envoyeur pour {\it  CAP}\relax }}{8}}
+\newlabel{as:costas_sender}{{8}{8}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Solveur r\'ecepteur pour {\it  CAP}\relax }}{8}}
+\newlabel{as:costas_receiver}{{9}{8}}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces R\'esultats pour {\it  CAP}{} 19\relax }}{8}}
 \newlabel{tab:costas19}{{2}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}N-Queens Problem}{9}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {9}{\ignorespaces Solveur simple pour {\it  NQP}\relax }}{9}}
-\newlabel{as:nq}{{9}{9}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Strat\'egie de communication one~to~N{} 100\% pour {\it  CAP}\relax }}{8}}
+\newlabel{comm:costas1001N}{{10}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}N-Queens Problem}{8}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {11}{\ignorespaces Solveur simple pour {\it  NQP}\relax }}{9}}
+\newlabel{as:nq}{{11}{9}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces R\'esultats pour {\it  NQP}{} (s\'equentielle et en parall\`ele sans communication)\relax }}{9}}
 \newlabel{tab:nqueens_seqpar}{{3}{9}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {10}{\ignorespaces Des solveurs cycliques pour {\it  NQP}{}\relax }}{9}}
-\newlabel{as:nq_cyc}{{10}{9}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {12}{\ignorespaces Des solveurs cycliques pour {\it  NQP}{}\relax }}{9}}
+\newlabel{as:nq_cyc}{{12}{9}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces R\'esultats de la communication cyclique avec {\it  NQP}\relax }}{9}}
 \newlabel{tab:nqueens_cyc}{{4}{9}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {13}{\ignorespaces Strat\'egie de communication cyclique one~to~N{} pour {\it  NQP}\relax }}{10}}
+\newlabel{comm:nqueens_cyc_1n}{{13}{10}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Golomb Ruler Problem}{10}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {11}{\ignorespaces Solveur envoyeur pour {\it  GRP}\relax }}{10}}
-\newlabel{as:golomb_sender}{{11}{10}}
-\@writefile{loa}{\contentsline {algocf}{\numberline {12}{\ignorespaces Solveur r\'ecepteur pour {\it  GRP}\relax }}{10}}
-\newlabel{as:golomb_receiver}{{12}{10}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {14}{\ignorespaces Solveur envoyeur pour {\it  GRP}\relax }}{10}}
+\newlabel{as:golomb_sender}{{14}{10}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {15}{\ignorespaces Solveur r\'ecepteur pour {\it  GRP}\relax }}{10}}
+\newlabel{as:golomb_receiver}{{15}{10}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces R\'esultats s\'equentielles pour {\it  GRP}{}\relax }}{10}}
 \newlabel{tab:golomb_seq}{{5}{10}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces R\'esultats en parall\`ele non coop\'eratifs pour {\it  GRP}{}\relax }}{10}}
+\newlabel{tab:golomb_par}{{6}{10}}
 \bibdata{biblio201608}
 \bibcite{Bell2009}{1}
 \bibcite{Brownlee2014}{2}
 \bibcite{Diaz}{3}
 \bibcite{Frank2003}{4}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces R\'esultats avec communication one~to~one{} pour {\it  GRP}.\relax }}{11}}
+\newlabel{tab:golomb_comm_notab}{{7}{11}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces R\'esultats avec communication one~to~N{} pour pour {\it  GRP}.\relax }}{11}}
+\newlabel{tab:golomb_comm_tab}{{8}{11}}
+\@writefile{loa}{\contentsline {algocf}{\numberline {16}{\ignorespaces Strat\'egie de communication one~to~N{} pour {\it  GRP}\relax }}{11}}
+\newlabel{comm:golomb_1n}{{16}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}}
 \bibcite{Fukunaga2008}{5}
 \bibcite{Landtsheer2015}{6}
 \bibcite{Martin2016}{7}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces R\'esultats en parall\`ele non coop\'eratifs pour {\it  GRP}{}\relax }}{11}}
-\newlabel{tab:golomb_par}{{6}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces R\'esultats avec communication sans liste tabu pour {\it  GRP}.\relax }}{11}}
-\newlabel{tab:golomb_comm_notab}{{7}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conclusions}{11}}
-\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces R\'esultats avec communication avec liste tabu pour {\it  GRP}.\relax }}{11}}
-\newlabel{tab:golomb_comm_tab}{{8}{11}}
 \bibcite{Munera}{8}
 \bibcite{Sosic1994}{9}
 \bibcite{Swan2015}{10}

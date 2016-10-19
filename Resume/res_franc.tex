@@ -2,44 +2,29 @@
 %\documentclass{article}
 \usepackage{etex}
 
-
 \input{mycommands}
 
-\annee{2015}
+\annee{2016}
 \titre{\posl: Un langage orienté parallèle pour modéliser des solveurs de contraintes}
-%\title{Un langage orienté parallèle pour modéliser des solveurs de contraintes}
 
 \auteurs{\ale} 
 %\author{Alejandro REYES AMARO \and Eric MONFROY \and Florian RICHOUX\\LINA - UMR 6241, TASC - INRIA
 %Universit\'{e} de Nantes,
 % France\\\{alejandro.reyes, eric.monfroy, florian.richoux\}@univ-nantes.fr} 
 
- \institutions{
- LINA - UMR 6241, TASC - INRIA
- Universit\'{e} de Nantes,
-  France.}
+ \institutions{LINA - UMR 6241, TASC - INRIA Universit\'{e} de Nantes, France.}
 
- \mels{alejandro.reyes@univ-nantes.fr} % \and vin@fromage.com}
+ \mels{alejandro.reyes@univ-nantes.fr}
 
 \begin{document}
-%\creationEntete
 
 \maketitle
 
-%\begin{resume} % environnement pour le résumé en français
-%Cet exemple est là pour vous aider à utiliser le style LaTeX ``jfpc''. Ce style devrait permettre d'avoir des actes uniformes, avec des papiers qui ont tous à peu près la même allure, à condition que vous respectiez un tant soit peu les recommandations qui y sont faites.
+%\begin{resume} % environnement pour le résumé en anglais
+%La technologie multi-c\oe ur et les architectures massivement parallèles sont de plus en plus accessibles à tous, à travers des matériaux comme le Xeon Phi ou les cartes GPU. Cette stratégie d'architecture a été communément adoptée par les producteurs pour faire face à la loi de Moore. Or, ces nouvelles architectures impliquent d'autres manières de concevoir et d'implémenter les algorithmes, pour exploiter complètement leur potentiel, en particulier dans le cas des solveurs de contraintes traitant de problèmes d'optimisation combinatoire.
 %
-%Si vous soumettez un article court (2 pages max) vous devrez tout de même écrire un résumé de quelques phrases (mais aussi court que possible) explicitant clairement la référence à l'article original dont est tiré le résumé.
-%
-%Si vous n'utilisez pas LaTeX, vous devrez reproduire une mise-en-page similaire avec votre éditeur de texte préféré. 
+%Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it  puzzle}") : un système pour construire des méta-heuristiques interconnectées travaillant en parallèle. Le but de ce travail est d'obtenir un système pour facilement construire des solveurs et réduire l'effort  de leur  développement en  proposant un mécanisme de réutilisation de code entre les différents solveurs. La nouveauté de cette approche porte sur le fait que l'on voit un solveur comme un ensemble de composants spécifiques, écris dans un langage orienté parallèle basé sur des opérateurs. \posl{}  permets aux composants d'un solveur d'être transmis et exécutés par d'autres  solveurs. Il propose également une couche supplémentaire permettant de définir des connexions entre solveurs.
 %\end{resume}
-
-\begin{resume} % environnement pour le résumé en anglais
-La technologie multi-c\oe ur et les architectures massivement parallèles sont de plus en plus accessibles à tous, à travers des matériaux comme le Xeon Phi ou les cartes GPU. Cette stratégie d'architecture a été communément adoptée par les producteurs pour faire face à la loi de Moore. Or, ces nouvelles architectures impliquent d'autres manières de concevoir et d'implémenter les algorithmes, pour exploiter complètement leur potentiel, en particulier dans le cas des solveurs de contraintes traitant de problèmes d'optimisation combinatoire.
-
-Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it  puzzle}") : un système pour construire des méta-heuristiques interconnectées travaillant en parallèle. Le but de ce travail est d'obtenir un système pour facilement construire des solveurs et réduire l'effort  de leur  développement en  proposant un mécanisme de réutilisation de code entre les différents solveurs. La nouveauté de cette approche porte sur le fait que l'on voit un solveur comme un ensemble de composants spécifiques, écris dans un langage orienté parallèle basé sur des opérateurs. \posl{}  permets aux composants d'un solveur d'être transmis et exécutés par d'autres  solveurs. Il propose également une couche supplémentaire permettant de définir des connexions entre solveurs.
-\end{resume}
-
 
 \section{Introduction}
 \input{_introduction}
@@ -48,9 +33,9 @@ Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it
 
 \posl{} permet de construire des solveurs suivant différentes étapes : 
 \begin{enumerate}
-\item  L'algorithme du solveur considéré est  exprimé via une décomposition  en modules de calcul. Ces modules sont implémentés à la   manière de {\it fonctions} séparées. Nous appelons \INTROom{} ces morceaux de calcul (figure \ref{subfig:modules}, \new{blocs bleus}). \new{En suite, il faut décider  quelles  sont les  types d'informations que l'on souhaite  recevoir des autres solveurs.  Ces informations sont encapsulées  dans des composants appelés  \opch{},  permettant  de transmettre  des  données entre solveurs (figure \ref{subfig:modules}, \new{bloc rouge})} \label{stages:module}
+\item  L'algorithme du solveur considéré est  exprimé via une décomposition  en modules de calcul. Ces modules sont implémentés à la   manière de {\it fonctions} séparées. Nous appelons \INTROom{} ces morceaux de calcul (figure \ref{subfig:modules}, \new{blocs bleus}). \new{En suite, il faut décider  quelles  sont les  types d'informations que l'on souhaite  recevoir des autres solveurs.  Ces informations sont encapsulées  dans des composants appelés  \INTROopch{},  permettant  de transmettre  des  données entre solveurs (figure \ref{subfig:modules}, \new{bloc rouge})} \label{stages:module}
 
-\item  Une {\it stratégie générique}  est codée  à travers  \posl{}, en utilisant les  opérateurs fournis par le langage appliqués  sur des \new{\ms{} \textit{abstraite} qui représentent les \textit{signatures} des} composants donnés lors l'étape \ref{stages:module}, pour créer \ass. Cette  stratégie   définie  non  seulement  les informations   échangées,  mais   détermine  également   l'exécution parallèle de  composants. Lors  de cette  étape, les  informations à partager sont  transmises via  les opérateurs  ad-hoc. On  peut voir cette étape comme la définition de la colonne vertébrale des solveurs (figure \ref{subfig:as}).
+\item  Une {\it stratégie générique}  est codée  à travers  \posl{}, en utilisant les  opérateurs fournis par le langage appliqués  sur des \new{\ms{} \textit{abstraite} qui représentent les \textit{signatures} des} composants donnés lors l'étape \ref{stages:module}, pour créer \INTROass. Cette stratégie définie non seulement les informations échangées, mais détermine également l'exécution parallèle de composants. Lors  de cette  étape, les informations à partager sont  transmises via les opérateurs  ad-hoc. On peut voir cette étape comme la définition de la colonne vertébrale des solveurs (figure \ref{subfig:as}).
 
 \item  Les solveurs sont créés en instanciant \new{l'\as, par \oms{} et \opch}. %puis en les assemblant 
 
@@ -59,7 +44,7 @@ Cette  thèse présente Parallel-Oriented Solver Language (\posl{}, prononcé "{\it
 
 \begin{figure}
 	\centering
-	\subfloat[][Definition du \ms{} et l'\opchs{}]{
+	\subfloat[][Definition des \ms{} et les \opchs{}]{
 		\label{subfig:modules}
 		\includegraphics[width=0.5\columnwidth]{modules_1}
 	}\\
@@ -79,11 +64,9 @@ Les sous-sections suivantes expliquent en détail chacune des étapes ci-dessus.
 
 \subsection{Computation module}
 
-Un \om{}  est la plus basique  et abstraite manière de  définir un composant de calcul. Il reçoit une entrée, exécute un algorithme interne et retourne une sortie. Dans ce papier, nous utilisons ce concept afin de décrire et  définir les composants de base d'un  solveur, qui seront assemblés par l'\as.  
+Un \om{}  est la plus basique  et abstraite manière de définir un composant de calcul. Il reçoit une entrée, exécute un algorithme interne et retourne une sortie. Dans ce papier, nous utilisons ce concept afin de décrire et définir les composants de base d'un  solveur, qui seront assemblés par l'\as.  
 
-Un \om{} représente un  morceau de l'algorithme  du solveur  qui est susceptible de changer au cours de  l'exécution.   Il  peut  être
-dynamiquement remplacé  ou combiné avec d'autres  \oms, puisque les \oms{}  sont  également  des   informations  échangeables  entre  les
-solveurs. De  cette manière,  le  solveur  peut changer/adapter  son comportement à  chaud, en combinant  ses \oms{} avec ceux  des autres solveurs. Ils sont  représentés par  des blocs  bleus dans  la figure~\ref{fig:posl}.
+Un \om{} représente un  morceau de l'algorithme du solveur  qui est susceptible de changer au cours de  l'exécution. Il peut être dynamiquement remplacé  ou combiné avec d'autres  \oms, puisque les \oms{} sont également des informations  échangeables  entre  les solveurs. De cette manière, le solveur  peut changer/adapter son comportement à chaud, en combinant  ses \oms{} avec ceux  des autres solveurs. Ils sont  représentés par  des blocs  bleus dans  la figure~\ref{fig:posl}.
 
 \begin{definition}\label{def:module} \textbf{(Computation Module)}
 Un \om{} $\mathcal{O}m$ est une application définie par :
@@ -92,9 +75,9 @@ Un \om{} $\mathcal{O}m$ est une application définie par :
 \end{equation}
 \end{definition}
 
-Dans (\ref{def:module}),  la nature de $\mathcal{D}$  et $\mathcal{I}$ dépend du type de \om{}.  Ils peuvent être soit une configuration, ou  un  ensemble de  configurations, ou un ensemble de  valeurs  de différents types de données, etc.
+Dans (\ref{def:module}),  la nature de $\mathcal{D}$  et $\mathcal{I}$ dépend du type de \om{}. Ils peuvent être soit une configuration, ou un  ensemble de configurations, ou un ensemble de valeurs de différents types de données, etc.
 
-Soit une méta-heuristique de recherche locale, basée sur un algorithme bien connu, comme par exemple {\it Tabu Search}. Prenons l'exemple d'un  \om{} retournant  le voisinage  d'une configuration  donnée, pour une certaine métrique de voisinage. Cet \om{} peut être défini par la fonction suivante:
+Soit une méta-heuristique de recherche locale, basée sur un algorithme bien connu, comme par exemple {\it Tabu Search}. Prenons l'exemple d'un  \om{} retournant le voisinage d'une configuration donnée, pour une certaine métrique de voisinage. Cet \om{} peut être défini par la fonction suivante:
 
 \begin{equation}
 \mathcal{C}m:D_1\times D_2\times\dots\times D_n \rightarrow 2^{D_1\times D_2\times\dots\times D_n}
@@ -104,12 +87,12 @@ où $D_i$  représente  la  définition  des  domaines  de  chacune  des variables 
 
 \subsection{Communication module}
 
-Les \opchs{} sont  les composants des solveurs en charge  de la réception des informations  communiquées entre  solveurs. Ils  peuvent interagir
-avec les  \oms, en fonction de l'\as. Les \opchs{} jouent  le rôle de prise, permettant aux  solveurs de  se  brancher et  de recevoir  des informations. Il sont représentés en rouge dans la figure~\ref{subfig:modules}.
+Les \opchs{} sont  les composants des solveurs en charge  de la réception des informations communiquées entre solveurs. Ils  peuvent interagir
+avec les  \oms, en fonction de l'\as. Les \opchs{} jouent le rôle de prise, permettant aux solveurs de  se  brancher et  de recevoir  des informations. Il sont représentés en rouge dans la figure~\ref{subfig:modules}.
 
-Un \opch{} peut recevoir deux types d'informations, provenant toujours d'un solveur tiers : des données et des \oms. En  ce qui concerne les \oms, leur  communication peut  se faire  via la  transmission d'identifiants permettant à chaque solveur de les instancier.
+Un \opch{} peut recevoir deux types d'informations, provenant toujours d'un solveur tiers : des données et des \oms. En ce qui concerne les \oms, leur communication peut se faire via la  transmission d'identifiants permettant à chaque solveur de les instancier.
 
-Pour faire  la distinction entre  les deux différents types  de \opchs, nous appelons \INTROdopch{} les \opchs{} responsables de la réception de données  et \INTROoopch{} ceux s'occupant de la réception et de l'instanciation de \oms.
+Pour faire la distinction entre  les deux différents types  de \opchs, nous appelons \INTROdopch{} les \opchs{} responsables de la réception de données  et \INTROoopch{} ceux s'occupant de la réception et de l'instanciation de \oms.
 
 \defname{Data communication module}{
 Un \dopch{} $\mathcal{C}h$ est un composant produisant une application définie comme suit : 
@@ -127,7 +110,7 @@ Si nous notons $\mathbf{M}$ l'espace  de  tous  les \oms{} de la définition~\ref
 \end{equation}
 \end{definition}
 
-Puisque les \opchs{}  reçoivent  des  informations  provenant  d'autres solveurs sans pour autant avoir de contrôle sur celles-ci, il est  nécessaire  de  définir   l'information  {\it  NULL},  signifiant l'absence  d'information.  La  figure~\ref{fig:ochperform}  montre  le mécanisme interne d'un  \opch{}. Si un \dopch{} reçoit une  information,  celle-ci   est  automatiquement  retournée  (figure~\ref{subfig:doch},  lignes bleues).  Si un  \oopch{} reçoit un \om{}, ce dernier est instancié et exécuté avec l'entrée de l'\opch, et  le résultat  est retourné  (figure \ref{subfig:ooch}, lignes bleues). Dans les deux  cas, si aucune information n'est reçue, l'\opch{}  retourne l'objet  {\it NULL}  (figure \ref{fig:ochperform}, lignes rouges).
+Puisque les \opchs{} reçoivent des informations provenant  d'autres solveurs sans pour autant avoir de contrôle sur celles-ci, il est  nécessaire  de  définir   l'information  {\it  NULL}, signifiant l'absence  d'information. La  figure~\ref{fig:ochperform}  montre  le mécanisme interne d'un  \opch{}. Si un \dopch{} reçoit une information,  celle-ci est  automatiquement retournée (figure~\ref{subfig:doch}, lignes bleues). Si un  \oopch{} reçoit un \om{}, ce dernier est instancié et exécuté avec l'entrée de l'\opch, et le résultat est retourné (figure \ref{subfig:ooch}, lignes bleues). Dans les deux  cas, si aucune information n'est reçue, l'\opch{}  retourne l'objet  {\it NULL}  (figure \ref{fig:ochperform}, lignes rouges).
 
 \begin{figure}
 	\centering
@@ -146,7 +129,7 @@ Puisque les \opchs{}  reçoivent  des  informations  provenant  d'autres solveurs
 
 \subsection{Abstract solver}
 
-L'\as{}  est le c\oe{}ur du solveur. Il joint les \oms{} et les \opchs{} de  manière cohérente, tout en leur restant  indépendant. Ceci signifie  qu'elle peut  changer ou  être modifiée  durant l'exécution, sans altérer  l'algorithme général  et en  respectant la  structure du solveur.  À  travers  l'\as, on peut décider également des informations à envoyer aux autres solveurs. \new{Chaque fois que nous combinons certains composants en utilisant des opérateurs \posl{}, nous créons un \INTROm.}
+L'\as{}  est le c\oe{}ur du solveur. Il joint les \oms{} et les \opchs{} de  manière cohérente, tout en leur restant indépendant. Ceci signifie  qu'elle peut changer ou être modifiée durant l'exécution, sans altérer  l'algorithme général et en respectant la structure du solveur.  À  travers  l'\as, on peut décider également des informations à envoyer aux autres solveurs. \new{Chaque fois que nous combinons certains composants en utilisant des opérateurs \posl{}, nous créons un \INTROm.}
 
 \begin{definition}
 \label{def:cm}
@@ -255,12 +238,12 @@ Par exemple, l'algorithme~\ref{algo:as_example} montre l'\as{} correspondant a l
 
 Les communications sont établies en respectant les règles suivantes :
 \begin{enumerate}
-\item  À chaque  fois qu'un  solveur  envoie une  information via  les opérateurs  $\llparenthesis .\rrparenthesis^{d}$  ou $\llparenthesis   .\rrparenthesis^{m}$, il créé une {\it prise mâle de communication} 
-\item À  chaque fois qu'un  solveur contient  un \opch{}, il  créé une {\it prise femelle de communication} 
+\item  À chaque  fois qu'un  solveur  envoie une information via les opérateurs  $\llparenthesis .\rrparenthesis^{d}$  ou $\llparenthesis   .\rrparenthesis^{m}$, il créé une {\it prise mâle de communication} 
+\item À  chaque fois qu'un  solveur contient un \opch{}, il  créé une {\it prise femelle de communication} 
 \item Les solveurs peuvent être connectés entre eux en reliant {\it prises mâles} et {\it femelles}.
 \end{enumerate}
 
-Avec l'opérateur~$(\cdot)$, nous  pouvons  avoir  accès aux  \oms{} envoyant une information et aux noms des \opchs d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit  un accès à le \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
+Avec l'opérateur~$(\cdot)$, nous  pouvons avoir accès aux  \oms{} envoyant une information et aux noms des \opchs d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit un accès à le \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
 
 Maintenant, nous définissons les opérateurs de communication que \posl{} fournit.
 
@@ -391,7 +374,7 @@ Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur "c
 		$V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci \% K_2} S_2\right] \poslop{\mapsto} \left[C.M. \poslop{\vee} \llparenthesis A \rrparenthesis^d\right]$		
 	}
 }
-\tet{\bf solver} \solverposl{compagnonandard} \tet{\bf implements} as\_compagnon\;
+\tet{\bf solver} \solverposl{compagnon} \tet{\bf implements} as\_compagnon\;
 \algoindent \tet{\bf computation} : $I_{BP}, V_{BP}(p), S_{first}, S_{rand}, A_{AI}$ \;
 \algoindent \tet{\bf communication} : $CM_{last}$ \;
 \caption{Solveur compagnon pour \SGP}\label{as:golfers_partial}
@@ -420,7 +403,21 @@ Nous avons dessiné aussi des différentes stratégies de communication, en combina
 \label{tab:golfers_seqpar}
 \end{table}
 
-Comme nous nous attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succès de l'approche parallèle sur le séquentielle. Plus intéressante, les expériences confirment que la stratégie de communication proposée pour cet benchmark est la correcte: en comparant par rapport aux runs en parallèle sans communication, il améliore les runtimes par un facteur de 1.98 (facteur moyen parmi les trois instances). Les résultats coopératifs de ce tableau on été obtenus en utilisant l'opérateur de communication \oneTone{} avec 100\% de solveurs communicatifs. 
+Comme nous nous attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succès de l'approche parallèle sur le séquentielle. Plus intéressante, les expériences confirment que la stratégie de communication proposée pour cet benchmark est la correcte: en comparant par rapport aux runs en parallèle sans communication, il améliore les runtimes par un facteur de 1.98 (facteur moyen parmi les trois instances). Les résultats coopératifs de ce tableau on été obtenus en utilisant l'opérateur de communication \oneTone{} avec 100\% de solveurs communicatifs (algorithme~\ref{comm:golfers_v2_100}). 
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+$\left[\eqsolverposl{compagnon}\cdot A\right] \onetoone \left[\eqsolverposl{standard}\cdot C.M.\right]20;$\;
+$\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{compagnon}\cdot C.M.\right]20;$
+\caption{Stratégie 100\% de communication \textit{compagnon}}\label{comm:golfers_v2_100}
+\end{algorithm}
+
+
+% --------------------------------------------
+% ------- COSTAS ARRAY -----------------------
+% --------------------------------------------
 
 
 \subsection{Costas Array Problem}
@@ -517,8 +514,15 @@ Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset
 
 Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. 
 
-Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{}, parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant  l'intensification.
+Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{} (algorithme~\ref{comm:costas1001N}), parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant l'intensification.
 
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+$\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{receiverA}\cdot C.M.(20)\right];$
+\caption{Stratégie de communication \oneTn{} 100\% pour \CARRP}\label{comm:costas1001N}
+\end{algorithm}
 
 % -----------------------------------------------
 % ------- N - QUEENS ----------------------------
@@ -549,7 +553,7 @@ Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec 
 \end{algorithm}
 
 
-\new{Le tableau~\ref{tab:nqueens_seqpar} présente les résultats des runs en séquentielle et en parallèle. Ces résultats montrent que l'amélioration de l'approche en parallèle par rapport à l'approche séquentielle en utilisant \posl{}} \tet{disminuye a medida que el order del problema crece}.
+\new{Le tableau~\ref{tab:nqueens_seqpar} présente les résultats des runs en séquentielle et en parallèle. Ces résultats montrent que l'amélioration de l'approche en parallèle par rapport à l'approche séquentielle en utilisant \posl{}} \modified{diminue au fur et à mesure que l'ordre du problème augmente.}
 
 \begin{table}[t]
 \centering 
@@ -587,7 +591,7 @@ L'autre solveur est très similaire au solveur utilisé pour les expériences sans 
 \tet{\bf solver} \solverposl{standard} \tet{\bf implements} as\_cyc\;
 \algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(2.5), S_{first}, A_{AI}$ \;
 \algoindent \tet{\bf communication}: $CM_{last}$\;
-\tet{\bf solver} \solverposl{companion} \tet{\bf implements} as\_cyc\;
+\tet{\bf solver} \solverposl{compagnon} \tet{\bf implements} as\_cyc\;
 \algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(1), S_{best}, A_{AI}$ \;
 \algoindent \tet{\bf communication}: $CM_{last}$\;
 \caption{Des solveurs cycliques pour \NQP{}}\label{as:nq_cyc}
@@ -615,8 +619,16 @@ L'autre solveur est très similaire au solveur utilisé pour les expériences sans 
 \caption{Résultats de la communication cyclique avec \NQP}\label{tab:nqueens_cyc}
 \end{table}
 
-\new{Grâce a cette expérience nous avons été capables de trouver une stratégie de communication pour améliorer les temps d'exécution, mais seulement pour des instances petites du problème. Ce résultat confirme l'hypothèse de que quand l'ordre du problème monte, le gain en utilisant la communication pendant la recherche de la solution diminue. Le tableau~\ref{tab:nqueens_cyc} montre comment l'\textit{improvement ratio} (colonne \textbf{I.R.}) diminue avec l'ordre $N$. }
+\new{Grâce a cette expérience nous avons été capables de trouver une stratégie de communication (algorithme~\ref{comm:nqueens_cyc_1n}) pour améliorer les temps d'exécution, mais seulement pour des instances petites du problème. Ce résultat confirme l'hypothèse de que quand l'ordre du problème monte, le gain en utilisant la communication pendant la recherche de la solution diminue. Le tableau~\ref{tab:nqueens_cyc} montre comment l'\textit{improvement ratio} (colonne \textbf{I.R.}) diminue avec l'ordre $N$. }
 
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+$\left[\eqsolverposl{compagnon}\cdot A(2)\right] \oneton \left[\eqsolverposl{standard}\cdot C.M.\right]13;$\;
+$\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{compagnon}\cdot C.M.(2)\right]13;$
+\caption{Stratégie de communication cyclique \oneTn{} pour \NQP}\label{comm:nqueens_cyc_1n}
+\end{algorithm}
 
 % -----------------------------------------------
 % -------- GOLOMB RULER -------------------------
@@ -633,7 +645,7 @@ Nous réutilisons les \ms{} de sélection et d'acceptation des études antérieures 
 \item $V_{sort}$: donné une configuration, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
 \end{enumerate}
 
-Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée \tet{tal cual}. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
+Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée telle quelle. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
 
 \begin{algorithm}
 \dontprintsemicolon
@@ -673,9 +685,9 @@ Le module $T_{tabu}$ est exécuté lorsque le solveur est incapable de trouver une
 \caption{Solveur récepteur pour \GRP}\label{as:golomb_receiver}
 \end{algorithm}
 
-Le bénéfice de l'approche en  parallèle avec \posl{} est aussi prouvé pour le \GRP{} (voir les tableaux~\ref{tab:golomb_seq} et~\ref{tab:golomb_seq}). Dans ces tableaux, la colonne \textbf{R} représente le nombre de redémarrages exécutées. Cette expérience a été réalisée en utilisant des solveurs similaires à ceux présentés précédemment, mais sans \opchs.
+Le bénéfice de l'approche en  parallèle avec \posl{} est aussi prouvé pour le \GRP{} (voir les tableaux~\ref{tab:golomb_seq} et~\ref{tab:golomb_par}). Dans ces tableaux, la colonne \textbf{R} représente le nombre de redémarrages exécutées. Cette expérience a été réalisée en utilisant des solveurs similaires à ceux présentés précédemment, mais sans \opchs.
 
-\begin{table}
+\begin{table}[!h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
 \centering 
 \renewcommand{\arraystretch}{1}
@@ -695,7 +707,7 @@ Le bénéfice de l'approche en  parallèle avec \posl{} est aussi prouvé pour le \G
 \label{tab:golomb_seq}
 \end{table}
 
-\begin{table}
+\begin{table}[!h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
 \centering 
 \renewcommand{\arraystretch}{1}
@@ -719,7 +731,7 @@ Pour \GRP, la stratégie de communication que nous adoptions a été différente. L'
 
 Sur la base de l'opérateur de connexion utilisé dans la stratégie de communication, ce solveur peut recevoir une ou plusieurs configurations. Ces configurations sont l'entrée du \m{} de génération ($I_{sort}$). Ce module insère toutes les configurations reçues dans une liste {\it tabu}, puis il génère une nouvelle première configuration loin de toutes les configurations dans la liste {\it tabu}. 
 
-Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{tab:golomb_comm_tab} l'amélioration en temps d'exécution avec communication est plus visible quand on utilise l'opérateur de communication \oneTn{}, parce-que à chaque nouvelle itération, le solveur récepteur a plus d'information afin de générer une nouvelle configuration loin des "zones pénalisées".
+Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{tab:golomb_comm_tab} l'amélioration en temps d'exécution avec communication est plus visible quand on utilise l'opérateur de communication \oneTn{} (algorithme~\ref{comm:golomb_1n}), parce-que à chaque nouvelle itération, le solveur récepteur a plus d'information afin de générer une nouvelle configuration loin des "zones pénalisées".
 
 \begin{table}[t]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -734,7 +746,7 @@ Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{ta
 	11--72 & 85.43 & 156,211 & 52 \\
 	\hline
 \end{tabular}
-\caption{Résultats avec communication sans liste tabu pour \GRP.}
+\caption{Résultats avec communication \oneTone{} pour \GRP.}
 \label{tab:golomb_comm_notab}
 \end{table}
 
@@ -751,9 +763,17 @@ Comme nous pouvons voir dans les tableaux~\ref{tab:golomb_comm_notab} et~\ref{ta
 	11--72 & \good{60.35} & 110,311 & 36\\
 	\hline
 \end{tabular}
-\caption{Résultats avec communication avec liste tabu pour \GRP.}
+\caption{Résultats avec communication \oneTn{} pour pour \GRP.}
 \label{tab:golomb_comm_tab}
 \end{table}
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+$\left[\eqsolverposl{sender}\cdot R(20)\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(20)\right];$
+\caption{Stratégie de communication \oneTn{} pour \GRP}\label{comm:golomb_1n}
+\end{algorithm}
 
 \section{Conclusions}
 
