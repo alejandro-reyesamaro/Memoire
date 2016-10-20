@@ -122,6 +122,11 @@ Mikael~Z. Lagerkvist and Christian Schulte.
 \newblock {Advisors for Incremental Propagation}.
 \newblock {\em Lecture Notes in Computer Science}, 4741:409--422, 2007.
 
+\bibitem{Gecode}
+Christian Schulte, Guido Tack, and Mikael~Z Lagerkvist.
+\newblock {\em {Modeling and Programming with Gecode}}.
+\newblock 2013.
+
 \bibitem{Jussien2008}
 Narendra Jussien, Hadrien {Prud'homme, Charles Cambazard}, Guillaume Rochart,
   and Fran{\c{c}}ois Laburthe.
@@ -415,11 +420,6 @@ Christophe Lecoutre.
 \newblock {\em Constraint Networks: Techniques and Algorithms}, pages 541--545,
   2009.
 
-\bibitem{Gecode}
-Christian Schulte, Guido Tack, and Mikael~Z Lagerkvist.
-\newblock {\em {Modeling and Programming with Gecode}}.
-\newblock 2013.
-
 \bibitem{Grama2003}
 Ananth Grama, Anshul Gupta, George Karypis, and {Vipin Kumar}.
 \newblock {Introduction to Parallel Computing}.
@@ -707,5 +707,35 @@ Jeff Clune, Sherri Goings, Erik~D. Goodman, and William Punch.
 \newblock {Investigations in Meta-GAs: Panaceas or Pipe Dreams?}
 \newblock In {\em GECOO'05: Proceedings of the 2005 Workshop on Genetic an
   Evolutionary Computation}, pages 235--241, 2005.
+
+\bibitem{Fukunaga2008}
+Alex~S Fukunaga.
+\newblock {Automated discovery of local search heuristics for satisfiability
+  testing.}
+\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
+
+\bibitem{Landtsheer2015}
+Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
+\newblock {Combining Neighborhoods into Local Search Strategies}.
+\newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
+  Springer.
+
+\bibitem{Martin2016}
+Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
+  and Edmund~K Burke.
+\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
+\newblock {\em European Journal of Operational Research}, 2016.
+
+\bibitem{Bell2009}
+Jordan Bell and Brett Stevens.
+\newblock {A survey of known results and research areas for n-queens}.
+\newblock {\em Discrete Mathematics}, 309(1):1--31, 2009.
+
+\bibitem{Sosic1994}
+Rok Sosic and Jun Gu.
+\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
+  the N-Queens Problem}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  6:661--668, 1994.
 
 \end{thebibliography}
