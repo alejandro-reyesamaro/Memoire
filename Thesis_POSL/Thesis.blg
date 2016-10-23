@@ -4,51 +4,51 @@ The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
 Database file #1: biblio201610.bib
 Warning--can't use both volume and number fields in Cousot1977
-Warning--empty institution in Arbab1995
 Warning--empty publisher in Gecode
 Warning--there's a number but no volume in Feo95
 Warning--empty publisher in Comet
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
-You've used 122 entries,
+Warning--empty institution in Arbab1995
+You've used 120 entries,
             1791 wiz_defined-function locations,
-            1222 strings with 24053 characters,
-and the built_in function-call counts, 36099 in all, are:
-= -- 3557
-> -- 1305
-< -- 86
-+ -- 478
-- -- 356
-* -- 2325
-:= -- 5184
-add.period$ -- 411
-call.type$ -- 122
-change.case$ -- 134
+            1205 strings with 23585 characters,
+and the built_in function-call counts, 35390 in all, are:
+= -- 3485
+> -- 1272
+< -- 85
++ -- 466
+- -- 346
+* -- 2262
+:= -- 5076
+add.period$ -- 406
+call.type$ -- 120
+change.case$ -- 131
 chr.to.int$ -- 0
-cite$ -- 129
-duplicate$ -- 1801
-empty$ -- 3493
-format.name$ -- 356
-if$ -- 8485
+cite$ -- 127
+duplicate$ -- 1780
+empty$ -- 3443
+format.name$ -- 346
+if$ -- 8336
 int.to.chr$ -- 0
-int.to.str$ -- 122
-missing$ -- 119
-newline$ -- 613
-num.names$ -- 138
-pop$ -- 429
+int.to.str$ -- 120
+missing$ -- 117
+newline$ -- 603
+num.names$ -- 137
+pop$ -- 436
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1027
+skip$ -- 1004
 stack$ -- 0
-substring$ -- 2741
-swap$ -- 663
-text.length$ -- 86
+substring$ -- 2652
+swap$ -- 652
+text.length$ -- 85
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 7
-while$ -- 397
-width$ -- 125
-write$ -- 1409
+while$ -- 386
+width$ -- 123
+write$ -- 1386
 (There were 7 warnings)

@@ -33,13 +33,13 @@ The communication is established by following the following rules guideline:
 Following, we define \textit{connection operators} that \posl{} provides.
 
 \begin{definition}\label{op_conn:1to1}
-$\poslop{\rightarrow}$ {\bf Connection One-to-One Operator} Let 
+\onetoone {\bf Connection One-to-One Operator} Let 
 \begin{enumerate}
 \item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and
 \item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ be the list of \outlets{}
 \end{enumerate} Then the operation 
 \[
-\mathcal{J} \poslop{\rightarrow} \mathcal{O}
+\mathcal{J} \onetoonesep \mathcal{O}
 \]
 connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ (see Figure~\ref{subfig:comm_simple}).
 \end{definition}
@@ -47,13 +47,13 @@ connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 \separation
 
 \begin{definition}\label{op_conn:1ton}
-$\poslop{\rightsquigarrow}$ {\bf Connection One-to-N Operator} Let 
+\oneton {\bf Connection One-to-N Operator} Let 
 \begin{enumerate} 
 \item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and 
 \item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\cdot \mathcal{CM}_{M-1}\right]$ be the list of \outlets{} 
 \end{enumerate} Then the operation 
 \[
-\mathcal{J} \poslop{\rightsquigarrow} \mathcal{O}
+\mathcal{J} \onetonsep \mathcal{O}
 \]
 connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with every \outlet{} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ and $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).
 \end{definition}
@@ -61,13 +61,13 @@ connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with ev
 \separation
 
 \begin{definition}\label{op_conn:ring}
-$\poslop{\leftrightarrow}$ {\bf Connection Ring Operator} Let 
+\ring {\bf Connection Ring Operator} Let 
 \begin{enumerate} 
 \item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ be the list of \jacks, and 
 \item $\mathcal{O} = \left[\mathcal{S}_0\cdot \mathcal{CM}_0, \mathcal{S}_1\cdot \mathcal{CM}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ be the list of \outlets{} 
 \end{enumerate} Then the operation 
 \[
-\mathcal{J} \poslop{\leftrightarrow} \mathcal{O}
+\mathcal{J} \ringsep \mathcal{O}
 \]
 connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with the corresponding \outlet{} $\mathcal{Z}_{(i+1)\%N}\cdot \mathcal{CM}_{(i+1)\%N} \in \mathcal{O}$, $\forall 0 \leq i \leq N-1$  (see Figure~\ref{subfig:comm_ring}).
 \end{definition}
@@ -101,8 +101,8 @@ connects each \jack{} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ with th
 
 \poslexample{These operators can be combined beteewn themself to contruct any kind of \comstr. Figure~\ref{fig:ex:comb} shows a simple example combining solvers doubly connected and non connected solvers. Assuming that all solvers $S_i, i\in[1..5]$ have a module $\mathcal{M}$ sent by a send operator, and a \opch{} $\mathcal{CM}$, the corresponding code is the following:
 \begin{gather*}
-\left[\mathcal{S}_1\cdot\mathcal{M}, \mathcal{S}_2\cdot\mathcal{M}, \mathcal{S}_{3}\cdot\mathcal{M}\right] \poslop{\rightsquigarrow} \left[\mathcal{S}_4\cdot\mathcal{CM}, \mathcal{S}_5\cdot\mathcal{CM}\right]\\
-\left[\mathcal{S}_4\cdot\mathcal{M}, \mathcal{S}_5\cdot\mathcal{M}\right] \poslop{\rightarrow} \left[\mathcal{S}_1\cdot\mathcal{CM}, \mathcal{S}_{3}\cdot\mathcal{CM}\right]\\
+\left[\mathcal{S}_1\cdot\mathcal{M}, \mathcal{S}_2\cdot\mathcal{M}, \mathcal{S}_{3}\cdot\mathcal{M}\right] \onetonsep \left[\mathcal{S}_4\cdot\mathcal{CM}, \mathcal{S}_5\cdot\mathcal{CM}\right]\\
+\left[\mathcal{S}_4\cdot\mathcal{M}, \mathcal{S}_5\cdot\mathcal{M}\right] \onetoonesep \left[\mathcal{S}_1\cdot\mathcal{CM}, \mathcal{S}_{3}\cdot\mathcal{CM}\right]\\
 \left[\mathcal{S}_6\right]\\
 \left[\mathcal{S}_7\right]
 \end{gather*}
@@ -169,9 +169,9 @@ searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 \end{itemize}
 
 \poslexample{Let us suppose that we have declared two solvers $S$ and $Z$, both implementing the \as{} in Algorithm~\ref{algo:as_example}, so they can be either sender or receiver. The following code connects them using the operator {\bf 1~to~N}:
-$$\left[S\cdot A\right] \poslop{\rightsquigarrow} \left[Z\cdot C.M.\right]$$
+$$\left[S\cdot A\right] \onetonsep \left[Z\cdot C.M.\right]$$
 If the operator {\bf 1~to~N} is used with only with one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
-$$\left[S_1\cdot A, S_2\cdot A, S_3\cdot A\right]\poslop{\rightsquigarrow} \left[Z_1\cdot C.M., Z_2\cdot C.M., Z_3\cdot C.M.\right]$$
+$$\left[S_1\cdot A, S_2\cdot A, S_3\cdot A\right]\onetonsep \left[Z_1\cdot C.M., Z_2\cdot C.M., Z_3\cdot C.M.\right]$$
 \posl{} provides a mechanism to make this easier, through two {\it syntactic sugars} explained below.
 }
 
@@ -213,7 +213,7 @@ In that sense, and supposing that 12 units of computation are available, a \sose
 \dontprintsemicolon
 \SetNoline
 %\myproc{
-[ S$\cdot A$ (3) ] $\poslop{\rightsquigarrow}$ [ Z$\cdot C.M.$ (3) ] 2 ;
+[ S$\cdot A$ (3) ] $\onetonsep$ [ Z$\cdot C.M.$ (3) ] 2 ;
 \caption{A communication strategy}\label{algo:comm_str_ex}
 \end{algorithm}
 

@@ -3,12 +3,13 @@
 %----------------------------------------------------------------------------------------------
 \chapter{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}
 \label{chap:posl}
-\textit{In this chapter \posl{} is introduced as the main contribution of this thesis, and a new way to solve \csps{}. Its characteristics and advantages are summarized, and a general procedure to be followed is described, in order to build parallel solvers using \posl, followed by a detailed description of each of the single steps.}
+\textit{In this chapter \posl{} is introduced as the main contribution of this thesis, and a new way to solve \csps{} (Section \ref{sec:posl_intro}). Its characteristics and advantages are summarized, and a general methodology for building parallel solvers using \posl{} is described. Then a detailed description of each of the single steps is presented (Sections \ref{sec:model}, \ref{sec:1ststage}, \ref{sec:2ndstage}, \ref{sec:3rdstage}, \ref{sec:4thstage} and \ref{sec:posl_zum}).}
 \vfill
 \minitoc
 \newpage
 
 \section{Introduction}
+\label{sec:posl_intro}
 
 Meta-heuristic methods, despite showing very good results solving \CSPs, they are frequently not enough for solve them, when they are applied to problem instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction of this thesis was tackling the one of the weakest points of meta-heuristic methods: theirs parameters. In Chapter~\ref{chap:prior} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings was presented. This experiment did not produce encouraging results. That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
 

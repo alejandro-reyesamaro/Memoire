@@ -86,6 +86,8 @@
 \newcommand{\solverposl}[1]{{\sc Solver}$_{#1}$}
 \newcommand{\eqsolverposl}[1]{\textbf{{\sc Solver}}_{#1}}
 
+\newcommand{\etal}[1]{#1~et al.}
+
 \usepackage{stmaryrd}
 \newcommand{\lbk}{\left\llbracket}
 \newcommand{\rbk}{\right\rrbracket}
@@ -96,8 +98,29 @@
 \newcommand{\senddataop}[1]{\lsendpar#1\rsenddatapar}
 \newcommand{\sendmoduleop}[1]{\lsendpar#1\rsendmodulepar}
 
-\newcommand{\onetoone}{\poslop{\rightarrow}}
-\newcommand{\oneton}{\poslop{\rightsquigarrow}}
+\usepackage{xparse}
+\usepackage{mathtools}
+\NewDocumentCommand{\insquare}{omo}{%
+  \begingroup
+  \IfValueTF{#1}{%
+    \setlength{\fboxsep}{#1}%
+  }{%
+  }%
+  \IfValueTF{#3}{%
+    \setlength{\fboxrule}{#3}%
+  }{}%
+  \ensuremath{\fbox{#2}}
+  \endgroup % Group safe lengths
+}%
+\newcommand{\onetoone}{\insquare[4pt]{$\rightarrow$}[0.5pt]} %{$\text{ }\Aboxed{\rightarrow}\text{ }$} %{\poslop{\rightarrow}}
+\newcommand{\onetoonesep}{\ \insquare[4pt]{$\rightarrow$}[0.5pt]\ }
+%\newcommand{\onetoonesep}{\quad\insquare[4pt]{$\rightarrow$}[0.5pt]\quad}
+\newcommand{\oneton}{\insquare[4pt]{$\rightsquigarrow$}[0.5pt]} %{\poslop{\rightsquigarrow}}
+\newcommand{\onetonsep}{\ \insquare[4pt]{$\rightsquigarrow$}[0.5pt]\ }
+\newcommand{\ring}{\insquare[4pt]{$\leftrightarrow$}[0.5pt]} 
+\newcommand{\ringsep}{\ \insquare[4pt]{$\leftrightarrow$}[0.5pt]\ }
+
+
 
 \newcommand{\produce}{\hspace{5pt}\longmapsto\hspace{5pt}}
 \newcommand{\OR}{\hspace{5pt}|\hspace{5pt}}
@@ -238,7 +261,7 @@ bookmarksopenlevel=2
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{verde}{#1}}
 \SetCommentSty{mycommfont}
 %\newsavebox{\mycode}
-\SetKwFor{While}{$[\circlearrowleft $}{}{$]$} %{\tet{\bf begin}}{\tet{\bf end}$]$}
+\SetKwFor{While}{$[\circled{$\circlearrowleft$} $}{}{$]$} %{\tet{\bf begin}}{\tet{\bf end}$]$}
 \SetKwIF{Strategy}{}{}{\tet{\bf abstract solver}: }{}{}{}{}
 \SetKwIF{oModule}{}{}{\tet{\bf computation} : }{}{}{}{}
 \SetKwIF{oChannel}{}{}{\tet {\bf connection} : }{}{}{}{}
@@ -252,7 +275,8 @@ bookmarksopenlevel=2
 \SetKwData{kdoch}{{\bf oChannel}}
 \SetKwFunction{str}{\bf strategy}
 \SetKwFunction{solver}{\bf solver}
-\newcommand{\whileinline}[2] {$[\circlearrowleft $ #1 #2 $]$}%{$[\circlearrowleft $ #1 \tet{\bf begin} #2 \tet{\bf end}$]$}
+\newcommand{\cycop}{\circled{$\circlearrowleft$}}
+\newcommand{\whileinline}[2] {$[\cycop$ #1 #2 $\left.\right]$}%{$[\circlearrowleft $ #1 \tet{\bf begin} #2 \tet{\bf end}$]$}
 \newcommand{\algoindent}{\hspace{16pt}}
 
 

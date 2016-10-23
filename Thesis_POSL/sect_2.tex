@@ -38,14 +38,14 @@ An \emph{Abstract Solver} $AS$ is a triple $\left(\mathbf{M},\mathcal{L}^m, \mat
 \begin{definition}\label{def:grammar} A {\bf \cm{}'s grammar} is the set $G_{POSL} = \left(\mathbf{V},\Sigma, \mathbf{S}, \mathbf{R}\right)$, where:
 \begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
 	\item $\mathbf{V} = \left\{CM, OP\right\}$ is the set of {\it variables},
-	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, \lsendpar, \rsenddatapar, \rsendmodulepar, \circled{$\mapsto$},\circled{?},\circlearrowleft, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
+	\item $\Sigma = \left\{\alpha, \beta, be, [, ], \lbk, \rbk_p, \lsendpar, \rsenddatapar, \rsendmodulepar, \circled{$\mapsto$},\circled{?},\cycop, \circled{$\rho$}, \circled{$\vee$}, \circled{$\wedge$}, \circled{M}, \circled{m}, \circled{$\shortdownarrow$}, \circled{$\cup$}, \circled{$\cap$}\right\}$ is the set of {\it terminals},
 	\item $\mathbf{S} = \left\{CM\right\}$ is the set of {\it start variables},
 	\item and $\mathbf{R} = $
 		\begin{align*} 
 		CM \produce & \alpha \OR \beta \OR \senddataop{CM} \OR \sendmoduleop{CM} \OR \left[OP\right] \OR \lbk OP\rbk_p\\
 		OP \produce & CM \circled{$\mapsto$} CM \OR CM \circled{?} CM \OR CM \circled{$\rho$} CM \OR CM \circled{$\vee$} CM \OR CM \circled{$\wedge$} CM  \OR\\
 		& CM \circled{M} CM \OR CM \circled{m} CM \OR CM \circled{$\shortdownarrow$} CM \OR CM \circled{$\cup$} CM \OR CM \circled{$\cap$} CM  \OR\\
-		& \circlearrowleft \text{ be } CM%\left\{CM\right\}		
+		& \cycop \text{ be } CM%\left\{CM\right\}		
 		\end{align*} is a set of {\it rules}
 \end{enumerate} 
 %For simplicity, we will use, from now on, the name of \emph{Module} to refer ether to an \module, to an \opch, or to a \cm.
@@ -164,7 +164,7 @@ In examples I remove the clause $<cond>$ for simplification.
 We can execute modules sequentially creating also cycles.
 
 \begin{definition}\label{op:cyclic}
-$\circlearrowleft$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
+$\cycop$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\cycop_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
 
 \[
 \mathcal{M}_{cyc}:\mathcal{D} \rightarrow \mathcal{I} 
@@ -173,7 +173,7 @@ $\circlearrowleft$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D
 
 \poslexample{
 Using this operator I can model a local search algorithm, by executing the {\it abstract} \om{} $I$ and then the other \oms{} ($V$, $S$ and $A$) cyclically, until finding a solution (i.e, a configuration with cost equals to zero) (see Figure~\ref{fig:cyc_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}A\right]\right]\right]$$
 In the examples, I remove the clause $<cond>$ for simplification. 
 }
 
@@ -204,7 +204,7 @@ and a real value $\rho \in (0,1)$. Then the operation $\left|M_1\circled{$\rho$}
 
 \poslexample{
 In the example I can create a \cm{} to execute two {\it abstract} \oms{} $A_1$ and $A_2$ following certain probability $\rho$ using the {\bf random choice} operator as follows (see Figure~\ref{fig:rho_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[A_1\poslop{\rho}A_2\right]\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[A_1\poslop{\rho}A_2\right]\right]\right]\right]$$
 }
 
 \begin{figure}[h]
@@ -242,7 +242,7 @@ Then, the operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ de
 
 Figure~\ref{fig:2difBeh} shows how to combine a \opch{} with the \om{} $A$ through the operator $\circled{$\vee$}$. Here, the \om{} $A$ will be executed as long as the \opch{} remains \textit{NULL}, i.e., there is no information coming from outside. This behavior is represented in Figure~\ref{subfig:beh1} by the blue lines. If some data has been received through the \opch, the later is executed instead of the module $A$, represented in Figure~\ref{subfig:beh2} by orange lines. 
 The code can be written as follows:
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[C.M.\poslop{\vee}A\right]\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\left[C.M.\poslop{\vee}A\right]\right]\right]\right]$$
 }
 
 \begin{figure}[h]
@@ -315,7 +315,7 @@ Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, 
 \end{definition}
 
 \poslexample{The {\bf minimum operator} can be applied in the previews example to obtain an interesting behavior: When applying the acceptance criteria, suppose that we want to receive a configuration from another solver, to compare it with ours and select the one with the lowest cost. We can do that by applying the $\circled{m}$ operator to combine the \om{} $A$ with a \opch{} $C.M.$ (see Figure\ref{fig:min_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
 Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf minimum operator} supports parallelism.}
 
 \begin{figure}[h]
@@ -340,7 +340,7 @@ be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$ and $\mathcal{I}_1 \su
 \end{definition}
 
 \poslexample{Sometimes nighborhood functions are slow depending on the configuration. In that case two neighborhood \oms{} can be executed and take into account the output of the module ending first (see Figure\ref{fig:race_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[\lbk V_1\poslop{\shortdownarrow}V_2\rbk_p\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$}
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[\lbk V_1\poslop{\shortdownarrow}V_2\rbk_p\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$}
 
 \begin{figure}[h]
 	\centering	
@@ -429,10 +429,10 @@ $\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} 
 \end{definition}
 
 \poslexample{In the following example, I use one of the \cms{} already presented in the previews examples, using a \opch{} to receive a configuration (see Figure~\ref{subfig:receiver_example}):  
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\lbk A\poslop{m}C.M.\rbk_p\right]\right]\right]$$
 
 I also build another, as its complement: sending the accepted configuration to outside, using the {\bf sending data operator} (see Figure\ref{subfig:sender_example}):
-$$\left[I\poslop{\mapsto}\left[\circlearrowleft\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\senddataop{A}\right]\right]\right]$$
+$$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslop{\mapsto}\senddataop{A}\right]\right]\right]$$
 
 In the Section~\ref{sec:4thstage} I explain how to connect solvers to each other.
 }

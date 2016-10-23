@@ -41,18 +41,6 @@ Nicholas Nethercote, Peter~J Stuckey, Ralph Becket, Sebastian Brand, Gregory~J
   Handbook of Constraint Programming}, chapter~3, pages 29--84. Elsevier, 1st
   edition, 2006.
 
-\bibitem{Chazan1969}
-Daniel Chazan and Willard Miranker.
-\newblock {Chaotic relaxation}.
-\newblock {\em Linear Algebra and its Applications}, 2(2):199--222, 1969.
-
-\bibitem{Cousot1977}
-Patrick Cousot and Radhia Cousot.
-\newblock {Automatic synthesis of optimal invariant assertions: mathematical
-  foundations}.
-\newblock In {\em ACM Symposium on Artificial Intelligence amd Programming
-  Languages}, volume~12, pages 1--12, Rochester, NY, 1977.
-
 \bibitem{Apt}
 Krzysztof~R. Apt.
 \newblock {From Chaotic Iteration to Constraint Propagation}.
@@ -64,6 +52,18 @@ Krzysztof~R. Apt.
 \newblock {Chaotic Iteration for Distributed Constraint Propagation}.
 \newblock In {\em ACM symposium on Applied computing SAC '99}, pages 19--24,
   1999.
+
+\bibitem{Chazan1969}
+Daniel Chazan and Willard Miranker.
+\newblock {Chaotic relaxation}.
+\newblock {\em Linear Algebra and its Applications}, 2(2):199--222, 1969.
+
+\bibitem{Cousot1977}
+Patrick Cousot and Radhia Cousot.
+\newblock {Automatic synthesis of optimal invariant assertions: mathematical
+  foundations}.
+\newblock In {\em ACM Symposium on Artificial Intelligence amd Programming
+  Languages}, volume~12, pages 1--12, Rochester, NY, 1977.
 
 \bibitem{Monfroy2000}
 {\'{E}}ric Monfroy.
@@ -77,11 +77,6 @@ Peter Zoeteweij.
 \newblock {Coordination-based distributed constraint solving in DICE.}
 \newblock In {\em Proceedings of the 18th ACM Symposium on Applied Computing
   (SAC 2003)}, pages 360--366, New York, 2003. ACM Press.
-
-\bibitem{Arbab1995}
-Farhad Arbab.
-\newblock {Coordination of Massively Concurrent Activities}.
-\newblock Technical report, Amsterdam, 1995.
 
 \bibitem{Granvilliers2001}
 Laurent Granvilliers and {\'{E}}ric Monfroy.
@@ -140,18 +135,10 @@ Charles Prud'homme, Jean-Guillaume Fages, and Xavier Lorca.
 \newblock Technical report, TASC, INRIA Rennes, LINA CNRS UMR 6241, COSLING
   S.A.S., 2016.
 
-\bibitem{Chaslot2008}
-Guillaume Chaslot, Sander Bakkes, Istvan Szita, and Pieter Spronck.
-\newblock {Monte-Carlo Tree Search: A New Framework for Game AI}.
-\newblock {\em AIIDE}, pages 216--217, 2008.
-
-\bibitem{Browne2012}
-Cameron~B. Browne, Edward Powley, Daniel Whitehouse, Simon~M. Lucas, Peter~I.
-  Cowling, Philipp Rohlfshagen, Stephen Tavener, Diego Perez, Spyridon
-  Samothrakis, and Simon Colton.
-\newblock {A survey of monte carlo tree search methods}.
-\newblock {\em IEEE Transactions on Computational Intelligence and AI in
-  Games}, 4(1):1--49, 2012.
+\bibitem{Dreo2006}
+Johann Dr{\'{e}}o, Patrick Siarry, Alain P{\'{e}}trowski, and Eric Taillard.
+\newblock {Introduction}.
+\newblock In {\em Metaheuristics for Hard Optimization}. Springer, 2006.
 
 \bibitem{Osman1996}
 Ibrahim~H Osman and Gilbert Laporte.
@@ -168,6 +155,13 @@ Christian Blum and Andrea Roli.
 Ilhem Boussa{\"{i}}d, Julien Lepagnot, and Patrick Siarry.
 \newblock {A survey on optimization metaheuristics}.
 \newblock {\em Information Sciences}, 237:82--117, jul 2013.
+
+\bibitem{Voss2012}
+Stefan Voss, Silvano Martello, Ibrahim~H. Osman, and Catherine Roucairol,
+  editors.
+\newblock {\em {Meta-heuristics: Advances and trends in local search paradigms
+  for optimization}}.
+\newblock Springer Science+Business Media, LLC, 2012.
 
 \bibitem{Nikolaev2010}
 Alexander~G. Nikolaev and Sheldon~H. Jacobson.
@@ -613,6 +607,11 @@ Brice Pajot and {\'{E}}ric Monfroy.
 \newblock In {\em Perspectives of System Informatics}, pages 401--414. Springer
   Berlin Heidelberg, 2003.
 
+\bibitem{Arbab1995}
+Farhad Arbab.
+\newblock {Coordination of Massively Concurrent Activities}.
+\newblock Technical report, Amsterdam, 1995.
+
 \bibitem{Birattari2005}
 Mauro Birattari, Mark Zlochin, and Marrco Dorigo.
 \newblock {Towards a Theory of Practice in Metaheuristics Design. A machine
@@ -725,17 +724,5 @@ Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
   and Edmund~K Burke.
 \newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
 \newblock {\em European Journal of Operational Research}, 2016.
-
-\bibitem{Bell2009}
-Jordan Bell and Brett Stevens.
-\newblock {A survey of known results and research areas for n-queens}.
-\newblock {\em Discrete Mathematics}, 309(1):1--31, 2009.
-
-\bibitem{Sosic1994}
-Rok Sosic and Jun Gu.
-\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
-  the N-Queens Problem}.
-\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
-  6:661--668, 1994.
 
 \end{thebibliography}
