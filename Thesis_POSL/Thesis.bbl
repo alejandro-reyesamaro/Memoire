@@ -214,13 +214,6 @@ Noureddine Bouhmala, Karina Hjelmervik, and Kjell~Ivar Overgaard.
 \newblock In {\em The 3rd International Conference on Variable Neighborhood
   Search (VNS'14)}, volume~47, pages 45--52. Elsevier, 2015.
 
-\bibitem{Burke2010}
-Edmund~K. Burke, Jingpeng Li, and Rong Qu.
-\newblock {A hybrid model of integer programming and variable neighbourhood
-  search for highly-constrained nurse rostering problems}.
-\newblock {\em European Journal of Operational Research}, 203(2):484--493,
-  2010.
-
 \bibitem{Feo95}
 Thomas~A. Feo and Mauricio~G.C. Resende.
 \newblock {Greedy Randomized Adaptive Search Procedures}.
@@ -311,6 +304,18 @@ Marco Dorigo and Thomas St{\"{u}}tzle.
 \newblock {Ant colony optimization: overview and recent advances}.
 \newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~8, pages
   227--263. Springer, 2nd edition, 2010.
+
+\bibitem{Poli2007}
+Riccardo Poli, James Kennedy, and Tim Blackwell.
+\newblock {Particle swarm optimization}.
+\newblock {\em Swarm intelligence}, 1(1):33--57, 2007.
+
+\bibitem{Gao2012}
+Weifeng Gao, Sanyang Liu, and Lingling Huang.
+\newblock {A global best artificial bee colony algorithm for global
+  optimization}.
+\newblock {\em Journal of Computational and Applied Mathematics},
+  236(11):2741--2753, 2012.
 
 \bibitem{Chakhlevitch2008}
 Konstantin Chakhlevitch and Peter Cowling.
@@ -706,23 +711,5 @@ Jeff Clune, Sherri Goings, Erik~D. Goodman, and William Punch.
 \newblock {Investigations in Meta-GAs: Panaceas or Pipe Dreams?}
 \newblock In {\em GECOO'05: Proceedings of the 2005 Workshop on Genetic an
   Evolutionary Computation}, pages 235--241, 2005.
-
-\bibitem{Fukunaga2008}
-Alex~S Fukunaga.
-\newblock {Automated discovery of local search heuristics for satisfiability
-  testing.}
-\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
-
-\bibitem{Landtsheer2015}
-Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
-\newblock {Combining Neighborhoods into Local Search Strategies}.
-\newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
-  Springer.
-
-\bibitem{Martin2016}
-Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
-  and Edmund~K Burke.
-\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
-\newblock {\em European Journal of Operational Research}, 2016.
 
 \end{thebibliography}

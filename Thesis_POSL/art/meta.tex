@@ -1,0 +1,94 @@
+{\it Meta-heuristic} methods are algorithms generally applied to solve problems without deprived of satisfactory problem-specific algorithms to solve them. They are general purpose techniques widely used to solve complex optimization problems in industry and services, in areas ranging from finance to production management and engineering, with relatively few modifications: \begin{inparaenum}[i)] \item they are nature-inspired (based on some principles from physics or biology), \item they involve random variables as an stochastic component, therefore approximate and usually non-deterministic, \item and they have several parameters that need to be fitted \cite{Dreo2006}.\end{inparaenum} 
+
+A Meta-heuristic Method is formally defined as an iterative process which guides a subordinate heuristic by combining different concepts for \textit{exploration} (also called \textit{diversification}) i.e. guiding the search process through a much larger portion of the search space, and \textit{exploitation} (also called \textit{intensification}) i.e. guiding the search process into a limited, but promising, region of the search space \cite{Osman1996}.
+
+In contrast with tree-search based methods, which are subject to combinatorial explosion (required time to find solutions of NP-hard problems increases exponentially w.r.t. the problem size), they do dot perform an ordered and complete search. For that reason they are not able to provide a proof that the optimal solution will be found in a finite (although often prohibitively large) amount of time. Meta-heuristics are therefore developed specifically to find a "\textit{acceptably good}" solution "\textit{acceptably}" fast. In the case of \csps, finding a feasible solution is enough, for that reason, these methods have been proven to be effective solving these kind of problems.
+
+Sometimes meta-heuristics use domain-specific knowledge in the form of heuristics controlled by an upper level strategy. Nowadays more advanced meta-heuristics use search experience to guide the search \cite{Blum2003}.
+
+Meta-heuristics are divided into two groups: % \cite{Boussaid2013}: 
+\begin{enumerate}%\begin{inparaenum}[i)]
+    \item {\it Single Solution Based:} more exploitation oriented, intensifying the search in some specific areas. This work focuses its attention on this first group.
+    \item {\it Population Based:} more exploration oriented, identifying areas of the search space where there are (or where there could be) the best solutions. % \cite{Maturana2012, Reeves2010, Dorigo2010}.
+\end{enumerate} %\end{inparaenum}
+
+\subsection{Single Solution Based Meta-heuristic}
+
+% you will focus on the first group => this is your thessi topic
+Methods of the first group are also called {\it trajectory methods}. They usually start from a candidate configuration $s$ (usually random) inside the search space, and then iteratively make local moves consisting of applying some local modifications to $s$ to create a set of configuration called \textit{neighborhood} $\mathcal{V}\left(s\right)$, and selecting a new configuration $s'\in \mathcal{V}\left(s\right)$, following some criteria, to be the new candidate solution for the next iteration. This process is repeated until a solution for the problem is found. These methods can be seen as an extension of \textit{local search methods} \cite{Boussaid2013}. Local search methods are the most widely used approaches to solve \COPs{} because they often produces high--quality solutions in reasonable time \cite{Voss2012}.
+ 
+{\it Simulated Annealing} (SA) \cite{Nikolaev2010} is one of the first algorithms with an explicit strategy to escape from local minima. It is a method inspired by the annealing technique used by metallurgists to obtain a "well ordered" solid state of minimal energy. Its main feature is to allow moves resulting in solutions of worse quality than the current solution under certain probability, in order to scape from local minima, which is decreased during the search process \cite{Blum2003}. As an example of an implementation of this algorithm obtaining good results, it can be cited a work presented by \etal{Anagnostopoulos} in \cite{Anagnostopoulos2006} which is an adaptation of a SA algorithm (TTSA) for the Traveling Tournament Problem (TPP) that explores both feasible and infeasible schedules that includes advanced techniques such as strategic oscillation to balance the time spent in the feasible and infeasible regions by varying the penalty for violations; and reheats (increasing the temperature again) to balance the exploration of the feasible and infeasible regions and to escape local minima.
+
+{\it Tabu Search} (TS) \cite{Gendreau2010}, is a very classic meta-heuristic for \COPs. It explicitly maintains a history of the search, as a short term memory keeping track of the most recently visited solutions, to scape from local minima, to avoid cycles, and to deeply explore the search space. A TB meta-heuristic guides the search on the approach presented in \cite{IvanDotu2007} by Iván Dotú and Pascal Van Hentenryck to solve instances of the \textit{Social Golfers} problem, showing that local search is a very effective way to solve this problem. The used approach does not take symmetries into account, leading to an algorithm which is significant simpler than constraint programming solutions. 
+
+{\it Guided Local Search} (GLS) \cite{Christos2010} consists of dynamically changing the objective function to change the search landscape, helping the search escape from local minima. The set of solutions and the neighborhood are fixed, while the objective function is dynamically changed with the aim of making the current local optimum less attractive \cite{Blum2003}. \etal{Mills} propose in \cite{Mills2000} an implementation of a GLS, which is used to solve the satisfiability (SAT) problem, a special case of a \csp{} where variables take booleans values and constraints are disjunctions of literals (i.e. variables or theirs negations).
+
+The \textit{Variable Neighborhood Search} (VNS) is another meta-heuristic that systematically changes the neighborhood size during the search process. This neighborhood can be arbitrarily chosen, but often a sequence $\left|\mathcal{N}_1\right|<\left|\mathcal{N}_2\right|< \dots<\left|\mathcal{N}_{k_{max}}\right|$ of neighborhoods with increasing cardinality is defined. The choice of neighborhoods of increasing cardinality yields a progressive diversification of the search \cite{PierreNenad,Blum2003}. \etal{Bouhmala} introduce in \cite{Bouhmala2015} a \textit{generalized Variable Neighborhood Search} for \COPs, where the order in which the neighborhood structures are selected during the search process offers a more effective mechanism for diversification and intensification. %and in \cite{Burke2010} is presented a model combining integer programming and VNS for \textit{Constrained Nurse Rostering} problems.
+
+{\it Greedy Randomized Adaptive Search Procedures} (GRASP) is an iterative randomized sampling technique in which each iteration provides a solution to the target problem at hand through two phases (constructive and search). The first one constructs an initial solution via an adaptive randomized greedy function. This function construct a solution performing partial evaluations using values of a restricted candidate list (RCL) formed by the best values, incorporating to the current partial solution values resulting in the smallest incremental costs (the greedy aspect of the algorithm). The value to be incorporated into the partial solution is randomly selected from those in the RCL (the random aspect of the algorithm). Then the candidate list is updated and the incremental costs are reevaluated (the adaptive aspect of the algorithm). The second phase applies a local search procedure to the constructed solution in to find an improvement \cite{Feo95}. GRASP does not make any smart use of the history of the search process. It only stores the problem instance and the best found solution. That is why GRASP is often outperformed by other meta-heuristics \cite{Blum2003}. However, \etal{Resende} introduce in \cite{Resende2009} some extensions like alternative solution construction mechanisms and techniques to speed up the search are presented.
+
+Galinier et al. present in \cite{Galinier04} a general approach for solving constraint based problems by local search. In this work, authors present the concept of {\it penalty functions} that we pick up in order to write a \csp{} as an \textit{Unrestricted Optimization Problem} (UOP). This formulation was useful in this thesis for modeling the tackled benchmarks. In this formulation, the \textit{objective function} of this new problem must be such that its set of optimal solutions is equal to the solution set of the original (associated) \csp.
+
+\begin{definition}{\bf (Local penalty function)}
+\label{def:local_cost}
+Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$ be. We define the operator {\bf local penalty function} as follow: 
+\begin{equation*}
+\begin{array}{l}
+	\omega_i:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+\text{ where: }\\
+	\omega_i\left(s,c_i\right)=\left\{
+	\begin{array}{lll}
+	0 & \text{ if } & c_i(s)\text{ is true }\\
+	k \in \mathbb{R}^+ \setminus {0} & \text{ otherwise } &
+	\end{array}
+	\right.
+\end{array}
+\end{equation*}
+\end{definition}
+
+This penalty function defines the cost of a configuration with respect to a given constraint, so if $\omega_i\left(s,c_i\right)=k$ we say that the configuration $s$ has a local cost $k$ with respect to the constraint $c_i$. In consequence, we define the \textit{global penalty function}, to define the cost of a configuration with respect to all constraint on a \csp:
+
+\begin{definition}{\bf (Global penalty function)}
+\label{def:global_cost}
+Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$. We define the operator {\bf global penalty function} as follows: 
+\begin{equation*}
+\begin{array}{l}
+\Omega:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+ \text{ where: }\\
+\Omega\left(s,C\right)=\displaystyle\sum_{i=1}^{m}{\omega_i\left(s,c_i\right)}
+\end{array}
+\end{equation*}
+\end{definition}
+
+This global penalty function defines the cost of a configuration with respect to a given set of constraints, so if $\Omega\left(s,C\right)=k$ we say that the configuration $s$ has a cost $k$ with respect to $C$. We can now formulate a \CSP{} as an {\it unrestricted optimization problem}:
+
+\begin{definition}{\bf (CSP's Associated Unrestricted Optimization Problem)}
+\label{def:ass_CSP}
+Given a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ we define its {\bf associated Unrestricted Optimization Problem} $\mathcal{P}_{opt}\langle X,D,C,f \rangle$ as follows: 
+\begin{equation*}
+\begin{array}{l}
+\displaystyle\min_{X} f\left(X,C\right)\\
+\text{Where:  } f\left(X,C\right) \equiv \Omega\left(X,C\right) \text{ is the objective function to be minimized over the variable } X
+\end{array}
+\end{equation*}
+\end{definition}
+
+It is important to note that a given $s$ is optimum if and only if $f\left(s,C\right) = 0$, which means that $s$ satisfies all the constrains in the original \csp{} $\mathcal{P}$.
+
+Many other implementations of local search algorithms have been presented with good results. {\it Adaptive Search} is an algorithm based local search method, taking advantage of the structure of the problem in terms of constraints and variables. It uses also the concept of \textit{penalty function}, based on this information, seeking to reduce the \textit{error} (a projected cost of a variable, as a measure of how responsible is the variable in the cost of a configuration) on the worse variable so far. It computes the penalty function of each constraint, then combines for each variable the \textit{errors} of all constraints in which it appears. This allows to chose the variable with the maximal \textit{error} will be chosen as a "culprit" and thus its value will be modified for the next iteration with the best value, that is, the value for which the total error in the next configuration is minimal \cite{Diaz, Codognet2001, Caniou14}. In \cite{Munera2015} \etal{Munera} based their solution method in Adaptive Search to solve the \textit{Stable Marriage with Incomplete List and Ties} problem \cite{Iwama1999}, a natural variant of the \textit{Stable Marriage Problem} \cite{Gale1962}, using a cooperative parallel approach. Michel and Van Hentenryck propose in \cite{Michel2002} a constraint-based, object-oriented architecture to significantly reduce the development time of local search algorithms. This architecture consists of two main components: a declarative component which models the application in terms of constraints and functions, and a search component which specifies the meta-heuristic, illustrated using {\sc Comet}, an optimization platform that provides a Java-like programming language to work with constraint and objective functions \cite{Comet, Michel2005}, supporting the local search architecture. It also provides abstraction features to make a clean separation between the model an the search (promoting the reusing of the later) and novel control structures to implement nondeterminism.
+
+\subsection{Population Based Meta-heuristic}
+
+In the second group of meta-heuristic algorithms, we can find the methods based on populations. These methods do not work with a single configuration, but with a set of configurations named {\it population}. They were not part of the main investigation of this thesis, so I will nos get into details, but I thinks it is fair to mention some of the most important methods.
+
+The most popular algorithms in this group are population-based methods. They are related to \begin{inparaenum}[i)] \item \textit{Evolutionary Computation} (EC), inspired by the "Darwin's principle", where only the best adapted individuals will survive, where a population of individuals is modified through recombination and mutation operators, and \item \textit{Swarm Intelligence} (SI), where the idea is to produce computational intelligence by exploiting behaviors of social interaction \cite{Boussaid2013}.\end{inparaenum} 
+
+Algorithms based on evolutionary computation have a general structure. Every iteration of the algorithm corresponds to a \textit{generation}, where a population of candidate solutions (called individuals) to a given problem, is capable of reproducing and is subject to genetic variations and environmental pressure that causes natural selection. New solutions are created by applying recombination, by combining two or more selected individuals (parents) to produce one or more new individuals (the offspring). Mutation can be applied allowing the appearance of new traits in the offspring to promote diversity. The fitness (how good the solutions are) of the resulting solutions is evaluated and a suitable selection strategy is then applied to determine which solutions will be maintained into the next generation. As a termination condition, a predefined number of generations (or function evaluations) of simulated evolutionary process is usually used. The evolutionary algorithm's operators are another branch of study, because they have to be selected properly according to the specific problem, due to they will play an important roll in the algorithm behavior \cite{Maturana2012}.
+
+Probably the most popular evolutionary algorithms are {\it Genetic Algorithms} (GA) \cite{Reeves2010}, where operators are based on the simulation of the genetic variation  process to achieve individuals (solutions in this case) more adapted. GAs are usually differently implemented according to the problem: representation of solution (chromosomes), selection strategy, type of crossover (the recombination operator) and mutation operators, etc. The most common representation of the chromosomes is a fixed-length binary string, because simple bit manipulation operations allow the easy implementation of crossover and mutation operations.
+
+Swarm intelligence based methods are inspired by the collective behavior in society of groups different form of live. SI systems are typically made up of a population of simple element, capable of performing certain operations, interacting locally with one another and with their environment. These elements have very limited individual capability, but in cooperation with others can perform many complex tasks necessary for their survival. Ant colony optimization, Particle Swarm Optimization and Bee Colony Optimization are examples to this approach.
+
+{\it Ant Colony optimization} algorithms are inspired by the behavior of real ants. Ants searching for food, initially explore the area surrounding the nest by performing a randomized walk. Along the path between food source and nest, ants deposit a pheromone trail on the ground in order to mark some promising path that should guide other ants to the food source. After some time, the shortest path between the nest and the food source has a higher concentration of pheromone, so it attracts more ants \cite{Dorigo2010}.
+
+\textit{Particle Swarm optimization} uses the metaphor of the flocking behavior of birds to solve optimization problems. Each element of the swarm is a candidate solution to the problem, stochastically generated in the search space, and they are connected to some others elements called \textit{neighbors}. It is represented by a velocity, a location in the search space and has a memory which helps it to remember its previous best position. This values describe the \textit{influence} of each element over its neighbors \cite{Poli2007}.
+
+\textit{Bee Colony optimization} consists of three groups of bees: employed bees, onlookers and scout bees. A food source is a possible solution to the problem. Employed bees are currently exploiting a food source. They exploit the food source, carry the information about food source back to the hive and share it with onlooker bees. Onlookers bees wait in the hive for the information to be shared with the employed bees to update their knowledge about discovered food sources. Scouts bees are always searching for new food sources near the hive. Employed bees share information about the nectar amount of a food source by dancing in the designated dance area inside the hive. This information represents the quality of the solution. The nature of dance is proportional to the nectar content of food source. Onlooker bees watch the dance and choose a food source according to the probability proportional to the quality of that food source. In that sense, good food sources attract more onlooker bees. Whenever a food source is fully exploited, all employed bees associated with it abandon the food source, and become scouts \cite{Gao2012}.
