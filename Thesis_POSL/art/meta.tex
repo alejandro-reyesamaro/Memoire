@@ -27,52 +27,6 @@ The \textit{Variable Neighborhood Search} (VNS) is another meta-heuristic that s
 
 {\it Greedy Randomized Adaptive Search Procedures} (GRASP) is an iterative randomized sampling technique in which each iteration provides a solution to the target problem at hand through two phases (constructive and search). The first one constructs an initial solution via an adaptive randomized greedy function. This function construct a solution performing partial evaluations using values of a restricted candidate list (RCL) formed by the best values, incorporating to the current partial solution values resulting in the smallest incremental costs (the greedy aspect of the algorithm). The value to be incorporated into the partial solution is randomly selected from those in the RCL (the random aspect of the algorithm). Then the candidate list is updated and the incremental costs are reevaluated (the adaptive aspect of the algorithm). The second phase applies a local search procedure to the constructed solution in to find an improvement \cite{Feo95}. GRASP does not make any smart use of the history of the search process. It only stores the problem instance and the best found solution. That is why GRASP is often outperformed by other meta-heuristics \cite{Blum2003}. However, \etal{Resende} introduce in \cite{Resende2009} some extensions like alternative solution construction mechanisms and techniques to speed up the search are presented.
 
-Galinier et al. present in \cite{Galinier04} a general approach for solving constraint based problems by local search. In this work, authors present the concept of {\it penalty functions} that we pick up in order to write a \csp{} as an \textit{Unrestricted Optimization Problem} (UOP). This formulation was useful in this thesis for modeling the tackled benchmarks. In this formulation, the \textit{objective function} of this new problem must be such that its set of optimal solutions is equal to the solution set of the original (associated) \csp.
-
-\begin{definition}{\bf (Local penalty function)}
-\label{def:local_cost}
-Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$ be. We define the operator {\bf local penalty function} as follow: 
-\begin{equation*}
-\begin{array}{l}
-	\omega_i:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+\text{ where: }\\
-	\omega_i\left(s,c_i\right)=\left\{
-	\begin{array}{lll}
-	0 & \text{ if } & c_i(s)\text{ is true }\\
-	k \in \mathbb{R}^+ \setminus {0} & \text{ otherwise } &
-	\end{array}
-	\right.
-\end{array}
-\end{equation*}
-\end{definition}
-
-This penalty function defines the cost of a configuration with respect to a given constraint, so if $\omega_i\left(s,c_i\right)=k$ we say that the configuration $s$ has a local cost $k$ with respect to the constraint $c_i$. In consequence, we define the \textit{global penalty function}, to define the cost of a configuration with respect to all constraint on a \csp:
-
-\begin{definition}{\bf (Global penalty function)}
-\label{def:global_cost}
-Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$. We define the operator {\bf global penalty function} as follows: 
-\begin{equation*}
-\begin{array}{l}
-\Omega:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+ \text{ where: }\\
-\Omega\left(s,C\right)=\displaystyle\sum_{i=1}^{m}{\omega_i\left(s,c_i\right)}
-\end{array}
-\end{equation*}
-\end{definition}
-
-This global penalty function defines the cost of a configuration with respect to a given set of constraints, so if $\Omega\left(s,C\right)=k$ we say that the configuration $s$ has a cost $k$ with respect to $C$. We can now formulate a \CSP{} as an {\it unrestricted optimization problem}:
-
-\begin{definition}{\bf (CSP's Associated Unrestricted Optimization Problem)}
-\label{def:ass_CSP}
-Given a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ we define its {\bf associated Unrestricted Optimization Problem} $\mathcal{P}_{opt}\langle X,D,C,f \rangle$ as follows: 
-\begin{equation*}
-\begin{array}{l}
-\displaystyle\min_{X} f\left(X,C\right)\\
-\text{Where:  } f\left(X,C\right) \equiv \Omega\left(X,C\right) \text{ is the objective function to be minimized over the variable } X
-\end{array}
-\end{equation*}
-\end{definition}
-
-It is important to note that a given $s$ is optimum if and only if $f\left(s,C\right) = 0$, which means that $s$ satisfies all the constrains in the original \csp{} $\mathcal{P}$.
-
 Many other implementations of local search algorithms have been presented with good results. {\it Adaptive Search} is an algorithm based local search method, taking advantage of the structure of the problem in terms of constraints and variables. It uses also the concept of \textit{penalty function}, based on this information, seeking to reduce the \textit{error} (a projected cost of a variable, as a measure of how responsible is the variable in the cost of a configuration) on the worse variable so far. It computes the penalty function of each constraint, then combines for each variable the \textit{errors} of all constraints in which it appears. This allows to chose the variable with the maximal \textit{error} will be chosen as a "culprit" and thus its value will be modified for the next iteration with the best value, that is, the value for which the total error in the next configuration is minimal \cite{Diaz, Codognet2001, Caniou14}. In \cite{Munera2015} \etal{Munera} based their solution method in Adaptive Search to solve the \textit{Stable Marriage with Incomplete List and Ties} problem \cite{Iwama1999}, a natural variant of the \textit{Stable Marriage Problem} \cite{Gale1962}, using a cooperative parallel approach. Michel and Van Hentenryck propose in \cite{Michel2002} a constraint-based, object-oriented architecture to significantly reduce the development time of local search algorithms. This architecture consists of two main components: a declarative component which models the application in terms of constraints and functions, and a search component which specifies the meta-heuristic, illustrated using {\sc Comet}, an optimization platform that provides a Java-like programming language to work with constraint and objective functions \cite{Comet, Michel2005}, supporting the local search architecture. It also provides abstraction features to make a clean separation between the model an the search (promoting the reusing of the later) and novel control structures to implement nondeterminism.
 
 \subsection{Population Based Meta-heuristic}

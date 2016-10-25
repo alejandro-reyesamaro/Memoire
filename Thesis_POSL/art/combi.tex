@@ -1,0 +1,76 @@
+\textit{Combinatorial Optimization} problems come from industrial and real world. We can find them in {\it Resource Allocations} \cite{Akplogan2011}, \textit{Task Scheduling} \cite{Sibbesen2008}, \textit{Master-keying} \cite{Espelage2000}, \textit{Traveling Salesman} and \textit{Knapsack} problems, among others, which are well-known examples of \cops{} \cite{Smith2005}. They are a particular case of \textit{optimization} problems, and their main goal is to find an optimum value (minimal or maximal, depending on the problem) for a discrete function $f$, called \textit{objective function}, involving a set variables $X = \left\{x_1, \dots, x_n\right\}$ defined over a set $D = \left\{D_1, \dots, D_n\right\}$ of discrete domains. These problems generally contain restrictions on the variables called \textit{constraints}, defining the set of forbidden combinations of values for variables in $X$, tacking into account the problem characteristics.
+
+A \textit{configuration} $s\in D_1\times D_2\times\dots\times D_n$ is a combination of values for the variables in $X$. The fact of assigning values $v_i \in D_i$ to all variables in $x_i \in X$ is called \textit{evaluation}. When this evaluation is only performed to a given set of variables in $X$, we called \textit{partial evaluation}. In combinatorial optimization, a \textit{feasible} configuration is a configuration fulfilling all constraints. Finally, a \textit{solution} $s^*$ to the problem is a configuration such that $f(s^*)$ is optimal.
+
+In many practical cases, the main goal is not to find the optimal solution, but finding one feasible configuration. This is the case of \CSPs. Formally, we present the definition of a \csp{}. 
+
+\begin{definition}{\bf (Constraint Satisfaction Problem)}
+\label{def:csp}
+A \CSP{} (\csp, denoted by $\mathcal{P}$) is a triple $\langle X,D,C \rangle$, where:
+\begin{itemize}
+\item $X = \left\{x_1,\ldots,x_n\right\}$ is finite a set of variables,
+\item $D = \left\{D_1,\ldots, D_n\right\}$ is the set of associated domains. Each domain $D_i$ specifies the set of possible values to the variable $x_i$. %is the set of associated domains to each variable in $X$,
+\item $C = \left\{c_1,\ldots, c_m\right\}$ is a set of constraints. Each constraint is defined involving some variables from $X$, and specifies the possible combinations of values for these variables.
+\end{itemize}
+\end{definition}
+
+In \csps, a solution is a configuration satisfying all constraints $c_i \in C$. %We say that a configuration $s$ satisfies the constraint $c_i \in C$ if and only if $c_i$
+
+\begin{definition}{\bf (Solution of a \csp)}
+\label{solCSP}
+Given a \csp{} $\mathcal{P}=\langle X,D,C \rangle$ and a configuration $s \in D_1\times D_2\times\dots\times D_n$ we say that it is a solution if and only if:	
+\begin{equation*}
+c_i\left(s\right)\text{ is true }\forall c_i \in C
+\end{equation*}
+\end{definition}
+
+Let $Var(c_i)$ be the set of involved variables $\left\{x_1, \dots, x_p\right\}$ in the constraint $c_i$, with $p\leq n$. Then, $c_i\left(s\right)$ denotes the evaluation using the values from the configuration $s$ to the variables $Var(c_i)$. The set of all solutions of $\mathcal{P}$ is denoted by $\mathnormal{Sol}(\mathcal{P})$.
+
+A \csp{} can be considered as a special case of \cops, where the objective function is to reduce to the minimum the number of violated constraints in the model. A solution is then obtained when the number of violated constraints reach the value zero. 
+
+\etal{Galinier} present in \cite{Galinier04} a general approach for solving \csps{}. In this work, authors present the concept of {\it penalty functions} that I pick up in order to write a \csp{} as an \textit{Unrestricted Optimization Problem} (UOP). This formulation was useful in this thesis for modeling the tackled benchmarks. In this formulation, the objective function of this new problem must be such that its set of optimal solutions is equal to the solution set of the original (associated) \csp.
+
+\begin{definition}{\bf (Local penalty function)}
+\label{def:local_cost}
+Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$ be. We define the operator {\bf local penalty function} as follow: 
+\begin{equation*}
+\begin{array}{l}
+	\omega_i:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+\text{ where: }\\
+	\omega_i\left(s,c_i\right)=\left\{
+	\begin{array}{lll}
+	0 & \text{ if } & c_i(s)\text{ is true }\\
+	k \in \mathbb{R}^+ \setminus {0} & \text{ otherwise } &
+	\end{array}
+	\right.
+\end{array}
+\end{equation*}
+where $D\left(X\right) = D_1\times D_2 \times\dots\times D_n$
+\end{definition}
+
+This penalty function defines the cost of a configuration with respect to a given constraint, so if $\omega_i\left(s,c_i\right)=k$ we say that the configuration $s$ has a local cost $k$ with respect to the constraint $c_i$. In consequence, we define the \textit{global penalty function}, to define the cost of a configuration with respect to all constraint on a \csp:
+
+\begin{definition}{\bf (Global penalty function)}
+\label{def:global_cost}
+Let a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ and a configuration $s$. We define the operator {\bf global penalty function} as follows: 
+\begin{equation*}
+\begin{array}{l}
+\Omega:D\left(X\right)\times 2^{D\left(X\right)}\rightarrow\mathbb{R}^+ \text{ where: }\\
+\Omega\left(s,C\right)=\displaystyle\sum_{i=1}^{m}{\omega_i\left(s,c_i\right)}
+\end{array}
+\end{equation*}
+\end{definition}
+
+This global penalty function defines the cost of a configuration with respect to a given set of constraints, so if $\Omega\left(s,C\right)=k$ we say that the configuration $s$ has a cost $k$ with respect to $C$. We can now formulate a \CSP{} as an {\it unrestricted optimization problem}:
+
+\begin{definition}{\bf (CSP's Associated Unrestricted Optimization Problem)}
+\label{def:ass_CSP}
+Given a {\bf \csp} $\mathcal{P}\langle X,D,C \rangle$ we define its associated Unrestricted Optimization Problem $\mathcal{P}_{opt}\langle X,D,C,f \rangle$ as follows: 
+\begin{equation*}
+\begin{array}{l}
+\displaystyle\min_{X} f\left(X,C\right)\\
+\text{Where:  } f\left(X,C\right) \equiv \Omega\left(X,C\right) \text{ is the objective function to be minimized over the variable } X
+\end{array}
+\end{equation*}
+\end{definition}
+
+It is important to note that a given $s$ is optimum if and only if $f\left(s,C\right) = 0$, which means that $s$ satisfies all the constrains in the original \csp{} $\mathcal{P}$. This work focuses in solving the \CSP{} using this formulation.

@@ -27,6 +27,12 @@ Barbara~M Smith.
 \newblock {\em Lecture Notes for the First International Summer School on
   Constraint Programming}, 2005.
 
+\bibitem{Galinier04}
+Philippe Galinier and Jin-Kao Hao.
+\newblock {A General Approach for Constraint Solving by Local Search}.
+\newblock {\em Journal of Mathematical Modelling and Algorithms}, 3(1):73--88,
+  2004.
+
 \bibitem{Nethercote}
 Nicholas Nethercote, Peter~J Stuckey, Ralph Becket, Sebastian Brand, Gregory~J
   Duck, and Guido Tack.
@@ -225,12 +231,6 @@ Mauricio~G.C Resende.
 \newblock In {\em Encyclopedia of optimization}, pages 1460--1469. Springer,
   2009.
 
-\bibitem{Galinier04}
-Philippe Galinier and Jin-Kao Hao.
-\newblock {A General Approach for Constraint Solving by Local Search}.
-\newblock {\em Journal of Mathematical Modelling and Algorithms}, 3(1):73--88,
-  2004.
-
 \bibitem{Diaz}
 Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
   Abreu.
@@ -333,12 +333,6 @@ Kevin Leyton-Brown, Eugene Nudelman, and Galen Andrew.
 \newblock {A portfolio approach to algorithm selection}.
 \newblock In {\em IJCAI}, pages 1542--1543, 2003.
 
-\bibitem{Samulowitz2013}
-Horst Samulowitz, Chandra Reddy, Ashish Sabharwal, and Meinolf Sellmann.
-\newblock {Snappy: A simple algorithm portfolio}.
-\newblock In {\em Theory and Applications of Satisfiability Testing - SAT
-  2013}, volume 7962 LNCS, pages 422--428. Springer, 2013.
-
 \bibitem{Brownlee2014}
 Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
 \newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
@@ -358,6 +352,18 @@ Laura Dioşan and Mihai Oltean.
 \newblock {Evolutionary design of Evolutionary Algorithms}.
 \newblock {\em Genetic Programming and Evolvable Machines}, 10(3):263--306,
   2009.
+
+\bibitem{Samulowitz2013}
+Horst Samulowitz, Chandra Reddy, Ashish Sabharwal, and Meinolf Sellmann.
+\newblock {Snappy: A simple algorithm portfolio}.
+\newblock In {\em Theory and Applications of Satisfiability Testing - SAT
+  2013}, volume 7962 LNCS, pages 422--428. Springer, 2013.
+
+\bibitem{Fontaine2014}
+Daniel Fontaine, Laurent Michel, and Pascal~Van Hentenryck.
+\newblock {Constraint-Based Lagrangian Relaxation}.
+\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
+  Constraint Programming}, pages 324--339. Springer, 2014.
 
 \bibitem{Hooker2012}
 John~N. Hooker.
