@@ -7,48 +7,50 @@ Warning--can't use both volume and number fields in Cousot1977
 Warning--empty publisher in Gecode
 Warning--there's a number but no volume in Feo95
 Warning--empty publisher in Comet
+Warning--there's a number but no series in Pesant1996
+Warning--empty publisher in Hooker2006
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
 Warning--empty institution in Arbab1995
-You've used 119 entries,
+You've used 123 entries,
             1791 wiz_defined-function locations,
-            1200 strings with 23251 characters,
-and the built_in function-call counts, 35431 in all, are:
-= -- 3499
-> -- 1260
-< -- 86
-+ -- 461
-- -- 342
-* -- 2266
-:= -- 5064
-add.period$ -- 403
-call.type$ -- 119
-change.case$ -- 130
+            1225 strings with 23805 characters,
+and the built_in function-call counts, 36452 in all, are:
+= -- 3603
+> -- 1284
+< -- 89
++ -- 471
+- -- 348
+* -- 2332
+:= -- 5208
+add.period$ -- 417
+call.type$ -- 123
+change.case$ -- 134
 chr.to.int$ -- 0
-cite$ -- 126
-duplicate$ -- 1781
-empty$ -- 3447
-format.name$ -- 342
-if$ -- 8355
+cite$ -- 132
+duplicate$ -- 1834
+empty$ -- 3557
+format.name$ -- 348
+if$ -- 8595
 int.to.chr$ -- 0
-int.to.str$ -- 119
-missing$ -- 116
-newline$ -- 598
-num.names$ -- 138
-pop$ -- 432
+int.to.str$ -- 123
+missing$ -- 120
+newline$ -- 618
+num.names$ -- 142
+pop$ -- 444
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1015
+skip$ -- 1040
 stack$ -- 0
-substring$ -- 2690
-swap$ -- 661
-text.length$ -- 86
+substring$ -- 2766
+swap$ -- 677
+text.length$ -- 89
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 7
-while$ -- 389
-width$ -- 122
-write$ -- 1376
-(There were 7 warnings)
+warning$ -- 9
+while$ -- 400
+width$ -- 126
+write$ -- 1422
+(There were 9 warnings)

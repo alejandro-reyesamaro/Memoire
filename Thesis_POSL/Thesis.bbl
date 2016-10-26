@@ -359,11 +359,34 @@ Horst Samulowitz, Chandra Reddy, Ashish Sabharwal, and Meinolf Sellmann.
 \newblock In {\em Theory and Applications of Satisfiability Testing - SAT
   2013}, volume 7962 LNCS, pages 422--428. Springer, 2013.
 
+\bibitem{Jussien2002}
+Narendra Jussien and Olivier Lhomme.
+\newblock {Local Search with Constant Propagation and Conflict-Based
+  Heuristics}.
+\newblock {\em Artificial Intelligence}, 139(1):21--45, 2002.
+
+\bibitem{Pesant1996}
+Gilles Pesant and Michel Gendreau.
+\newblock {A View of Local Search in Constraint Programming}.
+\newblock In {\em Second International Conference on Principles an Practice of
+  Constraint Programming}, number 1118, pages 353--366. Springer, 1996.
+
+\bibitem{Shaw1998}
+Paul Shaw.
+\newblock {Using Constraint Programming and Local Search Methods to Solve
+  Vehicle Routing Problems}.
+\newblock {\em Computer}, 1520(Springer):417--431, 1998.
+
 \bibitem{Fontaine2014}
 Daniel Fontaine, Laurent Michel, and Pascal~Van Hentenryck.
 \newblock {Constraint-Based Lagrangian Relaxation}.
 \newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
   Constraint Programming}, pages 324--339. Springer, 2014.
+
+\bibitem{Hooker2006}
+John~N. Hooker.
+\newblock {Operations Research Methods in Constraint Programming}.
+\newblock In {\em Handbook of Constraint Programming}, chapter~15. 2006.
 
 \bibitem{Hooker2012}
 John~N. Hooker.
