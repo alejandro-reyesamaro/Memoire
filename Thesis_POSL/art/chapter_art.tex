@@ -1,0 +1,51 @@
+\chapter{State of the art}
+\label{chap:art}
+\textit{This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. In Section~\ref{sec:combi} the definition of a \COP{} and its links with \CSPs{} (\csp) are introduced, where I concentrate the main efforts, and I give some examples. The basic techniques used to solve these problems are introduced: {\it \cp} (Section~\ref{sec:cp}) and {\it meta--heuristic methods} (Section~\ref{sec:meta}). I also present some advanced techniques like {\it hyper--heuristic methods} in Section~\ref{sec:hyper}, {\it hybridization} in Section~\ref{sec:hybrid}, {\it parallel computing} in Section~\ref{sec:parallel}, and {\it solvers cooperation} in Section~\ref{sec:cooperation}. Finally, before ending the chapter with a brief summary,  I present {\it parameter setting techniques} in Section~\ref{sec:tunning}.}
+\vfill
+\minitoc
+\newpage
+
+%This chapter presents an overview to the state of the art of \COPs{} and different approaches to tackle them. In Section~\ref{sec:combi} the definition of a \CSP{} (\csp), emphasizing in the concept of \CSPs, where we concentrate our main efforts. Constraint propagation techniques are deterministic methods to attack these kind of problems (presented in Section~\ref{sec:progagation}), but in some cases they are incapable to solve them (they are mostly used to reduce the problem's search space or to prove it unsatisfiable). For that reason, the model presented in this thesis is based on \textit{meta-heuristic} methods (Section~\ref{sec:meta}). The \textit{Hybridization} approach combines different techniques in the same solution strategy, so the progresses in this field are exposed in Section~\ref{sec:hybrid}.
+
+%The evolution of computer architecture is leading us toward massively multi-core computers for tomorrow, composed of thousands of computing units. A parallel model to solve \csps{} is the core of this work, and its advances, as well as those obtained in the field of \textit{cooperation between solvers}, are presented in Sections~\ref{sec:parallel} and \ref{sec:cooperation} respectively. Finally, this chapter presents in Section~\ref{sec:tunning} an overview of the progresses in the field of \textit{parameter settings}.  
+
+\section{Combinatorial Optimization}\label{sec:combi}
+\input{art/combi}
+
+%An \textit{Optimization Problem} consists in finding the best solution among all possible ones, subject or not, to a set of constraints, depending on whether it is a restricted or an unrestricted problem. The suitable values for the involved variables belong to a set called {\it domain}. When this domain contains only discrete values, we are facing a \COP, and its goal is to find the best possible solution satisfying a global criterion, named {\it objective function}. {\it Resource Allocations} \cite{Akplogan2011}, \textit{Task Scheduling} \cite{Sibbesen2008}, \textit{Master-keying} \cite{Espelage2000}, \textit{Traveling Salesman}, \textit{Knapsack Problem}, among others, are well-known examples of \cops{} \cite{Smith2005}.
+
+\section{Constraint programming}\label{sec:cp}
+\input{art/cp}
+
+\section{Meta-heuristic methods}\label{sec:meta}
+\input{art/meta}
+
+\section{Hyper-heuristic Methods}\label{sec:hyper}
+\input{art/hyper}
+
+\section{Hybridization}\label{sec:hybrid}
+\input{art/hybr}
+
+\section{Parallel computing}\label{sec:parallel}
+\input{art/par}
+
+\section{Solvers cooperation}\label{sec:cooperation}
+\input{art/cooper}
+
+\section{Parameter setting techniques}\label{sec:tunning}
+\input{art/tun}
+
+
+\section{Summary}
+
+In this chapter I have presented an overview of the different techniques to solve \CSPs{}. %Special attention was given to the \textit{local-search meta-heuristics}, as well as \textit{parallel computing}, which are directly related to this investigation.
+The classics are the so called tree-search methods, which perform an exhaustive search of the solution inside the search space. The main disadvantage of this methods is that in practice, real-world instances of the problems are very complicated to solve, due to the search space's huge size, making them in most of the cases intractable. Some techniques can be applied to reduce the search space. This is the case of constraint propagation, which are methods used to modify a \csp{} in order to reduce its variables domains, and turning the problem into another that is equivalent, but usually easier to solve. However, sometimes it is not enough, and we must resort to more powerful methods, like meta-heuristics. 
+
+%In contrast with tree-based methods (complete methods), 
+Meta-heuristic methods have shown good results solving large and complex \csps. They are algorithms applying different techniques to guide the search as direct as possible through the solution. Meta-heuristic methods are divided into two categories. In the first category we can find population-based methods (e.g. evolutionary algorithms). These methods work with a set of configurations (population). Every iteration the population is capable of reproducing and is subject to variations. New configurations are created by applying some modification's operators. The fitness of the resulting population is evaluated and a selection strategy is applied to determine configurations to the next generation. In the second category we can find single-solution-based methods (e.g. tabu search). Also called trajectory methods, they start from a candidate configuration inside the search space. To this configuration some local modifications are applied to create a set of configuration called neighborhood. Then a selection criteria is applied to choose a new configuration for the next iteration. In this thesis, special attention was given to techniques in this category.
+
+With the goal of improving even more the obtained results, some other techniques have been implemented. This is the case of hyper-heuristics, which are automated techniques for selecting or generating meta-heuristics algorithms to solve hard computational problems. They are also known as portfolio-based algorithm, and their goal is predicting the performance of algorithms using different techniques, in order to select the predicted algorithm to solved the problem. An other popular approach is the hybridization, which combines different approaches into the same solution strategy. We can find hybridization in combining algorithms in the same branch of investigation, but not only there. Interesting results have been published when combining constraint programming, meta-heuristics and operations research techniques.
+
+The era of multi/many-core computers, and the development of parallel algorithms have opened new ways to solve constrained problems. A lot of results have been presented suggesting that this approach can substantially improve the efficiency in solving these problems, with or without cooperation. For that reason the present work attempts to propose new algorithms to solve \CSPs{} in parallel in Chapter~\ref{chap:posl}, and to show the importance and the success of this approach by providing a deep study of some parallel \comstrs{} in Chapter~\ref{chap:expe}.
+
+%The main contribution of this thesis is presented in Chapter~\ref{chap:posl}, where is proposed a framework to build local-search meta-heuristics combining small functions (\oms) through an operator-based language. \textit{Hybridization} is also an important point in this investigation due to their good results in solving \csps. With the proposed framework, many different solvers can be created using solvers templates (\ass), that can be instantiated with different \oms.

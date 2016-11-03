@@ -1,0 +1,260 @@
+\posl{} permet de construire des solveurs suivant différentes étapes : 
+\begin{enumerate}
+\item  L'algorithme du solveur considéré est  exprimé via une décomposition  en modules de calcul. Ces modules sont implémentés à la   manière de {\it fonctions} séparées. Nous appelons \INTROom{} ces morceaux de calcul (figure \ref{subfig:modules}, \new{blocs bleus}). \new{En suite, il faut décider  quelles  sont les  types d'informations que l'on souhaite  recevoir des autres solveurs.  Ces informations sont encapsulées  dans des composants appelés  \INTROopch{},  permettant  de transmettre  des  données entre solveurs (figure \ref{subfig:modules}, \new{bloc rouge})} \label{stages:module}
+
+\item  Une {\it stratégie générique}  est codée  à travers  \posl{}, en utilisant les  opérateurs fournis par le langage appliqués  sur des \new{\ms{} \textit{abstraite} qui représentent les \textit{signatures} des} composants donnés lors l'étape \ref{stages:module}, pour créer \INTROass. Cette stratégie définie non seulement les informations échangées, mais détermine également l'exécution parallèle de composants. Lors  de cette  étape, les informations à partager sont  transmises via les opérateurs  ad-hoc. On peut voir cette étape comme la définition de la colonne vertébrale des solveurs (figure \ref{subfig:as}).
+
+\item  Les solveurs sont créés en instanciant \new{l'\as, par \oms{} et \opch}. %puis en les assemblant 
+
+\item \new{Les solveurs sont assemblés en utilisant les opérateurs de communication fournis par le langage, pour creér des strategies de communication. Cet entité final s'appelle \INTROsoset{} (figure \ref{subfig:comm}).}
+\end{enumerate}
+
+\begin{figure}
+	\centering
+	\subfloat[][Definition des \ms{} et les \opchs{}]{
+		\label{subfig:modules}
+		\includegraphics[width=0.3\columnwidth]{modules_1.png}
+	}\\
+	\subfloat[][Definition de l'\as]{%
+		\label{subfig:as}
+		\includegraphics[width=0.5\columnwidth]{example_1.png}
+	}\\
+	\subfloat[][Definition de la strategie de communication]{
+		\label{subfig:comm}
+		\includegraphics[width=0.6\columnwidth]{conn.png}
+	}
+	\caption[]{Construire des solveurs parallèles avec \posl{}}
+	\label{fig:posl}
+\end{figure}%fr
+
+Les sous-sections suivantes expliquent en détail chacune des étapes ci-dessus.
+
+\subsection{Computation module}
+
+Un \om{}  est la plus basique  et abstraite manière de définir un composant de calcul. Il reçoit une entrée, exécute un algorithme interne et retourne une sortie. Dans ce papier, nous utilisons ce concept afin de décrire et définir les composants de base d'un  solveur, qui seront assemblés par l'\as.  
+
+Un \om{} représente un  morceau de l'algorithme du solveur  qui est susceptible de changer au cours de  l'exécution. Il peut être dynamiquement remplacé  ou combiné avec d'autres  \oms, puisque les \oms{} sont également des informations  échangeables  entre  les solveurs. De cette manière, le solveur  peut changer/adapter son comportement à chaud, en combinant  ses \oms{} avec ceux  des autres solveurs. Ils sont  représentés par  des blocs  bleus dans  la figure~\ref{fig:posl}.
+
+\begin{definition}\label{def:module} \textbf{(Computation Module)}
+Un \om{} $\mathcal{O}m$ est une application définie par :
+\begin{equation}
+ \mathcal{C}m:\mathcal{I} \rightarrow \mathcal{O}
+\end{equation}
+\end{definition}
+
+Dans (\ref{def:module}),  la nature de $\mathcal{D}$  et $\mathcal{I}$ dépend du type de \om{}. Ils peuvent être soit une configuration, ou un  ensemble de configurations, ou un ensemble de valeurs de différents types de données, etc.
+
+Soit une méta-heuristique de recherche locale, basée sur un algorithme bien connu, comme par exemple {\it Tabu Search}. Prenons l'exemple d'un  \om{} retournant le voisinage d'une configuration donnée, pour une certaine métrique de voisinage. Cet \om{} peut être défini par la fonction suivante:
+
+\begin{equation}
+\mathcal{C}m:D_1\times D_2\times\dots\times D_n \rightarrow 2^{D_1\times D_2\times\dots\times D_n}
+\end{equation}
+
+où $D_i$  représente  la  définition  des  domaines  de  chacune  des variables de la configuration d'entrée.
+
+\subsection{Communication module}
+
+Les \opchs{} sont  les composants des solveurs en charge  de la réception des informations communiquées entre solveurs. Ils  peuvent interagir
+avec les  \oms, en fonction de l'\as. Les \opchs{} jouent le rôle de prise, permettant aux solveurs de  se  brancher et  de recevoir  des informations. Il sont représentés en rouge dans la figure~\ref{subfig:modules}.
+
+Un \opch{} peut recevoir deux types d'informations, provenant toujours d'un solveur tiers : des données et des \oms. En ce qui concerne les \oms, leur communication peut se faire via la  transmission d'identifiants permettant à chaque solveur de les instancier.
+
+Pour faire la distinction entre  les deux différents types  de \opchs, nous appelons \INTROdopch{} les \opchs{} responsables de la réception de données  et \INTROoopch{} ceux s'occupant de la réception et de l'instanciation de \oms.
+
+\defname{Data communication module}{
+Un \dopch{} $\mathcal{C}h$ est un composant produisant une application définie comme suit : 
+\begin{equation}
+\label{def:dopench}
+\mathcal{C}h: I\times\left\{D\cup\left\{NULL\right\}\right\} \rightarrow D \cup \left\{NULL\right\}
+\end{equation}
+et retournant l'information  $\mathcal{I}$ provenant d'un solveur tiers,quelque soit l'entrée $\mathcal{U}$.
+}
+
+\begin{definition}\label{def:oopench} \textbf{(Object communication module)} 
+Si nous notons $\mathbf{M}$ l'espace  de  tous  les \oms{} de la définition~\ref{def:module}, alors un \oopch{} $\mathcal{C}h$ est  un composant produisant un \om{}  venant d'un solveur tiers défini ainsi :
+\begin{equation}
+\mathcal{C}h:I\times\left\{\mathbf{M}\cup\left\{NULL\right\}\right\} \rightarrow O\cup\left\{NULL\right\}
+\end{equation}
+\end{definition}
+
+Puisque les \opchs{} reçoivent des informations provenant  d'autres solveurs sans pour autant avoir de contrôle sur celles-ci, il est  nécessaire  de  définir   l'information  {\it  NULL}, signifiant l'absence  d'information. La  figure~\ref{fig:ochperform}  montre  le mécanisme interne d'un  \opch{}. Si un \dopch{} reçoit une information,  celle-ci est  automatiquement retournée (figure~\ref{subfig:doch}, lignes bleues). Si un  \oopch{} reçoit un \om{}, ce dernier est instancié et exécuté avec l'entrée de l'\opch, et le résultat est retourné (figure \ref{subfig:ooch}, lignes bleues). Dans les deux  cas, si aucune information n'est reçue, l'\opch{}  retourne l'objet  {\it NULL}  (figure \ref{fig:ochperform}, lignes rouges).
+
+\begin{figure}
+	\centering
+	\subfloat[][Data \opch]{
+		\label{subfig:doch}
+		\includegraphics[width=0.4\linewidth]{D_OCh.png} %[width=0.2\textwidth]{muta1}
+	}
+	\hspace{0.05\textwidth}%
+	\subfloat[][Object \opch]{%
+		\label{subfig:ooch}
+		\includegraphics[width=0.4\linewidth]{O_OCh.png}%[width=0.2\textwidth]{muta2}
+	}
+	\caption[]{Mécanisme interne du \opch}
+	\label{fig:ochperform}
+\end{figure}%fr
+
+\subsection{Abstract solver}
+
+L'\as{}  est le c\oe{}ur du solveur. Il joint les \oms{} et les \opchs{} de  manière cohérente, tout en leur restant indépendant. Ceci signifie  qu'elle peut changer ou être modifiée durant l'exécution, sans altérer  l'algorithme général et en respectant la structure du solveur.  À  travers  l'\as, on peut décider également des informations à envoyer aux autres solveurs. \new{Chaque fois que nous combinons certains composants en utilisant des opérateurs \posl{}, nous créons un \INTROm.}
+
+\begin{definition}
+\label{def:cm}
+Noté par la lettre $\mathcal{M}$, un {\bf \m} est:
+\begin{enumerate}\renewcommand{\labelitemi}{\scriptsize$\blacksquare$}
+\item un \om{}; ou
+\item un \opch{}; ou
+\item $\left[\mbox{OP } \mathcal{M}\right]$, \new{la composition d'un module $\mathcal{M}$ exécuté sequentielement, en retournant une sortie, en dépendant de la nature de l'opérateur unaire \emph{OP};} ou \label{subdef:seq_uni}
+\item $\left[\mathcal{M}_1 \mbox{ OP } \mathcal{M}_2\right]$, \new{la composition de deux modules $\mathcal{M}_1$ et $\mathcal{M}_2$ exécuté séquentiellement, en retournant une sortie, en dépendant de la nature de l'opérateur binaire \emph{OP}.}\label{subdef:seq}
+\item $\left[\mathcal{M}_1 \mbox{ OP } \mathcal{M}_2\right]$, \new{la composition de deux modules $\mathcal{M}_1$ et $\mathcal{M}_2$ exécuté, en retournant une sortie, en dépendant de la nature de l'opérateur binaire \emph{OP}. Ces deux opérateurs vont être exécutes en parallèle si et seulement si \emph{OP} support le parallélisme, ou il lance une exception en cas contraire.}\label{subdef:par}
+\end{enumerate}
+Nous notons par $\mathbf{M}$ l'espace des \ms, et nous appelons \cms{} à la composition de \ms{} présentés en \ref{subdef:seq_uni} \ref{subdef:seq}, et/ou \ref{subdef:par}.
+\end{definition}
+
+Pour illustrer la définition~\ref{def:cm}, la figure~\ref{fig:cm} montre graphiquement le concept de \cm.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{cm.png} %[width=0.2\textwidth]{muta1}
+	\caption[]{Un \cm}
+	\label{fig:cm}
+\end{figure}%fr
+
+Dans le  cas particulier  où un  des \cms{}  impliqués est  un \opch{}, chaque opérateur gère l'information {\it NULL} à sa manière.
+
+Afin   de  grouper   des   modules,  nous   utiliserons  la   notation $\left|.\right|$ comme un groupe générique qui pourra être indifféremment interprété comme $[.]$ ou comme $\lbk . \rbk_p$.
+
+Ensuite, les opérateurs fournis par \posl{} sont présentés. 
+
+\underline{\bf Sequential Execution Operator}: \new{L'opération $\left|\mathcal{M}_1\poslop{\mapsto}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{seq}$ comme le résultat de l'exécution de $\mathcal{M}_1$ suivi de $\mathcal{M}_2$. C'est un exemple d'opérateur ne  supportant pas une exécution parallèle de ses \cms impliqués, puisque l'entrée du second \cm{} est la sortie du premier.}
+
+\underline{\bf Conditional Execution Operator}: \new{L'opération $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{cond}$ le résultat de l'exécution en séquentiel de $\mathcal{M}_1$ si $<cond>$ es {\bf vrai} or $\mathcal{M}_2$, autrement.}
+
+\underline{\bf Cyclic Execution Operator}: \new{L'opération $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ définit le \cm{} $\mathcal{M}_{cyc}$ en répétant séquentiellement l'exécution de $\mathcal{M}$ tant que $<cond>$ est {\bf vrai}.}
+
+\underline{\bf Random Choice Operator}: \new{L'operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{rho}$ qui exécute $\mathcal{M}_1$ en suivant une probabilité $\rho$, ou en exécutant $\mathcal{M}_2$ en suivant une probabilité $(1-\rho)$.}
+
+\underline{\bf Not {\it NULL}}: \new{L'operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{non}$ qui exécute $\mathcal{M}_1$ et retourne une sortie si elle n'est pas {\it NULL}, ou exécute $\mathcal{M}_2$ et retourne une sortie autrement.}
+
+\underline{\bf Minimum Operator}: \new{Soient $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus grand valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{min}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\min\left\{o_1,o_2\right\}$.}
+
+\underline{\bf Maximum Operator}: \new{Soient $o_1$ et $o_2$ les sorties de $\mathcal{M}_1$ et $\mathcal{M}_2$, respectivement. Nous assumons qu'il existe un ordre total dans $I_1 \cup I_2$ où l'objet \emph{NULL} est la plus petite valeur. Alors, l'opération $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{max}$ qui exécute $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne $\max\left\{o_1,o_2\right\}$.}
+
+\underline{\bf Race Operator}: \new{L'opération $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{race}$ qui exécute les deux \ms{} $\mathcal{M}_1$ et $\mathcal{M}_2$, et retourne la sortie du \m{} qui termine en premier}
+
+Les opérateurs $\circled{$\rho$}$, $\circled{$\vee$}$ et $\circled{m}$ sont très  utiles en  terme de  partage d'informations entre   solveurs, mais également en terme de partage de comportements. Si un  des opérandes est un \opch{} alors l'opérateur peut recevoir le \om{} d'un autre solveur, donnant la possibilité d'instancier ce module dans le solveur le réceptionnant. L'opérateur va soit instancier le module s'il  n'est pas {\it NULL} et l'exécuter, soit exécuter le module donné par le second opérande.
+
+Maintenant, nous présentons les opérateurs nous permettant d'envoyer de l'information vers d'autres solveurs. Deux types d'envois sont possibles :
+\begin{inparaenum}[i)]
+	\item on exécute un \m{} et on envoie sa sortie,
+	\item ou on envoie le \m{} lui-même.
+\end{inparaenum}
+
+\underline{\bf Sending Data Operator}: \new{L'opération $\left|\senddataop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendD}$ qui exécute le \m{} $\mathcal{M}$ puis envoie la sortie vers un \opch.}
+
+\underline{\bf Sending Module Operator}: \new{L'opération $\left|\sendmoduleop{\mathcal{M}}\right|$ définit le \cm{} $\mathcal{M}_{sendM}$ qui exécute le \m{} $\mathcal{M}$, puis envoie le \m{} lui même  vers un \opch.}
+
+Avec  les opérateurs  présentés jusqu'ici, nous sommes  en mesure  de concevoir les \ass{} (ou algorithme) de résolution d'un problème de contraintes. Une fois un tel \as{} définie, on peut changer les composants (\oms{} et \opchs) auxquels elle fait appel, permettant ainsi d'implémenter différents solveurs à partir du même \as{} mais composés de différents \ms, du moment que ces derniers respectent la signature attendue, à savoir le types des entrées et sorties.
+
+\new{Un \as{} est déclaré comme suit: après déclarer les noms de l'\mbox{\tet{\bf \as}} ({\it name}), la première ligne définit la liste des \oms{} abstraites ($\mathcal{L}^m$), la seconde ligne, la liste des \opchs{} abstraites ($\mathbf{M}$), puis l'algorithme du solver est définit comment le corps su solver (the root \cm{} $\mathbf{M}$), entre \mbox{\tet{\bf begin}} et \mbox{\tet{\bf end}}.}
+
+\new{Un \as{} peut être déclaré par l'expression régulière suivante:}
+
+\begin{center}
+\tet{\bf abstract solver} {\it name} \tet{\bf computation}: $\mathcal{L}^m$ (\tet{\bf communication}: $\mathcal{L}^c$)? \tet{\bf begin} $\mathbf{M}$ \tet{\bf end}
+\end{center}
+
+Par exemple, l'algorithme~\ref{algo:as_example} montre l'\as{} correspondant a la figure~\ref{subfig:as}.
+
+\begin{algorithm}[h]
+\dontprintsemicolon
+\scriptsize
+\SetInd{2pt}{3pt}
+\SetNoline
+\SetKwProg{myproc}{}{}{}
+\myproc{\tet{\bf abstract solver} as\_01\;
+\tet{\bf computation} : $I, V, S, A$ \; 
+\tet{\bf connection}: $C.M.$}{
+	\Begin{
+		$I \poslop{\mapsto}$
+		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
+			$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$%
+		}
+	}
+}
+\caption{Pseudo-code \posl{} pour l'\as{} de la figure~\ref{subfig:as}}\label{algo:as_example}
+\end{algorithm}
+
+\subsection{Créer les solveurs}
+
+\new{Maintenant on peut créer les solveurs en instanciant les \ms. Il est possible de faire ceci en spécifiant que un \mbox{\tet{\bf solver}} donné doit implémenter (en utilisant le mot clé \mbox{\tet{\bf implements}}) un \as{} donné, suivi par la liste de \omprefix{} puis \opchs{}. Ces \ms{} doivent correspondre avec les signatures exigé par l'\as.}
+
+\begin{algorithm}[h]
+\dontprintsemicolon
+\scriptsize
+\SetNoline
+\SetKwProg{myproc}{}{}{}
+\tet{\bf solver} solver\_01 \tet{\bf implements} as\_01\;
+\tet{\bf computation} : $I_{rand}, V_{1ch}, S_{best}, A_{AI}$ \; 
+\tet{\bf connection}: $CM_{last}$\;
+\caption{Une instanciation de l'\as{} présenté dans l'algorithme~\ref{algo:as_example}}\label{algo:solver_def}
+\end{algorithm}
+
+\subsection{Connecter les solveurs : créer le \soset}
+
+\new{La dernière étape est connecter les solveurs entre eux. \posl{} fournit des outils pour créer des stratégies de communication très facilement. L'ensemble des solveurs connectés qui seront exécutés en parallèle pour résoudre un CSP s'appelle \INTROsoset{}.}
+
+Les communications sont établies en respectant les règles suivantes :
+\begin{enumerate}
+\item  À chaque  fois qu'un  solveur  envoie une information via les opérateurs  $\llparenthesis .\rrparenthesis^{d}$  ou $\llparenthesis   .\rrparenthesis^{m}$, il créé une {\it prise mâle de communication} 
+\item À  chaque fois qu'un  solveur contient un \opch{}, il  créé une {\it prise femelle de communication} 
+\item Les solveurs peuvent être connectés entre eux en reliant {\it prises mâles} et {\it femelles}.
+\end{enumerate}
+
+Avec l'opérateur~$(\cdot)$, nous  pouvons avoir accès aux  \oms{} envoyant une information et aux noms des \opchs d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit un accès à le \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
+
+Maintenant, nous définissons les opérateurs de communication que \posl{} fournit.
+
+\begin{definition}\label{op_conn:1to1}
+{\bf Connection One-to-One Operator} Soient
+\begin{enumerate}
+\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
+\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ une liste de {\it prises femelles}
+\end{enumerate} Alors, l'opération
+\[
+\mathcal{J} \poslop{\rightarrow} \mathcal{O}
+\]
+\new{connecte chaque {\it prise mâles} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ avec la correspondante {\it prise femelle} $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ (voir figure~\ref{subfig:comm_simple}).}
+\end{definition}
+
+\begin{definition}\label{op_conn:1ton}
+{\bf Connection One-to-N Operator} Soient 
+\begin{enumerate} 
+\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
+\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\cdot \mathcal{CM}_{M-1}\right]$ une liste de {\it prises femelles}
+\end{enumerate} Alors, l'opération
+\[
+\mathcal{J} \poslop{\rightsquigarrow} \mathcal{O}
+\]
+\new{connecte chaque {\it prise mâles} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ avec chaque {\it prise femelle} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ et $0 \leq j \leq M-1$ (see Figure~\ref{subfig:comm_diff}).}
+\end{definition}
+
+
+\posl{} permet aussi de déclarer des solveurs non communicatifs pour les exécuter en parallèle, en déclarant seulement la liste des noms:
+\[
+\left[\mathcal{S}_0, \mathcal{S}_1, \dots, \mathcal{S}_{N-1}\right]
+\]
+
+\begin{figure}[t]
+\centering
+\subfloat[][Communication 1 à 1]{
+	\label{subfig:comm_simple}
+	\includegraphics[width=0.25\columnwidth]{comm_11.png}
+}
+\hspace{0.05\textwidth}%
+\subfloat[][Communication 1 à N]{%
+	\label{subfig:comm_diff}
+	\includegraphics[width=0.25\columnwidth]{comm_1n.png}
+}
+\caption[]{Représentation graphique des opérateurs de communication}
+\label{fig:comm}
+\end{figure}

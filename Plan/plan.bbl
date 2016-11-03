@@ -1,0 +1,54 @@
+\begin{thebibliography}{1}
+
+\bibitem{Akplogan2011}
+Mahuna Akplogan, J{\'{e}}rome Dury, Simon de~Givry, Gauthier Quesnel, Alexandre
+  Joannon, Arnauld Reynaud, Jacques~Eric Bergez, and Fr{\'{e}}d{\'{e}}rick
+  Garcia.
+\newblock {A Weighted CSP approach for solving spatio-temporal planning problem
+  in farming systems}.
+\newblock In {\em 11th Workshop on Preferences and Soft Constraints Soft
+  2011.}, Perugia, Italy, 2011.
+
+\bibitem{Birattari2005}
+Mauro Birattari, Mark Zlochin, and Marrco Dorigo.
+\newblock {Towards a Theory of Practice in Metaheuristics Design. A machine
+  learning perspective}.
+\newblock {\em RAIRO-Theoretical Informatics and Applications}, 40(2):353--369,
+  2006.
+
+\bibitem{Boussaid2013}
+Ilhem Boussa{\"{\i}}d, Julien Lepagnot, and Patrick Siarry.
+\newblock {A survey on optimization metaheuristics}.
+\newblock {\em Information Sciences}, 237:82--117, jul 2013.
+
+\bibitem{ChristianBessiere2006}
+{Christian Bessiere}.
+\newblock {Constraint Propagation}.
+\newblock In Francesca Rossi, Peter van Beek, and Toby Walsh, editors, {\em
+  Handbook of Constraint Programming}, chapter~3, pages 29--84. Elsevier, 1st
+  edition, 2006.
+
+\bibitem{Espelage2000}
+Wolfgang Espelage and Egon Wanke.
+\newblock {The combinatorial complexity of masterkeying}.
+\newblock {\em Mathematical Methods of Operations Research}, 52(2):325--348,
+  2000.
+
+\bibitem{Hutter2008}
+Frank Hutter.
+\newblock {Updated Quick start guide for ParamILS, version 2.3}.
+\newblock Technical report, Department of Computer Science University of
+  British Columbia, Vancouver, Canada, 2008.
+
+\bibitem{Hutter2009}
+Frank Hutter, Holger~H Hoos, and Kevin Leyton-brown.
+\newblock {ParamILS: An Automatic Algorithm Configuration Framework}.
+\newblock {\em Journal of Artificial Intelligence Research}, 36:267--306, 2009.
+
+\bibitem{Sibbesen2008}
+Louise~K. Sibbesen.
+\newblock {\em {Mathematical models and heuristic solutions for container
+  positioning problems in port terminals}}.
+\newblock Doctor of philosophy, Technical University of Danemark, 2008.
+
+\end{thebibliography}
