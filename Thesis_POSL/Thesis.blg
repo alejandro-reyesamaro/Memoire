@@ -3,44 +3,54 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
 Database file #1: biblio201610.bib
-You've used 11 entries,
+Warning--can't use both volume and number fields in Cousot1977
+Warning--empty publisher in Gecode
+Warning--there's a number but no volume in Feo95
+Warning--empty publisher in Comet
+Warning--there's a number but no series in Pesant1996
+Warning--empty publisher in Hooker2006
+Warning--there's a number but no volume in Hill2008
+Warning--empty year in Jinnai
+Warning--empty institution in Arbab1995
+You've used 125 entries,
             1791 wiz_defined-function locations,
-            532 strings with 5754 characters,
-and the built_in function-call counts, 3305 in all, are:
-= -- 323
-> -- 122
-< -- 7
-+ -- 45
-- -- 34
-* -- 218
-:= -- 482
-add.period$ -- 38
-call.type$ -- 11
-change.case$ -- 11
+            1238 strings with 24247 characters,
+and the built_in function-call counts, 36551 in all, are:
+= -- 3595
+> -- 1315
+< -- 87
++ -- 482
+- -- 357
+* -- 2346
+:= -- 5257
+add.period$ -- 424
+call.type$ -- 125
+change.case$ -- 135
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 166
-empty$ -- 318
-format.name$ -- 34
-if$ -- 773
+cite$ -- 134
+duplicate$ -- 1835
+empty$ -- 3568
+format.name$ -- 357
+if$ -- 8598
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 11
-newline$ -- 58
-num.names$ -- 11
-pop$ -- 38
+int.to.str$ -- 125
+missing$ -- 122
+newline$ -- 628
+num.names$ -- 145
+pop$ -- 451
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 91
+skip$ -- 1018
 stack$ -- 0
-substring$ -- 245
-swap$ -- 61
-text.length$ -- 7
+substring$ -- 2721
+swap$ -- 660
+text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 34
-width$ -- 13
-write$ -- 131
+warning$ -- 9
+while$ -- 398
+width$ -- 128
+write$ -- 1443
+(There were 9 warnings)
