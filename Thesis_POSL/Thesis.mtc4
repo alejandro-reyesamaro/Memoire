@@ -1,12 +1,14 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Introduction}{\reset@font\mtcSfont 58}{section.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.1}Precedents}{\reset@font\mtcSSfont 59}{subsection.4.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.2}POSL}{\reset@font\mtcSSfont 59}{subsection.4.1.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Modeling the target benchmark}{\reset@font\mtcSfont 60}{section.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}First stage: creating {\sc POSL}'s modules}{\reset@font\mtcSfont 63}{section.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Computation module}{\reset@font\mtcSSfont 63}{subsection.4.3.1}}
-{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {4.3.1.1}Creating new computation{} modules}{\reset@font\mtcSSSfont 64}{subsubsection.4.3.1.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Communication modules}{\reset@font\mtcSSfont 65}{subsection.4.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Second stage: assembling {\sc POSL}'s modules}{\reset@font\mtcSfont 67}{section.4.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Third stage: creating {\sc POSL}{} solvers}{\reset@font\mtcSfont 80}{section.4.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Forth stage: connecting solvers}{\reset@font\mtcSfont 81}{section.4.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.7}Summarize}{\reset@font\mtcSfont 85}{section.4.7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.1}Introduction}{\reset@font\mtcSfont 46}{section.A.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.2}Des travaux reli\'es}{\reset@font\mtcSfont 47}{section.A.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.3}Solveurs parall\IeC {\`e}les POSL}{\reset@font\mtcSfont 48}{section.A.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.1}Computation module}{\reset@font\mtcSSfont 49}{subsection.A.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.2}Communication module}{\reset@font\mtcSSfont 50}{subsection.A.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.3}Abstract solver}{\reset@font\mtcSSfont 51}{subsection.A.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.4}Cr\IeC {\'e}er les solveurs}{\reset@font\mtcSSfont 54}{subsection.A.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.5}Connecter les solveurs : cr\IeC {\'e}er le solver set}{\reset@font\mtcSSfont 54}{subsection.A.3.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.4}Les r\IeC {\'e}sultats}{\reset@font\mtcSfont 55}{section.A.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.1}Social Golfers Problem}{\reset@font\mtcSSfont 56}{subsection.A.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.2}Costas Array Problem}{\reset@font\mtcSSfont 59}{subsection.A.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.3}N-Queens Problem}{\reset@font\mtcSSfont 60}{subsection.A.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.4}Golomb Ruler Problem}{\reset@font\mtcSSfont 63}{subsection.A.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.5}Conclusions}{\reset@font\mtcSfont 65}{section.A.5}}

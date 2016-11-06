@@ -17,3 +17,19 @@
 \BOOKMARK [2][-]{subsection.2.8.2}{On-line tunning}{section.2.8}% 17
 \BOOKMARK [1][-]{section.2.9}{Summary}{chapter.2}% 18
 \BOOKMARK [0][-]{chapter.3}{Bibliography}{part.1}% 19
+\BOOKMARK [-1][-]{part.2}{II Appendix}{}% 20
+\BOOKMARK [0][-]{appendix.A}{French summary}{part.2}% 21
+\BOOKMARK [1][-]{section.A.1}{Introduction}{appendix.A}% 22
+\BOOKMARK [1][-]{section.A.2}{Des travaux reli\351s}{appendix.A}% 23
+\BOOKMARK [1][-]{section.A.3}{Solveurs parall\350les POSL}{appendix.A}% 24
+\BOOKMARK [2][-]{subsection.A.3.1}{Computation module}{section.A.3}% 25
+\BOOKMARK [2][-]{subsection.A.3.2}{Communication module}{section.A.3}% 26
+\BOOKMARK [2][-]{subsection.A.3.3}{Abstract solver}{section.A.3}% 27
+\BOOKMARK [2][-]{subsection.A.3.4}{Cr\351er les solveurs}{section.A.3}% 28
+\BOOKMARK [2][-]{subsection.A.3.5}{Connecter les solveurs : cr\351er le solver set}{section.A.3}% 29
+\BOOKMARK [1][-]{section.A.4}{Les r\351sultats}{appendix.A}% 30
+\BOOKMARK [2][-]{subsection.A.4.1}{Social Golfers Problem}{section.A.4}% 31
+\BOOKMARK [2][-]{subsection.A.4.2}{Costas Array Problem}{section.A.4}% 32
+\BOOKMARK [2][-]{subsection.A.4.3}{N-Queens Problem}{section.A.4}% 33
+\BOOKMARK [2][-]{subsection.A.4.4}{Golomb Ruler Problem}{section.A.4}% 34
+\BOOKMARK [1][-]{section.A.5}{Conclusions}{appendix.A}% 35

@@ -12,45 +12,45 @@ Warning--empty publisher in Hooker2006
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
 Warning--empty institution in Arbab1995
-You've used 125 entries,
+You've used 127 entries,
             1791 wiz_defined-function locations,
-            1238 strings with 24247 characters,
-and the built_in function-call counts, 36551 in all, are:
-= -- 3595
-> -- 1315
+            1252 strings with 24572 characters,
+and the built_in function-call counts, 36999 in all, are:
+= -- 3640
+> -- 1331
 < -- 87
-+ -- 482
-- -- 357
-* -- 2346
-:= -- 5257
-add.period$ -- 424
-call.type$ -- 125
-change.case$ -- 135
++ -- 488
+- -- 361
+* -- 2378
+:= -- 5328
+add.period$ -- 430
+call.type$ -- 127
+change.case$ -- 137
 chr.to.int$ -- 0
-cite$ -- 134
-duplicate$ -- 1835
-empty$ -- 3568
-format.name$ -- 357
-if$ -- 8598
+cite$ -- 136
+duplicate$ -- 1853
+empty$ -- 3612
+format.name$ -- 361
+if$ -- 8695
 int.to.chr$ -- 0
-int.to.str$ -- 125
-missing$ -- 122
-newline$ -- 628
-num.names$ -- 145
-pop$ -- 451
+int.to.str$ -- 127
+missing$ -- 124
+newline$ -- 638
+num.names$ -- 147
+pop$ -- 453
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1018
+skip$ -- 1026
 stack$ -- 0
-substring$ -- 2721
-swap$ -- 660
+substring$ -- 2762
+swap$ -- 662
 text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 9
-while$ -- 398
-width$ -- 128
-write$ -- 1443
+while$ -- 404
+width$ -- 130
+write$ -- 1465
 (There were 9 warnings)

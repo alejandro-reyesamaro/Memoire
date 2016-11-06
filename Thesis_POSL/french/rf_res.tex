@@ -1,7 +1,7 @@
 
 Le but principal de cette section est de sélectionner quelques instances de problèmes de référence, pour analyser et illustrer la versatilité de \posl{} pour étudier des stratégies de solution basées sur la recherche locale méta-heuristique avec communication. Grâce à \posl{} nous pouvons analyser des résultats et formuler des conclusions sur le comportement de la stratégie de recherche, mais aussi sur la structure de l'espace de recherche du problème. Dans cette section, nous expliquons la structure des  solveurs de \posl{} que nous avons générés pour les expériences, et les résultats.
 
-Nous avons choisi l'une des méthodes de solutions les plus classique pour des problèmes combinatoires: l'algorithme méta-heuristique de recherche locale. Ces algorithmes ont une structure commune: ils commencent par l'initialisation des structures de données. Ensuite, une configuration initiale $s$ est générée. Après cela, une nouvelle configuration $s'$ est sélectionnée dans le voisinage $V \left(s \right) $. Si $s'$ est une solution pour le problème $P$, alors le processus s'arrête, et $s'$ est renvoyée. Dans le cas contraire, les structures de données sont mises à jour, et $s'$ est acceptée, ou non, pour l'itération suivante, en fonction de certains critères (par exemple, en pénalisant les caractéristiques des optimums locaux).
+Nous avons choisi l'une des méthodes de solutions les plus classiques pour des problèmes combinatoires: l'algorithme méta-heuristique de recherche locale. Ces algorithmes ont une structure commune: ils commencent par l'initialisation des structures de données. Ensuite, une configuration initiale $s$ est générée. Après cela, une nouvelle configuration $s'$ est sélectionnée dans le voisinage $V \left(s \right) $. Si $s'$ est une solution pour le problème $P$, alors le processus s'arrête, et $s'$ est renvoyée. Dans le cas contraire, les structures de données sont mises à jour, et $s'$ est acceptée, ou non, pour l'itération suivante, en fonction de certains critères (par exemple, en pénalisant les caractéristiques des optimums locaux).
 
 Les expériences ont été effectuées sur un processeur Intel \R{} Xeon \TM{} E5-2680 v2, 10 $\times$ 4 c\oe urs, 2.80GHz. Les résultats montrés dans cette section sont les moyennes de 30 runs pour chaque configuration. Dans les tableaux de résultats, les colonnes marquées {\bf T} correspondent au temps de l'exécution en secondes et les colonnes marquées {\bf It.} correspondent au nombre d'itérations. Toutes les expériences de cette section sont basées sur différentes stratégies en parallèle, avec 40 c\oe urs.
 
@@ -9,7 +9,7 @@ Les expériences ont été effectuées sur un processeur Intel \R{} Xeon \TM{} E
 
 Le problème de \sg{} (\SGP) consiste à planifier $n = g \times p$ golfeurs en $g$ groupes de $p$ joueurs chaque semaine pendant $w$ semaines, de telle manière que deux joueurs jouent dans le même groupe au plus une fois. Une instance de ce problème peut être représentée par le triplet $g-p-w$. Ce problème, et d'autres problèmes étroitement liés, trouvent de nombreuses applications pratiques telles que le codage, le cryptage et les problèmes couvrants. Sa structure nous a semblé intéressante car elle est similaire à d'autres problèmes, comme {\it Kirkman's Schoolgirl} et {\it Steiner Triple System}, donc nous pouvons construire des modules efficaces pour résoudre un grand éventail de problèmes.
 
-Nous avons utilisé uns stratégie de communication cyclique pour résoudre ce problème, en échangeant la configuration courante entre deux solveurs avec des caractéristiques différentes. Les résultats montrent que cette stratégie marche très bien pour ce problème.
+Nous avons utilisé une stratégie de communication cyclique pour résoudre ce problème, en échangeant la configuration courante entre deux solveurs avec des caractéristiques différentes. Les résultats montrent que cette stratégie marche très bien pour ce problème.
 
 \begin{algorithm}
 \dontprintsemicolon
@@ -39,7 +39,7 @@ L'algorithme~\ref{as:golfers_eager} montre l'\as{} utilisé pour résoudre me ma
 \item $A_{AI}$ retourne toujours la configuration sélectionnée ($s'$).
 \end{enumerate}
 
-Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur "compagnon", incapable de trouver une solution au final, mais capable de trouver des configurations avec an coût considérablement plus petit que ceci trouvé par le solveur \textit{standard} dans le même instant de temps, au début de la recherche. L'idée c'est d'échanger leurs configurations cycliquement, jusqu'à trouver une solution. Les algorithmes~\ref{as:golfers_full} et \ref{as:golfers_partial} montrent les solveurs utilisés pour cette stratégie, ou $V_{BP}(p)$ est le \om{} de voisinage pour le solveur "compagnon", qui cherche des configurations seulement changeant des joueurs parmi $p$ semaines. Le \opch{} instancié $CM_{last}$, prend en compte la dernière configuration reçue quand il est au moment de l'exécution.
+Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur "compagnon", incapable de trouver une solution au final, mais capable de trouver des configurations avec un coût considérablement plus petit que celui trouvé par le solveur \textit{standard} dans le même instant de temps, au début de la recherche. L'idée est d'échanger leurs configurations cycliquement, jusqu'à trouver une solution. Les algorithmes~\ref{as:golfers_full} et \ref{as:golfers_partial} montrent les solveurs utilisés pour cette stratégie, où $V_{BP}(p)$ est le \om{} de voisinage pour le solveur "compagnon", qui cherche des configurations seulement en changeant des joueurs parmi $p$ semaines. Le \opch{} instancié $CM_{last}$, prend en compte la dernière configuration reçue quand il est au moment de l'exécution.
 
 \begin{algorithm}
 \dontprintsemicolon
@@ -79,7 +79,7 @@ Pour \SGP{}, nous avons utilisé une stratégie de communication, où un solveur
 \caption{Solveur compagnon pour \SGP}\label{as:golfers_partial}
 \end{algorithm}
 
-Nous avons dessiné aussi des différentes stratégies de communication, en combinant des solveurs connectés et non-connectés, et en appliquant des différents opérateurs de communication : \oneTone{} et \oneTn.
+Nous avons dessiné aussi différentes stratégies de communication, en combinant des solveurs connectés et non-connectés, et en appliquant différents opérateurs de communication : \oneTone{} et \oneTn.
 
 \begin{table}[!h]
 \centering
@@ -102,7 +102,7 @@ Nous avons dessiné aussi des différentes stratégies de communication, en comb
 \label{tab:golfers_seqpar}
 \end{table}
 
-Comme nous nous attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succès de l'approche parallèle sur le séquentielle. Plus intéressante, les expériences confirment que la stratégie de communication proposée pour cet benchmark est la correcte: en comparant par rapport aux runs en parallèle sans communication, il améliore les runtimes par un facteur de 1.98 (facteur moyen parmi les trois instances). Les résultats coopératifs de ce tableau on été obtenus en utilisant l'opérateur de communication \oneTone{} avec 100\% de solveurs communicatifs (algorithme~\ref{comm:golfers_v2_100}). 
+Comme nous nous y attendions, le tableau~\ref{tab:golfers_seqpar} confirme le succès de l'approche parallèle sur le séquentiel. De plus, les expériences confirment que la stratégie de communication proposée pour cet benchmark est la correcte: en comparant par rapport aux runs en parallèle sans communication, il améliore les runtimes par un facteur de 1.98 (facteur moyen parmi les trois instances). Les résultats coopératifs de ce tableau on été obtenus en utilisant l'opérateur de communication \oneTone{} avec 100\% de solveurs communicatifs (algorithme~\ref{comm:golfers_v2_100}). 
 
 \begin{algorithm}[!h]
 \dontprintsemicolon
@@ -114,8 +114,6 @@ $\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{compa
 \end{algorithm}
 
 
-
-
 % --------------------------------------------
 % ------- COSTAS ARRAY -----------------------
 % --------------------------------------------
@@ -125,14 +123,14 @@ $\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{compa
 
 Le problème \carr{} (\CARRP) consiste à trouver une matrice {\it Costas}, qui est une grille de $n \times n$ contenant $n$ marques avec exactement une marque par ligne et par colonne et les $n(n-1)/2 $ vecteurs reliant chaque couple de marques de cette grille doivent tous être différents. Ceci est un problème très complexe trouvant une application utile dans certains domaines comme le sonar et l'ingénierie de radar, et présente de nombreux problèmes mathématiques ouverts. Ce problème a aussi une caractéristique intéressante: même si son espace de recherche grandit factoriellement, à partir de l'ordre 17 le nombre de solutions diminue drastiquement.
 
-Pour ce problème nous avons testé une stratégie de communication simple, où l'information a communiquer est la configuration courante. Pour construire les solveurs, nous avons réutilisé les \oms{} de sélection ($S_{first}$) et de d'acceptation ($A_{AI}$) et le \opch{} utilisés dans la résolution de \SGP{}. Les autres \oms{} sont les suivantes~:
+Pour ce problème nous avons testé une stratégie de communication simple, où l'information à communiquer est la configuration courante. Pour construire les solveurs, nous avons réutilisé les \oms{} de sélection ($S_{first}$) et de d'acceptation ($A_{AI}$) et le \opch{} utilisés dans la résolution de \SGP{}. Les autres \oms{} sont les suivants~:
 
 \begin{enumerate}
 	\item $I_{perm}$: génère une configuration aléatoire $s$, comme une permutation du vecteur $[1..n]$. 
 	\item $V_{AS}$: définit le voisinage $V \left(s\right)$ permutant la variable qui a contribué le plus au coût, avec d'autres.
 \end{enumerate}
 
-Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset} ($T_{AS}$) comme machinisme d'exploration. L'algorithme~\ref{as:costas} montre le solveur utilisé pour résoudre ce problème séquentiellement. Les résultats des runs en séquentiel et en parallèle sans communication sont montrés dans le tableau~\ref{tab:costas19}. Ils montrent le succès de l'approche en parallèle est montré encore une fois. Afin d'améliorer ces résultats, nous avons appliqué uns stratégies   simple de communication : communiquer la configuration courante au moment d'exécuter le critère d'acceptation. Les algorithmes~\ref{as:costas_sender} et~\ref{as:costas_receiver} montrent les solveurs envoyeur et récepteur.
+Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{reset} ($T_{AS}$) comme machinisme d'exploration. L'algorithme~\ref{as:costas} montre le solveur utilisé pour résoudre ce problème séquentiellement. Les résultats des runs en séquentiel et en parallèle sans communication sont montrés dans le tableau~\ref{tab:costas19}. Ils montrent le succès de l'approche en parallèle. Afin d'améliorer ces résultats, nous avons appliqué une stratégie simple de communication : communiquer la configuration courante au moment d'exécuter le critère d'acceptation. Les algorithmes~\ref{as:costas_sender} et~\ref{as:costas_receiver} montrent les solveurs envoyeur et récepteur.
 
 \begin{algorithm}[!h]
 \dontprintsemicolon
@@ -213,7 +211,7 @@ Pour résoudre \CARRP{} nous avons eu besoin d'utiliser un \om{} de \textit{rese
 \label{tab:costas19}
 \end{table}
 
-Un des buts principaux de cette étude a été d'explorer des différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicantes. 
+L'un des buts principaux de cette étude a été d'explorer différentes stratégies de communication. Nous avons ensuite mis en place et testé différentes variantes de la stratégie exposée ci-dessus en combinant deux opérateurs de communication (\oneTone{} et \oneTn) et des pourcentages différents de solveurs communicants. 
 
 Comme prévu, la meilleure stratégie était basée sur 100\% de communication avec l'opérateur \oneTn{} (algorithme~\ref{comm:costas1001N}), parce que cette stratégie permet de communiquer un lieu prometteur à l'intérieur de l'espace de recherche à un maximum de solveurs, en refor\c{c}ant l'intensification.
 
@@ -226,8 +224,6 @@ $\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{recei
 \end{algorithm}
 
 
-
-
 % -----------------------------------------------
 % ------- N - QUEENS ----------------------------
 % -----------------------------------------------
@@ -235,10 +231,10 @@ $\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{recei
 
 \subsection{N-Queens Problem}
 
-\new{Le problème \nq{} (\NQP) demande de placer $N$ rennes sur un échiquier, tel que aucune d'elles peuvent attaquer une autre avec un seul mouvement. C'est un problème introduit en 1848 par le joueur d'échecs Max Bezzelas comme le problème \textit{8-Queens}, et un an après il a été généralisé comme le problème \textit{N-Queens} par Franz Nauck. Depuis sa création, plusieurs mathématiciens, Gauss inclut, ont travaillé en ce problème. Il a beaucoup d'applications, par exemple, en le stockage en parallèle de la mémoire, le contrôle du trafique, la prévention des deadlocks, les réseaux neurales, etc. \cite{Bell2009}. Quelques études suggèrent que le numéro de solutions augmente  exponentiellement avec numéro de rennes ($N$), mais les méthodes de recherche local ont montré des bons résultats avec ce problème \cite{Sosic1994}. C'est pour cela que nous avons testé quelques stratégies de communication en utilisant \posl{}, pour résoudre en problème relativement facile a résoudre, mais un utilisant la communication.}
+Le problème \nq{} (\NQP) demande de placer $N$ rennes sur un échiquier, de manière a ce qu'aucune d'elles ne puisse attaquer une autre en un seul mouvement. C'est un problème introduit en 1848 par le joueur d'échecs Max Bezzelas comme le problème \textit{8-Queens}, et un an après il a été généralisé comme le problème \textit{N-Queens} par Franz Nauck. Depuis sa création, plusieurs mathématiciens, Gauss inclut, ont travaillé sur ce problème. Il a beaucoup d'applications, par exemple, dans le stockage en parallèle de la mémoire, le contrôle du trafique, la prévention des deadlocks, les réseaux neurales, etc. \cite{Bell2009}. Quelques études suggèrent que le nombre de solutions augmente exponentiellement en fonction du nombre de rennes ($N$), mais les méthodes de recherche locale ont montré des bons résultats avec ce problème \cite{Sosic1994}. C'est pour cela que nous avons testé quelques stratégies de communication en utilisant \posl{}, pour résoudre un problème relativement facile, mais un utilisant la communication.
 
-\new{Pour construire les solveurs, nous avons réutilisé presque tous les \oms{} utilisés pour résoudre le problème \carr{} ($S_{first}$, $S_{first}, A_{AI}$, et aussi le \opch{} $CM_{last}$.} %L'\as{} utilisé est présenté dans l'algorithme~\ref{as:nq}:
-\new{Les solveurs utilisés pour les expériences sans communication sont présentés dans l'algorithme~\ref{as:nq}, ou l'\as{} est instancié dans le solveurs \solverposl{selective} avec le \om{} de voisinage $V_{PAS}(p)$, qui re\c{c}oie une configuration, et retourne un voisinage $V\left(s\right)$ en permutant la variable qui a contribué le plus au coût, avec un pourcentage $p$ des autres.}
+Pour construire les solveurs, nous avons réutilisé presque tous les \oms{} utilisés pour résoudre le problème \carr{} ($S_{first}$, $S_{first}, A_{AI}$, et aussi le \opch{} $CM_{last}$. %L'\as{} utilisé est présenté dans l'algorithme~\ref{as:nq}:
+Les solveurs utilisés pour les expériences sans communication sont présentés dans l'algorithme~\ref{as:nq}, ou l'\as{} est instancié dans le solveurs \solverposl{selective} avec le \om{} de voisinage $V_{PAS}(p)$, qui re\c{c}oit une configuration, et retourne un voisinage $V\left(s\right)$ en permutant la variable qui a contribué le plus au coût, avec un pourcentage $p$ des autres.
 
 \begin{algorithm}[!h]
 \dontprintsemicolon
@@ -256,7 +252,7 @@ $\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{recei
 \end{algorithm}
 
 
-\new{Le tableau~\ref{tab:nqueens_seqpar} présente les résultats des runs en séquentielle et en parallèle. Ces résultats montrent que l'amélioration de l'approche en parallèle par rapport à l'approche séquentielle en utilisant \posl{}} \modified{diminue au fur et à mesure que l'ordre du problème augmente.}
+Le tableau~\ref{tab:nqueens_seqpar} présente les résultats des runs en séquentiel et en parallèle. Ces résultats montrent que l'amélioration de l'approche en parallèle par rapport à l'approche séquentielle en utilisant \posl{} diminue au fur et à mesure que l'ordre du problème augmente.
 
 \begin{table}[t]
 \centering 
@@ -277,8 +273,8 @@ $\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{recei
 \caption{Résultats pour \NQP{} (séquentielle et en parallèle sans communication)}\label{tab:nqueens_seqpar}
 \end{table}
 
-\new{Pour appliquer l'approche coopératif a la résolution de ce problème, nous avons implémenté une stratégie de communication similaire à cela appliquée avec \SGP{}, mais dans ce cas, avec des solveurs qui utilisent le même \m{} de voisinage $V_{PAS}(p)$ mais avec une valeur différente de $p$ et avec un \m{} de sélection différent aussi. Dans cette stratégie de communication la configuration courante est échangée cycliquement entre les solveurs différents. Un solveur \textit{compagnon} utilise le \om{} $V_{PAS}(p)$ avec une valeur plus petite de $p$ et le \om{}$S_{best}$, donc capable de trouver des configurations prometteuses plus rapidement, mais avec une convergence lente. 
-L'autre solveur est très similaire au solveur utilisé pour les expériences sans communication, mais dans cette stratégie de communication, les solveurs sont à la fois des envoyeurs et des récepteurs (voir l'algorithme~\ref{as:nq_cyc}).}
+Pour appliquer l'approche coopérative a la résolution de ce problème, nous avons implémenté une stratégie de communication similaire à celle appliquée avec \SGP{}, mais dans ce cas, avec des solveurs qui utilisent le même \m{} de voisinage $V_{PAS}(p)$ mais avec une valeur différente de $p$ et un \m{} de sélection différent. Dans cette stratégie de communication la configuration courante est échangée cycliquement entre les solveurs différents. Un solveur \textit{compagnon} utilise le \om{} $V_{PAS}(p)$ avec une valeur plus petite pour $p$ ainsi que le \om{} $S_{best}$, donc capable de trouver des configurations prometteuses plus rapidement, mais avec une convergence lente. 
+L'autre solveur est très similaire au solveur utilisé pour les expériences sans communication, mais dans cette stratégie de communication, les solveurs sont à la fois des envoyeurs et des récepteurs (voir l'algorithme~\ref{as:nq_cyc}).
 
 \begin{algorithm}[!h]
 \dontprintsemicolon
@@ -322,7 +318,7 @@ L'autre solveur est très similaire au solveur utilisé pour les expériences sa
 \caption{Résultats de la communication cyclique avec \NQP}\label{tab:nqueens_cyc}
 \end{table}
 
-\new{Grâce a cette expérience nous avons été capables de trouver une stratégie de communication (algorithme~\ref{comm:nqueens_cyc_1n}) pour améliorer les temps d'exécution, mais seulement pour des instances petites du problème. Ce résultat confirme l'hypothèse de que quand l'ordre du problème monte, le gain en utilisant la communication pendant la recherche de la solution diminue. Le tableau~\ref{tab:nqueens_cyc} montre comment l'\textit{improvement ratio} (colonne \textbf{I.R.}) diminue avec l'ordre $N$. }
+Grâce à cette expérience nous avons été capables de trouver une stratégie de communication (algorithme~\ref{comm:nqueens_cyc_1n}) pour améliorer les temps d'exécution, mais seulement pour des instances petites du problème. Ce résultat confirme l'hypothèse que quand l'ordre du problème monte, le gain en utilisant la communication pendant la recherche de la solution diminue. Le tableau~\ref{tab:nqueens_cyc} montre comment l'\textit{improvement ratio} (colonne \textbf{I.R.}) diminue avec l'ordre $N$. 
 
 \begin{algorithm}[!h]
 \dontprintsemicolon
@@ -334,9 +330,6 @@ $\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{compagn
 \end{algorithm}
 
 
-
-
-
 % -----------------------------------------------
 % -------- GOLOMB RULER -------------------------
 % -----------------------------------------------
@@ -344,12 +337,12 @@ $\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{compagn
 
 \subsection{Golomb Ruler Problem}
 
-Le \grp{} (\GRP) consiste à trouver un vecteur ordonné de $n$ entiers non négatifs différents, appelés \textit{marques}, $m_1<\dots<m_n$, tel que toutes les différences $m_i- m_j$, $(i>j)$ sont toutes différentes. Une instance de ce problème est défini par le paire $(o,l)$ où $o$ est l'ordre du problème, (le nombre de \textit{marques}) et  $l$ est la longueur de la règle (la dernière {\it marque}). Nous supposons que la première \textit{marque} est toujours 0. Lorsque nous appliquons \posl{} pour résoudre une instance de problème séquentiellement, nous pouvons remarquer qu'il effectue de nombreux {\it restars} avant de trouver une solution. Pour cette raison, nous avons choisi ce problème pour étudier une stratégie de communication intéressante: communiquer la configuration actuelle afin d'éviter son voisinage, c'est à dire, une configuration {\it tabu}.
+Le \grp{} (\GRP) consiste à trouver un vecteur ordonné de $n$ entiers non négatifs différents, appelés \textit{marques}, $m_1<\dots<m_n$, tel que toutes les différences $m_i- m_j$, $(i>j)$ sont toutes différentes. Une instance de ce problème est définie par la paire $(o,l)$ où $o$ est l'ordre du problème, (le nombre de \textit{marques}) et  $l$ est la longueur de la règle (la dernière {\it marque}). Nous supposons que la première \textit{marque} est toujours 0. Lorsque nous appliquons \posl{} pour résoudre une instance de problème séquentiellement, nous pouvons remarquer qu'il effectue de nombreux {\it restars} avant de trouver une solution. Pour cette raison, nous avons choisi ce problème pour étudier une stratégie de communication intéressante: communiquer la configuration actuelle afin d'éviter son voisinage, c'est à dire, une configuration {\it tabu}.
 
 Nous réutilisons les \ms{} de sélection et d'acceptation des études antérieures ($S_{first}$ et$A_{AI}$) pour concevoir les \ass. Les nouvelles \ms{} sont:
 \begin{enumerate}
-\item $I_{sort}$: renvoie une configuration aléatoire $s$ en tant que vecteur d'entiers trié. La configuration est générée \textit{loin} de l'ensemble des configurations {\it tabu} arrivés via communication entre solveurs.
-\item $V_{sort}$: donné une configuration, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
+\item $I_{sort}$: renvoie une configuration aléatoire $s$ en tant que vecteur d'entiers trié. La configuration est générée \textit{loin} de l'ensemble des configurations {\it tabu} arrivées via communication entre solveurs.
+\item $V_{sort}$: \modified{donné une configuration}, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
 \end{enumerate}
 
 Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée telle quelle. L'algorithme~\ref{as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).
@@ -371,7 +364,7 @@ Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une 
 \caption{Solveur envoyeur pour  \GRP}\label{as:golomb_sender}
 \end{algorithm}
 
-Le module $T_{tabu}$ est exécuté lorsque le solveur est incapable de trouver une meilleure configuration autour de l'actuelle: elle est supposée être un minimum local, et elle est envoyée au solveur récepteur. L'algorithme~\ref{as:golomb_receiver} présente solveur utilisé pour recevoir l'information. Le \opch{} $CM_{set}$ reçoit plusieurs configurations qui sont reçus par le \om{} $I_{sort}$ comme entrées.
+Le module $T_{tabu}$ est exécuté lorsque le solveur est incapable de trouver une meilleure configuration autour de l'actuelle: elle est supposée être un minimum local, et elle est envoyée au solveur récepteur. L'algorithme~\ref{as:golomb_receiver} présente un solveur utilisé pour recevoir l'information. Le \opch{} $CM_{set}$ reçoit plusieurs configurations qui sont reçues par le \om{} $I_{sort}$ comme entrées.
  
 \begin{algorithm}
 \dontprintsemicolon
@@ -393,7 +386,7 @@ Le module $T_{tabu}$ est exécuté lorsque le solveur est incapable de trouver u
 \end{algorithm}
 
 Le bénéfice de l'approche en  parallèle avec \posl{} est aussi prouvé pour le \GRP{} (voir le tableau~\ref{tab:golomb_seqpar}). %et~\ref{tab:golomb_par}). 
-Dans ce tableau, la colonne \textbf{R} représente le nombre de redémarrages exécutées. Cette expérience a été réalisée en utilisant des solveurs similaires à ceux présentés précédemment, mais sans \opchs.
+Dans ce tableau, la colonne \textbf{R} représente le nombre de redémarrages exécutés. Cette expérience a été réalisée en utilisant des solveurs similaires à ceux présentés précédemment, mais sans \opchs.
 
 \begin{table}[!h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -417,7 +410,7 @@ Dans ce tableau, la colonne \textbf{R} représente le nombre de redémarrages ex
 \label{tab:golomb_seqpar}
 \end{table}
 
-Pour \GRP, la stratégie de communication que nous adoptions a été différente. L'idée de cette stratégie est de profiter des nombreux redémarrages indiqués dans le tableau~\ref{tab:golomb_seqpar}. %et~\ref{tab:golomb_par}. 
+Pour \GRP, la stratégie de communication que nous avons adopté a été différente. L'idée de cette stratégie est de profiter des nombreux redémarrages indiqués dans le tableau~\ref{tab:golomb_seqpar}. %et~\ref{tab:golomb_par}. 
 Chaque fois qu'un solveur redémarre, la configuration actuelle est communiquée pour alerter les solveurs et éviter son voisinage. De cette façon, chaque fois qu'un solveur redémarre, il génère une nouvelle configuration assez loin de ces "zones pénalisées".
 
 Sur la base de l'opérateur de connexion utilisé dans la stratégie de communication, ce solveur peut recevoir une ou plusieurs configurations. Ces configurations sont l'entrée du \m{} de génération ($I_{sort}$). Ce module insère toutes les configurations reçues dans une liste {\it tabu}, puis il génère une nouvelle première configuration loin de toutes les configurations dans la liste {\it tabu}. 

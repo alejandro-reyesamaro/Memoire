@@ -18,3 +18,19 @@
 \contentsline {subsection}{\numberline {2.8.2}On-line tunning}{32}{subsection.2.8.2}
 \contentsline {section}{\numberline {2.9}Summary}{33}{section.2.9}
 \contentsline {chapter}{\numberline {3}Bibliography}{35}{chapter.3}
+\contentsline {part}{II\hspace {1em}Appendix}{43}{part.2}
+\contentsline {chapter}{\numberline {A}French summary}{45}{appendix.A}
+\contentsline {section}{\numberline {A.1}Introduction}{46}{section.A.1}
+\contentsline {section}{\numberline {A.2}Des travaux reli\'es}{47}{section.A.2}
+\contentsline {section}{\numberline {A.3}Solveurs parall\IeC {\`e}les POSL}{48}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}Computation module}{49}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Communication module}{50}{subsection.A.3.2}
+\contentsline {subsection}{\numberline {A.3.3}Abstract solver}{51}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.4}Cr\IeC {\'e}er les solveurs}{54}{subsection.A.3.4}
+\contentsline {subsection}{\numberline {A.3.5}Connecter les solveurs : cr\IeC {\'e}er le solver set}{54}{subsection.A.3.5}
+\contentsline {section}{\numberline {A.4}Les r\IeC {\'e}sultats}{55}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}Social Golfers Problem}{56}{subsection.A.4.1}
+\contentsline {subsection}{\numberline {A.4.2}Costas Array Problem}{59}{subsection.A.4.2}
+\contentsline {subsection}{\numberline {A.4.3}N-Queens Problem}{60}{subsection.A.4.3}
+\contentsline {subsection}{\numberline {A.4.4}Golomb Ruler Problem}{63}{subsection.A.4.4}
+\contentsline {section}{\numberline {A.5}Conclusions}{65}{section.A.5}
