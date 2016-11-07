@@ -2,6 +2,10 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
+A level-1 auxiliary file: appendix/appendix_res_graph_sgp.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_cap.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_grp.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_nqp.aux
 Database file #1: biblio201610.bib
 Warning--can't use both volume and number fields in Cousot1977
 Warning--empty publisher in Gecode
@@ -12,45 +16,45 @@ Warning--empty publisher in Hooker2006
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
 Warning--empty institution in Arbab1995
-You've used 127 entries,
+You've used 129 entries,
             1791 wiz_defined-function locations,
-            1252 strings with 24572 characters,
-and the built_in function-call counts, 36999 in all, are:
-= -- 3640
-> -- 1331
+            1267 strings with 25011 characters,
+and the built_in function-call counts, 37284 in all, are:
+= -- 3666
+> -- 1339
 < -- 87
-+ -- 488
-- -- 361
-* -- 2378
-:= -- 5328
-add.period$ -- 430
-call.type$ -- 127
-change.case$ -- 137
++ -- 492
+- -- 363
+* -- 2385
+:= -- 5379
+add.period$ -- 436
+call.type$ -- 129
+change.case$ -- 140
 chr.to.int$ -- 0
-cite$ -- 136
-duplicate$ -- 1853
-empty$ -- 3612
-format.name$ -- 361
-if$ -- 8695
+cite$ -- 138
+duplicate$ -- 1871
+empty$ -- 3647
+format.name$ -- 363
+if$ -- 8761
 int.to.chr$ -- 0
-int.to.str$ -- 127
-missing$ -- 124
-newline$ -- 638
-num.names$ -- 147
-pop$ -- 453
+int.to.str$ -- 129
+missing$ -- 125
+newline$ -- 648
+num.names$ -- 149
+pop$ -- 462
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1026
+skip$ -- 1028
 stack$ -- 0
 substring$ -- 2762
-swap$ -- 662
+swap$ -- 663
 text.length$ -- 87
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 9
-while$ -- 404
-width$ -- 130
-write$ -- 1465
+while$ -- 406
+width$ -- 132
+write$ -- 1487
 (There were 9 warnings)

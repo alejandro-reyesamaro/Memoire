@@ -90,13 +90,13 @@ The list of modules to be used in the examples have been presented. Now I presen
 \begin{definition}\label{op:seqexec}
 $\circled{$\mapsto$}$ {\bf Sequential Execution Operator.} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D}_1 \rightarrow \mathcal{I}_1$ and 
-	\item $\mathcal{M}_2 : \mathcal{D}_2 \rightarrow \mathcal{I}_2$, 
+	\item $\mathcal{M}_1 : \mathcal{I}_1 \rightarrow \mathcal{O}_1$ and 
+	\item $\mathcal{M}_2 : \mathcal{I}_2 \rightarrow \mathcal{O}_2$, 
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{I}_1 \subseteq \mathcal{D}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\mapsto$} \mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{seq}$ as the result of executing $\mathcal{M}_1$ followed by executing $\mathcal{M}_2$:
+be modules, where $\mathcal{O}_1 \subseteq \mathcal{O}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\mapsto$} \mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{seq}$ as the result of executing $\mathcal{M}_1$ followed by executing $\mathcal{M}_2$:
 
 \[
-\mathcal{M}_{seq}:\mathcal{D}_1 \rightarrow \mathcal{I}_2
+\mathcal{M}_{seq}:\mathcal{I}_1 \rightarrow \mathcal{O}_2
 \]
 \end{definition}
 
@@ -136,14 +136,14 @@ The following operator is very useful to execute modules sequentially creating b
 \begin{definition}\label{op:conditional}
 $\circled{?}$ {\bf Conditional Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then the operation $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{cond}$ as result of the sequential execution of $\mathcal{M}_1$ if $<cond>$ is {\bf true} or $\mathcal{M}_2$, otherwise:
 
 \[
-\mathcal{M}_{cond}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{cond}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -163,11 +163,15 @@ In examples I remove the clause $<cond>$ for simplification.
 
 We can execute modules sequentially creating also cycles.
 
+%---------------------------------------------------------
+%-----   Cyclic Operator
+%---------------------------------------------------------
+
 \begin{definition}\label{op:cyclic}
-$\cycop$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module, where $\mathcal{I} \subseteq \mathcal{D}$. Then, the operation $\left|\cycop_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
+$\cycop$ {\bf Cyclic Execution Operator} Let $\mathcal{M} : \mathcal{I} \rightarrow \mathcal{O}$ be a module, where $\mathcal{O} \subseteq \mathcal{I}$. Then, the operation $\left|\cycop_{<cond>}\mathcal{M}\right|$ defines the \cm{} $\mathcal{M}_{cyc}$ repeating sequentially the execution of $\mathcal{M}$ while $<cond>$ remains {\bf true}:
 
 \[
-\mathcal{M}_{cyc}:\mathcal{D} \rightarrow \mathcal{I} 
+\mathcal{M}_{cyc}:\mathcal{I} \rightarrow \mathcal{O} 
 \]
 \end{definition}
 
@@ -191,14 +195,14 @@ In the examples, I remove the clause $<cond>$ for simplification.
 \begin{definition}\label{op:rho}
 $\circled{$\rho$}$ {\bf Random Choice Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$, % and $\mathcal{I}_1 \subset \mathcal{I}_2$, 
 and a real value $\rho \in (0,1)$. Then the operation $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{rho}$ executing $\mathcal{M}_1$ with probability $\rho$, or executing $\mathcal{M}_2$ with probability $(1-\rho)$:
 
 \[
-\mathcal{M}_{rho}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{rho}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -223,14 +227,14 @@ The following operator is very useful if the user needs to use a \opch{} inside 
 \begin{definition}\label{op:or}
 $\circled{$\vee$}$ {\bf Not {\it NULL} Execution Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 = \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then, the operation $\left|\mathcal{M}_1\circled{$\vee$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{non}$ that executes $\mathcal{M}_1$ and returns its output if it is not {\it NULL}, or executes $\mathcal{M}_2$ and returns its output otherwise:
 
 \[
-\mathcal{M}_{non}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{non}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -264,17 +268,21 @@ $$\left[I\poslop{\mapsto}\left[\cycop\left[\left[V\poslop{\mapsto}S\right]\poslo
 
 The operator that I have just defined is a {\it short-circuit} operator. It means that if the first argument (module) does not return {\it NULL}, the second will not be executed. \posl{} provides another operator with the same functionality but not {\it short-circuit}. This operator is necessary if the user wants a side effect by always executing the second module also.
 
+%---------------------------------------------------------
+%-----   BOTH Operator
+%---------------------------------------------------------
+
 \begin{definition}\label{op:and}
 $\circled{$\wedge$}$ {\bf {\it BOTH} Execution Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Then the operation $\left|\mathcal{M}_1\circled{$\wedge$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{both}$ that executes both $\mathcal{M}_1$ and $\mathcal{M}_2$, then returns the output of $\mathcal{M}_1$ if it is not {\it NULL}, or the output of $\mathcal{M}_2$ otherwise:
 
 \[
-\mathcal{M}_{both}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{both}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -282,17 +290,21 @@ Then the operation $\left|\mathcal{M}_1\circled{$\wedge$}\mathcal{M}_2\right|$ d
 
 In the following I introduce the concepts of {\it cooperative parallelism} and {\it competitive parallelism}. We say that cooperative parallelism exists when two or more processes are running separately, and the general result will be some combination of the results of at least some involved processes (e.g. Definitions~\ref{op:min} and~\ref{op:max}). On the other hand, competitive parallelism arise when the general result comes from an unique process, usialy the one finishing first (e.g. Definition~\ref{op:race}).
 
+%---------------------------------------------------------
+%-----   MIN Operator
+%---------------------------------------------------------
+
 \begin{definition}\label{op:min}
 $\circled{m}$ {\bf Minimum Operator } Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the greatest value. Then the operation $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{min}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\min\left\{o_1,o_2\right\}$:
+Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $O_1 \cup O_2$ where the object \emph{NULL} is the greatest value. Then the operation $\left|\mathcal{M}_1\circled{m}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{min}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\min\left\{o_1,o_2\right\}$:
 
 \[
-\mathcal{M}_{min}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{min}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -300,17 +312,21 @@ Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, 
 
 Similarly we define the \textbf{Maximum} operator:
 
+%---------------------------------------------------------
+%-----   MAX Operator
+%---------------------------------------------------------
+
 \begin{definition}\label{op:max}
 $\circled{M}$ {\bf Maximum Operator} Let
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
-Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $I_1 \cup I_2$ where the object \emph{NULL} is the smallest value. Then the operation $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{max}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\max\left\{o_1,o_2\right\}$:
+Let also $o_1$ and $o_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Assume that there exists a total order in $O_1 \cup O_2$ where the object \emph{NULL} is the smallest value. Then the operation $\left|\mathcal{M}_1\circled{M}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{max}$ that executes $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $\max\left\{o_1,o_2\right\}$:
 
 \[
-\mathcal{M}_{max}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{max}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -326,16 +342,20 @@ Notice that in this example, I can use the grouper $\lbk .\rbk_p$ since the {\bf
 
 \separation
 
+%---------------------------------------------------------
+%-----   Race Operator
+%---------------------------------------------------------
+
 \begin{definition}\label{op:race}
 $\circled{$\shortdownarrow$}$ {\bf Race Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$ and $\mathcal{I}_1 \subset \mathcal{I}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{race}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns the output of the module ending first:
+be modules, where $\mathcal{I}_1 \subseteq \mathcal{I}_2$ and $\mathcal{O}_1 \subset \mathcal{O}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{race}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns the output of the module ending first:
 
 \[
-\mathcal{M}_{race}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2 
+\mathcal{M}_{race}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
 \]
 \end{definition}
 
@@ -355,14 +375,14 @@ Some \posl's data types are related to sets, like neighborhoods. For that reasso
 \begin{definition}\label{op:union}
 $\circled{$\cup$}$ {\bf Union Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. %and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cup$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cup}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cup V_2$:
 
 \[
-\mathcal{M}_{\cup}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
+\mathcal{M}_{\cup}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2
 \]
 \end{definition}
 
@@ -373,14 +393,14 @@ Similarly we define the operators \textbf{Intersection} and \textbf{Subtraction}
 \begin{definition}\label{op:intersec}
 $\circled{$\cap$}$ {\bf Intersection Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\cap$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\cap}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1\cap V_2$:
 
 \[
-\mathcal{M}_{\cap}:\mathcal{D} \rightarrow \mathcal{I}_1 \cup \mathcal{I}_2
+\mathcal{M}_{\cap}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2
 \]
 \end{definition}
 
@@ -389,14 +409,14 @@ Let also the sets $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathca
 \begin{definition}\label{op:subst}
 $\circled{$\setminus$}$ {\bf Subtraction Operator} Let 
 \begin{enumerate}%\begin{inparaenum}[i)]
-	\item $\mathcal{M}_1 : \mathcal{D} \rightarrow \mathcal{I}_1$ and  
-	\item $\mathcal{M}_2 : \mathcal{D} \rightarrow \mathcal{I}_2$,
+	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
+	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
 be modules. %, where $\mathcal{D}_1 \subseteq \mathcal{D}_2$. % and $\mathcal{I}_1 \subset \mathcal{I}_2$. 
 Let also $V_1$ and $V_2$ be the outputs of $\mathcal{M}_1$ and $\mathcal{M}_2$, respectively. Then the operation $\left|\mathcal{M}_1\circled{$\setminus$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{\setminus}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns $V_1 \setminus V_2$:
 
 \[
-\mathcal{M}_{\setminus}:\mathcal{D} \rightarrow \mathcal{I}_1
+\mathcal{M}_{\setminus}:\mathcal{I} \rightarrow \mathcal{O}_1
 \]
 \end{definition}
 
@@ -409,10 +429,10 @@ Now, I define the operators which allows to send information to other solvers. T
 \end{inparaenum} This feature is very useful in terms of sharing behaviors between solvers.
 
 \begin{definition}\label{op:osend}
-$\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\senddataop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output to a \opch:
+$\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{I} \rightarrow \mathcal{O}$ be a module. Then the operation $\left|\senddataop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendD}$ that executes the module $\mathcal{M}$ and sends its output to a \opch:
 
 \[
-\mathcal{M}_{sendD}:\mathcal{D} \rightarrow \mathcal{I}
+\mathcal{M}_{sendD}:\mathcal{I} \rightarrow \mathcal{O}
 \]
 \end{definition}
 
@@ -421,10 +441,10 @@ $\senddataop{.}$ {\bf Sending Data Operator} Let $\mathcal{M} : \mathcal{D} \rig
 Similarly we define the \textbf{Send Module} operator:
 
 \begin{definition}\label{op:msend}
-$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{D} \rightarrow \mathcal{I}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself to a \opch:
+$\sendmoduleop{.}$ {\bf Sending Module Operator} Let $\mathcal{M} : \mathcal{I} \rightarrow \mathcal{O}$ be a module. Then the operation $\left|\sendmoduleop{\mathcal{M}}\right|$ defines the \cm{} $\mathcal{M}_{sendM}$ that executes the module $\mathcal{M}$, then returns its output and sends the module itself to a \opch:
 
 \[
-\mathcal{M}_{sendM}:\mathcal{D} \rightarrow \mathcal{I}
+\mathcal{M}_{sendM}:\mathcal{I} \rightarrow \mathcal{O}
 \]
 \end{definition}
 

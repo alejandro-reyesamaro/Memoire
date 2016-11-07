@@ -1,6 +1,6 @@
 %In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
-Target problems are modeled in \posl{} using the C++ programing language, respecting some rules of the object-oriented design. First of all, the benchmark must inherit from the \pclass{Benchmark} class provided by \posl. This class does not have any method to be overridden or implemented, but receives in its constructor three objects, instances of classes the user must create. Those classes must inherit from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy}, respectively. In these classes the most important functionalities of the benchmark model are defined.
+Target problems are modeled in \posl{} using the C++ programming language, respecting some rules of the object-oriented design. First of all, the benchmark must inherit from the \pclass{Benchmark} class provided by \posl. This class does not have any method to be overridden or implemented, but receives in its constructor three objects, instances of classes the user must create. Those classes must inherit from \pclass{SolutionCostStrategy}, \pclass{RelativeCostStrategy} and \pclass{ShowStrategy}, respectively. In these classes the most important functionalities of the benchmark model are defined.
 
 \underline{\textbf{SolutionCostStrategy}}: In this class the strategy computing the \textit{cost} of a configuration is implemented. This \textit{cost function} must return an integer taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, i.e., $s$ fulfills all the problem constraints. Otherwise, it must return an integer describing "how long" is the given configuration from a solution. An example of \textit{cost function} is the one returning the number of violated constraints. However, the more expressive the cost function is, the better the performance of \posl{} is, leading to the solution.
 
@@ -42,7 +42,8 @@ In that sense, $f_2$ is \textit{more expressive} than $f_1$.
 The method to be implemented in this class is:
 
 \begin{itemize}
-\item \verb!int solutionCost(std::vector<int> & c)! $\rightarrow$ Computes the cost of a given configuration \verb!c!.
+%\item \verb!int solutionCost(std::vector<int> & c)! $\rightarrow$ Computes the cost of a given configuration \verb!c!.
+\item \verb!solutionCost! $\rightarrow$ Computes the cost of a given configuration.
 \end{itemize}
 
 \underline{\textbf{RelativeCostStrategy}}: In this class the user implements the strategy to compute the \textit{cost} of a given configuration with respect to another, with the help of some stored information.
@@ -60,11 +61,16 @@ where $c$ is the current cost, $q$ is the number of queens that the queen in col
 The methods to implement in this class are:
 
 \begin{itemize}
-\item \verb!void initializeCostData(std::vector<int> & c)! $\rightarrow$ Initializes the information related to the cost (auxiliary data structures, the current configuration \verb!c!, the current cost, etc.)
-\item \verb!void updateConfiguration(std::vector<int> & c)! $\rightarrow$ Updates the information related to the cost.
-\item \verb!int relativeSolutionCost(std::vector<int> & c)! $\rightarrow$ Returns the relative cost of the configuration \verb!c! with respect to the current configuration.
-\item \verb!int currentCost()! $\rightarrow$ Property that returns the cost of the current configuration.
-\item \verb!int costOnVariable(int variable_index)! $\rightarrow$ Returns a measure of the contribution of a variable to the total cost of a configuration. % \tet{AMPLIAR}
+%\item \verb!void initializeCostData(std::vector<int> & c)! $\rightarrow$ Initializes the information related to the cost (auxiliary data structures, the current configuration \verb!c!, the current cost, etc.)
+\item \verb!initializeCostData! $\rightarrow$ Initializes the information related to the cost (auxiliary data structures, the current configuration, the current cost, etc.)
+%\item \verb!void updateConfiguration(std::vector<int> & c)! $\rightarrow$ Updates the information related to the cost.
+\item \verb!updateConfiguration! $\rightarrow$ Updates the information related to the cost.
+%\item \verb!int relativeSolutionCost(std::vector<int> & c)! $\rightarrow$ Returns the relative cost of the configuration \verb!c! with respect to the current configuration.
+\item \verb!relativeSolutionCost! $\rightarrow$ Returns the relative cost of a given configuration with respect to the current configuration.
+%\item \verb!int currentCost()! $\rightarrow$ Property that returns the cost of the current configuration.
+\item \verb!currentCost()! $\rightarrow$ Property that returns the cost of the current configuration.
+%\item \verb!int costOnVariable(int variable_index)! $\rightarrow$ Returns a measure of the contribution of a variable to the total cost of a configuration. % \tet{AMPLIAR}
+\item \verb!costOnVariable! $\rightarrow$ Returns a measure of the contribution of a variable to the total cost of a configuration.
 %\item \verb!int sickestVariable()! $\rightarrow$ Returns the variable contributing the most to the cost.
 \end{itemize}
 

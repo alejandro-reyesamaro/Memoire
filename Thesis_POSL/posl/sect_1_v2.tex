@@ -10,7 +10,7 @@ A \om{} is the most basic and abstract way to define a piece of computation. It 
 A \om{} $Cm$ is a mapping defined by: 
 \begin{equation}
 \label{def:om}
-Cm:I \rightarrow O
+Cm:\mathcal{I} \rightarrow \mathcal{O}
 \end{equation}
 }
 
@@ -41,11 +41,11 @@ Each \om{} is written in C++. \posl{} provides a hierarchy of data types to work
 and some abstract classes to inherit from, depending on the type of \om{} the user wants to create. These abstract classes represent {\it abstract} \oms{} and define a type of action to be executed. In the following we present the most important ones:
 
 \begin{itemize}
-\item \pclass{ACM\_FirstConfigurationGeneration} $\rightarrow$ Represents \oms{} returning a configuration, usually used for generating the starting configuration on local search meta-heuristics. The user must implement the method \pmethod{execute}{\pclass{ComputationData}} which returns a pointer to a \pclass{Solution}, that is, an object containing all the information concerning a partial solution (configuration, variable domains, etc.)
-\item \pclass{ACM\_NeighborhoodFunction} $\rightarrow$ Represent \oms{} receiving a configuration as input and returning its neighborhood as output. The user must implement the method \pmethod{execute}{\pclass{Solution}} which returns a pointer to an object \pclass{Neighborhood}, containing a set of configurations which constitute the neighborhood of a given configuration, according to certain criteria. These configurations are efficiently stored in term of space.
-\item \pclass{ACM\_SelectionFunction} $\rightarrow$ Represents \oms{} receiving a neighborhood as input and selecting a configuration from it as output. The user must implement the method \pmethod{execute}{\pclass{Neighborhood}} which returns a pointer to an object \pclass{DecisionPair}, containing two solutions: the current and the selected one.
-\item \pclass{ACM\_DecisionFunction} $\rightarrow$ Represents \oms{} receiving a couple af configurations encapsulated into a \pclass{DecisionPair} object, and returning the configuration to be the current one for the next iteration. The user must implement the method \pmethod{execute}{\pclass{DecisionPair}} which returns a pointer to an object \pclass{Solution}.
-\item \pclass{ACM\_ProcessingConfigurationFunction} $\rightarrow$ Represents \oms{} receiving a configuration and returning another configuration as result of some arrangement, like for example, a reset. The user must implement the method \pmethod{execute}{\pclass{Solution}} which returns a pointer to an object \pclass{Solution}.
+\item \textbf{First Configuration Generation} $\rightarrow$ Represents \oms{} returning a configuration $s$, usually used for generating the starting configuration on local search meta-heuristics. 
+\item \textbf{Neighborhood Function} $\rightarrow$ Represent \oms{} receiving a configuration $s$ as input and returning its neighborhood $\mathcal{V}(s)$ as output. These output configurations are efficiently stored in term of space.
+\item \textbf{Selection Function} $\rightarrow$ Represents \oms{} receiving a neighborhood as input and selecting a configuration $s'$ from it as output. This function returns the pair $(s, s')$ containing both current and selected configuration.
+\item \textbf{Decision Function} $\rightarrow$ Represents \oms{} receiving a couple af configurations encapsulated into a pair $(s, s')$, and returning the configuration to be the current one for the next iteration. 
+\item \textbf{Processing Configuration Function} $\rightarrow$ Represents \oms{} receiving a configuration and returning another configuration as result of some arrangement, like for example, a reset. 
 \end{itemize}
 
 \subsection{Communication modules}
@@ -80,12 +80,12 @@ It returns the output $O$ of the execution of the \om{} coming from an external 
 	\centering
 	\subfloat[][Data \opch]{
 		\label{subfig:doch}
-		\includegraphics[width=0.4\linewidth]{D_OCh.png}
+		\includegraphics[width=0.4\linewidth]{D_OCh_v2.png}
 	}
 	\hspace{0.05\textwidth}%
 	\subfloat[][Object \opch]{%
 		\label{subfig:ooch}
-		\includegraphics[width=0.4\linewidth]{O_OCh.png}
+		\includegraphics[width=0.4\linewidth]{O_OCh_v2.png}
 	}
 	\caption[]{Communication module}
 	\label{fig:och}
