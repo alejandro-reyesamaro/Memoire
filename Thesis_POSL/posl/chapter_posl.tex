@@ -11,11 +11,11 @@
 \section{Introduction}
 \label{sec:posl_intro}
 
-Meta-heuristic methods, despite showing very good results solving \CSPs, they are frequently not enough for solve them, when they are applied to problem instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction of this thesis was tackling the one of the weakest points of meta-heuristic methods: theirs parameters. In Appendix~\ref{chap:prior} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings was presented. This experiment did not produce encouraging results. That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
+Meta-heuristic methods, despite showing very good results for solving \CSPs, are frequently not enough for solving instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction for this thesis was to tackle one of the weakest points of meta-heuristic methods: theirs parameters. In Appendix~\ref{chap:prior} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings was presented. This experiment did not produce encouraging results. That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
 
 From the beginning of the current investigation, the target problems were big and complex instances of \csps. For that reason, even if the current version of the framework does not provide auto tuning mechanisms, this thesis focuses on the implementation of a mechanism to easily build solvers based on local search meta-heuristic, providing an easy way of reusing algorithm's components commons to different methods.
 
-With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided to focus the thesis completely on the parallel approach. In Appendix~\ref{chap:prior} it was presented a study in which the problem-subdivision approach was applied to the resolution of {\it K-Medoids Problem}. The main goal of this work was generalizing the proposed ideas to similar problems. It was only a theoretical study, performed in parallel with what would latter be the main scientific contribution of this thesis.
+With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided to focus this thesis completely on the parallel approach. In Appendix~\ref{chap:prior} it was presented a study in which the problem-subdivision approach was applied to the resolution of {\it K-Medoids Problem}. The main goal of this work was generalizing the proposed ideas to similar problems. It was only a theoretical study, performed in parallel with what would latter be the main scientific contribution of this thesis.
 
 Many results from the literature indicate that the combination of meta-heuristic methods with parallelism provides very good results for large scale \csps. This investigation focuses in the implementation of the multi-walk parallel approach. Most of the methods found in the state of the art of this field are based on applying clever techniques to accelerate the solution process of specific problems. The present work does not apply partitioning techniques neither for the search space nor for the target problem. This make the proposed framework applicable in a general and more easy way for a broad range of problems.
 
@@ -35,7 +35,16 @@ Alex S. Fukunaga propose in~\cite{Fukunaga2008} an evolutionary approach that us
 
 {\it ParadisEO} is a framework presented by \etal{Cahon} in~\cite{Cahon2004} to design parallel and distributed hybrid meta-heuristics showing very good results, including a broad range of reusable features to easily design evolutionary algorithms and local search methods. \etal{Martin} propose in~\cite{Martin2016} an approach of using cooperating meta--heuristic based local search processes, using an asynchronous message passing protocol. The cooperation is based on the general strategies of pattern matching and reinforcement learning. 
 
-The tool developed for this thesis, uses this idea where search process features can be combined and reused, and it is also possible to design communication strategies between solvers.
+%The main challenge faced in this thesis is finding the right communication strategy  
+
+We can cite a lot of works to prove that high-level framework for the development of efficient algorithms, as well as the parallel approach with or without communication have been widely used reporting good results. However, a solution combining a modular way to construct algorithms with tools to manage the parallelism is still missing. It is well know that interprocess communication can help during the search process of constrained solvers, but it is also well know that this communication is very complicated to perform in practice, due to certain overheads. In that sense this thesis propose a framework to create parallel communication strategies, by providing tools to easily manipulate:
+\begin{enumerate}
+\item \textbf{where to perform the communication} $\rightarrow$ using operators to combine information reception modules with \cms{} inside the algorithm, 
+\item \textbf{what to communicate} $\rightarrow$ configurations, neighborhoods, configuration costs, algorithms, etc., and
+\item \textbf{how to perform the communication} $\rightarrow$ providing instructions to create and connect in different ways sets of solvers.
+\end{enumerate}
+
+%The tool developed for this thesis, uses this idea where search process features can be combined and reused, and it is also possible to design communication strategies between solvers.
 
 \subsection{POSL}
 

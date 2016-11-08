@@ -1,0 +1,130 @@
+\documentclass[11pt,a4paper]{moderncv}
+
+%\usepackage[latin1]{inputenc}
+% moderncv themes
+\moderncvtheme[blue]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[latin1]{inputenc}   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}						% if you want to change the width of the column with the dates
+%\AtBeginDocument{\setlength{\maketitlenamewidth}{6cm}}  % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+%\AtBeginDocument{\recomputelengths}                     % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Alejandro\\REYES AMARO}
+\familyname{} %{REYES AMARO} %{Reyes Amaro}
+%\title{Curriculum Vitae}
+\address{2 rue de la Houssinière}{44322 Nantes}
+\mobile{(+33)666-372524}
+\phone{(+33)251-125831}
+%\fax{fax (optional)}
+\email{alejandro.reyes@univ-nantes.fr}
+%\homepage{homepage ()}
+%\extrainfo{Place and Date of Birth: \\La Habana, Cuba $|$ March 4, 1982}
+\photo[64pt]{QRCode} % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+\quote{Novembre 2016} %{Last Update \today}
+
+% to show numerical labels in the bibliography; only useful if you make citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\newcommand{\mc}{Mots clés}
+\newcommand{\gt}{Sujets}
+\newcommand{\rt}{Sujet de recherche}
+\newcommand{\uh}{Universit\'{e} de la Havane}
+\newcommand{\uib}{Université des Iles Baléares}
+\newcommand{\un}{Universit\'e de Nantes}
+\newcommand{\lina}{Laboratoire d'Informatique de Nantes Atlantique (LINA)}
+\newcommand{\facHab}{Faculté de Mathématiques et d'Informatique. \uh, Cuba}
+\newcommand{\depthHab}{Département de Mathématiques Appliquées, \facHab}
+\newcommand{\depthNantes}{Département d'Informatique, \un}
+\newcommand{\matlab}{\textsc{Matlab}}
+%\renewcommand{\thebibliography}{Publicaciones}
+\makeatother
+
+\newcounter{rtaskno}
+\newcommand{\rtask}{%
+   \stepcounter{rtaskno}%
+   \thertaskno}
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Articulos},{Registros de Software}}
+
+\nopagenumbers{}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+\section{Publications}
+\subsection{Chapitre de livre}
+\cventry
+	{[\rtask]}{\underline{Reyes-Amaro A.}, Monfroy É. et Richoux F.}
+	{POSL: A Parallel-Oriented metaheuristic-based Solver Language}
+	{\textit{Springer book, à aparaître} : Recent developments of metaheuristics}
+	{}
+	{}
+%\subsection{Journaux internationaux (avec comité de lecture)}
+%\cventry
+%	{[\rtask]}{\underline{Reyes-Amaro A.}, Mesejo-Chiong A., Ramón Mas-Sansó et Jaume-i-Capó A.}
+%	{Using Particle Filters to Find Free Obstacle Trajectories for a Kinematic Chain}
+%	{\textit{Dans} Studies in Informatics and Control, 22(2). ISSN: 1220-1766}
+%	{2013}
+%	{JCR : 0.375 (Q2)}
+%\cventry
+%	{[\rtask]}{\underline{Reyes-Amaro A.}, Fadraga-González Y., Vera-Pérez O. L., Domínguez-Campillo E., NodarseRabelo J., Mesejo-Chiong A., Moyà-Alcover B. and Jaume-i-Capó A.}
+%	{Rehabilitation of patients with motor disabilities using computer vision based techniques}
+%	{\textit{Dans} JACCES: Journal of accessibility and design for all. ISSN: 2013-7087}
+%	{2011}
+%	{}
+%\subsection{Journaux nationaux (avec comité de lecture)}
+%\cventry
+%	{[\rtask]}{\underline{Reyes-Amaro A.}, and Kakes A.}
+%	{Implementación de un Método Primal - Dual de Punto Interior para la resolución del problema de programación lineal}
+%	{\textit{Dans} Boletín de la Sociedad Cubana de Matemática y Computación, 5. ISSN: 1728-6042 RPNS-2017}
+%	{2007}
+%	{}
+%\subsection{Conférences internationales (avec comité de lecture et actes)}
+\subsection{Ateliers internationaux (avec comité de lecture et actes)}
+\cventry
+	{[\rtask]}{\underline{Reyes-Amaro A.}, Monfroy É. et Richoux F.}
+	{A Parallel-Oriented Language for Modeling Constraint-Based Solvers}
+	{Workshop on Multi/Many-core computing for parallel Metaheuristics(McM'2015), \textit{Dans} Proceedings of the 11th edition of the Metaheuristics International Conference (MIC 2015)}
+	{Springer, 2013}
+	{}
+\subsection{Conférences nationales (avec comité de lecture et actes)}
+\cventry
+	{[\rtask]}{\underline{Reyes-Amaro A.}, Monfroy É. et Richoux F.}
+	{Étude de stratégies parallèles de coopération 	avec POSL}
+	{\textit{accepté à :} Douzièmes Journées Francophones de Programmation par Contraintes (JFPC)}
+	{Montpellier, France, 2016}
+	{}
+\cventry
+	{[\rtask]}{\underline{Reyes-Amaro A.}, Monfroy É. et Richoux F.}
+	{Un langage orienté parallèle pour modéliser des solveurs de contraintes}
+	{\textit{Dans} Onzièmes Journées Francophones de Programmation par Contraintes (JFPC)}
+	{Bordeaux, France, 2015}
+	{}
+%\cventry
+%	{[\rtask]}{\underline{Reyes-Amaro A.}, Mesejo A., and Jaume-i-Capó A.}
+%	{Movimiento óptimo de una cadena cinemática hacia un objetivo entre obstáculos}
+%	{\textit{Dans} Memorias del XII Congreso de Matemática y Computación (COMPUMAT 2011)}
+%	{ISBN: 978-959-250-658-9, 2011}
+%	{}
+%\cventry
+%	{[\rtask]}{\underline{Reyes-Amaro A.}, Mesejo A. and Jaume-i-Capó A.}
+%	{Planificación de camino para una cadena cinemática aplicando filtros de partículas dentro del espacio libre de configuración}
+%	{\textit{Dans} Memorias de Informática 2011}
+%	{(CC1093) ISBN: 978-959-7213-01-7, 2011}
+%	{}
+%\subsection{Ateliers nationaux (avec comité de lecture et actes)}
+%\cventry
+%	{[\rtask]}{Domínguez E., Manresa-Yee C. \underline{Reyes-Amaro A.}, Fadraga-González Y., Nodarse-Ravelo J.}{Validación de aplicaciones basadas en visión para la rehabilitación de pacientes con trastornos motores}
+%	{\textit{Dans} Simposio sobre Aplicación de la Informática y la Matemática a la Rehabilitación y la Salud AIMRS 2011}{2011}{}
+
+\end{document}

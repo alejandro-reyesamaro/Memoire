@@ -3,14 +3,29 @@
 \contentsline {chapter}{\numberline {1}A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introduction}{4}{section.1.1}
 \contentsline {subsection}{\numberline {1.1.1}Precedents}{5}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}POSL}{5}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Modeling the target benchmark}{6}{section.1.2}
+\contentsline {subsection}{\numberline {1.1.2}POSL}{6}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Modeling the target benchmark}{7}{section.1.2}
 \contentsline {section}{\numberline {1.3}First stage: creating {\sc POSL}'s modules}{9}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Computation module}{9}{subsection.1.3.1}
 \contentsline {subsubsection}{\numberline {1.3.1.1}Creating new computation{} modules}{10}{subsubsection.1.3.1.1}
-\contentsline {subsection}{\numberline {1.3.2}Communication modules}{10}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.2}Communication modules}{11}{subsection.1.3.2}
 \contentsline {section}{\numberline {1.4}Second stage: assembling {\sc POSL}'s modules}{12}{section.1.4}
-\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{25}{section.1.5}
+\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{26}{section.1.5}
 \contentsline {section}{\numberline {1.6}Forth stage: connecting solvers}{26}{section.1.6}
-\contentsline {section}{\numberline {1.7}Summarize}{30}{section.1.7}
-\contentsline {chapter}{\numberline {2}Bibliography}{33}{chapter.2}
+\contentsline {section}{\numberline {1.7}Summarize}{31}{section.1.7}
+\contentsline {part}{II\hspace {1em}Study and evaluation of {\sc POSL}}{33}{part.2}
+\contentsline {chapter}{\numberline {2}Experiments design and results}{35}{chapter.2}
+\contentsline {section}{\numberline {2.1}Solving the {\it Social Golfers}{} {\it Problem}}{36}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Problem definition}{37}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Experiment design and results}{37}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Solving the {\it N-Queens}{} {\it Problem}}{47}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Problem definition}{48}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Experiments and results}{48}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Solving the {\it Costas Array}{} {\it Problem}}{52}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Problem definition}{52}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Experiment design and results}{53}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Solving the {\it Golomb Ruler}{} {\it Problem}}{56}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Problem definition}{57}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Experiment design and results}{57}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Summarizing}{62}{section.2.5}
+\contentsline {chapter}{\numberline {3}Bibliography}{65}{chapter.3}

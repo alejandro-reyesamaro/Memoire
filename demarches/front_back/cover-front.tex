@@ -1,0 +1,173 @@
+\documentclass[12pt, english, fancyChapter, fancyPart, squeezeCommittee]{these-LUNAM-UBL}
+
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\geometry{inner=2.5cm, outer=2.5cm, top=2.5cm, bottom=2cm}
+\geometry{inner=1.5cm, outer=1.5cm, top=2cm, bottom=2cm}
+\usepackage{times} % times, palatino, charter, lmodern, etc.
+\RequirePackage[bookmarks,%
+                colorlinks=false,% probably colorlinks=false if you have chosen the greyCover option above
+                urlcolor=blue,%
+                citecolor=blue,%
+                linkcolor=blue,%
+                hyperfigures,%
+                pagebackref,%
+                pdfcreator=LaTeX,%
+                breaklinks=true,%
+                pdfpagelayout=SinglePage,%
+                bookmarksopen=true,%
+                bookmarksopenlevel=2]{hyperref}
+
+%\usepackage{lipsum}
+
+\titre{POSL: Un Languaje Orienté Parallèle pour construire des Solveurs de contraintes}
+   % - Le titre est obligatoire.
+%\soustitre{Application à la cartographie de l'ophiolite d'Oman et au programme d'étude des nouvelles AOC des muscadets de la région nantaise}
+   % - Un sous-titre est optionnel.
+\title{POSL: A Parallel-Oriented Solver Language}
+   % - Le titre en anglais est également obligatoire.
+   %   Il est utilisé en quatrième de couverture avec le résumé et les mots clés,
+   %   mais également sur la page de titre si le mémoire est rédigé en anglais.
+%\subtitle{Application to the Cartography of the Oman's Ophiolite and the Study Programme of the New Muscadets AOC in the Region of Nantes}
+   % - Il est normalement à fournir s'il en existe un en français.
+\author{M.}{Alejandro\\}{REYES AMARO}
+   % - Le nom, troisième argument, est automatiquement mis en petites capitales,
+   %   afin d'éviter toute confusion avec le prénom.
+   %   Il doit comporter les accents.
+   %   Le nom patronymique doit apparaître avec un nom d'usage (ex. : nom d'épouse
+   %   pour les femmes mariées) sans aucune indication du type "né(e)", "dit", "épouse"...
+   %   Il s'agit d'obligations légales : Code civil, Instruction générale du 29 mars 2002 relative à l'état civil.
+   %
+   %   Note. Dans les cas où le nom ne tiendrait pas sur une seule ligne à un ou deux caractères près,
+   %         il est possible d'ajouter des commandes de positionnement fin du texte devant le prénom,
+   %         comme dans l'exemple suivant :
+   %            \author{M.}{\hspace{-1.85em}Céline}{Sarazin-Desbois}
+   %
+
+\discipline{Informatique et applications}
+   % - Vous devez utiliser la discipline figurant sur votre dossier d'inscription
+   %   conformément à la nomenclature nationale.
+\sectionCNU{27}
+   % - Ajouter le numéro de section dont relève la thèse (éventuellement plusieurs, par exemple {27, 61}).
+   %   Cette information est optionnelle ; il suffit de commenter la commande.
+%\specialty{Informatique}
+   % - La spécialité peut être optionnelle.
+   %   Si elle existe, elle a été (devrait être) définie par les laboratoires et
+   %   l'école doctorale dans une liste exhaustive.
+
+
+\institution{UN} 
+
+\doctoralschool{Sciences et technologies de l'information, et mathématiques}
+%\europeanlabel
+\laboratory{Laboratoire d'informatique de Nantes-Atlantique (LINA)}
+\thesisnumber{}
+   % - L'attribution d'un numéro dépend de l'établissement.
+   %   De plus, cela est facultatif.
+   %   Laisser vide (ou commenter) cette indication pour la faire disparaître de la couverture.
+   % - Each university of school has its own policy on the attribution of a thesis number.
+   %   Furthermore, this is optional.
+   %   Leave it empty (or comment it out) in order to remove it from the cover.
+\date{23 janvier 2016}
+
+
+% JURY / DEFENSE COMMITTEE
+
+% rapporteurs de la thèse (au moins deux, au plus trois) / reviewers (at least two, at most three)
+%    \reviewer{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    \reviewer*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    - Dans de rares cas, un ou les rapporteurs de thèse pourraient ne pas être membre(s) du jury le jour de la soutenance.
+%      Utilisez alors la version étoilée de la commande.
+\reviewer{M.}{Frédéric}{LARDEUX}{Maître de conférences}{Université d'Angers}
+\reviewer{M.}{Christophe}{LECOUTRE}{Professeur}{Université d'Artois}
+
+% examinateurs (optionnel, jusqu'à huit... en théorie) / examiners (optional, up to height... in strange cases)
+%    \examiner{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+\examiner{M.}{Arnaud}{LALLOUET}{Chercheur industriel}{Huawei Technologies Ltd.}
+%\examiner{Mme}{Martine}{Lani-Bayle}{Maître de conférences}{École nationale des Ponts et Chaussées, Marne-la-Vallée}
+%\examiner{M.}{Patrick}{Ledru}{Ingénieur-chercheur sénior}{Universidad del Pa\`is Vasco, Bilbao, Espagne}
+\president{M.}{Salvador}{ABREU}{Professeur étranger}{Université d'Évora} % cf. ci-dessous / See below
+%\examiner{Mme}{Prénom}{Nom}{Titre}{Établissement}
+
+% president (optionnel) / president (optional)
+%    \president{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    - Durant la soutenance, l'un des examinateurs aura été choisi comme président du jury.
+%      Il ne peut s'agir ni des rapporteurs, ni des encadrants, et encore moins des invités.
+%      Dans la version finale de la thèse, il est donc possible de changer la commande
+%      '\examiner' pour '\president' pour la personne désignée.
+%      Notez que si le président est généralement chargé de la rédaction du rapport de
+%      soutenance, cette tâche peut être déléguée à encore un autre membre du jury. Mais
+%      ce cas extrême n'est pas pris en compte (cf. ci-dessus).
+
+% invités (optionnel, jusqu'à deux) / guests (optional, up to two)
+%    \guest{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%\guest{Mme}{Prénom}{Nom}{Titre}{Établissement}
+%\guest{Mme}{Prénom}{Nom}{Titre}{Établissement}
+
+% directeur de thèse (un seul) / supervisor (only one)
+%    \supervisor{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    \supervisor*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    - Dans de rares cas, le directeur de thèse pourrait ne pas être membre du jury le jour de la soutenance.
+%      Utilisez alors la version étoilée de la commande.
+\supervisor{M.}{Éric}{MONFROY}{Professeur}{Université de Nantes}
+
+% directeur de thèse en co-tutelle (un seul), la co-institution doit exister / foreign supervisor (only one), the co-institution must exist
+%    \foreignsupervisor{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    \foreignsupervisor*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    - Dans de rares cas, le directeur de thèse étranger de co-tutelle pourrait ne pas être membre du jury le jour de la soutenance.
+%      Utilisez alors la version étoilée de la commande.
+%\foreignsupervisor{Mme}{Brigitte}{M\"\ae lher}{Professeur}{Universidad de los Andes}
+
+% co-directeur de thèse (optionnel, au plus un) / co-supervisor (optional, at most one)
+%    \cosupervisor{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    \cosupervisor*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    - Dans de rares cas, le co-directeur de thèse pourrait ne pas être membre du jury le jour de la soutenance.
+%      Utilisez alors la version étoilée de la commande.
+\cosupervisor{M.}{Florian}{RICHOUX}{Maître de conférences}{Université de Nantes}
+
+% co-directeur de thèse en co-tutelle (un seul), la co-institution doit exister / foreign supervisor (only one), the co-institution must exist
+%    \foreigncosupervisor{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%    \foreigncosupervisor*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
+%\foreigncosupervisor{M.}{Jacques}{Chamford}{Professeur}{Universidad de los Andes}
+
+% - Notez que les encadrants scientifiques, autres que le(s) directeur(s) et l'éventuel co-directeur, ne sont pas mis en évidence.
+%   Ils sont généralement examinateurs, plus rarement seulement invités (pour des raison de règles de représentativité dans la composition d'un jury).
+
+%-------------------------------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{resume}
+   % - Le résumé doit être suffisamment court pour tenir en dernière page, sur une seul (demi-)colonne,
+   %   avec les mots-clés correspondants.
+   %   En cas de nécessité, il est possible de réduire la taille des caractères
+   %   avec les commandes \footnotesize, voire \scriptsize (la taille par défaut est \small).
+   %   Mais, il ne doit pas dépasser 1 700 caractères, espaces comprises.
+   %   Noter que le résumé est aligné à gauche, non pas justifié.
+   %   En effet, dans le cas de colonnes étroites cela permet d'éviter que certaines lignes de
+   %   contiennent des espacements visuellement désagréables.
+   \footnotesize
+   %\scriptsize
+La technologie multi-coeur et les architectures massivement parallèles sont de plus en plus accessibles à tous, à travers des technologies comme le Xeon Phi ou les cartes GPU. Cette stratégie d'architecture a été communément adoptée par les constructeurs pour faire face à la loi de Moore. Or, ces nouvelles architectures impliquent d'autres manières de concevoir et d'implémenter les algorithmes, pour exploiter complètement leur potentiel, en particulier dans le cas des solveurs de contraintes traitant de problèmes d'optimisation combinatoire.
+De plus, le temps de développement nécessaire pour coder des solveurs en parallèle est souvent sous-estimée, et concevoir des algorithmes efficaces pour résoudre certains problèmes consomme trop de temps. Dans cette thèse nous présentons le langage orienté parallèle {\sc POSL}, permettant de  construire des solveurs de contraintes basés sur des méta-heuristiques qui résolvent des Problèmes de Satisfaction de Contraintes. Le but de ce travail est d'obtenir un système pour facilement construire des solveurs et réduire l'effort  de leur développement en proposant un mécanisme de réutilisation de code entre les différents solveurs. Il fournit aussi un mécanisme pour coder des stratégies de communication indépendantes des solveurs. Dans cette thèse, nous présentons aussi une analyse détaillée des résultats obtenus en résolvant plusieurs instances des CSPs. L'idée n'est pas d'améliorer l'état de l'art en terme d'efficacité sur ces instances de CSPs, mais de démontrer qu'il est possible de rapidement écrire des prototypes avec {\sc POSL} afin d'expérimenter facilement différentes stratégies de communication.
+\end{resume}
+
+\begin{motscles}
+CSP, méta-heuristiques, parallèle, communication entre processus, langage.
+\end{motscles}
+
+\begin{abstract}
+   \footnotesize
+   %\scriptsize
+The multi-core technology and massive parallel architectures are nowadays more accessible for a broad public through hardware like the Xeon Phi or GPU cards. This architecture strategy has been commonly adopted by processor manufacturers to stick with Moore's law. However, this new architecture implies new ways of designing and implementing algorithms to exploit their full potential. This is in particular true for constraint-based solvers dealing with combinatorial optimization problems.
+Furthermore, the developing time needed to code parallel solvers is often underestimated. In fact, conceiving efficient algorithms to solve certain problems takes a considerable amount of time. In this thesis we present {\sc POSL}, a Parallel-Oriented Solver Language for building solvers based on meta-heuristic, in order to solve Constraint Satisfaction Problems (CSP) in parallel. The main goal of this thesis is to obtain a system with which solvers can be easily built, reducing therefore their development effort, by proposing a mechanism of code reusing between solvers. It provides a mechanism to implement solver-independent communication strategies. We also present a detailed analysis of the results obtained when solving some CSPs. The goal is not to outperform the state of the art in terms of efficiency, but showing that it is possible to rapidly prototyping with {\sc POSL} in order to experiment different communication strategies.
+\end{abstract}
+
+\begin{keywords}
+CSP, meta-heuristics, parallel, inter-process communication, language.
+\end{keywords}
+
+\maketitle
+
+\end{document}
