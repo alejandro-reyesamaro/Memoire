@@ -9,27 +9,61 @@ I describe all the experiments and I expose a complete analysis of the obtained 
 In this chapter I illustrate and analyze the versatility of \posl{} studying different ways to solve constraint problems based on local search meta-heuristics. 
 I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are challenging yet differently structured problems. In this chapter I present formally each benchmark, I explain the structure of \posl's solvers that I have generated for experiments and present a detailed analysis of obtained results.
 
-The experiments\footnote{\posl{} source code is available on GitHub:\href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} 
-were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called \textit{Coriosiphi} and is located at \textit{Laboratoire d'Informatique de Nantes Atlantique}, at the University of Nantes. Showed results are the means of 30 runs for each setup, presented in columns labeled {\bf T}, corresponding to the run-time in seconds, and {\bf It.} corresponding to the number of iterations; and their respective standard deviations ({\bf T(sd)} and {\bf It.(sd)}). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes).
+First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} were we used \posl{} to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, therefore it was able to solve only relatively easy instances. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}. %With the next and more optimized version of \posl{}, I decide to start performing more detailed studies.
 
-The experiments in this Chapter are multi-walk runs. Parallel experiments use 40 cores for all problem instances. It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
+\section{Methodology}
 
-All benchmarks were coded using the \posl{} low-level framework in C++.
+Some terms are necessary to be defined for simplification sake. They are the \textit{sequential environment} and the \textit{parallel environment}, which are the description of the computation resources used for experimentation. Experiments\footnote{\posl{} source code is available on GitHub:\href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} 
+were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called {\sc Curiosiphi} and is located at \textit{Laboratoire d'Informatique de Nantes Atlantique}, at the University of Nantes. %The other term that needs to be introduced is the \textit{statistical summary}, which is the obtained information from the runs, used to analyze the solution process and draw conclusions.
 
-First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} were we used \posl{} to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, therefore it was able to solve only relatively easy instances. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}.
+\begin{definition}\label{def:seq_envir}
+We say that we launch an experiment using a \textbf{sequential environment} if we execute a \soset{} into a single process of {\sc Curiosiphi}.
+\end{definition}
 
-With the next and more optimized version of \posl{}, I decide to start to perform more detailed studies using the benchmark mentioned before and some others.
+\begin{definition}\label{def:par_envir}
+We say that we launch an experiment using a \textbf{parallel environment} if we execute a \soset{} in parallel (multi-walk) using the maximum of available processes in {\sc Curiosiphi}.
+\end{definition}
 
-\section{Solving the \sgp}\label{sec:golfers}
+%\begin{definition}\label{def:summ_stat}
+%During the experimentation process, we say that we are performing a \textbf{statistical summary} if  
+%\end{inparaenum} 
+%\end{definition}
+%.
+
+With the aim of being as exhaustive as possible in the experimentation process, a methodology based on four stages is proposed:
+
+\begin{enumerate}
+\item \underline{\textbf{Algorithm selection}} In this stage some experiments are launched to ensure choosing the right \oms, and the right design of the \as. Experiments are performed using the sequential environment, and the following statistical analysis is performed: A set of 30 runs for each setup are performed, and used to \begin{inparaenum}[a)]
+\item build box-plot diagrams and bars graphs with some additional information about winner solvers, presented in Appendixes~\ref{app:sgp}, \ref{app:nqp}, \ref{app:cap} and \ref{app:grp}; \item compute means and standard deviation for run-times and iterations, showed in tables presented in this chapter, in columns labeled {\bf T} (run-time in seconds), {\bf It.} (number of iterations), {\bf T(sd)} and {\bf It.(sd)} (their respective standard deviations). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes). \end{inparaenum}
+
+\item \underline{\textbf{Algorithm evaluation in the parallel environment}} The selected algorithm is launched using the parallel environment. It is performed a similar statistical analysis to the one described in the previews stage, and results are compared.\label{stage_expe_2}
+
+\item \underline{\textbf{Communication strategies selection}} After a detailed study of the search process and the behavior of the designed \sosets, some changes in the \soset{} are proposed in order to design a \commstr:
+\begin{itemize}
+\item replacing some \oms{} for others based on the originals, but with some modifications according to the new demands of the proposed \commstr;
+\item adding some \opchs{} depending on the information that we intend to share;
+\item a new \as{} is coded, whose modifications are the strictly necessary to incorporate \opchs;
+\item the structure of the communication is designed in order to chose the right \commopers.
+\end{itemize}
+
+\item \underline{\textbf{Communication strategy evaluation}} The designed \commstr{} is launched suing the parallel environment, and a statistical analysis is performed. Communication strategies are compared each others based on obtained results in order to select the right one. These results are also compared to those obtained during the stage~\ref{stage_expe_2}, to be able to draw conclusions about the success of the cooperative approach.
+\end{enumerate}
+
+It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
+
+%All benchmarks were coded using the \posl{} low-level framework in C++.
+
+%\section{Solving the \sgp}\label{sec:golfers} % Studying a dynamic configuration exchange strategy with
+\section{A dynamic configuration exchange strategy (\sg)}
 \input{results/res_golfers}
 
-\section{Solving the \nqp}\label{sec:nqueens}
+\section{A cyclic \comstr{} (\nq)}\label{sec:nqueens} % Studying a cyclic \comstr{} with
 \input{results/res_nqueens}
 
-\section{Solving the \carrp}\label{sec:costas}
+\section{A simple \comstr{} (\carr)}\label{sec:costas} % Studying a simple \comstr{} with
 \input{results/res_costas}
 
-\section{Solving the \grp}\label{sec:golomb}
+\section{A local minima evasion strategy (\gr)}\label{sec:golomb} % Studying a local minima evasion strategy with Golomb Ruler
 \input{results/res_golomb}
 
 \section{Summarizing}

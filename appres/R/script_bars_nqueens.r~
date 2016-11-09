@@ -19,5 +19,4 @@ mtext("Communication strategy", side=1, line=5, cex=2.5)
 
 # Save the file.
 dev.off()
-
 }

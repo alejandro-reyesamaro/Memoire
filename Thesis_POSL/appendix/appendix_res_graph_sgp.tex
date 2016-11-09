@@ -16,25 +16,20 @@ In Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and \ref{boxplot:9comm}, lab
 \textbf{100SC1-n}: & 100\% of communicating solvers performing simple communication \oneTn \\
 \textbf{50SC1-n}: & 50\% of communicating solvers performing simple communication \oneTn \\
 \textbf{25SC1-n}: & 25\% of communicating solvers performing simple communication \oneTn \\
-\textbf{CC1-n}: & One set of solvers performing cyclic communication \oneTn \\
-\textbf{CC1-n/2}: & Two sets of solvers performing cyclic communication \oneTn \\
-\textbf{CC1-n/4}: & Four sets of solvers performing cyclic communication \oneTn \\
-\textbf{100CC1-n}: & 100\% of communicating solvers performing cyclic communication \oneTone \\
-\textbf{50CC1-n}: & 50\% of communicating solvers performing cyclic communication \oneTone \\
-\textbf{25CC1-n}: & 25\% of communicating solvers performing cyclic communication \oneTone\\
+\textbf{CC1-n}: & One set of solvers performing dynamic exchange communication \oneTn \\
+\textbf{CC1-n/2}: & Two sets of solvers performing dynamic exchange communication \oneTn \\
+\textbf{CC1-n/4}: & Four sets of solvers performing dynamic exchange communication \oneTn \\
+\textbf{100CC1-1}: & 100\% of communicating solvers performing dynamic exchange communication \oneTone \\
+\textbf{50CC1-1}: & 50\% of communicating solvers performing dynamic exchange communication \oneTone \\
+\textbf{25CC1-1}: & 25\% of communicating solvers performing dynamic exchange communication \oneTone\\
 \end{tabular}
 }
 
-Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the percentage of winner solvers for each communication strategy, according to four different types:
+\section{Comparison between sequential and parallel runs}
 
-\poslcaptiondesciption{
-\begin{tabular}[t]{rl}
-\receiver{Receiver}: & Receiver solver wining thanks to the received information \\
-\sender{Sender}: & Sender solver \\
-\nonreceiver{Pasive receiver}: & Receiver solver wining without using the received information \\
-\textbf{Non communicating}: & Non communicating solver \\
-\end{tabular}
-}
+Figure~\ref{fig:boxplot_sel} shows the huge difference between the spread in results of sequential and parallel runs. Although both parallel strategies (best and first improvement) are equally stable, the one using the selection \om{} of first improvement shows better results. All of their runs are under the mean value of sequential runs (except a suspected outlier).
+
+\newpage
 
 %------ SELECTION
 \begin{figure}[!h]
@@ -55,6 +50,10 @@ Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the perc
 \label{fig:boxplot_sel}
 \end{figure}
 
+\section{Comparison between \commstrs}
+
+Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and~\ref{boxplot:9comm} show results summaries of different \commstrs{}. They are presented together with the box-plot graph of parallel results without communication (\texttt{NC}). In all cases we can observe that strategies \texttt{100\%CC1-1} and \texttt{50\%CC1-1}  show excellent results in comparison to the one without communication. This figure shows also that simple \commstrs{} do not contribute enough to the improvement of search time.
+
 %------ COMMUNICATION
 \begin{figure}[!h]
 \centering
@@ -74,6 +73,8 @@ Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the perc
 \caption{Different communication strategies to solve \SGP{} 9-4-8 using \posl}\label{boxplot:9comm}
 \end{figure}
 
+\newpage
+
 %\begin{figure}[!h]
 %\centering
 %\includegraphics[width=0.4\textwidth]{g5_select_BP.pdf}
@@ -92,6 +93,22 @@ Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the perc
 %\caption{Comparison between sequential and parallel (best improvement and first improvement selections) runs to solve \SGP{} 9-4-8 using \posl}
 %\end{figure}
 
+\section{Winner solver type representation}
+
+Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the percentage of winner solvers for each communication strategy, according to four different types:
+
+\poslcaptiondesciption{
+\begin{tabular}[t]{rl}
+\receiver{Receiver}: & Receiver solver wining thanks to the received information \\
+\sender{Sender}: & Sender solver \\
+\nonreceiver{Passive receiver}: & Receiver solver wining without using the received information \\
+\textbf{Non communicating}: & Non communicating solver \\
+\end{tabular}
+}
+
+In these bar graphs is evident to see how the solver communication has played an important role in the solution process. The number of receiver solvers which have win the search process is high, as expected, in dynamic exchange strategies with communication \oneTn. However, due to the huge traffic of information, the communication overhead make the resulting runtimes not competitive. 
+
+The other interesting detail showed in these graphs is that this number of winner receiver solvers remains high in the winner \commstrs{} (\texttt{100\%CC1-1} and \texttt{50\%CC1-1}), achieving an important trade-off between information traffic and search speed. 
 
 %-------- SOLVER TYPE
 \begin{figure}[!h]

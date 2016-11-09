@@ -1,31 +1,26 @@
 \select@language {english}
-\contentsline {part}{I\hspace {1em}{\sc POSL}{}: Parallel \penalty \@M {Oriented} Solver~Language\hfill }{1}{part.1}
-\contentsline {chapter}{\numberline {1}A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}{3}{chapter.1}
-\contentsline {section}{\numberline {1.1}Introduction}{4}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Precedents}{5}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}POSL}{6}{subsection.1.1.2}
-\contentsline {section}{\numberline {1.2}Modeling the target benchmark}{7}{section.1.2}
-\contentsline {section}{\numberline {1.3}First stage: creating {\sc POSL}'s modules}{9}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Computation module}{9}{subsection.1.3.1}
-\contentsline {subsubsection}{\numberline {1.3.1.1}Creating new computation{} modules}{10}{subsubsection.1.3.1.1}
-\contentsline {subsection}{\numberline {1.3.2}Communication modules}{11}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}Second stage: assembling {\sc POSL}'s modules}{12}{section.1.4}
-\contentsline {section}{\numberline {1.5}Third stage: creating {\sc POSL}{} solvers}{26}{section.1.5}
-\contentsline {section}{\numberline {1.6}Forth stage: connecting solvers}{26}{section.1.6}
-\contentsline {section}{\numberline {1.7}Summarize}{31}{section.1.7}
-\contentsline {part}{II\hspace {1em}Study and evaluation of {\sc POSL}}{33}{part.2}
-\contentsline {chapter}{\numberline {2}Experiments design and results}{35}{chapter.2}
-\contentsline {section}{\numberline {2.1}Solving the {\it Social Golfers}{} {\it Problem}}{36}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Problem definition}{37}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Experiment design and results}{37}{subsection.2.1.2}
-\contentsline {section}{\numberline {2.2}Solving the {\it N-Queens}{} {\it Problem}}{47}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Problem definition}{48}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Experiments and results}{48}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Solving the {\it Costas Array}{} {\it Problem}}{52}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Problem definition}{52}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Experiment design and results}{53}{subsection.2.3.2}
-\contentsline {section}{\numberline {2.4}Solving the {\it Golomb Ruler}{} {\it Problem}}{56}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Problem definition}{57}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Experiment design and results}{57}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Summarizing}{62}{section.2.5}
-\contentsline {chapter}{\numberline {3}Bibliography}{65}{chapter.3}
+\contentsline {part}{I\hspace {1em}Study and evaluation of {\sc POSL}}{1}{part.1}
+\contentsline {chapter}{\numberline {1}Experiments design and results}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Methodology}{4}{section.1.1}
+\contentsline {section}{\numberline {1.2}A dynamic configuration exchange strategy ({\it Social Golfers})}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Problem definition}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Experiment design and results}{6}{subsection.1.2.2}
+\contentsline {section}{\numberline {1.3}A cyclic communication strategy{} ({\it N-Queens})}{16}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Problem definition}{17}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Experiments and results}{17}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}A simple communication strategy{} ({\it Costas Array})}{21}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Problem definition}{21}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Experiment design and results}{22}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}A local minima evasion strategy ({\it Golomb Ruler})}{25}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Problem definition}{26}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Experiment design and results}{26}{subsection.1.5.2}
+\contentsline {section}{\numberline {1.6}Summarizing}{31}{section.1.6}
+\contentsline {chapter}{\numberline {2}Bibliography}{35}{chapter.2}
+\contentsline {part}{II\hspace {1em}Appendix}{37}{part.2}
+\contentsline {chapter}{\numberline {A}Results of experiments with {\it Social Golfers}{} {\it Problem}}{39}{appendix.A}
+\contentsline {section}{\numberline {A.1}Comparison between sequential and parallel runs}{40}{section.A.1}
+\contentsline {section}{\numberline {A.2}Comparison between communication strategies}{42}{section.A.2}
+\contentsline {section}{\numberline {A.3}Winner solver type representation}{43}{section.A.3}
+\contentsline {chapter}{\numberline {B}Results of experiments with {\it N-Queens}{} {\it Problem}}{47}{appendix.B}
+\contentsline {chapter}{\numberline {C}Results of experiments with {\it Costas Array}{} {\it Problem}}{53}{appendix.C}
+\contentsline {chapter}{\numberline {D}Results of experiments with {\it Golomb Ruler}{} {\it Problem}}{57}{appendix.D}

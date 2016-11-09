@@ -2,7 +2,7 @@ script_bars_nqueens <- function(data, file_name){
 
 colors <- c("red","blue","orange")
 strs <- c("Cyc1-1","Cyc1-n","S1-1","S1-n","S1-n/2","S1-n/4")
-solvers <- c("Receiver","Sender","Pasive receiver")
+solvers <- c("Receiver","Sender","Passive receiver")
 
 # Give the chart file a name.
 dev=pdf(file_name, height=14, width=10)
