@@ -1,25 +1,17 @@
-\BOOKMARK [-1][-]{part.1}{I Study and evaluation of POSL}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Experiments design and results}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Methodology}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{A dynamic configuration exchange strategy \(Social Golfers\)}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.2.1}{Problem definition}{section.1.2}% 5
-\BOOKMARK [2][-]{subsection.1.2.2}{Experiment design and results}{section.1.2}% 6
-\BOOKMARK [1][-]{section.1.3}{A cyclic communication strategy \(N-Queens\)}{chapter.1}% 7
-\BOOKMARK [2][-]{subsection.1.3.1}{Problem definition}{section.1.3}% 8
-\BOOKMARK [2][-]{subsection.1.3.2}{Experiments and results}{section.1.3}% 9
-\BOOKMARK [1][-]{section.1.4}{A simple communication strategy \(Costas Array\)}{chapter.1}% 10
-\BOOKMARK [2][-]{subsection.1.4.1}{Problem definition}{section.1.4}% 11
-\BOOKMARK [2][-]{subsection.1.4.2}{Experiment design and results}{section.1.4}% 12
-\BOOKMARK [1][-]{section.1.5}{A local minima evasion strategy \(Golomb Ruler\)}{chapter.1}% 13
-\BOOKMARK [2][-]{subsection.1.5.1}{Problem definition}{section.1.5}% 14
-\BOOKMARK [2][-]{subsection.1.5.2}{Experiment design and results}{section.1.5}% 15
-\BOOKMARK [1][-]{section.1.6}{Summarizing}{chapter.1}% 16
-\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 17
-\BOOKMARK [-1][-]{part.2}{II Appendix}{}% 18
-\BOOKMARK [0][-]{appendix.A}{Results of experiments with Social Golfers Problem}{part.2}% 19
-\BOOKMARK [1][-]{section.A.1}{Comparison between sequential and parallel runs}{appendix.A}% 20
-\BOOKMARK [1][-]{section.A.2}{Comparison between communication strategies}{appendix.A}% 21
-\BOOKMARK [1][-]{section.A.3}{Winner solver type representation}{appendix.A}% 22
-\BOOKMARK [0][-]{appendix.B}{Results of experiments with N-Queens Problem}{part.2}% 23
-\BOOKMARK [0][-]{appendix.C}{Results of experiments with Costas Array Problem}{part.2}% 24
-\BOOKMARK [0][-]{appendix.D}{Results of experiments with Golomb Ruler Problem}{part.2}% 25
+\BOOKMARK [0][-]{chapter.1}{Bibliography}{}% 1
+\BOOKMARK [-1][-]{part.1}{I Appendix}{}% 2
+\BOOKMARK [0][-]{appendix.A}{Results of experiments with Social Golfers Problem}{part.1}% 3
+\BOOKMARK [1][-]{section.A.1}{Comparison between sequential and parallel runs}{appendix.A}% 4
+\BOOKMARK [1][-]{section.A.2}{Comparison between communication strategies}{appendix.A}% 5
+\BOOKMARK [1][-]{section.A.3}{Winner solver type representation}{appendix.A}% 6
+\BOOKMARK [0][-]{appendix.B}{Results of experiments with N-Queens Problem}{part.1}% 7
+\BOOKMARK [1][-]{section.B.1}{Comparison between sequential and parallel runs}{appendix.B}% 8
+\BOOKMARK [1][-]{section.B.2}{Winner solver type representation}{appendix.B}% 9
+\BOOKMARK [0][-]{appendix.C}{Results of experiments with Costas Array Problem}{part.1}% 10
+\BOOKMARK [1][-]{section.C.1}{Comparison between sequential and parallel runs}{appendix.C}% 11
+\BOOKMARK [1][-]{section.C.2}{Comparison between communication strategies}{appendix.C}% 12
+\BOOKMARK [1][-]{section.C.3}{Winner solver type representation}{appendix.C}% 13
+\BOOKMARK [0][-]{appendix.D}{Results of experiments with Golomb Ruler Problem}{part.1}% 14
+\BOOKMARK [1][-]{section.D.1}{Comparison between sequential and parallel runs}{appendix.D}% 15
+\BOOKMARK [1][-]{section.D.2}{Comparison between communication strategies}{appendix.D}% 16
+\BOOKMARK [1][-]{section.D.3}{Winner solver type representation}{appendix.D}% 17

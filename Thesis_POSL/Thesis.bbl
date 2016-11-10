@@ -1,5 +1,24 @@
 \begin{thebibliography}{10}
 
+\bibitem{Diaz}
+Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
+  Abreu.
+\newblock {Constraint-Based Local Search for the Costas Array Problem}.
+\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
+  Springer, 2012.
+
+\bibitem{Munera}
+Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
+\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
+  volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
+
+\bibitem{Frank2003}
+Stephan Frank, Petra Hofstedt, and Pierre~R. Mai.
+\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
+\newblock In {\em Florida AI Research Society (FLAIRS) Conference}, pages
+  177--181, 2003.
+
 \bibitem{Brownlee2014}
 Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
 \newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
@@ -14,42 +33,29 @@ Alex~S Fukunaga.
   testing.}
 \newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
 
+\bibitem{El-Ghazali2013}
+El-Ghazali Talbi.
+\newblock {Combining metaheuristics with mathematical programming, constraint
+  programming and machine learning}.
+\newblock {\em 4or}, 11(2):101--150, 2013.
+
+\bibitem{Swan2015}
+Jerry Swan and Nathan Burles.
+\newblock {Templar - a framework for template-method hyper-heuristics}.
+\newblock In {\em Genetic Programming}, volume 9025 of {\em LNCS}, pages
+  205--216. Springer International Publishing, 2015.
+
 \bibitem{Landtsheer2015}
 Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
 \newblock {Combining Neighborhoods into Local Search Strategies}.
 \newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
   Springer.
 
-\bibitem{Cahon2004}
-S{\'{e}}bastien Cahon, Nordine Melab, and El-Ghazali Talbi.
-\newblock {ParadisEO: A Framework for the Reusable Design of Parallel and
-  Distributed Metaheuristics}.
-\newblock {\em Journal of Heuristics}, 10(3):357--380, 2004.
-
 \bibitem{Martin2016}
 Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
   and Edmund~K Burke.
 \newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
 \newblock {\em European Journal of Operational Research}, 2016.
-
-\bibitem{Reyes-amaro}
-Alejandro Reyes-amaro, {\'{E}}ric Monfroy, and Florian Richoux.
-\newblock {POSL: A Parallel-Oriented metaheuristic-based Solver Language}.
-\newblock In {\em Recent developments of metaheuristics}, to appear. Springer.
-
-\bibitem{Lardeux2014}
-Fr{\'{e}}d{\'{e}}ric Lardeux, {\'{E}}ric Monfroy, Broderick Crawford, and
-  Ricardo Soto.
-\newblock {Set Constraint Model and Automated Encoding into SAT: Application to
-  the Social Golfer Problem}.
-\newblock {\em Annals of Operations Research}, 235(1):423--452, 2014.
-
-\bibitem{Diaz}
-Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
-  Abreu.
-\newblock {Constraint-Based Local Search for the Costas Array Problem}.
-\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
-  Springer, 2012.
 
 \bibitem{Bell2009}
 Jordan Bell and Brett Stevens.
@@ -62,16 +68,5 @@ Rok Sosic and Jun Gu.
   the N-Queens Problem}.
 \newblock {\em IEEE Transactions on Knowledge and Data Engineering},
   6:661--668, 1994.
-
-\bibitem{Drakakis2006}
-Konstantinos Drakakis.
-\newblock {A review of Costas arrays}.
-\newblock {\em Journal of Applied Mathematics}, 2006:32 pages, 2006.
-
-\bibitem{Soliday1995}
-Stephen~W. Soliday, Abdollah. Homaifar, and Gary~L. Lebby.
-\newblock {Genetic algorithm approach to the search for Golomb Rulers}.
-\newblock In {\em International Conference on Genetic Algorithms}, volume~1,
-  pages 528--535, Pittsburg, 1995.
 
 \end{thebibliography}

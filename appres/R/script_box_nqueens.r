@@ -1,6 +1,6 @@
 script_box_nqueens <- function(data, file_name, mean_seq, mean_par, mean_com, y_min, y_max, col_seq_box, col_par_box, col_pc11, col_pc1n){
 
-dev=pdf(file_name, height=14, width=21)
+dev=pdf(file_name, height=14, width=9)
 par(cex.axis=2)
 par(mar=c(13,6,1,1)+.1)
 p_ylim=c(y_min,y_max);

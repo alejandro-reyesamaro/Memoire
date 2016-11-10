@@ -1,6 +1,6 @@
 script_boxcom_golomb <- function(data, file_name, mean_par, mean_com, y_max, col_par_box, col_comm_box){
 
-dev=pdf(file_name, height=14, width=21)
+dev=pdf(file_name, height=14, width=10)
 par(cex.axis=2)
 par(mar=c(10,7,1,1)+.1)
 p_ylim=c(0,y_max);

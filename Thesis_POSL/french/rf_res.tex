@@ -342,7 +342,7 @@ Le \grp{} (\GRP) consiste à trouver un vecteur ordonné de $n$ entiers non nég
 Nous réutilisons les \ms{} de sélection et d'acceptation des études antérieures ($S_{first}$ et$A_{AI}$) pour concevoir les \ass. Les nouvelles \ms{} sont:
 \begin{enumerate}
 \item $I_{sort}$: renvoie une configuration aléatoire $s$ en tant que vecteur d'entiers trié. La configuration est générée \textit{loin} de l'ensemble des configurations {\it tabu} arrivées via communication entre solveurs.
-\item $V_{sort}$: \modified{donné une configuration}, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
+\item $V_{sort}$: étant donnée une configuration, retourne le voisinage en changeant une valeur tout en gardant l'ordre, à savoir, le remplacement de la valeur $s_i$ par toutes les valeurs possibles $s'_i \in D_i$ en satisfaisant $s_{i-1}< s'_i < s_{i+1}$.
 \end{enumerate}
 
 Nous avons également ajouté un module de reset $T$: il reçoit et renvoie une configuration. Le \om{} utilisé pour l'instancier ($T_{tabu}$) insère la configuration reçue dans une liste \textit{tabu} à l'intérieur du solveur et retourne la configuration d'entrée telle quelle. L'algorithme~\ref{res_as:golomb_sender} présente le solveur utilisé pour envoyer des informations (solveur envoyeur).

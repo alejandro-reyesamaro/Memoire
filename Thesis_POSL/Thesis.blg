@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
 Database file #1: biblio201610.bib
-Warning--empty year in Reyes-amaro
-You've used 12 entries,
+You've used 11 entries,
             1791 wiz_defined-function locations,
-            539 strings with 6045 characters,
-and the built_in function-call counts, 3271 in all, are:
-= -- 310
-> -- 136
-< -- 4
-+ -- 50
-- -- 38
-* -- 225
-:= -- 503
-add.period$ -- 40
-call.type$ -- 12
-change.case$ -- 12
+            532 strings with 5754 characters,
+and the built_in function-call counts, 3305 in all, are:
+= -- 323
+> -- 122
+< -- 7
++ -- 45
+- -- 34
+* -- 218
+:= -- 482
+add.period$ -- 38
+call.type$ -- 11
+change.case$ -- 11
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 153
-empty$ -- 314
-format.name$ -- 38
-if$ -- 745
+cite$ -- 11
+duplicate$ -- 166
+empty$ -- 318
+format.name$ -- 34
+if$ -- 773
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 12
-newline$ -- 63
-num.names$ -- 12
-pop$ -- 35
+int.to.str$ -- 11
+missing$ -- 11
+newline$ -- 58
+num.names$ -- 11
+pop$ -- 38
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 72
+skip$ -- 91
 stack$ -- 0
-substring$ -- 238
-swap$ -- 42
-text.length$ -- 4
+substring$ -- 245
+swap$ -- 61
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 32
-width$ -- 14
-write$ -- 140
-(There was 1 warning)
+warning$ -- 0
+while$ -- 34
+width$ -- 13
+write$ -- 131

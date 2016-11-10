@@ -160,7 +160,7 @@ com1n=c(170.270,62.810,14.140,53.730,16.230,24.030,39.870,59.800,16.660,79.380,9
 data<-data.frame(seqNT, seqT, parNT, parT)
 script_boxsel_golomb(data, "gol11_select_BP.pdf", 300, mean(seqT[1:8]), mean(parT), col_par_box, col_comm_box)
 data<-data.frame(parNT, parT, com11, com1n)
-script_boxcom_golomb(data, "gol11_comm_BP.pdf", mean(parT), mean(com1n), 225, col_par_box, col_comm_box)
+script_boxcom_golomb(data, "gol11_comm_BP.pdf", mean(parT), mean(com1n), 270, col_par_box, col_comm_box)
 values <- matrix(c(
 16/30*100, 21/30*100, #receivers
 14/30*100, 9/30*100), #senders 
@@ -263,4 +263,4 @@ values <- matrix(c(
 19/30*100, 13/30*100, 7/30*100, 1/30*100, 1/30*100, 4/30*100, #senders 
 rep.int(0,6)),
 nrow = 3,ncol = 6, byrow = TRUE)
-script_bars_nqueens(values, "nq3000_per_BP.pdf")
+script_bars_nqueens(values, "nq6000_per_BP.pdf")
