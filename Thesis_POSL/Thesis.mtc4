@@ -1,3 +1,14 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {C.1}Comparison between sequential and parallel runs}{\reset@font\mtcSfont 20}{section.C.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {C.2}Comparison between communication strategies}{\reset@font\mtcSfont 20}{section.C.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {C.3}Winner solver type representation}{\reset@font\mtcSfont 21}{section.C.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.1}Introduction}{\reset@font\mtcSfont 46}{section.A.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.2}Des travaux reli\'es}{\reset@font\mtcSfont 47}{section.A.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.3}Solveurs parall\IeC {\`e}les POSL}{\reset@font\mtcSfont 48}{section.A.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.1}Computation module}{\reset@font\mtcSSfont 49}{subsection.A.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.2}Communication module}{\reset@font\mtcSSfont 50}{subsection.A.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.3}Abstract solver}{\reset@font\mtcSSfont 51}{subsection.A.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.4}Cr\IeC {\'e}er les solveurs}{\reset@font\mtcSSfont 54}{subsection.A.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.3.5}Connecter les solveurs : cr\IeC {\'e}er le solver set}{\reset@font\mtcSSfont 54}{subsection.A.3.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.4}Les r\IeC {\'e}sultats}{\reset@font\mtcSfont 56}{section.A.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.1}Social Golfers Problem}{\reset@font\mtcSSfont 57}{subsection.A.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.2}Costas Array Problem}{\reset@font\mtcSSfont 59}{subsection.A.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.3}N-Queens Problem}{\reset@font\mtcSSfont 61}{subsection.A.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {A.4.4}Golomb Ruler Problem}{\reset@font\mtcSSfont 63}{subsection.A.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.5}Conclusions}{\reset@font\mtcSfont 65}{section.A.5}}

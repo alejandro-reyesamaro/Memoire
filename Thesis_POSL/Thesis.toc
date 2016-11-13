@@ -1,18 +1,36 @@
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Bibliography}{1}{chapter.1}
-\contentsline {part}{I\hspace {1em}Appendix}{3}{part.1}
-\contentsline {chapter}{\numberline {A}Results of experiments with {\it Social Golfers}{} {\it Problem}}{5}{appendix.A}
-\contentsline {section}{\numberline {A.1}Comparison between sequential and parallel runs}{6}{section.A.1}
-\contentsline {section}{\numberline {A.2}Comparison between communication strategies}{7}{section.A.2}
-\contentsline {section}{\numberline {A.3}Winner solver type representation}{9}{section.A.3}
-\contentsline {chapter}{\numberline {B}Results of experiments with {\it N-Queens}{} {\it Problem}}{13}{appendix.B}
-\contentsline {section}{\numberline {B.1}Comparison between sequential and parallel runs}{14}{section.B.1}
-\contentsline {section}{\numberline {B.2}Winner solver type representation}{16}{section.B.2}
-\contentsline {chapter}{\numberline {C}Results of experiments with {\it Costas Array}{} {\it Problem}}{19}{appendix.C}
-\contentsline {section}{\numberline {C.1}Comparison between sequential and parallel runs}{20}{section.C.1}
-\contentsline {section}{\numberline {C.2}Comparison between communication strategies}{20}{section.C.2}
-\contentsline {section}{\numberline {C.3}Winner solver type representation}{21}{section.C.3}
-\contentsline {chapter}{\numberline {D}Results of experiments with {\it Golomb Ruler}{} {\it Problem}}{23}{appendix.D}
-\contentsline {section}{\numberline {D.1}Comparison between sequential and parallel runs}{24}{section.D.1}
-\contentsline {section}{\numberline {D.2}Comparison between communication strategies}{25}{section.D.2}
-\contentsline {section}{\numberline {D.3}Winner solver type representation}{26}{section.D.3}
+\contentsline {part}{I\hspace {1em}Presentation}{1}{part.1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Goals and contributions}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Structure of the document}{7}{section.1.2}
+\contentsline {chapter}{\numberline {2}State of the art}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Combinatorial Optimization}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Constraint programming}{12}{section.2.2}
+\contentsline {section}{\numberline {2.3}Meta-heuristic methods}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Single Solution Based Meta-heuristic}{17}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Population Based Meta-heuristic}{19}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Hyper-heuristic Methods}{21}{section.2.4}
+\contentsline {section}{\numberline {2.5}Hybridization}{22}{section.2.5}
+\contentsline {section}{\numberline {2.6}Parallel computing}{24}{section.2.6}
+\contentsline {section}{\numberline {2.7}Solvers cooperation}{27}{section.2.7}
+\contentsline {section}{\numberline {2.8}Parameter setting techniques}{30}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Off-line tuning}{31}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}On-line tunning}{32}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.9}Summary}{33}{section.2.9}
+\contentsline {chapter}{\numberline {3}Bibliography}{35}{chapter.3}
+\contentsline {part}{II\hspace {1em}Appendix}{43}{part.2}
+\contentsline {chapter}{\numberline {A}French summary}{45}{appendix.A}
+\contentsline {section}{\numberline {A.1}Introduction}{46}{section.A.1}
+\contentsline {section}{\numberline {A.2}Des travaux reli\'es}{47}{section.A.2}
+\contentsline {section}{\numberline {A.3}Solveurs parall\IeC {\`e}les POSL}{48}{section.A.3}
+\contentsline {subsection}{\numberline {A.3.1}Computation module}{49}{subsection.A.3.1}
+\contentsline {subsection}{\numberline {A.3.2}Communication module}{50}{subsection.A.3.2}
+\contentsline {subsection}{\numberline {A.3.3}Abstract solver}{51}{subsection.A.3.3}
+\contentsline {subsection}{\numberline {A.3.4}Cr\IeC {\'e}er les solveurs}{54}{subsection.A.3.4}
+\contentsline {subsection}{\numberline {A.3.5}Connecter les solveurs : cr\IeC {\'e}er le solver set}{54}{subsection.A.3.5}
+\contentsline {section}{\numberline {A.4}Les r\IeC {\'e}sultats}{56}{section.A.4}
+\contentsline {subsection}{\numberline {A.4.1}Social Golfers Problem}{57}{subsection.A.4.1}
+\contentsline {subsection}{\numberline {A.4.2}Costas Array Problem}{59}{subsection.A.4.2}
+\contentsline {subsection}{\numberline {A.4.3}N-Queens Problem}{61}{subsection.A.4.3}
+\contentsline {subsection}{\numberline {A.4.4}Golomb Ruler Problem}{63}{subsection.A.4.4}
+\contentsline {section}{\numberline {A.5}Conclusions}{65}{section.A.5}

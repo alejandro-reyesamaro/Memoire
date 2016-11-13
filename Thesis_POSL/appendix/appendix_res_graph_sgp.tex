@@ -1,7 +1,9 @@
 \chapter{Results of experiments with \sgp}
 \label{app:sgp}
 \textit{This Appendix presents graphically a summary of individuals runs using \sgp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
-\vfill
+
+\vspace{2ex}\vfill
+\minitoc
 \newpage
 
 \section{Comparison between sequential and parallel runs}
@@ -57,9 +59,6 @@ In Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and \ref{boxplot:9comm}, lab
 \end{tabular}
 }
 
-Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and~\ref{boxplot:9comm} show results summaries of different \commstrs{}. They are presented together with the box-plot graph of parallel results without communication (\texttt{NC}). In all cases we can observe that strategies \texttt{100\%CC1-1} and \texttt{50\%CC1-1}  show excellent results in comparison to the one without communication. This figure shows also that simple \commstrs{} do not contribute enough to the improvement of the search time.
-
-%------ COMMUNICATION
 %\begin{figure}[h]
 \begin{minipage}[c]{\textwidth}
 \centering
@@ -67,6 +66,9 @@ Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and~\ref{boxplot:9comm} show re
 \captionof{figure}{Different communication strategies to solve \SGP{} 5-3-7 using \posl}\label{boxplot:5comm}
 \end{minipage}
 %\end{figure}
+
+Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and~\ref{boxplot:9comm} show results summaries of different \commstrs{}. They are presented together with the box-plot graph of parallel results without communication (\texttt{NC}). In all cases we can observe that strategies \texttt{100\%CC1-1} and \texttt{50\%CC1-1}  show excellent results in comparison to the one without communication. This figure shows also that simple \commstrs{} do not contribute enough to the improvement of the search time.
+
 
 \begin{minipage}[c]{\textwidth}
 %\begin{figure}[h]

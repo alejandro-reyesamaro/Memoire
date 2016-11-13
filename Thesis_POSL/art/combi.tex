@@ -2,7 +2,7 @@
 
 A \textit{configuration} $s\in D_1\times D_2\times\dots\times D_n$ is a combination of values for the variables in $X$. The fact of assigning values $v_i \in D_i$ to all variables in $x_i \in X$ is called \textit{evaluation}. When this evaluation is only performed to a given set of variables in $X$, we called \textit{partial evaluation}. In combinatorial optimization, a \textit{feasible} configuration is a configuration fulfilling all constraints. Finally, a \textit{solution} $s^*$ to the problem is a configuration such that $f(s^*)$ is optimal.
 
-In many practical cases, the main goal is not to find the optimal solution, but finding one feasible configuration. This is the case of \CSPs. Formally, we present the definition of a \csp{}. 
+In many practical cases, the main goal is not to find the optimal solution, but finding one feasible configuration. This is the case of \CSPs. Formally, the definition of a \csp{} is presented: 
 
 \begin{definition}{\bf (Constraint Satisfaction Problem)}
 \label{def:csp}
@@ -14,7 +14,7 @@ A \CSP{} (\csp, denoted by $\mathcal{P}$) is a triple $\langle X,D,C \rangle$, w
 \end{itemize}
 \end{definition}
 
-In \csps, a solution is a configuration satisfying all constraints $c_i \in C$. %We say that a configuration $s$ satisfies the constraint $c_i \in C$ if and only if $c_i$
+In \csps, a solution is a configuration satisfying all constraints $c_i \in C$ (a feasible configuration). %We say that a configuration $s$ satisfies the constraint $c_i \in C$ if and only if $c_i$
 
 \begin{definition}{\bf (Solution of a \csp)}
 \label{solCSP}
