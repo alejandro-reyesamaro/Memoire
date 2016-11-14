@@ -93,14 +93,14 @@ In order to test the cooperative approach with this problem, a first and simple 
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A\right] \onetoone \left[\eqsolverposl{receiver}\cdot C.M.\right]20;$
+$\left[\eqsolverposl{sender}\posldot A\right] \onetoone \left[\eqsolverposl{receiver}\posldot C.M.\right]20;$
 \caption{Simple \commstr{} \oneTone{} for \NQP}\label{comm:nqueens_simple_11}
 \end{algorithm}
 
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A(\tfrac{20}{K})\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(\tfrac{20}{K})\right]K;$
+$\left[\eqsolverposl{sender}\posldot A(\tfrac{20}{K})\right] \oneton \left[\eqsolverposl{receiver}\posldot C.M.(\tfrac{20}{K})\right]K;$
 \caption{Simple \commstr{} \oneTn{} for \NQP}\label{comm:nqueens_simple_1nk}
 \end{algorithm}
 
@@ -175,16 +175,16 @@ The other solver is very similar to the one used for non communicating experimen
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{companion}\cdot A\right] \onetoone \left[\eqsolverposl{standard}\cdot C.M.\right]20;$\;
-$\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{companion}\cdot C.M.\right]20;$
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]20;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]20;$
 \caption{Cyclic \commstr{} \oneTone{} for \NQP}\label{comm:nqueens_cyc_11}
 \end{algorithm}
 
 \begin{algorithm}[h]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{companion}\cdot A(2)\right] \oneton \left[\eqsolverposl{standard}\cdot C.M.\right]13;$\;
-$\left[\eqsolverposl{standard}\cdot A\right] \oneton \left[\eqsolverposl{companion}\cdot C.M.(2)\right]13;$
+$\left[\eqsolverposl{companion}\posldot A(2)\right] \oneton \left[\eqsolverposl{standard}\posldot C.M.\right]13;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \oneton \left[\eqsolverposl{companion}\posldot C.M.(2)\right]13;$
 \caption{Cyclic \commstr{} \oneTn{} for \NQP}\label{comm:nqueens_cyc_1n}
 \end{algorithm}
 

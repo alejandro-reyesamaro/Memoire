@@ -192,21 +192,21 @@ The conclusion of the last experiment was that the best solver to solve \SGP{} u
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A\right] \onetoone \left[\eqsolverposl{receiver}\cdot C.M.\right]20;$
+$\left[\eqsolverposl{sender}\posldot A\right] \onetoone \left[\eqsolverposl{receiver}\posldot C.M.\right]20;$
 \caption{Communication strategy \oneTone{} 100\%}\label{comm:golfers_1_1-1}
 \end{algorithm}
 
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A(20)\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(20)\right];$
+$\left[\eqsolverposl{sender}\posldot A(20)\right] \oneton \left[\eqsolverposl{receiver}\posldot C.M.(20)\right];$
 \caption{Communication strategy \oneTn{} 100\%}\label{comm:golfers_1_1-n}
 \end{algorithm}
 
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A\right] \onetoone \left[\eqsolverposl{receiver}\cdot C.M.\right]10;$\;
+$\left[\eqsolverposl{sender}\posldot A\right] \onetoone \left[\eqsolverposl{receiver}\posldot C.M.\right]10;$\;
 $\left[\eqsolverposl{first}\right]20;$
 \caption{Communication strategy \oneTone{} 50\%}\label{comm:golfers_1_1-1_50}
 \end{algorithm}
@@ -214,7 +214,7 @@ $\left[\eqsolverposl{first}\right]20;$
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A(10)\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(10)\right];$\;
+$\left[\eqsolverposl{sender}\posldot A(10)\right] \oneton \left[\eqsolverposl{receiver}\posldot C.M.(10)\right];$\;
 $\left[\eqsolverposl{first}\right]20;$
 \caption{Communication strategy \oneTn{} 50\%}\label{comm:golfers_1_1-n_50}
 \end{algorithm}
@@ -222,7 +222,7 @@ $\left[\eqsolverposl{first}\right]20;$
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A\right] \onetoone \left[\eqsolverposl{receiver}\cdot C.M.\right]5;$\;
+$\left[\eqsolverposl{sender}\posldot A\right] \onetoone \left[\eqsolverposl{receiver}\posldot C.M.\right]5;$\;
 $\left[\eqsolverposl{first}\right]30;$
 \caption{Communication strategy \oneTone{} 25\%}\label{comm:golfers_1_1-1_25}
 \end{algorithm}
@@ -230,7 +230,7 @@ $\left[\eqsolverposl{first}\right]30;$
 \begin{algorithm}
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{sender}\cdot A(5)\right] \oneton \left[\eqsolverposl{receiver}\cdot C.M.(5)\right];$\;
+$\left[\eqsolverposl{sender}\posldot A(5)\right] \oneton \left[\eqsolverposl{receiver}\posldot C.M.(5)\right];$\;
 $\left[\eqsolverposl{first}\right]30;$
 \caption{Communication strategy \oneTn{} 25\%}\label{comm:golfers_1_1-n_25}
 \end{algorithm}
@@ -400,16 +400,16 @@ The code for the \commstr{} of 100\% of communicating solvers is presented in Al
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{companion}\cdot A\right] \onetoone \left[\eqsolverposl{standard}\cdot C.M.\right]20;$\;
-$\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{companion}\cdot C.M.\right]20;$
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]20;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]20;$
 \caption{Companion communication strategy 100\% communication}\label{comm:golfers_v2_100}
 \end{algorithm}
 
 \begin{algorithm}[H]
 \dontprintsemicolon
 \SetNoline
-$\left[\eqsolverposl{companion}\cdot A\right] \onetoone \left[\eqsolverposl{standard}\cdot C.M.\right]10;$\;
-$\left[\eqsolverposl{standard}\cdot A\right] \onetoone \left[\eqsolverposl{companion}\cdot C.M.\right]10;$\;
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]10;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]10;$\;
 $\left[\eqsolverposl{first}\right]20;$\;
 \caption{Companion communication strategy 50\% communication}\label{comm:golfers_v2_50}
 \end{algorithm}
@@ -458,16 +458,11 @@ $\left[\eqsolverposl{first}\right]20;$\;
 \label{tab:golfers_v2_11}
 \end{table}
 
-
-
 %This confirms the intuition that parallel approach increases the probability of finding the solution within a more reasonable time (some tens of seconds), than with the sequential scheme \cite{Alon2011}. 
 %The column labeled \textbf{\% success} in Table~\ref{tab:golfers_seq} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes). 
 %presented in Table~\ref{tab:golfersB001}, column \textit{O.M. First Improvement} (without communication), and results with communication (Tables~\ref{tab:golfersB001comm100}, \ref{tab:golfersB001comm50} and \ref{tab:golfersB001comm25}). 
 
 %\subsection{Analysis of results}
-%
-%
-%
 %
 %\modified{Then we ran experiments to study \posl's behavior solving target problems in communicating scenarios. Some compositions of solvers set were taken into account:}
 %\begin{inparaenum}[i.]

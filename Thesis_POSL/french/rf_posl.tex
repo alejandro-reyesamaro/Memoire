@@ -128,7 +128,7 @@ Ensuite, les opérateurs fournis par \posl{} sont présentés.
 
 \underline{\bf Conditional Execution Operator}: L'opération $\left|\mathcal{M}_1\circled{?}_{<cond>}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{cond}$ le résultat de l'exécution en séquentiel de $\mathcal{M}_1$ si $<cond>$ es {\bf vrai} ou $\mathcal{M}_2$, autrement.
 
-\underline{\bf Cyclic Execution Operator}: L'opération $\left|\circlearrowleft_{<cond>}\mathcal{M}\right|$ définit le \cm{} $\mathcal{M}_{cyc}$ en répétant séquentiellement l'exécution de $\mathcal{M}$ tant que $<cond>$ est {\bf vrai}.
+\underline{\bf Cyclic Execution Operator}: L'opération $\left|\circled{$\circlearrowleft$}_{<cond>}\mathcal{M}\right|$ définit le \cm{} $\mathcal{M}_{cyc}$ en répétant séquentiellement l'exécution de $\mathcal{M}$ tant que $<cond>$ est {\bf vrai}.
 
 \underline{\bf Random Choice Operator}: L'opération $\left|M_1\circled{$\rho$}\mathcal{M}_2\right|$ définit le \cm{} $\mathcal{M}_{rho}$ qui exécute $\mathcal{M}_1$ en suivant une probabilité $\rho$, ou en exécutant $\mathcal{M}_2$ en suivant une probabilité $(1-\rho)$.
 
@@ -209,32 +209,32 @@ Les communications sont établies en respectant les règles suivantes :
 \item Les solveurs peuvent être connectés entre eux en reliant {\it prises mâles} et {\it femelles}.
 \end{enumerate}
 
-Avec l'opérateur~$(\cdot)$, nous  pouvons avoir accès aux  \oms{} envoyant une information et aux noms des \opchs{} d'un solveur. Par exemple : $Solver_1\cdot\mathcal{M}_1$ fournit un accès au \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\cdot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
+Avec l'opérateur~$(\posldot)$, nous  pouvons avoir accès aux \oms{} envoyant une information et aux noms des \opchs{} d'un solveur. Par exemple : $Solver_1\posldot\mathcal{M}_1$ fournit un accès au \om{} $\mathcal{M}_1$ du $Solver_1$ si et seulement s'il est utilisé par l'opérateur  $\llparenthesis .\rrparenthesis^{d}$  (ou $\llparenthesis.\rrparenthesis^{m}$), et $Solver_2\posldot\mathcal{C}h_2$ fournit un accès au \opch{} $\mathcal{C}h_2$ de $Solver_2$.
 
 Maintenant, nous définissons les opérateurs de communication que \posl{} fournit.
 
 \begin{lemma}\label{res_op_conn:1to1}
 {\bf Connection One-to-One Operator} Soient
 \begin{enumerate}
-\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
-\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\cdot \mathcal{CM}_{N-1}\right]$ une liste de {\it prises femelles}
+\item $\mathcal{J} = \left[\mathcal{S}_0\posldot \mathcal{M}_0, \mathcal{S}_1\posldot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\posldot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
+\item $\mathcal{O} = \left[\mathcal{Z}_0\posldot \mathcal{CM}_0, \mathcal{Z}_1\posldot \mathcal{CM}_1,\dots, \mathcal{Z}_{N-1}\posldot \mathcal{CM}_{N-1}\right]$ une liste de {\it prises femelles}
 \end{enumerate} Alors, l'opération
 \[
 \mathcal{J} \onetoonesep \mathcal{O}
 \]
-connecte chaque {\it prise mâle} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ avec la {\it prise femelle} correspondante $\mathcal{Z}_i\cdot \mathcal{CM}_i \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ (voir figure~\ref{res_subfig:comm_simple}).
+connecte chaque {\it prise mâle} $\mathcal{S}_i\posldot \mathcal{M}_i \in \mathcal{J}$ avec la {\it prise femelle} correspondante $\mathcal{Z}_i\posldot \mathcal{CM}_i \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ (voir figure~\ref{res_subfig:comm_simple}).
 \end{lemma}
 
 \begin{lemma}\label{res_op_conn:1ton}
 {\bf Connection One-to-N Operator} Soient 
 \begin{enumerate} 
-\item $\mathcal{J} = \left[\mathcal{S}_0\cdot \mathcal{M}_0, \mathcal{S}_1\cdot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\cdot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
-\item $\mathcal{O} = \left[\mathcal{Z}_0\cdot \mathcal{CM}_0, \mathcal{Z}_1\cdot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\cdot \mathcal{CM}_{M-1}\right]$ une liste de {\it prises femelles}
+\item $\mathcal{J} = \left[\mathcal{S}_0\posldot \mathcal{M}_0, \mathcal{S}_1\posldot \mathcal{M}_1,\dots, \mathcal{S}_{N-1}\posldot \mathcal{M}_{N-1}\right]$ une liste de  {\it prises mâles}, et
+\item $\mathcal{O} = \left[\mathcal{Z}_0\posldot \mathcal{CM}_0, \mathcal{Z}_1\posldot \mathcal{CM}_1,\dots, \mathcal{Z}_{M-1}\posldot \mathcal{CM}_{M-1}\right]$ une liste de {\it prises femelles}
 \end{enumerate} Alors, l'opération
 \[
 \mathcal{J} \onetonsep \mathcal{O}
 \]
-connecte chaque {\it prise mâle} $\mathcal{S}_i\cdot \mathcal{M}_i \in \mathcal{J}$ avec chaque {\it prise femelle} $\mathcal{Z}_j\cdot \mathcal{CM}_j \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ et $0 \leq j \leq M-1$ (voir Figure~\ref{res_subfig:comm_diff}).
+connecte chaque {\it prise mâle} $\mathcal{S}_i\posldot \mathcal{M}_i \in \mathcal{J}$ avec chaque {\it prise femelle} $\mathcal{Z}_j\posldot \mathcal{CM}_j \in \mathcal{O}$, $\forall\textbf{ }0 \leq i \leq N-1$ et $0 \leq j \leq M-1$ (voir Figure~\ref{res_subfig:comm_diff}).
 \end{lemma}
 
 

@@ -1,35 +1,5 @@
-\BOOKMARK [-1][-]{part.1}{I Presentation}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Introduction}{part.1}% 2
-\BOOKMARK [1][-]{section.1.1}{Goals and contributions}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Structure of the document}{chapter.1}% 4
-\BOOKMARK [0][-]{chapter.2}{State of the art}{part.1}% 5
-\BOOKMARK [1][-]{section.2.1}{Combinatorial Optimization}{chapter.2}% 6
-\BOOKMARK [1][-]{section.2.2}{Constraint programming}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.3}{Meta-heuristic methods}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.3.1}{Single Solution Based Meta-heuristic}{section.2.3}% 9
-\BOOKMARK [2][-]{subsection.2.3.2}{Population Based Meta-heuristic}{section.2.3}% 10
-\BOOKMARK [1][-]{section.2.4}{Hyper-heuristic Methods}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.5}{Hybridization}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.6}{Parallel computing}{chapter.2}% 13
-\BOOKMARK [1][-]{section.2.7}{Solvers cooperation}{chapter.2}% 14
-\BOOKMARK [1][-]{section.2.8}{Parameter setting techniques}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.8.1}{Off-line tuning}{section.2.8}% 16
-\BOOKMARK [2][-]{subsection.2.8.2}{On-line tunning}{section.2.8}% 17
-\BOOKMARK [1][-]{section.2.9}{Summary}{chapter.2}% 18
-\BOOKMARK [0][-]{chapter.3}{Bibliography}{part.1}% 19
-\BOOKMARK [-1][-]{part.2}{II Appendix}{}% 20
-\BOOKMARK [0][-]{appendix.A}{French summary}{part.2}% 21
-\BOOKMARK [1][-]{section.A.1}{Introduction}{appendix.A}% 22
-\BOOKMARK [1][-]{section.A.2}{Des travaux reli\351s}{appendix.A}% 23
-\BOOKMARK [1][-]{section.A.3}{Solveurs parall\350les POSL}{appendix.A}% 24
-\BOOKMARK [2][-]{subsection.A.3.1}{Computation module}{section.A.3}% 25
-\BOOKMARK [2][-]{subsection.A.3.2}{Communication module}{section.A.3}% 26
-\BOOKMARK [2][-]{subsection.A.3.3}{Abstract solver}{section.A.3}% 27
-\BOOKMARK [2][-]{subsection.A.3.4}{Cr\351er les solveurs}{section.A.3}% 28
-\BOOKMARK [2][-]{subsection.A.3.5}{Connecter les solveurs : cr\351er le solver set}{section.A.3}% 29
-\BOOKMARK [1][-]{section.A.4}{Les r\351sultats}{appendix.A}% 30
-\BOOKMARK [2][-]{subsection.A.4.1}{Social Golfers Problem}{section.A.4}% 31
-\BOOKMARK [2][-]{subsection.A.4.2}{Costas Array Problem}{section.A.4}% 32
-\BOOKMARK [2][-]{subsection.A.4.3}{N-Queens Problem}{section.A.4}% 33
-\BOOKMARK [2][-]{subsection.A.4.4}{Golomb Ruler Problem}{section.A.4}% 34
-\BOOKMARK [1][-]{section.A.5}{Conclusions}{appendix.A}% 35
+\BOOKMARK [-1][-]{part.1}{I Conclusions and future works}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Conclusion and future works}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Conclusions}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Future works}{chapter.1}% 4
+\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 5

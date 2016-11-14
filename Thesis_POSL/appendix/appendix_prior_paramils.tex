@@ -1,19 +1,28 @@
+\chapter{Tuning methods for local search algorithms}
+\label{chap:prior_paramils}
+%\textit{In this chapter are presented Prior works leading to \af. In Section~\ref{sec:relaxation} we explain how to tackle \csps{} by modeling it through a continuous optimization problem, as a first attempt aiming for the right direction in order to find the proper approach. In Section~\ref{sec:split} we present a brief work where we applied the the {\it problem subdivision} approach to solve the {\it k-medoids problem} in parallel. Finally we present in Section~\ref{sec:paramils} a study applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver.}
+\textit{In this appendix a prior work leading to \posl{} is presented: a study applying the {\sc ParamILS} tool in order to find the optimum parameter configuration to {\it Adaptive Search} solver.}
+
+\vspace{2ex}\vfill
+\minitoc
+\newpage
 
 %\textcolor{green}{
 %My idea here is to present the work with ParamILS. I worked with the sets of training and test instances, and I think that the key is there, because I obtained a little change in the parameters configuration. The other point is that maybe Costas Array is not a good example to work, because the difference between the runs are too small. I hope that working with other problems, including more training instances, we can obtain better results.}
 
 % short paragraph: about autotuning of parameters; work in progress.
 
-In this section we present our results applying {\sc ParamILS} (version 2.3)\footnote{Open source program (project) in {\it Ruby}, available at \href{http://cs.ubc.ca/labs/beta/Projects/ParamILS}{\texttt{http://cs.ubc.ca/labs/beta/Projects/ParamILS}}}. {\sc ParamILS} (first introduced by Hutter, Hoos and St\:utzle in 2007), is a stochastic local search approach for automated algorithm configuration. The source is available on internet and includes some examples that you can run and see how the tool works. In addition, it brings a complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008,Hutter2009}. In this study we used it to tune {\it Adaptive Search} solver\footnote{An implementation from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. %It is an open source program (project) in {\it Ruby}, and the public source code include some examples and a detailed and complete \textit{User Guide} with a compact explanation about how to use it with a specific solver . 
+\section{Introduction}
 
-The first step was building a {\it wrapper} in C++ language, in order to tune more than one problem with the same code. The goal of doing this is using the tool to tune the solver, i.e., finding the best parameter configuration for a specific problem, but also the best parameter configuration to solve any kind of benchmark (a general parameter configuration).
+In this section I present some results applying {\sc ParamILS} (version 2.3)\footnote{Open source program (project) in {\it Ruby}, available at \href{http://cs.ubc.ca/labs/beta/Projects/ParamILS}{\texttt{http://cs.ubc.ca/labs/beta/Projects/ParamILS}}}, a stochastic local search approach for automated algorithm parameter tuning, first introduced by Hutter, Hoos and St\:utzle in 2007. The source is available on internet and includes some examples that you can run and see how the tool works. In addition, it brings a complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008,Hutter2009}. In this study we used it to tune {\it Adaptive Search} solver\footnote{An implementation from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. %It is an open source program (project) in {\it Ruby}, and the public source code include some examples and a detailed and complete \textit{User Guide} with a compact explanation about how to use it with a specific solver . 
+
+The first step was building a {\it wrapper} in C++ language, in order to tune more than one problem with the same code. The goal of doing this is using the tool to tune the solver, i.e., finding the best parameter setting for a specific problem, but also the best parameter setting to solve any kind of benchmark (a general parameter configuration).
 
 \nocite{Rickard}
 
-Following we present in Table~\ref{table:param} the parameter list that we worked with:
+Table~\ref{table:param} presents the parameter list to be tuned:
 
 \begin{table}[ht] 
-\caption{Adaptive Search parameters}
 \centering 
 \begin{tabular}{c c l}
 \hline\hline
@@ -26,24 +35,25 @@ Parameter & Type & Description \\ [0.5ex]
 -p & PERCENT & reset PERCENT of variables \\ [1ex]
 \hline
 \end{tabular} 
+\caption{Adaptive Search parameters}
 \label{table:param}
 \end{table} 
 
-In this section, we explain in details the implementation and the experimentation process.
+In this section, the implementation and the experimentation process are explained in details.
 
-\subsection{Using ParamILS}
+\section{Using ParamILS}
 
-To use the tool {\sc ParamILS}, we have installed Ruby! 1.8.7 in our computer. We used a laptop \mylaptopName (\mylaptopProc, \mylaptopMemo) with {\sc Ubuntu~14.4}. To run the tool, we needed to use the following command line:
+To use the tool {\sc ParamILS}, we have installed Ruby 1.8.7 in our computer. We used a laptop \mylaptopName (\mylaptopProc, \mylaptopMemo) with {\sc Ubuntu~14.4}. To run the tool, we needed to use the following command line:
 
 \begin{BGVerbatim}
 >> ruby param_ils_2_3_run.rb -numRun 0 -scenariofile /.../<scenario_file> -validN 100
 \end{BGVerbatim}
 
-Where \texttt{$<$scenario\_file$>$} is the name of the file where we have to put all the information that {\sc ParamILS} needs to tune the solver (the \textit{tuning scenario file}). We explain its content in the next section.
+where \texttt{$<$scenario\_file$>$} is the name of the file where we need to introduce all the information that {\sc ParamILS} needs to tune the solver (the \textit{tuning scenario file}). Its content is explained in details in the next section.
 
-\subsection{Tuning scenario files}
+\section{Tuning scenario files}
 
-The {\it tuning scenario file} is a text file with all needed information to tune the solver using {\sc ParamILS}. It includes where to find the solver binary file, the parameters domains, etc. In our case, the {\it tuning scenario file} looks like the following:
+The {\it tuning scenario file} is a text file with all needed information to tune the solver using {\sc ParamILS}. It includes where to find the solver binary file, the parameters domains, etc. For this experiment the {\it tuning scenario file} looks like the following:
 
 \begin{shadedbox}
 	\texttt{algo = ./QtWrapper\_wrapper\\
@@ -61,7 +71,7 @@ The {\it tuning scenario file} is a text file with all needed information to tun
 	}
 \end{shadedbox}
 
-We explain in details each line in this file:
+Details of each line in this file are the following:
 
 \begin{itemize}
 	\item \textbf{\texttt{algo}} $\rightarrow$ An algorithm executable or a call to a wrapper script around an algorithm that aims the input/output format of \textit{ParamILS} (the wrapper).
@@ -76,7 +86,7 @@ We explain in details each line in this file:
 	\item \textbf{\texttt{test\_instance\_file}} $\rightarrow$ Specifies the file with a list of test instances.
 \end{itemize}
 
-Another important file that we have to compose properly is the {\it algorithm parameter file}, just following the instruction from \cite{Hutter2008} --\textit{[...] each line lists one parameter, in curly parentheses the possible values considered, and in square parentheses the default value [...]}. Our {\it algorithm parameter file} looks like follows:\\
+Another important file that we have to compose properly is the {\it algorithm parameter file}, just following the instruction from \cite{Hutter2008} --\textit{[...] each line lists one parameter, in curly parentheses the possible values considered, and in square parentheses the default value [...]}. The algorithm parameter file looks as follows:\\
 
 \begin{shadedbox}
 	\texttt{P \{20, 25, 30, 35, 40, 45, 50, 55, 60\} [50]\\
@@ -87,7 +97,7 @@ Another important file that we have to compose properly is the {\it algorithm pa
 	}
 \end{shadedbox}
 
-In the current {\it Adaptive Search} implementation, the solver binary file and the problem instance are the same thing. It means that we only have to use the following command to solve the {\it All--intervals} problem of size $K$, for example: 
+In the current Adaptive Search implementation, the solver binary file and the problem instance are the same thing. It means that we only have to use the following command to solve the All--intervals problem of size $K$, for example: 
 
 \begin{BGVerbatim}
 >> ./all-intervals K
@@ -97,7 +107,7 @@ So, to use {\sc ParamILS} we modified a little the code: now our solver takes th
 
 The solver we want to tune using {\sc ParamILS} ({\it Adaptive Search} in this case), must aims specific input/output rules. For that reason instead of modifying the current code of {\it Adaptive Search} implementation, we preferred to build a wrapper.
 
-\subsection{Building the wrapper}
+\section{Building the wrapper}
 
 The algorithm executable must follow the input/output criteria presented below: 
 
@@ -194,77 +204,79 @@ To build the wrapper we have followed a simple algorithm: launch two concurrent 
 }
 \end{algorithm}
 
-\subsection{Using the wrapper}
+%\subsection{Using the wrapper}
+%
+%In this section we explain how to use our wrapper to be able to tune easily instances of {\it All-Interval Series} and \carr{} problems. The {\it All-Interval Series Problem}\footnote{CSPlib:007 (\href{http://www.csplib.org/Problems/prob007/}{\texttt{http://www.csplib.org/Problems/prob007/}})} is the problem of finding a vector $s=\left(s_1,\dots,s_n\right)$, given $n \in \mathbb{N}$, such that $s$ is a permutation of the vector $(0, 1, \dots, n-1)$ and the interval vector $v = \left(\left|S_2-s_1\right|, \left|S_3-s_2\right|, \dots, \left|S_n-S_{n-1}\right|\right)$ (called an all-interval series of size $n$) is a permutation of the vector $(1, 2, \dots, n-1)$. The \carrp{} consists in finding a Costas array, which is an $n\times n$ grid containing $n$ marks such that there is exactly one mark per row and per column and the $n(n-1)/2$ vectors joining each couple of marks are all different (see below for more details about this problems).
+%
+%\subsubsection{Factory call}
+%
+%The first step is to implement the class {\sc ICallFactory}. Here, the string-binary-name for the command call is statically obtained. We present, as example, the class {\sc All\_IntervalCallFactory}:
+%
+%\begin{Verbatim}[fontsize=\normalsize]
+%\textcolor{verde}{\bf// all_interval_call_factory.h}
+%\textcolor{blue}{\bf class} All_IntervalCallFactory: \textcolor{blue}{\bf public} ICallFactory
+%\{
+%   \textcolor{blue}{\bf public}:
+%      std::string BuildCall();
+%      std::string BuildDefaultCall();
+%\};
+%\end{Verbatim}
+%
+%\begin{Verbatim}[fontsize=\normalsize]
+%\textcolor{verde}{\bf// all_interval_call_factory.cpp}
+%\textcolor{dred}{\bf #define} ALGO_EXECUTABLE "./all-interval"
+%\textcolor{dred}{\bf #define} DEFAULT_CALL "./all-interval _100.txt"
+%
+%std::string All_IntervalCallFactory::BuildCall()
+%\{
+%   \textcolor{blue}{\bf return} ALGO_EXECUTABLE;
+%\}
+%std::string All_IntervalCallFactory::BuildDefaultCall()
+%\{
+%   \textcolor{blue}{\bf return} DEFAULT_CALL;
+%\}
+%\end{Verbatim}
+%
+%All we have to do is to define our new macro {\bf ALGO\_EXECUTABLE} ({\bf DEFAULT\_CALL} is not being used)
+%
+%\subsubsection{Main method}
+%
+%Let's suppose now that we want to run an algorithm called {\it mySolver} that receives a file as parameter, called {\it my\_instance\_size.txt} (this is mandatory). We have to create (as we've explained before) the class {\sc My\_SolverCallFactory} and defining the macro as follows:
+%
+%\begin{Verbatim}[fontsize=\normalsize]
+%\textcolor{dred}{\bf #define} ALGO_EXECUTABLE "./mySolver"
+%\end{Verbatim}
+%
+%Now, the main method would be exactly like this:
+%
+%\begin{Verbatim}[fontsize=\normalsize]
+%\textcolor{blue}{\bf int} main(\textcolor{blue}{\bf int} argc, \textcolor{blue}{\bf char}* argv[])
+%\{
+%   shared_ptr<ICallFactory> problem = 
+%      make_shared<My_SolverCallFactory>();
+%   shared_ptr<TuningData> td = 
+%      (make_shared<TuningData>(argc, argv, problem));
+%
+%   shared_ptr<ADWrapper> w (make_shared<ADWrapper>());
+%   string output = w->tune(td);
+%
+%   cout << output << endl;
+%   \textcolor{blue}{\bf return} 0;
+%\}
+%\end{Verbatim}
 
-In this section we explain how to use our wrapper to be able to tune easily instances of {\it All-Interval Series} and \carr{} problems. The {\it All-Interval Series Problem}\footnote{CSPlib:007 (\href{http://www.csplib.org/Problems/prob007/}{\texttt{http://www.csplib.org/Problems/prob007/}})} is the problem of finding a vector $s=\left(s_1,\dots,s_n\right)$, given $n \in \mathbb{N}$, such that $s$ is a permutation of the vector $(0, 1, \dots, n-1)$ and the interval vector $v = \left(\left|S_2-s_1\right|, \left|S_3-s_2\right|, \dots, \left|S_n-S_{n-1}\right|\right)$ (called an all-interval series of size $n$) is a permutation of the vector $(1, 2, \dots, n-1)$. The \carrp{} consists in finding a Costas array, which is an $n\times n$ grid containing $n$ marks such that there is exactly one mark per row and per column and the $n(n-1)/2$ vectors joining each couple of marks are all different (see below for more details about this problems).
+\section{Results}
 
-\subsubsection{Factory call}
+In this section I present results of applying {\sc ParamILS} to the resolution of {\it All-Interval Series} and \carr{} problems through {\it Adaptive Search}. In both cases, we need to chose a set of {\it training instances}, to train the tuner, and a set of {\it test instances}, used to obtain the parameter setting. 
 
-The first step is to implement the class {\sc ICallFactory}. Here, the string-binary-name for the command call is statically obtained. We present, as example, the class {\sc All\_IntervalCallFactory}:
+\subsection{ Tuning {\it Adaptive Search} for  {\it All-Intervals Series Problem}}
 
-\begin{Verbatim}[fontsize=\normalsize]
-\textcolor{verde}{\bf// all_interval_call_factory.h}
-\textcolor{blue}{\bf class} All_IntervalCallFactory: \textcolor{blue}{\bf public} ICallFactory
-\{
-   \textcolor{blue}{\bf public}:
-      std::string BuildCall();
-      std::string BuildDefaultCall();
-\};
-\end{Verbatim}
-
-\begin{Verbatim}[fontsize=\normalsize]
-\textcolor{verde}{\bf// all_interval_call_factory.cpp}
-\textcolor{dred}{\bf #define} ALGO_EXECUTABLE "./all-interval"
-\textcolor{dred}{\bf #define} DEFAULT_CALL "./all-interval _100.txt"
-
-std::string All_IntervalCallFactory::BuildCall()
-\{
-   \textcolor{blue}{\bf return} ALGO_EXECUTABLE;
-\}
-std::string All_IntervalCallFactory::BuildDefaultCall()
-\{
-   \textcolor{blue}{\bf return} DEFAULT_CALL;
-\}
-\end{Verbatim}
-
-All we have to do is to define our new macro {\bf ALGO\_EXECUTABLE} ({\bf DEFAULT\_CALL} is not being used)
-
-\subsubsection{Main method}
-
-Let's suppose now that we want to run an algorithm called {\it mySolver} that receives a file as parameter, called {\it my\_instance\_size.txt} (this is mandatory). We have to create (as we've explained before) the class {\sc My\_SolverCallFactory} and defining the macro as follows:
-
-\begin{Verbatim}[fontsize=\normalsize]
-\textcolor{dred}{\bf #define} ALGO_EXECUTABLE "./mySolver"
-\end{Verbatim}
-
-Now, the main method would be exactly like this:
-
-\begin{Verbatim}[fontsize=\normalsize]
-\textcolor{blue}{\bf int} main(\textcolor{blue}{\bf int} argc, \textcolor{blue}{\bf char}* argv[])
-\{
-   shared_ptr<ICallFactory> problem = 
-      make_shared<My_SolverCallFactory>();
-   shared_ptr<TuningData> td = 
-      (make_shared<TuningData>(argc, argv, problem));
-
-   shared_ptr<ADWrapper> w (make_shared<ADWrapper>());
-   string output = w->tune(td);
-
-   cout << output << endl;
-   \textcolor{blue}{\bf return} 0;
-\}
-\end{Verbatim}
-
-\subsection{Results}
-
-In this section we present the results of applying {\sc ParamILS} to the resolution of {\it All-Interval Series} and \carr{} problems through {\it Adaptive Search}. In both cases, we need to chose a set of {\it training instances}, to train the tuner, and a set of {\it test instances}, used to obtain the parameter setting. 
-
-\subsubsection{ Tuning {\it Adaptive Search} for  {\it All-Intervals Series Problem}}
+In this section we explain how to use our wrapper to be able to tune easily instances of {\it All-Interval Series Problem} (AISP). The All-Interval Series Problem\footnote{CSPlib:007 (\href{http://www.csplib.org/Problems/prob007/}{\texttt{http://www.csplib.org/Problems/prob007/}})} is the problem of finding a vector $s=\left(s_1,\dots,s_n\right)$, given $n \in \mathbb{N}$, such that $s$ is a permutation of the vector $(0, 1, \dots, n-1)$ and the interval vector $v = \left(\left|S_2-s_1\right|, \left|S_3-s_2\right|, \dots, \left|S_n-S_{n-1}\right|\right)$ (called an all-interval series of size $n$) is a permutation of the vector $(1, 2, \dots, n-1)$. 
 
 \underline{Study cases:}
 \begin{enumerate}
-	\item The {\it training instances set} is composed by instances of {\it All--Intervals} problems of order $N$ with $$N \in \left\{100, 110, 120, 130, 140, 150, 160, 170, 180\right\}$$
-	\item The {\it test instances set} is composed by instances of {\it All--Intervals} problems of order $N$ with $$N \in \left\{190, 200, 210, 220, 230, 240, 250, 260, 265\right\}$$
+	\item The {\it training instances set} is composed by instances of AISP of order $N$ with $$N \in \left\{100, 110, 120, 130, 140, 150, 160, 170, 180\right\}$$
+	\item The {\it test instances set} is composed by instances of AISP of order $N$ with $$N \in \left\{190, 200, 210, 220, 230, 240, 250, 260, 265\right\}$$
 	\item The time-out for each run is 50.0 seconds
 	\item The test quality is based on 100 runs
 \end{enumerate}
@@ -276,7 +288,7 @@ In a {\bf First Experiment} we use the following {\it parameters domains}:
 	\item {\bf p}\texttt{ \{5, 10, 15, 20, 25, 30, 35\}}
 \end{itemize}
 
-Table~\ref{table:allint5yh} shows results using a time-out of 5.5 hours (20,000 seconds), and Table~\ref{table:allint1h} shows results using a time-out of 1 hour. In the second case we where able to perform more runs, due to the available time, but in both cases the training qualities are not so different. However, we can se the difference int the test qualities, and conclude that results using 5 hours of time-out are more reliables. 
+Table~\ref{table:allint5yh} shows results using a time-out of 5.5 hours (20,000 seconds), and Table~\ref{table:allint1h} shows results using a time-out of 1 hour. In the second case more runs were performed, but in both cases the training qualities are not so different. However, we can conclude that results using 5 hours of time-out are more reliables.
 
 \begin{table}[h] 	
 \centering 
@@ -289,7 +301,7 @@ Table~\ref{table:allint5yh} shows results using a time-out of 5.5 hours (20,000 
 	3 & 80 & 3 & 3 & 35 & 1 & 80 & 2 & 0 & 10 & 0.880686 & 1258 & 6.15398\\
 }
 }
-\caption{{\it All-Intervals Series}: \texttt{tunerTimeout} = 20,000 seconds}\label{table:allint5yh}
+\caption{AISP: \texttt{tunerTimeout} = 20,000 seconds}\label{table:allint5yh}
 \end{table}
 
 \begin{table}[h] 	
@@ -322,10 +334,10 @@ Table~\ref{table:allint5yh} shows results using a time-out of 5.5 hours (20,000 
 	3 & 80 & 3 & 3 & 35 & 0 & 80 & 0 & 1 & 30 & 0.9203 & 443 & 5.401 \\
 } 
 }
-\caption{{\it All-Intervals Series}: \texttt{tunerTimeout} = 3,600 seconds}\label{table:allint1h}
+\caption{AISP: \texttt{tunerTimeout} = 3,600 seconds}\label{table:allint1h}
 \end{table}
 
-In a {\bf Second Experiment} we decide to enlarge a bit more the parameters domains and use a time-out of 5 hours. The {\bf Parameters domains} are the following:
+In a {\bf Second Experiment} I decide to enlarge a bit more the parameters domains and use a time-out of 5 hours. The {\bf Parameters domains} are the following:
 \begin{itemize}[itemsep=0.2mm]
 	\item {\bf P}\texttt{ \{10, 20, 30, 40, 50, 60, 70, 80, 90\}}
 	\item {\bf F, f, l}\texttt{ \{0, 1, 2, 3, 4, 5, 6, 7, 8\}}
@@ -355,18 +367,18 @@ In a {\bf Second Experiment} we decide to enlarge a bit more the parameters doma
 	6 & 40 & 1 & 3 & 30 & 1 & 80 & 7 & 0 & 20 & 0.822703 & 1977 & 5.41185 \\
 } 
 }
-\caption{{\it All-Intervals Series}: \texttt{tunerTimeout} = 18,000 seconds}\label{table:allint5h}
+\caption{AISP: \texttt{tunerTimeout} = 18,000 seconds}\label{table:allint5h}
 \end{table}
 
-The results presented in Table~\ref{table:allint5h} show better results in terms of test quality with respect to Table~\ref{table:allint5yh}. For that reason, in the \textbf{FINAL Experiment}, only the results obtained in those tables were took into account (also because they were obtained by using longer times-out). As it can be observed in those tables, {\it Adaptive Search} seems to show a good behavior if the parameters {\bf F}, {\bf P} and {\bf l} are in the following sets: \texttt{\bf F} $\in$ \texttt{\{ 0, 1\}}, \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}} and \texttt{\bf l} $\in$ \texttt{\{ 0, 1\}}.
+Results presented in Table~\ref{table:allint5h} show better results in terms of test quality with respect to Table~\ref{table:allint5yh}. For that reason, in the \textbf{FINAL Experiment}, only results obtained in those tables were took into account (also because they were obtained by using longer times-out). As it can be observed in those tables, Adaptive Search seems to show a good behavior if the parameters {\bf F}, {\bf P} and {\bf l} are in the following sets: \texttt{\bf F} $\in$ \texttt{\{ 0, 1\}}, \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}} and \texttt{\bf l} $\in$ \texttt{\{ 0, 1\}}.
 
-In that sense, a specific configuration was extracted from the results above, and 60 runs of {\it Adaptive Search} were performed solving {\it All--Intervals} ($N = 600$) benchmark:
+In that sense, a specific parameter setting was extracted from previews results, and 60 runs of {\it Adaptive Search} were performed solving AISP ($N = 600$) benchmark:
 \begin{itemize}
-	\item[-] 30 using the default parameter configuration (\texttt{-F 0 -P 66 -f 1 -l 1 -p 25})
-	\item[-] 30 with an optimal parameter configuration extracted from the Tables~\ref{table:allint5yh}, \ref{table:allint5h} (\texttt{-F 0 -P 80 -f 6 -l 1 -p 10})
+	\item[-] 30 using the default parameter setting (\texttt{-F 0 -P 66 -f 1 -l 1 -p 25})
+	\item[-] 30 with an optimal parameter setting extracted from the Tables~\ref{table:allint5yh}, \ref{table:allint5h} (\texttt{-F 0 -P 80 -f 6 -l 1 -p 10})
 \end{itemize}
 
-Table~\ref{table:testaibad} shows results by using the default parameter settings, and Table~\ref{table:testaigood} shows the results by using the parameter configuration found by {\sc ParamILS}, and it is clear that the default configuration shows better results than {\it ParamILS}'s one, in terms both of runtime mean and standard deviation Using the default parameter settings, {\it Adaptive Search} can obtains best results int terms of {\it mean} and {\it slowest run}. However, using the {\sc ParamILS} found parameter settings, it reached a {\it fastest} run two times faster than the one using the default parameter settings. 
+Table~\ref{table:testaibad} shows results by using the default parameter settings, and Table~\ref{table:testaigood} shows the results by using the parameter configuration found by {\sc ParamILS}, and it is clear that the default configuration shows better results than {\it ParamILS}'s one, in terms both of runtime mean and standard deviation. Using the default parameter settings, {\it Adaptive Search} can obtains best results int terms of {\it mean} and {\it slowest run}. However, using the {\sc ParamILS} found parameter settings, it reached a {\it fastest} run two times faster than the one using the default parameter settings. 
 
 \begin{table}[h]
 \centering
@@ -386,7 +398,7 @@ Table~\ref{table:testaibad} shows results by using the default parameter setting
 	\multicolumn{5}{|c|}{\bf spread: 310.444635}\\
 	\hline
 \end{tabular}
-\caption{{\it All-Intervals Series}: Default configuration runtimes (secs)}\label{table:testaibad}
+\caption{AISP: Default configuration runtimes (secs)}\label{table:testaibad}
 \end{table}
 	
 \begin{table}[h]
@@ -407,21 +419,19 @@ Table~\ref{table:testaibad} shows results by using the default parameter setting
 	\multicolumn{5}{|c|}{\bf spread: 404.618226}\\
 	\hline
 \end{tabular}
-\caption{{\it All-Intervals Series}: {\sc ParamILS} configuration runtimes (secs)}\label{table:testaigood}
+\caption{AISP: {\sc ParamILS} configuration runtimes (secs)}\label{table:testaigood}
 \end{table} 
-
-
-
-
 
 %--------------------------------------- COSTAS
 
-\subsubsection{ Tuning {\it Adaptive Search} for  \carrp}
+\subsection{ Tuning {\it Adaptive Search} for \carrp}
+
+The \carrp{} (\CARRP) was already introduced in Chapter~\ref{chap:expe}. It consists in finding a Costas array, which is an $n\times n$ grid containing $n$ marks such that there is exactly one mark per row and per column and the $n(n-1)/2$ vectors joining each couple of marks are all different.
 
 \underline{Study cases:}
 \begin{enumerate}
-	\item The {\it training instances set} is composed by instances of {\it Costas Array} problems of order $N$ with $9 \leq N \leq 15$
-	\item The {\it test instances set} is composed by instances of {\it Costas Array} problems of order $N$ with $14 \leq N \leq 19$
+	\item The {\it training instances set} is composed by instances of \CARRP{} of order $N$ with $9 \leq N \leq 15$
+	\item The {\it test instances set} is composed by instances of \CARRP{} of order $N$ with $14 \leq N \leq 19$
 	\item The cutoff for each run was 60.0 seconds
 	\item The test quality is based on 100 runs
 \end{enumerate}
@@ -435,10 +445,10 @@ The {\bf First Experiments} with this benchmark was using the following paramete
 
 Table~\ref{table:ca1} shows results selecting directly a time-out of 5 hours (18,000 seconds). In this case the training quality of the solutions is better, but do not observe any improvement in the test quality. We can see also how {\it Adaptive Search} seems to be not sensitive to parameters {\bf F} and {\bf p}, i.e. they don't change during the tuning process. On the other hand, the tuner seems to find some optimum values for the other parameters: \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}}, \texttt{\bf f} $\in$ \texttt{\{ 4, 5\}} and \texttt{\bf l} $=$ \texttt{2}.
 
-In that case also, an specific configuration was extracted from the results showed in Table~\ref{table:ca1}, and 60 runs of {\it Adaptive Search} were performed solving {\it Costas Array} ($N = 20$) benchmark: 
+In that case also, an specific parameter setting was extracted from the results showed in Table~\ref{table:ca1}, and 60 runs of Adaptive Search were performed solving \CARRP{} ($N = 20$) benchmark: 
 \begin{itemize}
-	\item[-] 30 using the default parameter configuration (\texttt{-F 0 -P 50 -f 1 -l 0 -p 5})
-	\item[-] 30 with an optimal parameter configuration extracted from the Table~\ref{table:ca1} (\texttt{-F 3 -P 90 -f 5 -l 2 -p 30}) 
+	\item[-] 30 using the default parameter setting (\texttt{-F 0 -P 50 -f 1 -l 0 -p 5})
+	\item[-] 30 with an optimal parameter setting extracted from the Table~\ref{table:ca1} (\texttt{-F 3 -P 90 -f 5 -l 2 -p 30}) 
 \end{itemize}
 
 \begin{table}[h]
@@ -464,10 +474,10 @@ In that case also, an specific configuration was extracted from the results show
 	7 & 80 & 2 & 0 & 70 & 7 & 90 & 5 & 2 & 70 & 0.0502264 & 212 & 5.2637 \\ 
 } 
 }
-\caption{\carr{}: \texttt{tunerTimeout} = 18,000 seconds}\label{table:ca1}
+\caption{\CARRP{}: \texttt{tunerTimeout} = 18,000 seconds}\label{table:ca1}
 \end{table}
 
-Table~\ref{table:testcabad} shows the results by using the default parameter configuration, and Table~\ref{table:testcagood} shows the results by using the parameter configuration found by {\it ParamILS}. One more time, "in the mean", the default configuration outperforms {\sc ParamILS}'s.
+Table~\ref{table:testcabad} shows results by using the default parameter setting, and Table~\ref{table:testcagood} shows results by using the parameter setting found by {\it ParamILS}. One more time, "in the mean", the default setting outperforms {\sc ParamILS}'s.
 
 \begin{table}[h]
 \centering
@@ -487,7 +497,7 @@ Table~\ref{table:testcabad} shows the results by using the default parameter con
 	\multicolumn{5}{|c|}{\bf spread: 185.362}\\
 	\hline
 \end{tabular}
-\caption{Default configuration runtimes (secs)}\label{table:testcabad}
+\caption{\CARRP: Default configuration runtimes (secs)}\label{table:testcabad}
 \end{table}
 
 \begin{table}[h]
@@ -508,9 +518,8 @@ Table~\ref{table:testcabad} shows the results by using the default parameter con
 	\multicolumn{5}{|c|}{\bf spread 263.539}\\
 	\hline
 \end{tabular}
-\caption{ParamILS configuration runtimes (secs)}\label{table:testcagood}
+\caption{\CARRP: ParamILS configuration runtimes (secs)}\label{table:testcagood}
 \end{table}    
-
 %
 %\subsection{Tuning comparison}
 %
@@ -566,6 +575,6 @@ Table~\ref{table:testcabad} shows the results by using the default parameter con
 %\label{table:allint5hparamils}
 %\end{table}
 
-\subsection{Conclusion}
+\section{Conclusion}
 
-The conclusion of this study is that the tunning process by hand in this case was more effective than using {\sc ParamILS}. Results show that default parameters used in the current {\it Adaptive Search} implementation are more effective and consistent than those found by {\sc ParamILS} for both benchmarks ({\it All-Interval Series} and \carr{} problems).
+The conclusion of this study is that the tunning process by hand in this case was more effective than using {\sc ParamILS}. Results show that default parameters used in the current Adaptive Search implementation are more effective and consistent than those found by {\sc ParamILS} for both benchmarks ({\it All-Interval Series} and \carr{} problems).
