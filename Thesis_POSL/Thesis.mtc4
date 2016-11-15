@@ -1,8 +1,14 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.1}Introduction}{\reset@font\mtcSfont 46}{section.B.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.2}Using ParamILS}{\reset@font\mtcSfont 46}{section.B.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.3}Tuning scenario files}{\reset@font\mtcSfont 47}{section.B.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.4}Building the wrapper}{\reset@font\mtcSfont 49}{section.B.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.5}Results}{\reset@font\mtcSfont 51}{section.B.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {B.5.1} Tuning {\it Adaptive Search} for {\it All-Intervals Series Problem}}{\reset@font\mtcSSfont 51}{subsection.B.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {B.5.2} Tuning {\it Adaptive Search} for {\it Costas Array}{} {\it Problem}}{\reset@font\mtcSSfont 54}{subsection.B.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.6}Conclusion}{\reset@font\mtcSfont 56}{section.B.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.1}Methodology}{\reset@font\mtcSfont 72}{section.4.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}A dynamic configuration exchange strategy ({\it Social Golfers})}{\reset@font\mtcSfont 73}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Problem definition}{\reset@font\mtcSSfont 74}{subsection.4.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Experiment design and results}{\reset@font\mtcSSfont 74}{subsection.4.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}A cyclic communication strategy{} ({\it N-Queens})}{\reset@font\mtcSfont 84}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Problem definition}{\reset@font\mtcSSfont 85}{subsection.4.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Experiments and results}{\reset@font\mtcSSfont 85}{subsection.4.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}A simple communication strategy{} ({\it Costas Array})}{\reset@font\mtcSfont 89}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Problem definition}{\reset@font\mtcSSfont 89}{subsection.4.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Experiment design and results}{\reset@font\mtcSSfont 90}{subsection.4.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}A local minima evasion strategy ({\it Golomb Ruler})}{\reset@font\mtcSfont 93}{section.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Problem definition}{\reset@font\mtcSSfont 94}{subsection.4.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Experiment design and results}{\reset@font\mtcSSfont 94}{subsection.4.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summarizing}{\reset@font\mtcSfont 99}{section.4.6}}

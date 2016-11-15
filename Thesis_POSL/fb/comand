@@ -1,0 +1,2 @@
+pdftk A=cover-front.pdf cat A1-2 output front.pdf
+pdftk A=cover-front.pdf cat A3-4 output back.pdf

@@ -2,45 +2,60 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
+A level-1 auxiliary file: appendix/appendix_res_graph_sgp.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_nqp.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_cap.aux
+A level-1 auxiliary file: appendix/appendix_res_graph_grp.aux
 Database file #1: biblio201610.bib
-You've used 2 entries,
+Warning--can't use both volume and number fields in Cousot1977
+Warning--empty publisher in Gecode
+Warning--there's a number but no volume in Feo95
+Warning--empty publisher in Comet
+Warning--there's a number but no series in Pesant1996
+Warning--empty publisher in Hooker2006
+Warning--there's a number but no volume in Hill2008
+Warning--empty year in Jinnai
+Warning--empty institution in Arbab1995
+Warning--empty year in Reyes-amaro
+You've used 133 entries,
             1791 wiz_defined-function locations,
-            461 strings with 3940 characters,
-and the built_in function-call counts, 601 in all, are:
-= -- 53
-> -- 25
-< -- 1
-+ -- 9
-- -- 7
-* -- 41
-:= -- 93
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 2
+            1293 strings with 25780 characters,
+and the built_in function-call counts, 38360 in all, are:
+= -- 3767
+> -- 1379
+< -- 89
++ -- 507
+- -- 374
+* -- 2460
+:= -- 5539
+add.period$ -- 449
+call.type$ -- 133
+change.case$ -- 144
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 28
-empty$ -- 58
-format.name$ -- 7
-if$ -- 135
+cite$ -- 143
+duplicate$ -- 1923
+empty$ -- 3756
+format.name$ -- 374
+if$ -- 9009
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 2
-newline$ -- 13
-num.names$ -- 2
-pop$ -- 7
+int.to.str$ -- 133
+missing$ -- 129
+newline$ -- 668
+num.names$ -- 153
+pop$ -- 475
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 17
+skip$ -- 1051
 stack$ -- 0
-substring$ -- 43
-swap$ -- 10
-text.length$ -- 1
+substring$ -- 2843
+swap$ -- 677
+text.length$ -- 89
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 7
-width$ -- 3
-write$ -- 24
+warning$ -- 10
+while$ -- 416
+width$ -- 136
+write$ -- 1533
+(There were 10 warnings)
