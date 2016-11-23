@@ -6,7 +6,7 @@ The \carrp{} (\CARRP) consists in finding a \textit{costas array}, which is an $
 
 The cost function for this benchmark was implemented in C++ based on the current implementation of {\it Adaptive Search}\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}.
 
-\subsection{Experiment design and results}
+\subsection{Experiments design and results}
 
 To handle this problem, I have reused all modules used for solving the \nqp. First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the right parameters of \textit{maximum number of restarts}, \textit{maximum number of iterations}, and \textit{maximum number of iterations with the same cost}, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: I have added a {\it Reset} \om{} $R_{AS}$ based on the abstract \om{} $R$. The rest of \oms{} were the same used for solving the \nqp.
 

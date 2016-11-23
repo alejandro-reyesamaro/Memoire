@@ -7,7 +7,7 @@ When \posl{} is applied to solve an instance of this problem sequentially, It ca
 
 The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). All distances where a variable is participating are also stored. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like {\it Adaptive Search}. This cost is calculated in $O\left(o^2 + l\right)$.
 
-\subsection{Experiment design and results}
+\subsection{Experiments design and results}
 
 \grp{} instances were used to study a different \commstr. This time the current configuration is communicated, to avoid its neighborhood, i.e., a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
 

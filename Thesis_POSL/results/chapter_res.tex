@@ -1,20 +1,23 @@
 \chapter{Experiments design and results}
 \label{chap:expe}
-\textit{In this Chapter I expose all details about the evaluation process of \posl{}, i.e., all experiments I perform. For each benchmark, I explain used strategies in the evaluation process and the used environments were the runs were performed (\textit{Curiosiphi} server). %, and eventually \textit{Grid5000}). 
-I describe all the experiments and I expose a complete analysis of the obtained result.}
+\textit{In this Chapter, I expose all details about the evaluation process of \posl{}, i.e., all experiments performed. For each benchmark, I explain strategies used in the evaluation process and what are the experiment environments before exposing a complete analysis of the obtained results.}
 \vfill
 \minitoc
 \newpage
 
-In this chapter I illustrate and analyze the versatility of \posl{} studying different ways to solve constraint problems based on local search meta-heuristics. 
-I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are challenging yet differently structured problems. In this chapter I present formally each benchmark, I explain the structure of \posl's solvers that I have generated for experiments and present a detailed analysis of obtained results.
+In this chapter, I illustrate and analyze the versatility of \posl{} studying different ways to solve constraint problems based on local search meta-heuristics. 
+I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are challenging yet differently structured problems. 
+\new{\sgp{} has the structure of tournament problems, where the scheduling of matches between players along a given period of time. The constraints, related to how many times a player can participate in a match the same week, make the problem very complex as the number of weeks increases. \nq{} and \carr{} are similarly modeled in these experiments, since they are represented as permutation problems. However, they have a very interesting characteristic which differentiate them from each other: from certain order on, the number of solutions with respect to the order increases for the case of \nqp{}, and for decrease drastically for \carrp{}. \grp{} was chosen for two main reasons. Is solution representation is very different from the other studied problems, and because during the search process, \posl{} describes a different behavior: it performs many restarts. }
+%The first one is because unlike benchmarks mentioned before, where their solution representation's are permutations of $s = (0, 1, \dots, n)$ (or blocks of permutations for the case of \sg), the solution representation of \grp{} is just an ordered set of integers. }
 
-First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} were we used \posl{} to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, therefore it was able to solve only relatively easy instances. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}. %With the next and more optimized version of \posl{}, I decide to start performing more detailed studies.
+%In this chapter I present formally each benchmark, I explain the structure of \posl's solvers that I have generated for experiments and present a detailed analysis of obtained results.
+
+First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} where it was used to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, and it was able to solve relatively easy instances only. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}, and they encourage us to go even further on this direction. %With the next and more optimized version of \posl{}, I decide to start performing more detailed studies.
 
 \section{Methodology}
 
-Some terms are necessary to be defined for simplification sake. They are the \textit{sequential environment} and the \textit{parallel environment}, which are the description of the computation resources used for experimentation. Experiments\footnote{\posl{} source code is available on GitHub:\href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} 
-were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called {\sc Curiosiphi} and is located at \textit{Laboratoire d'Informatique de Nantes Atlantique}, at the University of Nantes. %The other term that needs to be introduced is the \textit{statistical summary}, which is the obtained information from the runs, used to analyze the solution process and draw conclusions.
+Some terms are necessary to be defined for simplification sake. They are the \textit{sequential environment} and the \textit{parallel environment}, which are the description of the computation resources used for experimentation. Experiments\footnote{\posl{} source code is available on GitHub: \href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} 
+were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called {\sc Curiosiphi} and is located at the  \textit{Laboratoire d'Informatique de Nantes Atlantique} of the Université de Nantes. %The other term that needs to be introduced is the \textit{statistical summary}, which is the obtained information from the runs, used to analyze the solution process and draw conclusions.
 
 \begin{definition}\label{def:seq_envir}
 We say that we launch an experiment using a \textbf{sequential environment} if we execute a \soset{} into a single process of {\sc Curiosiphi}.
@@ -34,7 +37,7 @@ With the aim of being as exhaustive as possible in the experimentation process, 
 
 \begin{enumerate}
 \item \underline{\textbf{Algorithm selection}} In this stage some experiments are launched to ensure choosing the right \oms, and the right design of the \as. Experiments are performed using the sequential environment, and the following statistical analysis is performed: A set of 30 runs for each setup are performed, and used to \begin{inparaenum}[a)]
-\item build box-plot diagrams and bars graphs with some additional information about winner solvers, presented in Appendixes~\ref{app:sgp}, \ref{app:nqp}, \ref{app:cap} and \ref{app:grp}; \item compute means and standard deviation for run-times and iterations, showed in tables presented in this chapter, in columns labeled {\bf T} (run-time in seconds), {\bf It.} (number of iterations), {\bf T(sd)} and {\bf It.(sd)} (their respective standard deviations). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out (5 minutes). \end{inparaenum}
+\item build box-plot diagrams and bars graphs with some additional information about winner solvers, presented in Appendixes~\ref{app:sgp}, \ref{app:nqp}, \ref{app:cap} and \ref{app:grp}; \item compute means and standard deviation for run-times and iterations, showed in tables presented in this chapter, in columns labeled {\bf T} (run-time in seconds), {\bf It.} (number of iterations), {\bf T(sd)} and {\bf It.(sd)} (their respective standard deviations). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out of 5 minutes (imperative when dealing with meta-heuristics). \end{inparaenum}
 
 \item \underline{\textbf{Algorithm evaluation in the parallel environment}} The selected algorithm is launched using the parallel environment. It is performed a similar statistical analysis to the one described in the previews stage, and results are compared.\label{stage_expe_2}
 
@@ -49,7 +52,7 @@ With the aim of being as exhaustive as possible in the experimentation process, 
 \item \underline{\textbf{Communication strategy evaluation}} The designed \commstr{} is launched suing the parallel environment, and a statistical analysis is performed. Communication strategies are compared each others based on obtained results in order to select the right one. These results are also compared to those obtained during the stage~\ref{stage_expe_2}, to be able to draw conclusions about the success of the cooperative approach.
 \end{enumerate}
 
-It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
+It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, \new{and much less to outperform the state-of-the-art solutions}, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
 
 %All benchmarks were coded using the \posl{} low-level framework in C++.
 
