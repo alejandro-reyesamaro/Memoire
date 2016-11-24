@@ -8,7 +8,7 @@ Its structure is very attractive, because it is very similar to other problems. 
 
 \new{As it was explained in Chapter~\ref{chap:art}, all benchmarks in this chapter were modeled as unconstrained optimization problems, where the objective functions is a linear combination of penalty functions associated to each constraint. The proposed model of \SGP{} has $g\times p\times w$ variables: $\left\{v_1, v_2, \dots, v_{g\times p\times w}\right\}$. Their domains are the same: $D_{v_i}=\left\{1, \dots, p\times g\right\}$.}
 
-The cost function \new{(objective function to be minimized) for this benchmark assume thye following structure of a configuration: $s=\left(W_1, W_2, \dots, W_w\right)$, where $W_i$ are integer vectors of size $p\times g$.}
+The cost function \new{(objective function to be minimized) for this benchmark assumes the following structure of a configuration: $s=\left(W_1, W_2, \dots, W_w\right)$, where $W_i$ are integer vectors of size $p\times g$.}
 
 \new{This function assume that each vector $W_i$ has the structure $W_i = \left(G_1^i, G_2^i, \dots, G_g^i\right)$, where $G_j^i$ are vectors of size $p$. Based on this structure, the cost $c_s$ of a configuration is: }
 \begin{equation}\label{func:cost_sgp}
@@ -433,7 +433,7 @@ $\left[\eqsolverposl{first}\right]20;$\;
 \caption{Companion communication strategy 50\% communication}\label{comm:golfers_v2_50}
 \end{algorithm}
 
-This strategy produces some gain in terms of runtime as we can see in Tables~\ref{tab:golfers_v2_1N} and \ref{tab:golfers_v2_11} with respect to Table~\ref{tab:golfersB001}. It produces also more robust results in terms of runtime. The spread of results in iterations show higher variances, because there are included also results of companion solvers, which performs many times more iterations that the standard solvers. The percentage of the receiver solvers that were able to find the solution before the others did, was significant: \new{the 73\% of the receiver solvers, as a mean among the three instances, were the winners} (see Appendix~\ref{app:sgp}, Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}). That shows that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc).
+This strategy produces some gain in terms of runtime as we can see in Tables~\ref{tab:golfers_v2_1N} and \ref{tab:golfers_v2_11} with respect to Table~\ref{tab:golfersB001}. It produces also more robust results in terms of runtime. The spread of results in iterations show higher variances, because there are included also results of companion solvers, which performs many times more iterations that the standard solvers. The percentage of the receiver solvers that were able to find the solution before the others did, was significant: \new{the 73\% of the receiver solvers, as a mean among the three instances, were the winners} (see Appendix~\ref{app:sgp}, Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}), showing that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc).
 
 \begin{table}
 \captionsetup{belowskip=6pt,aboveskip=6pt}

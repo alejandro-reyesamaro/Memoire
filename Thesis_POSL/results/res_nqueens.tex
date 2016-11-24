@@ -1,10 +1,28 @@
-In this section I present the performed study using \nqp{} (\NQP) as a benchmark. The \commstr{} analyzed here consists in exchanging cyclically the configuration between solvers using different neighborhood functions, in order to accelerate the process of generating very promising configurations. Final obtained results show that this \commstr{} works pretty well for some instances of this problem.
+In this section \nqp{} (\NQP) is selected as a benchmark to study a \commstr{} consisting in exchanging cyclically the configuration between solvers using different neighborhood functions, in order to accelerate the process of generating very promising configurations. Final obtained results show that this \commstr{} works well for some instances of this problem.
 
 \subsection{Problem definition}
 
-The \nqp{} (\NQP) asks how to place $N$ queens on a chess board so that none of them can hit any other in one move. This problem was introduced in 1848 by the chess player Max Bezzelas as the \textit{8-queen problem}, and years latter it was generalized as \textit{N-queen problem} by Franz Nauck. Since then many mathematicians, including Gauss, have worked on this problem. It finds a lot of applications, e.g., parallel memory storage schemes, traffic control, deadlock prevention, neural networks, constraint satisfaction problems, among others \cite{Bell2009}. Some studies suggest that the number of solution grows exponentially with the number of queens ($N$), but local search methods have been shown very good results for this problem \cite{Sosic1994}. For that reason we tested some communication strategies using \posl{}, to solve a problem relatively easy to solve using non communication strategies.
+The \nqp{} (\NQP) asks how to place $N$ queens on a chess board so that none of them can hit any other queen in one move. This problem was introduced in 1848 by the chess player Max Bezzelas as the \textit{8-queen problem}, and years latter it was generalized as \textit{N-queen problem} by Franz Nauck. Since then many mathematicians, including Gauss, have worked on this problem. \new{It can be directly apply to diverse fields, such as parallel memory storage schemes, traffic control, deadlock prevention, neural networks, constraint satisfaction problems, among others} \cite{Bell2009}. Some studies suggest that the number of solution grows exponentially with the number of queens ($N$), but local search methods have been shown very good results for this problem \cite{Sosic1994}. For that reason we tested some communication strategies using \posl{}, to solve a problem relatively easy to solve using non communication strategies.
 
-The cost function for this benchmark was implemented in C++ based on the current implementation of {\it Adaptive Search}\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}.
+\new{Benchmarks in this chapter were also modeled as unconstrained optimization problems. The proposed model for \NQP{} has $N$ variables: $\left\{v_1, v_2, \dots, v_N\right\}$. Their domains are the same: $D_{v_i}=\left\{1, \dots, N\right\}$.}
+
+\new{The cost function for this benchmark was implemented in C++ based on the current implementation of Adaptive Search\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. It assumes that a configuration $s$ for this problem is an integer permutation of the set $\left\{1...N\right\}$, i.e. $s_i = j$ (the $i^{th}$ variable has the value $j$) means that there is a queen placed in column $i$ and row $j$. In that sense, the cost function does not verifies whether values in $s$ are all different.}
+
+\new{Assuming this structure in the configuration, the cost function only has to check whether there are diagonal \textit{collisions} between queens. To do that two vectors $Err^{d1}$ and $Err^{d2}$ are created of size $2\cdot N-1$ (the number of diagonals in a $N\times N$ matrix) to store the number of queens placed on each diagonal. So, $Err^{d1}_{i+N-1-j}$ contains the number of queens on such diagonal, taking into account that $j$ is the position (row) of the queen placed on the column $i$, for all $i\in [1...N]$. Analogously, $Err^{d2}_{i+j}$ contains the number of queens on such diagonal (on the other direction). Based on this structure, the cost $c_s$ of a configuration is:} 
+
+\begin{equation}\label{func:cost_nqp}
+c_s=\sum_{d=1}^{2N-1}{\mathcal{F}(Err^{d1}_{d}) + \mathcal{F}(Err^{d2}_{d})}
+\end{equation}
+
+where:
+\begin{equation*}
+\mathcal{F}(x)=\left\{
+\begin{tabular}{ll}
+0 & $x \leq 1$ \\
+x & otherwise
+\end{tabular}
+\right.
+\end{equation*}
 
 \subsection{Experiments design and results}
 
