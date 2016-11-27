@@ -26,7 +26,7 @@ x & otherwise
 
 \subsection{Experiments design and results}
 
-To handle this problem, some modules used for the \sgp{} have been reused: the selection \oms{} $S_{first}$ and $S_{best}$, and the acceptance \om{} $A_{AI}$. It uses a simple \as{} presented in Algorithm~\ref{as:nq}:
+To handle this problem, some modules used for the \sgp{} have been reused: the selection \oms{} $S_{first}$ and $S_{best}$, and the acceptance \om{} $A_{AI}$. It uses a simple \as{} presented in Algorithm~\ref{as:nq}. \new{For this problem, \posl{} does not perform restarts, so the value $K_1$ was fixed in 15000 in order to be able to use the same \as{} for all instances}. 
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -40,14 +40,14 @@ To handle this problem, some modules used for the \sgp{} have been reused: the s
 \tet{\bf solver} \solverposl{as} \tet{\bf implements} as\_simple\;
 \algoindent \tet{\bf computation} : $I_{perm}, V_{AS}, S_{first}, A_{AI}$ \;
 \tet{\bf solver} \solverposl{selective} \tet{\bf implements} as\_simple\;
-\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(p), S_{first}, A_{AI}$ \; 
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(m), S_{first}, A_{AI}$ \; 
 %\tet{\bf connection}: $CM_{last}$\;
 \caption{\As{} for \NQP}\label{as:nq}
 \end{algorithm}
 
-Solvers used for the experiments without communications are presented in Algorithm~\ref{as:nq}, where the \as{} is instantiated by the solver \solverposl{as} with the neighborhood \om{} $V_{AS}$. Given a configuration, this module returns a neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost, with all others. This solver was able to find solutions but taking too much time (a minute for 6000-queens, for example). For that reason a neighborhood \om{} $S_{PAS}(p)$ has been implemented similar to $S_{AS}$ but instead of generating neighbors swapping the most culprit variable with all others, it is swapped only with a percentage \new{$p$ of them}. Solver \solverposl{selective} instantiates the \as{} with this \om, showing much better results than \solverposl{as}.
+Solvers used for the experiments without communications are presented in Algorithm~\ref{as:nq}, where the \as{} is instantiated by the solver \solverposl{as} with the neighborhood \om{} $V_{AS}$. Given a configuration, this module returns a neighborhood $V\left(s\right)$ swapping the variable which contributes the most to the cost, with all others. This solver was able to find solutions but taking too much time (a minute for 6000-queens, for example). For that reason a neighborhood \om{} $S_{PAS}(m)$ has been implemented similar to $S_{AS}$ but instead of generating neighbors swapping the most culprit variable with all others, it is swapped only with a percentage \new{$m$ of them}. Solver \solverposl{selective} instantiates the \as{} with this \om, showing much better results than \solverposl{as}.
 
-Table~\ref{tab:nqueens_seqpar} presents results of sequential and parallel runs, using \solverposl{selective} with a tuned value of $p=2.5$. Results show that the improvement of the parallel scheme using \posl{} is not significant. While the number of solutions of this problem is only known for the very small value of $N = 27$, studies suggest that the number of solutions \new{grows significantly with $N$, i.e. the number of new solutions is about 10 times bigger. It means that the complexity of the problem grows with its order, but not excessively. However, the number of new possible configurations is $N$ times bigger. It implies that as the problem grows in order, solutions inside the search space are farer away from each other. So, in a search space much bigger and with scattered solutions, the probability of starting the search close to a solution decreases, and, as we can deduce from results, it does not increase considerably when applying the parallel approach. This explains also the decrease in the standard deviation when $N$ increases: all solvers start the search from configurations ``similarly far'' from the solutions, so their courses tent to be similar.}
+Table~\ref{tab:nqueens_seqpar} presents results of sequential and parallel runs, using \solverposl{selective} with a tuned value of $m=2.5$. Results show that the improvement of the parallel scheme using \posl{} is not significant. While the number of solutions of this problem is only known for the very small value of $N = 27$, studies suggest that the number of solutions \new{grows significantly with $N$, i.e. the number of new solutions is about 10 times bigger. It means that the complexity of the problem grows with its order, but not excessively. However, the number of new possible configurations is $N$ times bigger. It implies that as the problem grows in order, solutions inside the search space are farer away from each other. So, in a search space much bigger and with scattered solutions, the probability of starting the search close to a solution decreases, and, as we can deduce from results, it does not increase considerably when applying the parallel approach. This explains also the decrease in the standard deviation when $N$ increases: all solvers start the search from configurations ``similarly far'' from the solutions, so their courses tent to be similar.}
 
 %it becomes easier to solve through local search methods. The behavior of \posl{} solving this problem matches  with this hypothesis: the search process solving larger instances is more stable and the convergence is direct. In a well spread search space with a lot of solutions, the parallelism using 40 cores do not provide a lot of improvement. In that sense, \modified{as a future work, experiments using \posl{} to solve \NQP{} in parallel with more cores are planned.}
 
@@ -90,7 +90,7 @@ In order to test the cooperative approach with this problem, a first and simple 
 		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d$}	
 }
 \tet{\bf solver} \solverposl{sender} \tet{\bf implements} as\_sender\;
-\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(p), S_{first}, A_{AI}$ \;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(m), S_{first}, A_{AI}$ \;
 \caption{Sender solver for \NQP{} (simple \commstr)}\label{as:nq_sender}
 \end{algorithm}
 
@@ -105,7 +105,7 @@ In order to test the cooperative approach with this problem, a first and simple 
 		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} \left[A \poslopcond{\Iter \% K_2} \left[A \poslop{m} C.M.\right]\right]$}
 }
 \tet{\bf solver} \solverposl{receiver} \tet{\bf implements} as\_receiver\;
-\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(p), S_{first}, A_{AI}$ \;
+\algoindent \tet{\bf computation} : $I_{perm}, V_{PAS}(m), S_{first}, A_{AI}$ \;
 \algoindent \tet{\bf communication}: $CM_{last}$\;
 \caption{Receiver solver for \NQP{} (simple \commstr)}\label{as:nq_receiver}
 \end{algorithm}
@@ -146,7 +146,7 @@ Tables~\ref{tab:nqueens_simplecomm11} and ~\ref{tab:nqueens_simplecomm1n} show t
 \caption{Simple \commstr{} \oneTone{} for \NQP}\label{tab:nqueens_simplecomm11}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[t]
 \centering 
 \renewcommand{\arraystretch}{1}
 \newcommand{\cwnq}{1.1cm}
@@ -165,20 +165,23 @@ Tables~\ref{tab:nqueens_simplecomm11} and ~\ref{tab:nqueens_simplecomm1n} show t
 	\hline
 \end{tabular}
 }
-\caption{Simple \commstr{} \oneTn{} for \NQP}\label{tab:nqueens_simplecomm1n}
+\caption{Simple \commstr{} \oneTn{} in one, two and four groups, for \NQP}\label{tab:nqueens_simplecomm1n}
 \end{table}
 
 \separation
 
-In the following experiment, with the goal of improving results, another \commstr{} was implemented, very similar to the one applied to \SGP{}, but in this case, with solvers using the same neighborhood function $V_{PAS}(p)$ but with different values of $p$ and different selection functions. In this \commstr{} a cyclic exchange of the current configuration is performed between to different solvers. One solver \textit{companion} using the neighborhood \om{} $V_{PAS}(p)$ with a smaller value of $p$ and using the selection \om{} $S_{best}$, meaning that it is able to find promising configuration faster, but its convergence is slower. 
-The other solver is very similar to the one used for non communicating experiments, but in this \commstr{} solvers are both senders and receivers (see Algorithm~\ref{as:nq_cyc}). Before designing \commstrs{} (Algorithms~\ref{comm:nqueens_cyc_11}, and ~\ref{comm:nqueens_cyc_1n}), many experiments were launched to select: \begin{inparaenum} \item The percentage of variables that the companion solver swaps with the culprit one, when executing the neighborhood \om{} ($p$). This value was decided to be $1$. \item The number of companion solvers to connect with the standard one, for the \commstr{} using operator \oneTn. This vale was decide to be $2$, as we can see in Algorithm~\ref{comm:nqueens_cyc_1n}. \end{inparaenum} 
+In the following experiment, another \commstr{} was implemented. %It is very similar to the one applied to \SGP{}, but in this case, 
+\new{Solvers into the \soset{} use the same neighborhood \om{} $V_{PAS}(m)$ but with different values of $m$, and different selection functions. In this \commstr{} solvers are both senders and receivers (see Algorithm~\ref{as:nq_cyc}), so a cyclic exchange of the current configuration is performed between these two different solvers. A set of solvers, using the neighborhood \om{} $V_{PAS}(m)$ with a small value of $m$ and using the selection \om{} $S_{best}$, have the role of \textit{companion} solvers, i.e. the small value of $m$ provides to these solvers a slow convergence, but given a configuration with high cost, they are able to obtain another with smaller cost very quick.
+Other set of solvers is composed by standard solvers, i.e. solver with a structure very similar to the one used for non communicating experiments, i.e. same value of $m$ and the selection \om{} is $S_{best}$.}
 
-\begin{algorithm}[H]
+During the design process of the \commstrs{} (Algorithms~\ref{comm:nqueens_cyc_11}, and ~\ref{comm:nqueens_cyc_1n}), many experiments were launched to select, \begin{inparaenum} \item the percentage of variables that the companion solver swaps with the culprit one, when executing the neighborhood \om{} ($m$, it was decided to be $1$), \item the number of companion solvers to connect with the standard one, for the \commstr{} using operator \oneTn{} (it was decided to be $2$ as we can see in Algorithm~\ref{comm:nqueens_cyc_1n}), and \item the frequency of the communication, i.e. the value $K_2$ in Algorithm~\ref{as:nq_cyc} (it was decided to be 5). \end{inparaenum} 
+
+\begin{algorithm}[h]
 \dontprintsemicolon
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_cyc \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
-	\tet{\bf computation} : $I, V, S_1, S_2, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
+	\tet{\bf computation} : $I, V, S_1, S_2, A$\; %\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
 	\tet{\bf communication} : $C.M.$\;}{%
 	$I \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{$ V \poslop{\mapsto} S \poslop{\mapsto} \left[A \poslopcond{\Iter \% K_2} \left[\llparenthesis A \rrparenthesis^d \poslop{m} C.M.\right]\right]$}

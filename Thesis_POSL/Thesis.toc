@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {1.4}A simple communication strategy{} (Costas Array)}{23}{section.1.4}
 \contentsline {subsection}{\numberline {1.4.1}Problem definition}{23}{subsection.1.4.1}
 \contentsline {subsection}{\numberline {1.4.2}Experiments design and results}{24}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{27}{section.1.5}
+\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{28}{section.1.5}
 \contentsline {subsection}{\numberline {1.5.1}Problem definition}{28}{subsection.1.5.1}
 \contentsline {subsection}{\numberline {1.5.2}Experiments design and results}{28}{subsection.1.5.2}
 \contentsline {section}{\numberline {1.6}Summarizing}{33}{section.1.6}
