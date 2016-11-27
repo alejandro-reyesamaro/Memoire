@@ -5,15 +5,15 @@
 \contentsline {section}{\numberline {1.1}Methodology}{4}{section.1.1}
 \contentsline {section}{\numberline {1.2}A dynamic configuration exchange strategy (Social Golfers)}{6}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}Problem definition}{6}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Experiments design and results}{7}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.2}Experiments design and results}{8}{subsection.1.2.2}
 \contentsline {section}{\numberline {1.3}A cyclic communication strategy{} (N-Queens)}{18}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Problem definition}{18}{subsection.1.3.1}
 \contentsline {subsection}{\numberline {1.3.2}Experiments design and results}{19}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}A simple communication strategy{} (Costas Array)}{24}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Problem definition}{24}{subsection.1.4.1}
+\contentsline {section}{\numberline {1.4}A simple communication strategy{} (Costas Array)}{23}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Problem definition}{23}{subsection.1.4.1}
 \contentsline {subsection}{\numberline {1.4.2}Experiments design and results}{24}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{28}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Problem definition}{29}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {1.5.2}Experiments design and results}{29}{subsection.1.5.2}
-\contentsline {section}{\numberline {1.6}Summarizing}{34}{section.1.6}
+\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{27}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Problem definition}{28}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Experiments design and results}{28}{subsection.1.5.2}
+\contentsline {section}{\numberline {1.6}Summarizing}{33}{section.1.6}
 \contentsline {chapter}{\numberline {2}Bibliography}{37}{chapter.2}
