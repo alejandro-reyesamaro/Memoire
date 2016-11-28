@@ -2,60 +2,48 @@ This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
 The style file: unsrt.bst
-A level-1 auxiliary file: appendix/appendix_res_graph_sgp.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_nqp.aux
-A level-1 auxiliary file: appendix/appendix_res_graph_cap.aux
-A level-1 auxiliary file: appendix/appendix_res_graph_grp.aux
-Database file #1: biblio201610.bib
-Warning--can't use both volume and number fields in Cousot1977
-Warning--empty publisher in Gecode
-Warning--there's a number but no volume in Feo95
-Warning--empty publisher in Comet
-Warning--there's a number but no series in Pesant1996
-Warning--empty publisher in Hooker2006
-Warning--there's a number but no volume in Hill2008
-Warning--empty year in Jinnai
-Warning--empty institution in Arbab1995
+Database file #1: biblio201611.bib
 Warning--empty year in Reyes-amaro
-You've used 133 entries,
+You've used 12 entries,
             1791 wiz_defined-function locations,
-            1293 strings with 25780 characters,
-and the built_in function-call counts, 38360 in all, are:
-= -- 3767
-> -- 1379
-< -- 89
-+ -- 507
-- -- 374
-* -- 2460
-:= -- 5539
-add.period$ -- 449
-call.type$ -- 133
-change.case$ -- 144
+            538 strings with 5721 characters,
+and the built_in function-call counts, 3223 in all, are:
+= -- 309
+> -- 120
+< -- 4
++ -- 45
+- -- 33
+* -- 231
+:= -- 493
+add.period$ -- 38
+call.type$ -- 12
+change.case$ -- 12
 chr.to.int$ -- 0
-cite$ -- 143
-duplicate$ -- 1923
-empty$ -- 3756
-format.name$ -- 374
-if$ -- 9009
+cite$ -- 13
+duplicate$ -- 145
+empty$ -- 317
+format.name$ -- 33
+if$ -- 726
 int.to.chr$ -- 0
-int.to.str$ -- 133
-missing$ -- 129
-newline$ -- 668
-num.names$ -- 153
-pop$ -- 475
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 63
+num.names$ -- 12
+pop$ -- 31
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1051
+skip$ -- 65
 stack$ -- 0
-substring$ -- 2843
-swap$ -- 677
-text.length$ -- 89
+substring$ -- 267
+swap$ -- 36
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 10
-while$ -- 416
-width$ -- 136
-write$ -- 1533
-(There were 10 warnings)
+warning$ -- 1
+while$ -- 36
+width$ -- 14
+write$ -- 138
+(There was 1 warning)
