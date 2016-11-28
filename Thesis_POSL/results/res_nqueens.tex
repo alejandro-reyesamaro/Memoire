@@ -211,33 +211,61 @@ $\left[\eqsolverposl{standard}\posldot A\right] \oneton \left[\eqsolverposl{comp
 \caption{Cyclic \commstr{} \oneTn{} for \NQP}\label{comm:nqueens_cyc_1n}
 \end{algorithm}
 
-\begin{table}[t]
+\begin{table}[h]
 \centering 
 \renewcommand{\arraystretch}{1}
 \newcommand{\cwnq}{1.1cm}
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{p{1.3cm}|R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}|R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}|R{\cwnq}}
+%\resizebox{\columnwidth}{!}{%
+\begin{tabular}{p{1.3cm}|R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}|R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}} %|R{\cwnq}}
 	\hline %\noalign{\smallskip}	
-	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{4}{c|}{\bf Communication 1-1} & \multicolumn{4}{c|}{\bf Communication 1-n}&\multirow{2}{*}{\centering {\bf I.R.}}\\
+	\multirow{2}{*}{\footnotesize{\centering {\bf Instance}}} & \multicolumn{4}{c|}{\bf Communication 1-1} & \multicolumn{4}{c}{\bf Communication 1-n}\\ %&\multirow{2}{*}{\centering {\bf I.R.}}\\
 	\cline{2-9}
-	& T & T(sd) & It. & It.(sd) & T & T(sd) & It. & It.(sd)&\\	
+	& T & T(sd) & It. & It.(sd) & T & T(sd) & It. & It.(sd)\\ %&\\	
 	\hline
-	250 & \good{0.09} & 0.021 & 1,169 & 254 & 0.10 & 0.021 & 1,224 & 254 & 2.00\\ 
-	500 & \good{0.14} & 0.027 & 864 & 121 & 0.15 & 0.030 & 977 & 220 & 1.65\\
-	1000 & 0.22 & 0.041 & 889 & 247 & \good{0.21} & 0.056 & 807 & 196& 1.39\\
-	3000 & 1.25 & 0.090 & 1,602 & 90 & \good{1.02} & 0.145 & 1,613 & 206 & 1.17\\
-	6000 & 4.83 & 0.121 & 2,938 & 746 & \good{4.24} & 0.746 & 2,537 & 779 & 1.01\\	
+	250 & \good{0.09} & 0.021 & 1,169 & 254 & 0.10 & 0.021 & 1,224 & 254 \\ % & 2.00\\ 
+	500 & \good{0.14} & 0.027 & 864 & 121 & 0.15 & 0.030 & 977 & 220 \\ % & 1.65\\
+	1000 & 0.22 & 0.041 & 889 & 247 & \good{0.21} & 0.056 & 807 & 196 \\ % & 1.39\\
+	3000 & 1.25 & 0.090 & 1,602 & 90 & \good{1.02} & 0.145 & 1,613 & 206 \\ % & 1.17\\
+	6000 & 4.83 & 0.121 & 2,938 & 746 & \good{4.24} & 0.746 & 2,537 & 779 \\ % & 1.01\\	
 	\hline
 \end{tabular}
-}
+%}
 \caption{Cyclic \commstr{} for \NQP}\label{tab:nqueens_cyc}
 \end{table}
 
-With this experiment, it was possible to find a \commstr{} which improves runtimes significantly, but only for small instances of the problem, where the number of solutions, with respect to the order $N$, is lower. This result confirms experimentally the hypothesis already introduced, which propose that as the size of the problem grows, (and with it, the number ef solutions inside the search space with respect to $N$) lower is the gain using communication during the search process. Table~\ref{tab:nqueens_cyc} shows how the \textit{improvement ratio} (column \textbf{I.R.}) decreases with the instance order $N$. This ratio was computed using the following equation:
+\begin{table}[h]
+\centering 
+\renewcommand{\arraystretch}{1}
+\newcommand{\cwnq}{1.1cm}
+\begin{tabular}{p{1.5cm}|R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}R{\cwnq}}
+	\cline{2-6}
+	\multirow{2}{*}{\footnotesize{}} & \multicolumn{5}{c}{\bf Instances}\\
+	\cline{2-6}
+	& 250 & 500 & 1000 & 3000 & 6000 \\	
+	\hline
+	\hline
+	{\bf I.R} & 2.00 & 1.65 & 1.39 & 1.17 & 1.01 \\ 
+	{\bf P.E.C.} & 77 & 67 & 67 & 60 & 57 \\
+	\hline
+\end{tabular}
+\caption{Improvement rate and percentage of winner receiver solvers for \NQP}\label{tab:nqueens_stat}
+\end{table}
+
+With this experiment, it was possible to find a \commstr{} which improves runtimes significantly, but only for small instances of the problem, where the number of solutions. %, with respect to the order $N$, is lower. 
+\new{Results in Table~\ref{tab:nqueens_cyc} confirm experimentally the hypothesis already introduced, which propose the higher the size of the problem is, (and hence, the number ef solutions inside the search space with respect to $N$) the lower the gain using communication during the search process is.} 
+
+\new{Table~\ref{tab:nqueens_stat} shows how the \textit{improvement ratio} (column \textbf{I.R.}) decreases with the instance order $N$. This ratio was computed using the following equation:}
 
 \[
-\frac{\mbox{runtime without communication}}{\frac{\left(\mbox{runtime using communication 1-1} + \mbox{runtime using communication 1-n}\right)}{2}}
+\text{\bf I.R.}=\frac{\mbox{runtime without communication}}{\frac{\left(\mbox{runtime using communication 1-1} + \mbox{runtime using communication 1-n}\right)}{2}}
 \] 
+
+\new{For all instances, the \posl's behavior solving this problem is the same: the current configuration's cost descrives a steady dcline, until the search get trapped into an \textit{apparent} local minimum, hard to escape from. In this point, the communication takes place, providing an intensification factor, decisive to escaping from the apparent local minimum: the configuration of the trapped (standard) solver is sent to all companion solvers and they provide an improved configuration fast enough back to the standard solver. The difference between behaviors of different instances is the following: the smaller the instance is, the faster the standard solver gets trapped into this \textit{apparent} local minimum. It implies that the communication takes place earlier and then it is more effective.}
+
+\new{The percentage of the receiver solvers that were able to find the solution before the others did, was significant. It endorses hypotesis of the improvement thanks to the communication, as we can see in Table~\ref{tab:nqueens_stat} (see also Appendix~\ref{app:nqp}, Figures~\ref{fig:bars_nq} and \ref{barplot:6000}). Furthermore, the row \textbf{P.E.C} (\textit{Percentage of Effective Communication}) shows how this percentage decreases together with $N$.}
+
+
+
 
 %\pgfplotsset{
 %	myStyle/.style={grid=major,font=\Large}, ylabel= Communication rate,

@@ -16,3 +16,6 @@
 \BOOKMARK [2][-]{subsection.1.5.2}{Experiments design and results}{section.1.5}% 16
 \BOOKMARK [1][-]{section.1.6}{Summarizing}{chapter.1}% 17
 \BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 18
+\BOOKMARK [0][-]{chapter.3}{Results of experiments with N-Queens Problem}{part.1}% 19
+\BOOKMARK [1][-]{section.3.1}{Comparison between sequential and parallel runs}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.2}{Winner solver type representation}{chapter.3}% 21
