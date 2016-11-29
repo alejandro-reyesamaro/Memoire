@@ -1,0 +1,144 @@
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1}
+\begin{tabular}[t]{|p{3.5cm}|p{2.5cm}|p{8cm}|}
+	\hline 	
+	{\bf Benchmark} & \multicolumn{2}{l|}{\sgp}\\
+	\hline
+	\multicolumn{2}{|l|}{\textbf{Communication strategy name}} & Simple communication strategy\\
+	\hline
+	\textbf{Description} & \multicolumn{2}{p{10.5cm}|}{Same solver structure in the \soset{}. Communication in one sense of the current configuration, performed while applying the acceptance criterion of the new configuration for the next iteration.}\\
+	\hline
+	\begin{tabular}[t]{@{}l@{}}
+	\textbf{Performance}\\
+	$\square$ Success\\
+	$\text{\rlap{$\checkmark$}}\square$ Moderate success\\
+	$\square$ Not success\\
+	$\square$ Fail
+	\end{tabular}
+	& \multicolumn{2}{p{10.5cm}|}{
+		\begin{tabular}[t]{@{}l@{}}
+			\underline{5--3--7}: 7.35 times faster than sequential approach, \\
+			\hspace{31pt} 1.35 times faster than parallel approach.\\
+			\underline{8--4--7}: 2.86 times faster than sequential approach, \\
+			\hspace{31pt} 1.33 times faster than parallel approach.\\
+			\underline{9--4--8}: 2.12 times faster than sequential approach, \\
+			\hspace{31pt} 1.22 times faster than parallel approach.\\			
+		\end{tabular}		
+	}\\
+	\hline
+\end{tabular}
+%\caption{\sgp}
+\label{tab_resume:sgp_simple}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1}
+\begin{tabular}[t]{|p{3.5cm}|p{2.5cm}|p{8cm}|}
+	\hline 	
+	{\bf Benchmark} & \multicolumn{2}{l|}{\sgp}\\
+	\hline
+	\multicolumn{2}{|l|}{\textbf{Communication strategy name}} & Dynamic configuration exchange\\
+	\hline
+	\textbf{Description} & \multicolumn{2}{p{10.5cm}|}{Companion-standard solver communication in one sense of the current configuration, performed while applying the acceptance criterion of the new configuration for the next iteration.}\\
+	\hline
+	\begin{tabular}[t]{@{}l@{}}
+	\textbf{Performance}\\
+	$\text{\rlap{$\checkmark$}}\square$ Success\\
+	$\square$ Moderate success\\
+	$\square$ Not success\\
+	$\square$ Fail
+	\end{tabular}
+	& \multicolumn{2}{p{10.5cm}|}{
+		\begin{tabular}[t]{@{}l@{}}
+			\underline{5--3--7}: 15.63 times faster than sequential approach, \\
+			\hspace{31pt} 2.86 times faster than parallel approach.\\
+			\underline{8--4--7}: 4.29 times faster than sequential approach, \\
+			\hspace{31pt} 2 times faster than parallel approach.\\
+			\underline{9--4--8}: 2.89 times faster than sequential approach, \\
+			\hspace{31pt} 1.67 times faster than parallel approach.\\			
+		\end{tabular}
+		
+	}\\
+	\hline
+\end{tabular}
+%\caption{\sgp}
+\label{tab_resume:sgp_good}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1}
+\begin{tabular}[t]{|p{3.5cm}|p{2.5cm}|p{8cm}|}
+	\hline 	
+	{\bf Benchmark} & \multicolumn{2}{l|}{\nqp}\\
+	\hline
+	\multicolumn{2}{|l|}{\textbf{Communication strategy name}} & Simple \commstr\\
+	\hline
+	\textbf{Description} & \multicolumn{2}{p{10.5cm}|}{Same solver structure in the \soset{}. Communication in one sense of the current configuration, performed while applying the acceptance criterion of the new configuration for the next iteration.}\\
+	\hline
+	\begin{tabular}[t]{@{}l@{}}
+	\textbf{Performance}\\
+	$\square$ Success\\
+	$\text{\rlap{$\checkmark$}}\square$ Moderate success\\
+	$\square$ Not success\\
+	$\square$ Fail
+	\end{tabular}
+	& \multicolumn{2}{p{10.5cm}|}{
+		\begin{tabular}[t]{@{}l@{}}
+			\underline{250}: 1.60 times faster than sequential approach, \\
+			\hspace{21pt} 1.26 times faster than parallel approach.\\
+			\underline{500}: 1.94 times faster than sequential approach, \\
+			\hspace{21pt} 1.33 times faster than parallel approach.\\
+			\underline{1000}: 1.52 times faster than sequential approach, \\
+			\hspace{26pt} 1.30 times faster than parallel approach.\\
+			\underline{3000}: 1.25 times faster than sequential approach, \\
+			\hspace{26pt} 1.10 times faster than parallel approach.\\
+			\underline{6000}: 1.09 times faster than sequential approach, \\
+			\hspace{26pt} 1.06 times faster than parallel approach.\\
+		\end{tabular}		
+	}\\
+	\hline
+\end{tabular}
+%\caption{\sgp}
+\label{tab_resume:nqp_simple}
+\end{table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1}
+\begin{tabular}[t]{|p{3.5cm}|p{2.5cm}|p{8cm}|}
+	\hline 	
+	{\bf Benchmark} & \multicolumn{2}{l|}{\nqp}\\
+	\hline
+	\multicolumn{2}{|l|}{\textbf{Communication strategy name}} & Cyclic \commstr\\
+	\hline
+	\textbf{Description} & \multicolumn{2}{p{10.5cm}|}{Cyclic companion-standard solver communication of the current configuration, performed while applying the acceptance criterion of the new configuration for the next iteration.}\\
+	\hline
+	\begin{tabular}[t]{@{}l@{}}
+	\textbf{Performance}\\
+	$\text{\rlap{$\checkmark$}}\square$ Success\\
+	$\square$ Moderate success\\
+	$\square$ Not success\\
+	$\square$ Fail
+	\end{tabular}
+	& \multicolumn{2}{p{10.5cm}|}{
+		\begin{tabular}[t]{@{}l@{}}
+			\underline{250}: 3.22 times faster than sequential approach, \\
+			\hspace{21pt} 2.11 times faster than parallel approach.\\
+			\underline{500}: 2.50 times faster than sequential approach, \\
+			\hspace{21pt} 1.71 times faster than parallel approach.\\
+			\underline{1000}: 1.67 times faster than sequential approach, \\
+			\hspace{26pt} 1.43 times faster than parallel approach.\\
+			\underline{3000}: 1.47 times faster than sequential approach, \\
+			\hspace{26pt} 1.30 times faster than parallel approach.\\
+			\underline{6000}: 1.12 times faster than sequential approach, \\
+			\hspace{26pt} 1.08 times faster than parallel approach.\\
+		\end{tabular}		
+	}\\
+	\hline
+\end{tabular}
+%\caption{\sgp}
+\label{tab_resume:nqp_good}
+\end{table}

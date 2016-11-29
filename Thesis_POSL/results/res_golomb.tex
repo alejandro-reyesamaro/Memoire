@@ -2,21 +2,21 @@ In this section, the performed study using \grp{} (\GRP) as a benchmark is prese
 
 \subsection{Problem definition}
 
-The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (i.e., the number of \textit{marks}) and $l$ is the length of the ruler (i.e., the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
-When \posl{} is applied to solve an instance of this problem sequentially, It can be noticed that it performs many {\it restarts} before finding a solution. For that reason this problem was chosen to study a new \commstr.
+The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ \new{called \textit{measures}} are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (i.e., the number of \textit{marks}) and $l$ is the length of the ruler (i.e., the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
+When \posl{} is applied to solve an instance of this problem sequentially, it can be noticed that it performs many {\it restarts} before finding a solution. For that reason this problem was chosen to study a new \commstr.
 
 The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). All distances where a variable is participating are also stored. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like {\it Adaptive Search}. This cost is calculated in $O\left(o^2 + l\right)$.
 
 \subsection{Experiments design and results}
 
-\grp{} instances were used to study a different \commstr. This time the current configuration is communicated, to avoid its neighborhood, i.e., a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
+\grp{} instances were used to study a different \commstr. This time the current configuration is communicated to avoid its neighborhood, i.e., a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
 
 \begin{enumerate}
-	\item$I_{sort}$: returns a random configuration $s$ as an ordered vector of integers. The configuration is generated \textit{far} from the set of {\it tabu} configurations arrived via solver-communication (in communicating strategies) (based on the \textit{generation} \absm{} $I$).
-	\item $V_{sort}$: given a configuration, returns the neighborhood $V\left(s\right)$ by changing one value while keeping the order, i.e., replacing the value $s_i$ by all possible values $s'_i \in D_i$ satisfying $s_{i-1} < s'_i < s_{i+1}$ (based on the \textit{neighborhood} \absm{} $V$).
+	\item$I_{sort}$: returns a random configuration $s$ as an increasing ordered vector of integers. The configuration is generated \textit{far} from the set of {\it tabu} configurations arrived via solver-communication, in communicating strategies (based on the \textit{generation} \absm{} $I$).
+	\item $V_{sort}$: given a configuration, returns the neighborhood $V\left(s\right)$ by changing one value while keeping the order, i.e. replacing the value $s_i$ by all possible values $s'_i \in D_i$ satisfying $s_{i-1} < s'_i < s_{i+1}$ (based on the \textit{neighborhood} \absm{} $V$).
 \end{enumerate}
 
-It was also added an abstract module $R$ for reset: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. As Algorithm~\ref{as:golomb_tabu} shows, this module is executed just before performing a restart, so the solver was unable to find a better configuration around the current one. Therefore, the current configuration is assumed to be a local minimum, and it is inserted into a tabu list.
+An abstract module $R$ for reset was also added: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. As Algorithm~\ref{as:golomb_tabu} shows, this module is executed just before performing a restart, so the solver was unable to find a better configuration around the current one. Therefore, the current configuration is assumed to be a local minimum, and it is inserted into a tabu list.
 
 Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, using a tabu list and without using it. They were used to obtain results presented in Tables~\ref{tab:golomb_sec_notabu} and~\ref{tab:golomb_sec_tabu} to show that the approach explained above provides some gain in terms of runtime. 
 
@@ -42,14 +42,14 @@ Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, 
 \SetNoline
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_golomb\_tabu \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
-	\tet{\bf computation} : $I, V, S, A$\;}{
+	\tet{\bf computation} : $I, V, S, A, R$\;}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 		$I \poslop{\mapsto}$ 
-		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} \llparenthesis T \rrparenthesis^o$
+		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$} $\poslop{\mapsto} R$
 	}
 }
 \tet{\bf solver} \solverposl{tabu} \tet{\bf implements} as\_tabu\;
-\algoindent \tet{\bf computation} : $I_{sort}, V_{sort}, S_{first}, A_{AI}$ \;
+\algoindent \tet{\bf computation} : $I_{sort}, V_{sort}, S_{first}, A_{AI}, R_{tabu}$ \;
 %\tet{\bf connection}: $CM_{last}$\;
 \caption{Solver using tabu list, for \GRP}\label{as:golomb_tabu}
 \end{algorithm}
@@ -110,7 +110,7 @@ The benefit of the parallel approach is also proved for the \grp{}, as we can se
 
 \separation
 
-The main goal of choosing this benchmark was to study a different \commstr, since for solving this problem, \posl{} needs to perform some restarts. In this \commstr, solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration that we assume is a local minimum to be avoided. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it will communicate this configuration just before performing the restart. 
+\new{Since for solving this problem, \posl{} needs to perform some restarts, this benchmark was chosen to study a different \commstr, in which solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration assumed to be a local minimum, in order to avoid it}. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it will communicate this configuration just before performing the restart. 
 
 Algorithm~\ref{as:golomb_sender} presents the sender solver and Algorithm~\ref{as:golomb_receiver} presents the receiver solver. Based on the connection operator used in the communication strategy, this solver might receives one or many configurations. These configurations are the input of the generation module ($I$), and this module inserts all received configurations into a {\it tabu} list, and then generates a new first configuration, far from all configurations in the {\it tabu} list.
 
