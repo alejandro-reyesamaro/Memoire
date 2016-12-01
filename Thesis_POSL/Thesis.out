@@ -1,22 +1,17 @@
-\BOOKMARK [0][-]{chapter*.3}{Acknowledgements}{}% 1
-\BOOKMARK [-1][-]{part.1}{I Study and evaluation of POSL}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Experiments design and results}{part.1}% 3
-\BOOKMARK [1][-]{section.1.1}{Methodology}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{A dynamic configuration exchange strategy \(Social Golfers\)}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.2.1}{Problem definition}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.2}{Experiments design and results}{section.1.2}% 7
-\BOOKMARK [1][-]{section.1.3}{A cyclic communication strategy \(N-Queens\)}{chapter.1}% 8
-\BOOKMARK [2][-]{subsection.1.3.1}{Problem definition}{section.1.3}% 9
-\BOOKMARK [2][-]{subsection.1.3.2}{Experiments design and results}{section.1.3}% 10
-\BOOKMARK [1][-]{section.1.4}{A simple communication strategy \(Costas Array\)}{chapter.1}% 11
-\BOOKMARK [2][-]{subsection.1.4.1}{Problem definition}{section.1.4}% 12
-\BOOKMARK [2][-]{subsection.1.4.2}{Experiments design and results}{section.1.4}% 13
-\BOOKMARK [1][-]{section.1.5}{A local minima evasion strategy \(Golomb Ruler\)}{chapter.1}% 14
-\BOOKMARK [2][-]{subsection.1.5.1}{Problem definition}{section.1.5}% 15
-\BOOKMARK [2][-]{subsection.1.5.2}{Experiments design and results}{section.1.5}% 16
-\BOOKMARK [1][-]{section.1.6}{Summarizing}{chapter.1}% 17
-\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 18
-\BOOKMARK [0][-]{chapter.3}{Results of experiments with Costas Array Problem}{part.1}% 19
-\BOOKMARK [1][-]{section.3.1}{Comparison between sequential and parallel runs}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.2}{Comparison between communication strategies}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.3}{Winner solver type representation}{chapter.3}% 22
+\BOOKMARK [-1][-]{part.1}{I Study and evaluation of POSL}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Experiments design and results}{part.1}% 2
+\BOOKMARK [1][-]{section.1.1}{Methodology}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{A dynamic configuration exchange strategy \(Social Golfers\)}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.2.1}{Problem definition}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.2}{Experiments design and results}{section.1.2}% 6
+\BOOKMARK [1][-]{section.1.3}{A cyclic communication strategy \(N-Queens\)}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.3.1}{Problem definition}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.2}{Experiments design and results}{section.1.3}% 9
+\BOOKMARK [1][-]{section.1.4}{A simple communication strategy \(Costas Array\)}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.4.1}{Problem definition}{section.1.4}% 11
+\BOOKMARK [2][-]{subsection.1.4.2}{Experiments design and results}{section.1.4}% 12
+\BOOKMARK [1][-]{section.1.5}{A local minima evasion strategy \(Golomb Ruler\)}{chapter.1}% 13
+\BOOKMARK [2][-]{subsection.1.5.1}{Problem definition}{section.1.5}% 14
+\BOOKMARK [2][-]{subsection.1.5.2}{Experiments design and results}{section.1.5}% 15
+\BOOKMARK [1][-]{section.1.6}{Summarizing}{chapter.1}% 16
+\BOOKMARK [0][-]{chapter.2}{Bibliography}{part.1}% 17

@@ -1,24 +1,45 @@
-In this section, the performed study using \grp{} (\GRP) as a benchmark is presented. Using this benchmark, a different communication strategy was tested: we communicate the current configuration in order to avoid its neighborhood, i.e., a {\it tabu} configuration.
+Using \grp{} (\GRP) as a benchmark, a different communication strategy was tested in this section: the communication of the current configuration in order to avoid its neighborhood, \ie a {\it tabu} configuration.
 
 \subsection{Problem definition}
 
-The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ \new{called \textit{measures}} are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (i.e., the number of \textit{marks}) and $l$ is the length of the ruler (i.e., the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
-When \posl{} is applied to solve an instance of this problem sequentially, it can be noticed that it performs many {\it restarts} before finding a solution. For that reason this problem was chosen to study a new \commstr.
+The \grp{} (\GRP) problem consists in finding an ordered vector of $n$ distinct non-negative integers, called \textit{marks}, $m_1 < \dots < m_n$, such that all differences $m_i - m_j$ $(i > j)$ \new{called \textit{measures}} are all different. An instance of this problem is the pair $(o,l)$ where $o$ is the order of the problem, (\ie the number of \textit{marks}) and $l$ is the length of the ruler (\ie the last {\it mark}). We assume that the first \textit{mark} is always 0. This problem has been applied to radio astronomy, x-ray crystallography, circuit layout and geographical mapping \cite{Soliday1995}. 
+When \posl{} is applied to solve an instance of this problem sequentially, it can be noticed that it performs many {\it restarts} before finding a solution, as Table~\ref{tab:golomb_sec_notabu} shows. For that reason this problem was chosen to study a new \commstr.
 
-The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). All distances where a variable is participating are also stored. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like {\it Adaptive Search}. This cost is calculated in $O\left(o^2 + l\right)$.
+The cost function is implemented based on the storage of a counter for each measure present in the rule (configuration). All measure where a variable is participating are also stored. This information is useful to compute the more culprit variable (the variable that interferes less in the represented measures), in case of the user wants to apply algorithms like Adaptive Search. 
+\new{To compute the cost of a configuration, a differences triangle is built similar to the one introduced in previews section stuying \carrp. This differeces triangle represents all possible measures present in the rule. Se the following example:}
+
+\poslexample{Figure~\ref{fig:ex_golomb} shows all possible measures that the rule represented through the configuration $s=\{0, 1, 4, 9, 11\}$ of order $o$ can measure. So, its corresponding differences triangle is the following:
+\begin{equation*}
+\begin{tabular}{cll}
+0\hspace{10pt}1\hspace{10pt}4\hspace{10pt}9\hspace{7pt}11 & $\rightarrow$ & $s$\\
+1\hspace{10pt}3\hspace{10pt}5\hspace{10pt}2 & $\rightarrow$ & $d_1$ \\
+4\hspace{10pt}8\hspace{10pt}7 & $\rightarrow$ & $d_2$ \\
+9\hspace{7pt}10 & $\rightarrow$ & $d_3$ \\
+11 & $\rightarrow$ & $d_4$
+\end{tabular}
+\end{equation*}
+where each measure in $d_k$ are the vector of measures $s_{i+k} - s_i$, for all $k \in [0, o-i-1]$.
+}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{golomb.png}
+\caption[]{Golomb ruler of order 5 and length 11}
+\label{fig:ex_golomb}
+\end{figure}
+
+\new{The cost is calculated as the number of equal measures present in the differences triangle. It is easy to prove that checking this triangle until the row $d_B$, with $B=\floor*{(o-1)/2}$ is enough. So, the cost can be calculated in $O\left(o^2\right)$.} %$O\left(o^2 + l\right)$.
 
 \subsection{Experiments design and results}
 
-\grp{} instances were used to study a different \commstr. This time the current configuration is communicated to avoid its neighborhood, i.e., a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
+\grp{} instances were used to study a different \commstr. This time the current configuration is communicated to avoid its neighborhood, \ie a {\it tabu} configuration. Some modules used in the resolution of \sg{} and \carr{} problems have been reused to design the solvers: the \textit{Selection} and \textit{Acceptance} modules. The new modules are:
 
 \begin{enumerate}
 	\item$I_{sort}$: returns a random configuration $s$ as an increasing ordered vector of integers. The configuration is generated \textit{far} from the set of {\it tabu} configurations arrived via solver-communication, in communicating strategies (based on the \textit{generation} \absm{} $I$).
-	\item $V_{sort}$: given a configuration, returns the neighborhood $V\left(s\right)$ by changing one value while keeping the order, i.e. replacing the value $s_i$ by all possible values $s'_i \in D_i$ satisfying $s_{i-1} < s'_i < s_{i+1}$ (based on the \textit{neighborhood} \absm{} $V$).
+	\item $V_{sort}$: given a configuration, returns the neighborhood $V\left(s\right)$ by changing one value while keeping the order, \ie replacing the value $s_i$ by all possible values $s'_i \in D_i$ satisfying $s_{i-1} < s'_i < s_{i+1}$ (based on the \textit{neighborhood} \absm{} $V$).
 \end{enumerate}
 
-An abstract module $R$ for reset was also added: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. As Algorithm~\ref{as:golomb_tabu} shows, this module is executed just before performing a restart, so the solver was unable to find a better configuration around the current one. Therefore, the current configuration is assumed to be a local minimum, and it is inserted into a tabu list.
-
-Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, using a tabu list and without using it. They were used to obtain results presented in Tables~\ref{tab:golomb_sec_notabu} and~\ref{tab:golomb_sec_tabu} to show that the approach explained above provides some gain in terms of runtime. 
+An abstract module $R$ for reset was also added: it receives and returns a configuration. The concrete reset module used for this problem ($R_{tabu}$) inserts the input configuration into a \textit{tabu} list inside the solver and returns the input configuration as-is. \new{This way it cam be assambled inside the cyclical operator, as Algorithm~\ref{as:golomb_tabu} shows}. This module is executed just before performing a restart, so if the solver was unable to find a better configuration around the current one, this current configuration is assumed to be a local minimum, and it is inserted into a tabu list. \new{Then, in the next iteration, the solver generates a first configuration far enough from all tabu configurations inside the tabu list.} Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, respectively without and with a tabu list. They were used to obtain results presented in Tables~\ref{tab:golomb_sec_notabu} and~\ref{tab:golomb_sec_tabu} to show that the approach explained above provides some gain in terms of runtime \new{but also in terms of percentage of success. As we can see, the runtime improvement is not substantial. The reason is because the solver using a tabu list, can insert one configuration only in the tabu list after each restart.} 
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -88,7 +109,14 @@ Algorithm~\ref{as:golomb_notabu} and~\ref{as:golomb_tabu} present both solvers, 
 	\label{tab:golomb_sec_tabu}
 \end{table}
 
-The benefit of the parallel approach is also proved for the \grp{}, as we can see in Table~\ref{tab:golomb_par_tabu}. However, without communication, the improvement is not substantial (8\% for 8--34, 7\% for 10--55 and 5\% for 11--72). The reason is because only one configuration is inserted in the tabu list after each restart. %When we use \oneTone{} communication, after the restart $k$, the receiving solver has twice the number of configurations in the tabu list (one tabu configuration from itself and the received one after each restart).
+
+
+
+
+
+
+
+%When we use \oneTone{} communication, after the restart $k$, the receiving solver has twice the number of configurations in the tabu list (one tabu configuration from itself and the received one after each restart).
 
 \begin{table}[h]
 %\captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -110,7 +138,7 @@ The benefit of the parallel approach is also proved for the \grp{}, as we can se
 
 \separation
 
-\new{Since for solving this problem, \posl{} needs to perform some restarts, this benchmark was chosen to study a different \commstr, in which solvers do not communicate the current configuration to have more solvers searching in its neighborhood, but a configuration assumed to be a local minimum, in order to avoid it}. We consider that the current configuration is a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it will communicate this configuration just before performing the restart. 
+\new{Results in Table~\ref{tab:golomb_par_tabu} show once again the success of the parallel approach. Although this time the improvement with respect to the sequential approach was significant, and tacking into account that \posl{} needs to perform some restarts for solving this problem, a different \commstr{} is proposed. Up to now, in all previews \commstrs{} the current configuration was communicated in order to have more solvers searching in its neighborhood, as an intensification mechanism. In the following \commstr{} the current configuration is communicated when it can be considered as a local minimum. Then, receivers solvers avoid it, by generating starting configurations far enough from it}. The current configuration is considered as a local minimum since the solver (after a given number of iteration) is not able to find a better configuration in its neighborhood, so it communicates this configuration just before performing the restart. 
 
 Algorithm~\ref{as:golomb_sender} presents the sender solver and Algorithm~\ref{as:golomb_receiver} presents the receiver solver. Based on the connection operator used in the communication strategy, this solver might receives one or many configurations. These configurations are the input of the generation module ($I$), and this module inserts all received configurations into a {\it tabu} list, and then generates a new first configuration, far from all configurations in the {\it tabu} list.
 
@@ -160,7 +188,7 @@ The idea of this strategy (\as) follows the following steps:
 \poslexample{
 \mybox{Step 1}
 
-The \om{} $I_{sort}$ generates an initial configuration tacking into account a set of configurations into a tabu list. The configuration arriving to this tabu list come from the same solver (Step 3) and/or from outside (other solvers) depending on the strategy (non-communicating or communicating), and on the type of the solver (sender or receiver).
+The \om{} $I_{sort}$ generates an initial configuration tacking into account a set of configurations into a tabu list. The configuration arriving to this tabu list come from the itself (Step 3) and/or from outside (other solvers) depending on the strategy (non-communicating or communicating), and on the type of the solver (sender or receiver).
 
 This module executes some other modules provided by \posl{} to solve the {\it Sub-Sum Problem} in order to generates {\it valid} configurations for \grp{}. A valid configuration $s$ for \grp{} is a configuration that fulfills the following constraints:
 
@@ -169,7 +197,7 @@ This module executes some other modules provided by \posl{} to solve the {\it Su
 \item all $d_i = a_{i+1} - a_i$ are all different, for all $d_i, i\in[1...o-1]$
 \end{itemize}
 
-The {\it Sub-sum Problem} is defined as follows: Given a set $E$ of integers, with $\left|E\right| = N$, finding a sub set $e$ of $n$ elements that sums exactly $z$. In that sense, a solution $S_{sub-sum} = \left\{s_1, \dots, s_{o-1}\right\}$ of the {\it Sub-sum problem} with $E = \left\{1, \dots, l-\tfrac{(o-2)(o-1)}{2}\right\}$, $n = o-1$ and $z = l$, can be traduced to a {\it valid} configuration $C_{grp}$ for \grp{} as follows:
+The {\it Sub-sum Problem} is defined as follows: Given a set $E$ of integers, with $\left|E\right| = N$, finding a subset $e$ of $n$ elements that sums exactly $z$. In that sense, a solution $S_{sub-sum} = \left\{s_1, \dots, s_{o-1}\right\}$ of the {\it Sub-sum problem} with $E = \left\{1, \dots, l-\tfrac{(o-2)(o-1)}{2}\right\}$, $n = o-1$ and $z = l$, can be traduced to a {\it valid} configuration $C_{grp}$ for \grp{} as follows:
 $$C_{grp} = \left\{c_1, c_1+s_1, \dots, c_{o-1}+s_{o-1}\right\}$$
 where $c_1 = 0$.
 
@@ -211,7 +239,7 @@ $\left[\eqsolverposl{sender}\posldot R(20)\right] \oneton \left[\eqsolverposl{re
 \caption{Communication strategy \oneTn{} for \GRP}\label{comm:golomb_1n}
 \end{algorithm}
 
-When we use communication \oneTone, after $k$ restarts the receiver solver has $2k$ configurations inside its tabu list: its own tabu configurations and the received ones. Table~\ref{tab:golomb_par_1-1} shows that this strategy is not sufficient for some instances, but when we use communication \oneTn, the number of tabu configurations after $k$ restarts in the receiver solver is considerably higher: $k(N+1)$: its own tabu configurations and the ones received from $N$ sender solvers the receiver solver is connected with. Hence, these solvers can generate configurations far enough from many potentially local minima.
+When we use communication \oneTone, after $k$ restarts the receiver solver has $2k$ configurations inside its tabu list: its own tabu configurations and the received ones. Table~\ref{tab:golomb_par_1-1} shows that this strategy is not sufficient for some instances, but when we use communication \oneTn, the number of tabu configurations after $k$ restarts in the receiver solver is considerably higher: $k(N+1)$: its own tabu configurations and the others received from $N$ sender solvers the receiver solver is connected with. Hence, these solvers can generate configurations far enough from many potentially local minima.
 This phenomenon is more visible when the problem order $o$ increases. Table~\ref{tab:golomb_par_1-n} shows that the improvement for the higher case (11-72) is about 29\% w.r.t non communicating solvers (Table~\ref{tab:golomb_par_tabu}).
 
 \begin{table}[h]

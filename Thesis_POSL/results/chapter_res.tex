@@ -1,20 +1,20 @@
 \chapter{Experiments design and results}
 \label{chap:expe}
-\textit{In this Chapter, I expose all details about the evaluation process of \posl{}, i.e., all experiments performed. For each benchmark, I explain strategies used in the evaluation process and what are the experiment environments before exposing a complete analysis of the obtained results.}
+\textit{In this Chapter, I expose all details about the evaluation process of \posl{}, \ie all experiments performed. For each benchmark, I explain strategies used in the evaluation process and what are the experiment environments before exposing a complete analysis of the obtained results.}
 \vfill
 \minitoc
 \newpage
 
 In this chapter, I illustrate and analyze the versatility of \posl{} studying different ways to solve constraint problems based on local search meta-heuristics. 
 I have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks since they are challenging yet differently structured problems. 
-\new{\sgp{} has the structure of tournament problems, where the scheduling of matches between players along a given period of time. The constraints, related to how many times a player can participate in a match the same week, make the problem very complex as the number of weeks increases. \nq{} and \carr{} are similarly modeled in these experiments, since they are represented as permutation problems. However, they have a very interesting characteristic which differentiate them from each other: from certain order on, the number of solutions with respect to the order increases for the case of \nqp{}, and for decrease drastically for \carrp{}. \grp{} was chosen for two main reasons. Is solution representation is very different from the other studied problems, and because during the search process, \posl{} describes a different behavior: it performs many restarts. }
+\new{\sgp{} has the structure of tournament problems, where the scheduling of matches between players along a given period of time. The constraints, related to how many times a player can participate in a match the same week, make the problem more complex as the number of weeks increases. \nq{} and \carr{} are similarly modeled in these experiments, since they are represented as permutation problems. However, they have a very interesting characteristic which differentiate them from each other: from certain order on, the number of solutions with respect to the order increases for the case of \nqp{}, and for decrease drastically for \carrp{}. \grp{} was chosen for two main reasons. Its solution representation is very different from the other studied problems, and because during the search process, \posl{} describes a different behavior: it performs many restarts.}
 %The first one is because unlike benchmarks mentioned before, where their solution representation's are permutations of $s = (0, 1, \dots, n)$ (or blocks of permutations for the case of \sg), the solution representation of \grp{} is just an ordered set of integers. }
 
 %In this chapter I present formally each benchmark, I explain the structure of \posl's solvers that I have generated for experiments and present a detailed analysis of obtained results.
 
-First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} where it was used to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, and it was able to solve relatively easy instances only. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}, \new{and they encourage us to go even further on this direction. This first version had implemented simple communciation mechanisms only (communication \oneTone{} and \oneTn{} but only in one direction.)} 
+First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} where it was used to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, and it was able to solve relatively easy instances only. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}, \new{and they encourage us to go even further on this direction. In this first version were implemented simple communciation mechanisms only (communication \oneTone{} and \oneTn{}, but only in one direction.)}
 
-\new{In the sencond and current version of \posl{}\footnote{\posl{} source code is available on GitHub: \href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}} , other \commopers{} were incorporated, and those already existent were improved, in order to be able to build more sophisticated \commstrs. With this version, I decided to start performing more detailed studies.} 
+\new{In the sencond and current version of \posl{}\footnote{\posl{} source code is available on GitHub: \href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}}, other \commopers{} were incorporated, and those already existent were improved, in order to be able to build more sophisticated \commstrs. With this version, I decided to start performing more detailed studies.} 
 
 \section{Methodology}
 
@@ -37,8 +37,8 @@ We say that we launch an experiment using a \textbf{parallel environment} if we 
 With the aim of being as exhaustive as possible in the experimentation process, a methodology based on four stages is proposed:
 
 \begin{enumerate}
-\item \underline{\textbf{Algorithm selection}} In this stage some experiments are launched to ensure choosing the right \oms, and the right design of the \as. Experiments are performed using the sequential environment, and the following statistical analysis is performed: A set of 30 runs for each setup are performed, and used to \begin{inparaenum}[a)]
-\item build box-plot diagrams and bars graphs with some additional information about winner solvers, presented in Appendixes~\ref{app:sgp}, \ref{app:nqp}, \ref{app:cap} and \ref{app:grp}; \item compute means and standard deviation for run-times and iterations, showed in tables presented in this chapter, in columns labeled {\bf T} (run-time in seconds), {\bf It.} (number of iterations), {\bf T(sd)} and {\bf It.(sd)} (their respective standard deviations). In some tables, the column labeled \textbf{\% success} indicates the percentage of solvers finding a solution before reaching a time--out of 5 minutes (imperative when dealing with meta-heuristics). \end{inparaenum}
+\item \underline{\textbf{Algorithm selection}} In this stage some experiments are launched, using the sequential environment, to ensure choosing the right \oms, and the right design of the \as. The following statistical analysis is performed: A set of 30 runs for each setup are performed, and used to \begin{inparaenum}[a)]
+\item build box-plot diagrams and bars graphs with some additional information about winner solvers, presented in Appendixes~\ref{app:sgp}, \ref{app:nqp}, \ref{app:cap} and \ref{app:grp}; \item compute means and standard deviation for run-times and iterations, showed in tables, in columns labeled {\bf T} (run-time in seconds), {\bf It.} (number of iterations), {\bf T(sd)} and {\bf It.(sd)} (their respective standard deviations). In some tables, the column labeled \textbf{\% success} indicates the percentage of \sosets{} finding a solution before reaching a time--out of 5 minutes (imperative when dealing with meta-heuristics). \end{inparaenum}
 
 \item \underline{\textbf{Algorithm evaluation in the parallel environment}} The selected algorithm is launched using the parallel environment. It is performed a similar statistical analysis to the one described in the previews stage, and results are compared.\label{stage_expe_2}
 
@@ -95,7 +95,8 @@ In the solution process of \sgp{}, it was studied an exploitation-oriented \comm
 \label{tab:golfers_summarize}
 \end{table}
 
-It was showed that simple communication strategies as they were applied to solve \sgp{} does not improve enough the results without communication for the \nqp{}. In this problem, the number of solution with respect to the order $N$ increase exponentially, then higher order instances are "easer" to solve using local search. For that reason, the communication can not provide a lot on gain. However, a deep study of the \posl's behavior during the search process allowed to design a communication strategy able to improve the results obtained using non-communicating strategies for small instances. Table~\ref{tab:nqueens_summarize} summarizes the obtained results solving \NQP.
+It was showed that simple communication strategies as they were applied to solve \sgp{} does not improve enough the results without communication for the \nqp{}. %In this problem, the number of solution with respect to the order $N$ increase exponentially, then higher order instances are "easer" to solve using local search. For that reason, the communication can not provide a lot on gain. 
+However, a deep study of the \posl's behavior during the search process allowed to design a communication strategy able to improve obtained results using non-communicating strategies for small instances. Table~\ref{tab:nqueens_summarize} summarizes the obtained results solving \NQP.
 
 \begin{table}[h]
 \captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -166,4 +167,4 @@ During the solution process of the \grp{}, \posl{} needs to perform many restart
 In all cases, thanks to the operator-based language provided by \posl{} it was possible to test many different strategies (communicating and non-communicating) fast and easily. Whereas creating solvers implementing different solution strategies can be complex and tedious, \posl{} gives the possibility to make communicating and non-communicating solver prototypes and to evaluate them with few efforts. In this chapter it was possible to show that a good selection and management of inter-solvers communication can %largely 
 help to the search process, working with complex constrained problems.
 
-\input{results/res_extra}
+%\input{results/res_extra}
