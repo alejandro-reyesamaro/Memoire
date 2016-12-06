@@ -7,12 +7,12 @@
 \contentsline {subsection}{\numberline {1.2.2}Experiments design and results}{8}{subsection.1.2.2}
 \contentsline {section}{\numberline {1.3}A cyclic communication strategy{} (N-Queens)}{18}{section.1.3}
 \contentsline {subsection}{\numberline {1.3.1}Problem definition}{18}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Experiments design and results}{19}{subsection.1.3.2}
-\contentsline {section}{\numberline {1.4}A simple communication strategy{} (Costas Array)}{24}{section.1.4}
-\contentsline {subsection}{\numberline {1.4.1}Problem definition}{24}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {1.4.2}Experiments design and results}{26}{subsection.1.4.2}
-\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{30}{section.1.5}
-\contentsline {subsection}{\numberline {1.5.1}Problem definition}{30}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {1.5.2}Experiments design and results}{31}{subsection.1.5.2}
-\contentsline {section}{\numberline {1.6}Summarizing}{36}{section.1.6}
-\contentsline {chapter}{\numberline {2}Bibliography}{39}{chapter.2}
+\contentsline {subsection}{\numberline {1.3.2}Experiments design and results}{20}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}A simple communication strategy{} (Costas Array)}{25}{section.1.4}
+\contentsline {subsection}{\numberline {1.4.1}Problem definition}{25}{subsection.1.4.1}
+\contentsline {subsection}{\numberline {1.4.2}Experiments design and results}{27}{subsection.1.4.2}
+\contentsline {section}{\numberline {1.5}A local minima evasion strategy (Golomb Ruler)}{31}{section.1.5}
+\contentsline {subsection}{\numberline {1.5.1}Problem definition}{31}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {1.5.2}Experiments design and results}{32}{subsection.1.5.2}
+\contentsline {section}{\numberline {1.6}Summarizing}{37}{section.1.6}
+\contentsline {chapter}{\numberline {2}Bibliography}{41}{chapter.2}
