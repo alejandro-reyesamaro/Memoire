@@ -2,13 +2,14 @@
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}A dynamic configuration exchange strategy (Social Golfers)}{\reset@font\mtcSfont 74}{section.4.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Problem definition}{\reset@font\mtcSSfont 74}{subsection.4.2.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Experiments design and results}{\reset@font\mtcSSfont 76}{subsection.4.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}A cyclic communication strategy{} (N-Queens)}{\reset@font\mtcSfont 86}{section.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Problem definition}{\reset@font\mtcSSfont 86}{subsection.4.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Experiments design and results}{\reset@font\mtcSSfont 87}{subsection.4.3.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}A simple communication strategy{} (Costas Array)}{\reset@font\mtcSfont 92}{section.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Problem definition}{\reset@font\mtcSSfont 92}{subsection.4.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Experiments design and results}{\reset@font\mtcSSfont 94}{subsection.4.4.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}A local minima evasion strategy (Golomb Ruler)}{\reset@font\mtcSfont 98}{section.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Problem definition}{\reset@font\mtcSSfont 98}{subsection.4.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Experiments design and results}{\reset@font\mtcSSfont 99}{subsection.4.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summarizing}{\reset@font\mtcSfont 104}{section.4.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}A cyclic communication strategy{} (N-Queens)}{\reset@font\mtcSfont 87}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Problem definition}{\reset@font\mtcSSfont 87}{subsection.4.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Experiments design and results}{\reset@font\mtcSSfont 88}{subsection.4.3.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}A simple communication strategy{} (Costas Array)}{\reset@font\mtcSfont 94}{section.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.1}Problem definition}{\reset@font\mtcSSfont 94}{subsection.4.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.4.2}Experiments design and results}{\reset@font\mtcSSfont 96}{subsection.4.4.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}A local minima evasion strategy (Golomb Ruler)}{\reset@font\mtcSfont 100}{section.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Problem definition}{\reset@font\mtcSSfont 101}{subsection.4.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Experiments design and results}{\reset@font\mtcSSfont 102}{subsection.4.5.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Summarizing}{\reset@font\mtcSfont 107}{section.4.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.1}Strategies overview}{\reset@font\mtcSSfont 109}{subsection.4.6.1}}

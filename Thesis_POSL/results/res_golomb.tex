@@ -209,15 +209,11 @@ I experimented with 3 different values for $p$. Each value defines a different t
 \end{itemize}
 
 After many experimental runs with these values I choose $p = \infty$ and $\epsilon = 4$ for the study of the \commstr. I also made experiments trying to find the right size for the {\it tabu} list and the conclusion was that the right sizes were $15$ for non-communicating strategies and $40$ for communicating strategies, taking into account that in the latter, I work with 20 receivers solvers.
-}
 
-\poslexample{
 \mybox{Step 2}
 
 After generating the first configuration, the next step is to apply a local search to improve it. In this step I use the neighborhood \om{} $V_{sort}$, that creates neighborhood $\mathcal{V}\left(s\right)$ by changing one value while keeping the order in the configuration, and the other modules (selection and acceptance). The local search is executed a number $K_2$ of times, or until a solution is obtained.
-}
 
-\poslexample{
 \mybox{Step 3}
 
 If no improvement is reached, the current configuration is classified as a {\it potential local minimum} and inserted into the {\it tabu} list, then send it (on the case of sender solvers). Then, the process returns to the Step 1. 
