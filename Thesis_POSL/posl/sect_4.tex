@@ -20,7 +20,7 @@ Once a set of solvers is created, the last stage is to connect them to each othe
 
 \separation
 
-The communication is established by following the following rules guideline:
+The communication is established by following the following rules: % guideline:
 \begin{enumerate}%\begin{inparaenum}
 	\item Each time a solver sends any kind of information by using a {\it sending} operator, it creates a \INTROjack.
 	\item Each time a solver defines a \opch, it creates a \INTROoutlet. 
@@ -99,7 +99,7 @@ connects each \jack{} $\mathcal{S}_i\posldot \mathcal{M}_i \in \mathcal{J}$ with
 \label{fig:comm}
 \end{figure}
 
-\poslexample{These operators can be combined beteewn themself to contruct any kind of \comstr. Figure~\ref{fig:ex:comb} shows a simple example combining solvers doubly connected and non connected solvers. Assuming that all solvers $S_i, i\in[1..5]$ have a module $\mathcal{M}$ sent by a send operator, and a \opch{} $\mathcal{CM}$, the corresponding code is the following:
+\poslexample{These operators can be combined between themselves to contruct any kind of \comstr. Figure~\ref{fig:ex:comb} shows a simple example combining solvers doubly connected and non connected solvers. Assuming that all solvers $S_i, i\in[1..5]$ have a module $\mathcal{M}$ sent by a send operator, and a \opch{} $\mathcal{CM}$, the corresponding code is the following:
 \begin{gather*}
 \left[\mathcal{S}_1\posldot\mathcal{M}, \mathcal{S}_2\posldot\mathcal{M}, \mathcal{S}_{3}\posldot\mathcal{M}\right] \onetonsep \left[\mathcal{S}_4\posldot\mathcal{CM}, \mathcal{S}_5\posldot\mathcal{CM}\right]\\
 \left[\mathcal{S}_4\posldot\mathcal{M}, \mathcal{S}_5\posldot\mathcal{M}\right] \onetoonesep \left[\mathcal{S}_1\posldot\mathcal{CM}, \mathcal{S}_{3}\posldot\mathcal{CM}\right]\\
@@ -170,7 +170,7 @@ searches the \om{} $S_{jack}$ recursively inside the {\it root} \cm{} of $S$ and
 
 \poslexample{Let us suppose that we have declared two solvers $S$ and $Z$, both implementing the \as{} in Algorithm~\ref{algo:as_example}, so they can be either sender or receiver. The following code connects them using the operator {\bf 1~to~N}:
 $$\left[S\posldot A\right] \onetonsep \left[Z\posldot C.M.\right]$$
-If the operator {\bf 1~to~N} is used with only with one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
+If the operator {\bf 1~to~N} is used with only one solver in each list, the operation is equivalent to applying the operator {\bf 1~to~1}. However, to obtain a communication strategy like the one showed in Figure~\ref{subfig:comm_diff}, six solvers (three senders and three receivers) have to be declared to be able to apply the following operation:
 $$\left[S_1\posldot A, S_2\posldot A, S_3\posldot A\right]\onetonsep \left[Z_1\posldot C.M., Z_2\posldot C.M., Z_3\posldot C.M.\right]$$
 \posl{} provides a mechanism to make this easier, through two {\it syntactic sugars}, called formally \textit{solver namespace expansions}, explained in the next sub-section. %below.
 }
@@ -178,7 +178,8 @@ $$\left[S_1\posldot A, S_2\posldot A, S_3\posldot A\right]\onetonsep \left[Z_1\p
 \subsection{Solver namespace expansion}
 %\separation
 
-One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel easily. For that reason, \posl{} provides two syntactic sugars (namespace expansion), in order to create sets of solvers using already declared ones:
+One of the goals of \posl{} is to provide a way to declare sets of solvers to be executed in parallel easily. %For that reason, \posl{} provides two syntactic sugars (namespace expansion), in order to create sets of solvers using already declared ones:
+\new{The two types of namespace expantion provided by \posl{} are the following:}
 \begin{enumerate}
 \item Using an integer to denote how many times a solver name will appear in the declaration.
 \item Using an integer to denote how many times the connection will be repeated in the declaration.
@@ -204,8 +205,8 @@ and all new solvers $S_i^k, i\in[1..N]$ and $R_j^k,j\in [1..M]$, $k\in[2..K]$, a
 
 The following example explains clearly these syntactic sugars:
 
-\poslexample{Suppose that I have created  solvers $S$ and $Z$ mentioned in the previews example. As a communication strategy, I want to connect them through the operator {\bf 1~to~N}, using $S$ as sender and $Z$ as receiver. Then,  %using \textbf{namespace expansions}, 
-we need to declare how many solvers I want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy. Notice in this example that the connection operation is affected also by the number $2$ at the end of the line. %, as {\bf connection declaration expansion}. 
+\poslexample{Suppose that we have created  solvers $S$ and $Z$ mentioned in the previews example. As a communication strategy, we want to connect them through the operator {\bf 1~to~N}, using $S$ as sender and $Z$ as receiver. Then,  %using \textbf{namespace expansions}, 
+we need to declare how many solvers we want to connect. Algorithm~\ref{algo:comm_str_ex} shows the desired communication strategy. Notice in this example that the connection operation is affected also by the number $2$ at the end of the line. %, as {\bf connection declaration expansion}. 
 In that sense, and supposing that 12 units of computation are available, a \soset{} working on parallel following the topology described in Figure~\ref{fig:ex_conn} can be obtained.}
 
 \begin{algorithm}[H]

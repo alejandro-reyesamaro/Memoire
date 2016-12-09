@@ -11,6 +11,12 @@ Francisco Barahona, Martin Groetschel, Michael Juenger, and Gerhard Reinelt.
   and Circuit Layout Design.}
 \newblock {\em Operations Research}, 36(3):493 -- 513, 1988.
 
+\bibitem{Espelage2000}
+Wolfgang Espelage and Egon Wanke.
+\newblock {The combinatorial complexity of masterkeying}.
+\newblock {\em Mathematical Methods of Operations Research}, 52(2):325--348,
+  2000.
+
 \bibitem{Osman1996}
 Ibrahim~H Osman and Gilbert Laporte.
 \newblock {Metaheuristics : A bibliography}.
@@ -20,6 +26,26 @@ Ibrahim~H Osman and Gilbert Laporte.
 Ilhem Boussa{\"{i}}d, Julien Lepagnot, and Patrick Siarry.
 \newblock {A survey on optimization metaheuristics}.
 \newblock {\em Information Sciences}, 237:82--117, jul 2013.
+
+\bibitem{Arbelaez2014a}
+Alejandro Arbelaez, Deepak Mehta, and Luis Quesada.
+\newblock {A Constraint-based Parallel Local Search for Disjoint Rooted
+  Distance-Constrained Minimum Spanning Tree Problem}.
+\newblock 2014.
+
+\bibitem{Caniou2011}
+Yves Caniou, Philippe Codognet, Daniel Diaz, and Salvador Abreu.
+\newblock {Experiments in parallel constraint-based local search}.
+\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)}, 6622
+  LNCS:96--107, 2011.
+
+\bibitem{Diaz2012a}
+Daniel Diaz, Florian Richoux, Yves Caniou, Philippe Codognet, and Salvador
+  Abreu.
+\newblock {Parallel Local Search for the Costas Array Problem}.
+\newblock {\em 2012 IEEE 26th International Parallel and Distributed Processing
+  Symposium Workshops {\&} PhD Forum}, pages 1793--1802, 2012.
 
 \bibitem{Diaz}
 Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
@@ -67,12 +93,6 @@ Louise~K. Sibbesen.
   positioning problems in port terminals}}.
 \newblock Doctor of philosophy, Technical University of Danemark, 2008.
 
-\bibitem{Espelage2000}
-Wolfgang Espelage and Egon Wanke.
-\newblock {The combinatorial complexity of masterkeying}.
-\newblock {\em Mathematical Methods of Operations Research}, 52(2):325--348,
-  2000.
-
 \bibitem{Smith2005}
 Barbara~M Smith.
 \newblock {Modelling for Constraint Programming}.
@@ -91,6 +111,12 @@ Nicholas Nethercote, Peter~J Stuckey, Ralph Becket, Sebastian Brand, Gregory~J
 \newblock {MiniZinc: Towards A Standard CP Modelling Language}.
 \newblock In {\em Principles and Practice of Constraint Programming}, pages
   529--543. Springer, 2007.
+
+\bibitem{Boussemart2016}
+Fr{\'{e}}d{\'{e}}ric Boussemart, Christophe Lecoutre, and C{\'{e}}dric Piette.
+\newblock {\em {XCSP3 An Integrated Format for Benchmarking Combinatorial
+  Constrained Problems}}.
+\newblock Lens, 2016.
 
 \bibitem{ChristianBessiere2006}
 {Christian Bessiere}.
@@ -597,6 +623,11 @@ Charlotte Truchet, Alejandro Arbelaez, Florian Richoux, and Philippe Codognet.
 \newblock {Estimating Parallel Runtimes for Randomized Algorithms in Constraint
   Solving}.
 \newblock {\em Journal of Heuristics}, pages 1--36, 2015.
+
+\bibitem{Babai1979}
+Laszlo Babai.
+\newblock {Monte-Carlo algorithms in graph isomorphism testing}.
+\newblock Technical Report~79, 1979.
 
 \bibitem{Hamadi2012}
 Youssef Hamadi, Said Jaddour, and Lakhdar Sais.

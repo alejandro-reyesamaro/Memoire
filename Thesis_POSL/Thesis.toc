@@ -16,7 +16,7 @@
 \contentsline {section}{\numberline {2.8}Parameter setting techniques}{30}{section.2.8}
 \contentsline {subsection}{\numberline {2.8.1}Off-line tuning}{31}{subsection.2.8.1}
 \contentsline {subsection}{\numberline {2.8.2}On-line tunning}{32}{subsection.2.8.2}
-\contentsline {section}{\numberline {2.9}Summary}{33}{section.2.9}
+\contentsline {section}{\numberline {2.9}Summarizing}{33}{section.2.9}
 \contentsline {part}{II\hspace {1em}{\sc POSL}{}: Parallel \penalty \@M {Oriented} Solver~Language\hfill }{35}{part.2}
 \contentsline {chapter}{\numberline {3}{\sc POSL}{}: Parallel Oriented Solver~Language}{37}{chapter.3}
 \contentsline {section}{\numberline {3.1}Introduction}{38}{section.3.1}
@@ -31,29 +31,29 @@
 \contentsline {section}{\numberline {3.5}Third stage: creating {\sc POSL}{} solvers}{60}{section.3.5}
 \contentsline {section}{\numberline {3.6}Forth stage: connecting solvers}{61}{section.3.6}
 \contentsline {subsection}{\numberline {3.6.1}Solver namespace expansion}{65}{subsection.3.6.1}
-\contentsline {section}{\numberline {3.7}Summarize}{66}{section.3.7}
-\contentsline {part}{III\hspace {1em}Study and evaluation of {\sc POSL}}{69}{part.3}
-\contentsline {chapter}{\numberline {4}Experiments design and results}{71}{chapter.4}
-\contentsline {section}{\numberline {4.1}Methodology}{72}{section.4.1}
-\contentsline {section}{\numberline {4.2}A dynamic configuration exchange strategy (Social Golfers)}{74}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Problem definition}{74}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Experiments design and results}{76}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}A cyclic communication strategy{} (N-Queens)}{87}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Problem definition}{87}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Experiments design and results}{88}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}A simple communication strategy{} (Costas Array)}{94}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Problem definition}{94}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Experiments design and results}{96}{subsection.4.4.2}
-\contentsline {section}{\numberline {4.5}A local minima evasion strategy (Golomb Ruler)}{100}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Problem definition}{101}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Experiments design and results}{102}{subsection.4.5.2}
-\contentsline {section}{\numberline {4.6}Summarizing}{107}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Strategies overview}{109}{subsection.4.6.1}
-\contentsline {part}{IV\hspace {1em}Conclusions and future works}{113}{part.4}
-\contentsline {chapter}{\numberline {5}Conclusion and future works}{115}{chapter.5}
-\contentsline {section}{\numberline {5.1}Conclusions}{116}{section.5.1}
-\contentsline {section}{\numberline {5.2}Future works}{118}{section.5.2}
-\contentsline {chapter}{\numberline {6}Bibliography}{121}{chapter.6}
+\contentsline {section}{\numberline {3.7}Summarizing}{66}{section.3.7}
+\contentsline {part}{III\hspace {1em}Study and evaluation of {\sc POSL}}{67}{part.3}
+\contentsline {chapter}{\numberline {4}Experiments design and results}{69}{chapter.4}
+\contentsline {section}{\numberline {4.1}Methodology}{70}{section.4.1}
+\contentsline {section}{\numberline {4.2}A dynamic configuration exchange strategy (Social Golfers)}{72}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Problem definition}{72}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Experiments design and results}{74}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}A cyclic communication strategy{} (N-Queens)}{85}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Problem definition}{85}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Experiments design and results}{86}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}A simple communication strategy{} (Costas Array)}{92}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Problem definition}{92}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Experiments design and results}{94}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}A local minima evasion strategy (Golomb Ruler)}{98}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Problem definition}{99}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Experiments design and results}{100}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Summarizing}{105}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Strategies overview}{107}{subsection.4.6.1}
+\contentsline {part}{IV\hspace {1em}Conclusions and future works}{111}{part.4}
+\contentsline {chapter}{\numberline {5}Conclusion and future works}{113}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusions}{114}{section.5.1}
+\contentsline {section}{\numberline {5.2}Future works}{116}{section.5.2}
+\contentsline {chapter}{\numberline {6}Bibliography}{119}{chapter.6}
 \contentsline {part}{V\hspace {1em}Appendix}{129}{part.5}
 \contentsline {chapter}{\numberline {A}Domain split approach: application to k-medoids problem}{131}{appendix.A}
 \contentsline {section}{\numberline {A.1}Introduction}{132}{section.A.1}

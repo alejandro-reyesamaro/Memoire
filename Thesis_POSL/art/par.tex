@@ -1,11 +1,11 @@
-Despite advances previously presented, hard instances of many problems are still complicated to solve through these techniques. Thanks to \textit{parallel computing}, we have been capable of going one step further in solving \csps. Parallel computing is a way to solve problems using several computation resources at the same time. It is a powerful alternative to solve problems which would require too much time by using sequential algorithms \cite{Grama2003}. %That is why this field is in constant development and it is the topic where I put most of our effort. 
+Despite advances previously presented, hard instances of many problems are still complicated to solve through these techniques. Thanks to \textit{parallel computing}, we have been capable of going one step further in solving \csps. Parallel computing is a way to solve problems using several computation resources at the same time. It is a powerful alternative to solve problems which would require too much time by using sequential algorithms \cite{Grama2003}. %That is why this field is in constant development and it is the topic where we put most of our effort. 
 
 Since the late 2000's all processors in modern machines are multi-core. Massively parallel architectures, previously expensive and so far reserved for super--computers, become now a trend available to a broad public through hardware like the Xeon Phi or GPU cards. The power delivered by massively parallel architectures allow us to treat faster constrained problems \cite{Borkar2007}. However this architectural evolution is a non-sense if algorithms do not evolve at the same time: the development and the implementation of algorithms should take this into account and tackling problems with very different methods, changing the sequential reasoning of researchers in Computer Science \cite{Hill2008, Sanders2014}. 
 
 In the literature on parallel constraint solving \cite{Gent}, two main limiting factors on performance are addressed: \begin{inparaenum}[1-] \item inter-process communication overheads (explained in details in Section~\ref{sec:cooperation}), and \item the \textit{Amdahl}'s law. \end{inparaenum} The Amdahl's law of parallel computing states that the \textit{speed-up} of a parallel algorithm is limited by the fraction of the program that must be executed sequentially. It means that adding more processors may not make the program run faster. It assumes that some percentage of the program or code cannot be parallelized ($T_{sequential}$), and states that the ratio called speed-up of $T_{sequential}$ over $1 - T_{Sequerntial} = T_{parallel}$ is bounded by $1\setminus T_{sequential}$ when the number of processors $P \rightarrow \infty$:
 
 \begin{equation}\label{amdahl}
-Sepeed-Up = \frac{T_{sequential}}{T_{parallel}} \leq \frac{1}{T_{sequential}}
+Speed-Up = \frac{T_{sequential}}{T_{parallel}} \leq \frac{1}{T_{sequential}}
 \end{equation}
 
 %\item parallelizing the search process,  
@@ -17,10 +17,10 @@ Another issue, usually underestimated, is the codification. Writing efficient co
 
 %The contribution in terms of hardware has been crucial, achieving powerful technologies to perform large--scale calculations. 
 
-The development of techniques and algorithms to solve problems in parallel focuses principally on three fundamentals aspects: 
+The development of techniques and algorithms to solve problems in parallel focuses principally on three fundamental aspects: 
 \begin{enumerate}%\begin{inparaenum}[i)]
     \item {\it Problem subdivision},
-    \item {\it Search paralelization} and %{\it Scalability} and
+    \item {\it Search parallelization} and %{\it Scalability} and
     \item {\it Inter-process communication}.
 \end{enumerate}%\end{inparaenum}
 They all pursue the same objective: achieving good levels of \textit{scalability}. Scalability is the ability of a system to handle the increasing growth of workload. 
@@ -43,7 +43,7 @@ Related to parallelizing the search process, we can find two main approaches. Fi
 
 In \cite{Arbelaez2012} \etal{Arbelaez} present a study of the impact of space-partitioning techniques on the performance of parallel local search algorithms to tackle the \textit{k-medoids} clustering problem. Using a parallel local search method, this work aims to improve the scalability of the sequential algorithm, which is measured in terms of the quality of the solution within a given timeout. Two main techniques are presented for domain partitioning: first, {\it space-filling curves}, used to reduce any N-dimensional representation into a one-dimension space (this technique is also widely used in the nearest-neighbor-finding problem \cite{Chen2005}); and second, {\it k-Means} algorithm, one of the most popular clustering algorithms \cite{Berkhin2002}.
 
-An interesting work is presented by \etal{Truchet} in \cite{Truchet02}, which is an estimation of the speed-up (a performance prediction of a parallel algorithm) through statistical analysis of its sequential algorithm is presented. Using this approach it is possible to have a rough idea of the resources needed to solve a given problem in parallel. In this work, authors study the parallel performances of \textit{Las Vegas} algorithms (randomized algorithms whose runtime might vary from one execution to another, even with the same input) under independent multi-walk scheme, and predict the performances of the parallel execution from the runtime distribution of their sequential runs. These predictions are compared to actual speed--ups obtained for a parallel implementation of the same algorithm and show that the prediction can be quite accurate.
+An interesting work is presented by \etal{Truchet} in \cite{Truchet02}, which is an estimation of the speed-up (a performance prediction of a parallel algorithm) through statistical analysis of its sequential algorithm is presented. Using this approach it is possible to have a rough idea of the resources needed to solve a given problem in parallel. In this work, authors study the parallel performances of \textit{Las Vegas} algorithms \cite{Babai1979} (randomized algorithms whose runtime might vary from one execution to another, even with the same input) under independent multi-walk scheme, and predict the performances of the parallel execution from the runtime distribution of their sequential runs. These predictions are compared to actual speed--ups obtained for a parallel implementation of the same algorithm and show that the prediction can be quite accurate.
 
 The other important aspect in parallel computing is the inter-process communication, also called \textit{solver cooperation} and it is treated in the next section.
 

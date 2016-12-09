@@ -1,4 +1,4 @@
-There exist two types of basic modules in \posl: \INTROom{} and \INTROopch{}. A \om{} is basically a function and a \opch{} is also a function, but in contrast, it can receive information from two different sources: through input parameters or from outside, i.e., by communicating with a module from another solver.
+There exist two types of basic modules in \posl: \INTROom{} and \INTROopch{}. A \om{} is basically a function and a \opch{} is also a function, but in contrast, it can receive information from two different sources: through input parameters or from outside, \ie by communicating with a module from another solver.
 
 \subsection{Computation module}
 
@@ -24,7 +24,7 @@ Cm_{neighborhood}:I_1\times I_2\times\dots\times I_n \rightarrow 2^{I_1\times I_
 
 \noindent where $I_i$ represents the definition domains of each variable of the input confi\-gura\-tion.
 
-Figure~\ref{fig:om} shows an example of \om: which receives a configuration $S$ and then computes the set $\mathcal{V}$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
+Figure~\ref{fig:om} shows an example of \om{} which receives a configuration $S$ and then computes the set $\mathcal{V}$ of its neighbor configurations $\left\{S^1, S^2, \dots, S^m\right\}$.
 
 %\vspace{0.5cm}
 \begin{figure}
@@ -42,7 +42,7 @@ and some abstract classes to inherit from, depending on the type of \om{} the us
 
 \begin{itemize}
 \item \textbf{First Configuration Generation} $\rightarrow$ Represents \oms{} returning a configuration $s$, usually used for generating the starting configuration on local search meta-heuristics. 
-\item \textbf{Neighborhood Function} $\rightarrow$ Represent \oms{} receiving a configuration $s$ as input and returning its neighborhood $\mathcal{V}(s)$ as output. These output configurations are efficiently stored in term of space.
+\item \textbf{Neighborhood Function} $\rightarrow$ Represents \oms{} receiving a configuration $s$ as input and returning its neighborhood $\mathcal{V}(s)$ as output. These output configurations are efficiently stored in term of space.
 \item \textbf{Selection Function} $\rightarrow$ Represents \oms{} receiving a neighborhood as input and selecting a configuration $s'$ from it as output. This function returns the pair $(s, s')$ containing both current and selected configuration.
 \item \textbf{Decision Function} $\rightarrow$ Represents \oms{} receiving a couple af configurations encapsulated into a pair $(s, s')$, and returning the configuration to be the current one for the next iteration. 
 \item \textbf{Processing Configuration Function} $\rightarrow$ Represents \oms{} receiving a configuration and returning another configuration as result of some arrangement, like for example, a reset. 
@@ -52,11 +52,11 @@ and some abstract classes to inherit from, depending on the type of \om{} the us
 
 %In this sub-section we expose the definition and the characteristics and the details of the \opch, and give some examples. We explain how to create new \opchs{} using the basic layer of the framework.
 
-A \opch{} is the component managing the information reception in the communication between solvers (I talk about information transmission in Section~\ref{sec:2ndstage}). They can interact with \oms{} through operators (see Figure~\ref{fig:och}).
+A \opch{} is the component managing the information reception in the communication between solvers (we talk about information transmission in Section~\ref{sec:2ndstage}). They can interact with \oms{} through operators (see Figure~\ref{fig:och}).
 
-A \opch{} can receive two types of information from an external solver: data or \oms{}. It is important to notice that by sending/receiving \oms, I mean sending/receiving the required information to identify and being able to instantiate the \om. For instance, an integer identifier.
+A \opch{} can receive two types of information from an external solver: data or \oms{}. It is important to notice that by sending/receiving \oms, we mean sending/receiving the required information to identify and being able to instantiate the \om. For instance, an integer identifier.
 
-In order to distinguish from the two types of \opchs, I will call \INTROdopch{} the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and \INTROoopch{} the one responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
+In order to distinguish from the two types of \opchs, we will call \INTROdopch{} the \opch{} responsible for the data reception (Figure~\ref{subfig:doch}), and \INTROoopch{} is responsible for the reception and instantiation of \oms{} (Figure~\ref{subfig:ooch}).
 
 \defname{Data Communication Module}{
 A \emph{Data Communication Module} $Ch$ is a module that produces a mapping defined as follows: 
@@ -93,4 +93,4 @@ It returns the output $O$ of the execution of the \om{} coming from an external 
 
 Users can implement new computation and connection modules but \posl{} already contains many useful modules for solving a broad range of problems.
 
-Due to the fact that \opchs{} receive information coming from outside without having control on them, it is necessary to define the {\it NULL} information, in order to denote the absence of information. If a Data Communication Module receives information, it is returned automatically. If a Object Communication Module receives a \om{}, it is instantiated and executed with the \opch's input and its result is returned. In both cases, if no available information exists (no communications performed), the \opch{} returns the {\it NULL} object.
+Due to the fact that \opchs{} receive information coming from outside without having control on them, it is necessary to define the {\it NULL} information, in order to denote the absence of information. If a Data Communication Module receives information, it is returned automatically. If an Object Communication Module receives a \om{}, it is instantiated and executed with the \opch's input and its result is returned. In both cases, if no available information exists (no communications performed), the \opch{} returns the {\it NULL} object.

@@ -6,7 +6,9 @@ A level-1 auxiliary file: appendix/appendix_res_graph_sgp.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_nqp.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_cap.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_grp.aux
-Database file #1: biblio201611.bib
+Database file #1: biblio201612.bib
+Warning--empty journal in Arbelaez2014a
+Warning--empty publisher in Boussemart2016
 Warning--can't use both volume and number fields in Cousot1977
 Warning--empty publisher in Gecode
 Warning--there's a number but no volume in Feo95
@@ -15,47 +17,48 @@ Warning--there's a number but no series in Pesant1996
 Warning--empty publisher in Hooker2006
 Warning--there's a number but no volume in Hill2008
 Warning--empty year in Jinnai
+Warning--empty institution in Babai1979
 Warning--empty institution in Arbab1995
 Warning--empty year in Reyes-amaro
-You've used 136 entries,
+You've used 141 entries,
             1791 wiz_defined-function locations,
-            1314 strings with 26209 characters,
-and the built_in function-call counts, 39200 in all, are:
-= -- 3853
-> -- 1405
-< -- 90
-+ -- 517
-- -- 381
-* -- 2528
-:= -- 5664
-add.period$ -- 458
-call.type$ -- 136
-change.case$ -- 147
+            1345 strings with 27357 characters,
+and the built_in function-call counts, 40329 in all, are:
+= -- 3952
+> -- 1462
+< -- 92
++ -- 538
+- -- 397
+* -- 2598
+:= -- 5843
+add.period$ -- 473
+call.type$ -- 141
+change.case$ -- 151
 chr.to.int$ -- 0
-cite$ -- 146
-duplicate$ -- 1955
-empty$ -- 3836
-format.name$ -- 381
-if$ -- 9194
+cite$ -- 154
+duplicate$ -- 2009
+empty$ -- 3935
+format.name$ -- 397
+if$ -- 9444
 int.to.chr$ -- 0
-int.to.str$ -- 136
-missing$ -- 132
-newline$ -- 683
-num.names$ -- 156
-pop$ -- 477
+int.to.str$ -- 141
+missing$ -- 137
+newline$ -- 708
+num.names$ -- 161
+pop$ -- 496
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1068
+skip$ -- 1095
 stack$ -- 0
-substring$ -- 2937
-swap$ -- 685
-text.length$ -- 90
+substring$ -- 2999
+swap$ -- 700
+text.length$ -- 92
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 10
-while$ -- 428
-width$ -- 139
-write$ -- 1567
-(There were 10 warnings)
+warning$ -- 13
+while$ -- 438
+width$ -- 144
+write$ -- 1618
+(There were 13 warnings)
