@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  10 DEC 2016 19:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  10 DEC 2016 20:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -23839,11 +23839,11 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 52641 strings out of 494272
- 1015961 string characters out of 6160999
+ 52639 strings out of 494272
+ 1015939 string characters out of 6160999
  1413211 words of memory out of 5000000
  52403 multiletter control sequences out of 15000+600000
- 309058 words of font info for 415 fonts, out of 8000000 for 9000
+ 308975 words of font info for 414 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
  82i,30n,152p,10388b,2930s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
@@ -23888,7 +23888,7 @@ e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
 1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
 ic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
 
-Output written on Thesis.pdf (204 pages, 3985830 bytes).
+Output written on Thesis.pdf (204 pages, 3986645 bytes).
 PDF statistics:
  3927 PDF objects out of 4296 (max. 8388607)
  3432 compressed objects within 35 object streams
