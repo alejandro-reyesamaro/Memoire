@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  10 DEC 2016 18:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  10 DEC 2016 19:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1710,7 +1710,7 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 .................................................
 . LaTeX info: "xparse/define-command"
 . 
-. Defining document command \insquare with arg. spec. 'omo' on line 120.
+. Defining document command \insquare with arg. spec. 'omo' on line 122.
 .................................................
 
 (/usr/share/texlive/texmf-dist/tex/latex/pgfplots/pgfplots.sty
@@ -1918,9 +1918,9 @@ Library (tcolorbox): 'tcbbreakable.code.tex' version '2.70'
 \tcb@totallowerbox=\box92
 )
 \c@definition=\count318
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 245.
-Package hyperref Info: Option `colorlinks' set `true' on input line 245.
-Package hyperref Info: Option `pdffitwindow' set `true' on input line 245.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 247.
+Package hyperref Info: Option `colorlinks' set `true' on input line 247.
+Package hyperref Info: Option `pdffitwindow' set `true' on input line 247.
  (/usr/share/texlive/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
 
@@ -15637,17 +15637,8 @@ Class scrbook Warning: Usage of deprecated font command `\sf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sf'
-(scrbook)              by `\normalfont \sffamily ' on input line 20.
+(scrbook)              by `\normalfont \sffamily ' on input line 21.
 
-
-Overfull \hbox (104.56389pt too wide) in paragraph at lines 20--48
-$[]$ 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [132]
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              You should note, that in 1994 font command `\it' has
@@ -15662,6 +15653,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 54.
 
+[132]
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              You should note, that in 1994 font command `\bf' has
@@ -15676,49 +15668,49 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
 (scrbook)              by `\normalfont \bfseries ' on input line 72.
 
+
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 74.
+
+
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 74.
+
+
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 74.
+
 [133]
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 74.
-
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 74.
-
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 74.
-
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              You should note, that in 1994 font command `\bf' has
@@ -15761,7 +15753,6 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 94.
 
-[134]
 Package epstopdf Info: Source file: <images/norm_geom.eps>
 (epstopdf)                    date: 2015-01-20 11:23:15
 (epstopdf)                    size: 1543262 bytes
@@ -15772,8 +15763,7 @@ Package epstopdf Info: Source file: <images/norm_geom.eps>
 rted-to.pdf images/norm_geom.eps>
 (epstopdf)             \includegraphics on input line 101.
 Package epstopdf Info: Output file is already uptodate.
-
-<images/norm_geom-eps-converted-to.pdf, id=2456, 504.88625pt x 504.88625pt>
+<images/norm_geom-eps-converted-to.pdf, id=2451, 504.88625pt x 504.88625pt>
 File: images/norm_geom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/norm_geom-eps-converted-to.pdf>
@@ -15791,7 +15781,7 @@ rted-to.pdf images/norm_card.eps>
 (epstopdf)             \includegraphics on input line 106.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/norm_card-eps-converted-to.pdf, id=2457, 504.88625pt x 504.88625pt>
+<images/norm_card-eps-converted-to.pdf, id=2452, 504.88625pt x 504.88625pt>
 File: images/norm_card-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/norm_card-eps-converted-to.pdf>
@@ -15809,7 +15799,7 @@ rted-to.pdf images/norm_mean.eps>
 (epstopdf)             \includegraphics on input line 111.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/norm_mean-eps-converted-to.pdf, id=2458, 504.88625pt x 504.88625pt>
+<images/norm_mean-eps-converted-to.pdf, id=2453, 504.88625pt x 504.88625pt>
 File: images/norm_mean-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/norm_mean-eps-converted-to.pdf>
@@ -15827,7 +15817,7 @@ rted-to.pdf images/unif_geom.eps>
 (epstopdf)             \includegraphics on input line 121.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/unif_geom-eps-converted-to.pdf, id=2459, 504.88625pt x 504.88625pt>
+<images/unif_geom-eps-converted-to.pdf, id=2454, 504.88625pt x 504.88625pt>
 File: images/unif_geom-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/unif_geom-eps-converted-to.pdf>
@@ -15845,7 +15835,7 @@ rted-to.pdf images/unif_card.eps>
 (epstopdf)             \includegraphics on input line 126.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/unif_card-eps-converted-to.pdf, id=2460, 504.88625pt x 504.88625pt>
+<images/unif_card-eps-converted-to.pdf, id=2455, 504.88625pt x 504.88625pt>
 File: images/unif_card-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/unif_card-eps-converted-to.pdf>
@@ -15863,7 +15853,7 @@ rted-to.pdf images/unif_mean.eps>
 (epstopdf)             \includegraphics on input line 131.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/unif_mean-eps-converted-to.pdf, id=2461, 504.88625pt x 504.88625pt>
+<images/unif_mean-eps-converted-to.pdf, id=2456, 504.88625pt x 504.88625pt>
 File: images/unif_mean-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/unif_mean-eps-converted-to.pdf>
@@ -15881,7 +15871,7 @@ d-to.pdf images/badGeo.eps>
 (epstopdf)             \includegraphics on input line 138.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/badGeo-eps-converted-to.pdf, id=2462, 504.88625pt x 504.88625pt>
+<images/badGeo-eps-converted-to.pdf, id=2457, 504.88625pt x 504.88625pt>
 File: images/badGeo-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/badGeo-eps-converted-to.pdf>
@@ -15917,10 +15907,10 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 146.
 
-[135 <./images/norm_geom-eps-converted-to.pdf> <./images/norm_card-eps-converte
-d-to.pdf> <./images/norm_mean-eps-converted-to.pdf> <./images/unif_geom-eps-con
-verted-to.pdf> <./images/unif_card-eps-converted-to.pdf> <./images/unif_mean-ep
-s-converted-to.pdf> <./images/badGeo-eps-converted-to.pdf>]
+[134] [135 <./images/norm_geom-eps-converted-to.pdf> <./images/norm_card-eps-co
+nverted-to.pdf> <./images/norm_mean-eps-converted-to.pdf> <./images/unif_geom-e
+ps-converted-to.pdf> <./images/unif_card-eps-converted-to.pdf> <./images/unif_m
+ean-eps-converted-to.pdf> <./images/badGeo-eps-converted-to.pdf>]
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              You should note, that in 1994 font command `\bf' has
@@ -16059,7 +16049,7 @@ ted-to.pdf images/goodCard.eps>
 (epstopdf)             \includegraphics on input line 177.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/goodCard-eps-converted-to.pdf, id=2516, 504.88625pt x 504.88625pt>
+<images/goodCard-eps-converted-to.pdf, id=2517, 504.88625pt x 504.88625pt>
 File: images/goodCard-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/goodCard-eps-converted-to.pdf>
@@ -16077,7 +16067,7 @@ rted-to.pdf images/goodCard2.eps>
 (epstopdf)             \includegraphics on input line 182.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/goodCard2-eps-converted-to.pdf, id=2517, 504.88625pt x 504.88625pt>
+<images/goodCard2-eps-converted-to.pdf, id=2518, 504.88625pt x 504.88625pt>
 File: images/goodCard2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/goodCard2-eps-converted-to.pdf>
@@ -16095,7 +16085,7 @@ ted-to.pdf images/goodMean.eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/goodMean-eps-converted-to.pdf, id=2518, 504.88625pt x 504.88625pt>
+<images/goodMean-eps-converted-to.pdf, id=2519, 504.88625pt x 504.88625pt>
 File: images/goodMean-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/goodMean-eps-converted-to.pdf>
@@ -16113,7 +16103,7 @@ rted-to.pdf images/goodMean2.eps>
 (epstopdf)             \includegraphics on input line 191.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/goodMean2-eps-converted-to.pdf, id=2519, 504.88625pt x 504.88625pt>
+<images/goodMean2-eps-converted-to.pdf, id=2520, 504.88625pt x 504.88625pt>
 File: images/goodMean2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/goodMean2-eps-converted-to.pdf>
@@ -17701,7 +17691,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              by `\normalfont \itshape ' on input line 427.
 
 
-Underfull \vbox (badness 1888) has occurred while \output is active []
+Underfull \vbox (badness 3492) has occurred while \output is active []
 
  [147]
 
@@ -18176,7 +18166,7 @@ Overfull \hbox (104.56389pt too wide) in paragraph at lines 7--7
 [151
 
 
-] <images/g5_select_BP.pdf, id=2702, 722.7pt x 1011.78pt>
+] <images/g5_select_BP.pdf, id=2703, 722.7pt x 1011.78pt>
 File: images/g5_select_BP.pdf Graphic file (type pdf)
 
 <use images/g5_select_BP.pdf>
@@ -18221,7 +18211,7 @@ Overfull \hbox (85.2295pt too wide) in paragraph at lines 19--27
 $[]$  $[]$ 
  []
 
-<images/g8_select_BP.pdf, id=2703, 722.7pt x 1011.78pt>
+<images/g8_select_BP.pdf, id=2704, 722.7pt x 1011.78pt>
 File: images/g8_select_BP.pdf Graphic file (type pdf)
 
 <use images/g8_select_BP.pdf>
@@ -18261,7 +18251,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 31.
 
-<images/g9_select_BP.pdf, id=2704, 722.7pt x 1011.78pt>
+<images/g9_select_BP.pdf, id=2705, 722.7pt x 1011.78pt>
 File: images/g9_select_BP.pdf Graphic file (type pdf)
 
 <use images/g9_select_BP.pdf>
@@ -18317,7 +18307,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
 
  []
 
-<images/g5_comm_BP.pdf, id=2733, 1517.67pt x 1011.78pt>
+<images/g5_comm_BP.pdf, id=2734, 1517.67pt x 1011.78pt>
 File: images/g5_comm_BP.pdf Graphic file (type pdf)
 
 <use images/g5_comm_BP.pdf>
@@ -18363,7 +18353,7 @@ Overfull \hbox (104.56389pt too wide) in paragraph at lines 63--69
  []
 
 [153 <./images/g5_comm_BP.pdf>]
-<images/g8_comm_BP.pdf, id=2753, 1517.67pt x 1011.78pt>
+<images/g8_comm_BP.pdf, id=2754, 1517.67pt x 1011.78pt>
 File: images/g8_comm_BP.pdf Graphic file (type pdf)
 
 <use images/g8_comm_BP.pdf>
@@ -18408,7 +18398,7 @@ Overfull \hbox (104.56389pt too wide) in paragraph at lines 73--80
 []$[]$ 
  []
 
-<images/g9_comm_BP.pdf, id=2754, 1517.67pt x 1011.78pt>
+<images/g9_comm_BP.pdf, id=2755, 1517.67pt x 1011.78pt>
 File: images/g9_comm_BP.pdf Graphic file (type pdf)
 
 <use images/g9_comm_BP.pdf>
@@ -18520,7 +18510,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--119
  []
 
 [154 <./images/g8_comm_BP.pdf> <./images/g9_comm_BP.pdf>]
-<images/g5_per_BP.pdf, id=2774, 1517.67pt x 1011.78pt>
+<images/g5_per_BP.pdf, id=2775, 1517.67pt x 1011.78pt>
 File: images/g5_per_BP.pdf Graphic file (type pdf)
 
 <use images/g5_per_BP.pdf>
@@ -18555,7 +18545,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 128.
 
-<images/g8_per_BP.pdf, id=2775, 1517.67pt x 1011.78pt>
+<images/g8_per_BP.pdf, id=2776, 1517.67pt x 1011.78pt>
 File: images/g8_per_BP.pdf Graphic file (type pdf)
 
 <use images/g8_per_BP.pdf>
@@ -18593,7 +18583,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/g9_per_BP.pdf, id=2776, 1517.67pt x 1011.78pt>
+<images/g9_per_BP.pdf, id=2777, 1517.67pt x 1011.78pt>
 File: images/g9_per_BP.pdf Graphic file (type pdf)
 
 <use images/g9_per_BP.pdf>
@@ -18679,7 +18669,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-<images/nq250_BP.pdf, id=2811, 650.43pt x 1011.78pt>
+<images/nq250_BP.pdf, id=2812, 650.43pt x 1011.78pt>
 File: images/nq250_BP.pdf Graphic file (type pdf)
  <use images/nq250_BP.pdf>
 Package pdftex.def Info: images/nq250_BP.pdf used on input line 28.
@@ -18713,7 +18703,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 29.
 
-<images/nq500_BP.pdf, id=2819, 650.43pt x 1011.78pt>
+<images/nq500_BP.pdf, id=2820, 650.43pt x 1011.78pt>
 File: images/nq500_BP.pdf Graphic file (type pdf)
  <use images/nq500_BP.pdf>
 Package pdftex.def Info: images/nq500_BP.pdf used on input line 47.
@@ -18752,7 +18742,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 48.
 
-<images/nq1000_BP.pdf, id=2820, 650.43pt x 1011.78pt>
+<images/nq1000_BP.pdf, id=2821, 650.43pt x 1011.78pt>
 File: images/nq1000_BP.pdf Graphic file (type pdf)
 
 <use images/nq1000_BP.pdf>
@@ -18797,7 +18787,7 @@ Overfull \hbox (85.22952pt too wide) in paragraph at lines 45--55
 []$[]$  $[]$ 
  []
 
-<images/nq3000_BP.pdf, id=2821, 650.43pt x 1011.78pt>
+<images/nq3000_BP.pdf, id=2822, 650.43pt x 1011.78pt>
 File: images/nq3000_BP.pdf Graphic file (type pdf)
 
 <use images/nq3000_BP.pdf>
@@ -18835,7 +18825,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 
 Underfull \vbox (badness 1831) has occurred while \output is active []
 
- [158 <./images/nq250_BP.pdf>] <images/nq6000_BP_big.pdf, id=2837, 1517.67pt x 
+ [158 <./images/nq250_BP.pdf>] <images/nq6000_BP_big.pdf, id=2838, 1517.67pt x 
 1011.78pt>
 File: images/nq6000_BP_big.pdf Graphic file (type pdf)
 
@@ -18927,14 +18917,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-<images/nq250_per_BP.pdf, id=2866, 722.7pt x 1011.78pt>
+<images/nq250_per_BP.pdf, id=2867, 722.7pt x 1011.78pt>
 File: images/nq250_per_BP.pdf Graphic file (type pdf)
 
 <use images/nq250_per_BP.pdf>
 Package pdftex.def Info: images/nq250_per_BP.pdf used on input line 91.
 (pdftex.def)             Requested size: 217.66362pt x 304.7251pt.
 
-<images/nq500_per_BP.pdf, id=2867, 722.7pt x 1011.78pt>
+<images/nq500_per_BP.pdf, id=2868, 722.7pt x 1011.78pt>
 File: images/nq500_per_BP.pdf Graphic file (type pdf)
 
 <use images/nq500_per_BP.pdf>
@@ -18945,14 +18935,14 @@ Overfull \hbox (14.59996pt too wide) in paragraph at lines 91--95
  [][][][] 
  []
 
-<images/nq1000_per_BP.pdf, id=2868, 722.7pt x 1011.78pt>
+<images/nq1000_per_BP.pdf, id=2869, 722.7pt x 1011.78pt>
 File: images/nq1000_per_BP.pdf Graphic file (type pdf)
 
 <use images/nq1000_per_BP.pdf>
 Package pdftex.def Info: images/nq1000_per_BP.pdf used on input line 99.
 (pdftex.def)             Requested size: 217.66362pt x 304.7251pt.
 
-<images/nq3000_per_BP.pdf, id=2869, 722.7pt x 1011.78pt>
+<images/nq3000_per_BP.pdf, id=2870, 722.7pt x 1011.78pt>
 File: images/nq3000_per_BP.pdf Graphic file (type pdf)
 
 <use images/nq3000_per_BP.pdf>
@@ -18994,7 +18984,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/nq6000_per_BP.pdf, id=2870, 722.7pt x 1011.78pt>
+<images/nq6000_per_BP.pdf, id=2871, 722.7pt x 1011.78pt>
 File: images/nq6000_per_BP.pdf Graphic file (type pdf)
 
 <use images/nq6000_per_BP.pdf>
@@ -19071,7 +19061,7 @@ Overfull \hbox (104.56389pt too wide) in paragraph at lines 7--7
 
 
 
-] <images/c19_select_BP.pdf, id=2927, 505.89pt x 1011.78pt>
+] <images/c19_select_BP.pdf, id=2928, 505.89pt x 1011.78pt>
 File: images/c19_select_BP.pdf Graphic file (type pdf)
 
 <use images/c19_select_BP.pdf>
@@ -19122,7 +19112,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 44--45
  []
 
 [164 <./images/c19_select_BP.pdf>]
-<images/c19_comm_BP.pdf, id=2942, 1517.67pt x 1011.78pt>
+<images/c19_comm_BP.pdf, id=2943, 1517.67pt x 1011.78pt>
 File: images/c19_comm_BP.pdf Graphic file (type pdf)
 
 <use images/c19_comm_BP.pdf>
@@ -19209,7 +19199,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
-<images/c19_per_BP.pdf, id=2945, 867.24pt x 1011.78pt>
+<images/c19_per_BP.pdf, id=2946, 867.24pt x 1011.78pt>
 File: images/c19_per_BP.pdf Graphic file (type pdf)
 
 <use images/c19_per_BP.pdf>
@@ -19285,7 +19275,7 @@ Overfull \hbox (104.56389pt too wide) in paragraph at lines 7--7
 
 
 
-] <images/gol8_select_BP.pdf, id=2979, 722.7pt x 1011.78pt>
+] <images/gol8_select_BP.pdf, id=2980, 722.7pt x 1011.78pt>
 File: images/gol8_select_BP.pdf Graphic file (type pdf)
 
 <use images/gol8_select_BP.pdf>
@@ -19330,7 +19320,7 @@ Overfull \hbox (87.66286pt too wide) in paragraph at lines 11--20
 $[]$   $[]$ 
  []
 
-<images/gol10_select_BP.pdf, id=2980, 722.7pt x 1011.78pt>
+<images/gol10_select_BP.pdf, id=2981, 722.7pt x 1011.78pt>
 File: images/gol10_select_BP.pdf Graphic file (type pdf)
 
 <use images/gol10_select_BP.pdf>
@@ -19370,7 +19360,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 25.
 
-<images/gol11_select_BP.pdf, id=2981, 722.7pt x 1011.78pt>
+<images/gol11_select_BP.pdf, id=2982, 722.7pt x 1011.78pt>
 File: images/gol11_select_BP.pdf Graphic file (type pdf)
 
 <use images/gol11_select_BP.pdf>
@@ -19425,7 +19415,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--65
 
  []
 
-<images/gol8_comm_BP.pdf, id=2988, 650.43pt x 1011.78pt>
+<images/gol8_comm_BP.pdf, id=2989, 650.43pt x 1011.78pt>
 File: images/gol8_comm_BP.pdf Graphic file (type pdf)
 
 <use images/gol8_comm_BP.pdf>
@@ -19471,7 +19461,7 @@ $[]$  $[]$
  []
 
 [168 <./images/gol8_select_BP.pdf> <./images/gol10_select_BP.pdf> <./images/gol
-11_select_BP.pdf>] <images/gol10_comm_BP.pdf, id=3015, 650.43pt x 1011.78pt>
+11_select_BP.pdf>] <images/gol10_comm_BP.pdf, id=3016, 650.43pt x 1011.78pt>
 File: images/gol10_comm_BP.pdf Graphic file (type pdf)
 
 <use images/gol10_comm_BP.pdf>
@@ -19511,7 +19501,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 77.
 
-<images/gol11_comm_BP.pdf, id=3016, 650.43pt x 1011.78pt>
+<images/gol11_comm_BP.pdf, id=3017, 650.43pt x 1011.78pt>
 File: images/gol11_comm_BP.pdf Graphic file (type pdf)
 
 <use images/gol11_comm_BP.pdf>
@@ -19589,21 +19579,21 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
 (scrbook)              by `\normalfont \bfseries ' on input line 114.
 
-<images/gol8_per_BP.pdf, id=3046, 433.62pt x 1011.78pt>
+<images/gol8_per_BP.pdf, id=3047, 433.62pt x 1011.78pt>
 File: images/gol8_per_BP.pdf Graphic file (type pdf)
 
 <use images/gol8_per_BP.pdf>
 Package pdftex.def Info: images/gol8_per_BP.pdf used on input line 124.
 (pdftex.def)             Requested size: 108.8318pt x 253.93243pt.
 
-<images/gol10_per_BP.pdf, id=3047, 433.62pt x 1011.78pt>
+<images/gol10_per_BP.pdf, id=3048, 433.62pt x 1011.78pt>
 File: images/gol10_per_BP.pdf Graphic file (type pdf)
 
 <use images/gol10_per_BP.pdf>
 Package pdftex.def Info: images/gol10_per_BP.pdf used on input line 128.
 (pdftex.def)             Requested size: 108.8318pt x 253.93243pt.
 
-<images/gol11_per_BP.pdf, id=3048, 433.62pt x 1011.78pt>
+<images/gol11_per_BP.pdf, id=3049, 433.62pt x 1011.78pt>
 File: images/gol11_per_BP.pdf Graphic file (type pdf)
 
 <use images/gol11_per_BP.pdf>
@@ -19699,20 +19689,6 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 5.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 7.
 
 
@@ -19742,20 +19718,6 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 10.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 10.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -19940,34 +19902,6 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 3.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 3.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 5.
 
 
@@ -19984,40 +19918,17 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 5.
 
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 5.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 9.
-
 File: images/modules_1.png Graphic file (type png)
 <use images/modules_1.png>
 Package pdftex.def Info: images/modules_1.png used on input line 17.
 (pdftex.def)             Requested size: 130.5995pt x 18.7625pt.
+
+Underfull \hbox (badness 3942) in paragraph at lines 17--17
+\T1/lmtt/m/n/9 modules \T1/lmr/m/n/9 (+20) et les \T1/lmtt/m/n/9 communication
+ []
+
 File: images/example_1.png Graphic file (type png)
- <use images/example_1.png>
+<use images/example_1.png>
 Package pdftex.def Info: images/example_1.png used on input line 21.
 (pdftex.def)             Requested size: 217.66362pt x 54.59726pt.
 File: images/conn.png Graphic file (type png)
@@ -20076,18 +19987,8 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 
 [175]
 
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 62.
+LaTeX Font Warning: Font shape `T1/lmtt/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/sl' tried instead on input line 63.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20101,7 +20002,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 62.
+(scrbook)              by `\normalfont \itshape ' on input line 78.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20115,30 +20016,16 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 79.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 79.
+(scrbook)              by `\normalfont \itshape ' on input line 78.
 
 [176]
 File: images/D_OCh_v2.png Graphic file (type png)
  <use images/D_OCh_v2.png>
-Package pdftex.def Info: images/D_OCh_v2.png used on input line 86.
+Package pdftex.def Info: images/D_OCh_v2.png used on input line 85.
 (pdftex.def)             Requested size: 174.12823pt x 62.05127pt.
 File: images/O_OCh_v2.png Graphic file (type png)
  <use images/O_OCh_v2.png>
-Package pdftex.def Info: images/O_OCh_v2.png used on input line 91.
+Package pdftex.def Info: images/O_OCh_v2.png used on input line 90.
 (pdftex.def)             Requested size: 174.12823pt x 91.2974pt.
 
 
@@ -20153,21 +20040,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 98.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 98.
+(scrbook)              by `\normalfont \scshape ' on input line 97.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20181,12 +20054,12 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 102.
+(scrbook)              by `\normalfont \bfseries ' on input line 101.
 
 [177]
 File: images/cm.png Graphic file (type png)
  <use images/cm.png>
-Package pdftex.def Info: images/cm.png used on input line 116.
+Package pdftex.def Info: images/cm.png used on input line 115.
 (pdftex.def)             Requested size: 174.12823pt x 87.1485pt.
 
 
@@ -20201,7 +20074,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 121.
+(scrbook)              by `\normalfont \itshape ' on input line 120.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -20215,7 +20088,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 125.
+(scrbook)              by `\normalfont \scshape ' on input line 124.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20229,7 +20102,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 127.
+(scrbook)              by `\normalfont \bfseries ' on input line 126.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20243,7 +20116,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 129.
+(scrbook)              by `\normalfont \bfseries ' on input line 128.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20257,7 +20130,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 129.
+(scrbook)              by `\normalfont \bfseries ' on input line 128.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20271,7 +20144,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 131.
+(scrbook)              by `\normalfont \bfseries ' on input line 130.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20285,7 +20158,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 131.
+(scrbook)              by `\normalfont \bfseries ' on input line 130.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20299,7 +20172,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 133.
+(scrbook)              by `\normalfont \bfseries ' on input line 132.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20313,7 +20186,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 135.
+(scrbook)              by `\normalfont \bfseries ' on input line 134.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20327,7 +20200,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 135.
+(scrbook)              by `\normalfont \itshape ' on input line 134.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20341,7 +20214,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 135.
+(scrbook)              by `\normalfont \itshape ' on input line 134.
 
 [178]
 
@@ -20356,7 +20229,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 137.
+(scrbook)              by `\normalfont \bfseries ' on input line 136.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20370,7 +20243,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 139.
+(scrbook)              by `\normalfont \bfseries ' on input line 138.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20384,7 +20257,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 141.
+(scrbook)              by `\normalfont \bfseries ' on input line 140.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20398,7 +20271,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 143.
+(scrbook)              by `\normalfont \itshape ' on input line 142.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20412,7 +20285,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 151.
+(scrbook)              by `\normalfont \bfseries ' on input line 150.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20426,7 +20299,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 153.
+(scrbook)              by `\normalfont \bfseries ' on input line 152.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20440,7 +20313,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 157.
+(scrbook)              by `\normalfont \bfseries ' on input line 156.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20454,7 +20327,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 157.
+(scrbook)              by `\normalfont \itshape ' on input line 156.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20468,7 +20341,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 157.
+(scrbook)              by `\normalfont \bfseries ' on input line 156.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20482,7 +20355,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 157.
+(scrbook)              by `\normalfont \bfseries ' on input line 156.
 
 [179]
 
@@ -20497,7 +20370,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 162.
+(scrbook)              by `\normalfont \bfseries ' on input line 161.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20511,7 +20384,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 162.
+(scrbook)              by `\normalfont \itshape ' on input line 161.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20525,7 +20398,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 162.
+(scrbook)              by `\normalfont \bfseries ' on input line 161.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20539,7 +20412,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 162.
+(scrbook)              by `\normalfont \bfseries ' on input line 161.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20553,7 +20426,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 162.
+(scrbook)              by `\normalfont \bfseries ' on input line 161.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20567,12 +20440,13 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 162.
+(scrbook)              by `\normalfont \bfseries ' on input line 161.
 
 
-Underfull \hbox (badness 4013) in paragraph at lines 165--166
-[]\T1/lmr/m/n/10.95 (+20) Par ex-em-ple, l'algorithme [][]40[][] mon-tre l'abst
-ract solver cor-re-spon-dant à la fig-
+Underfull \hbox (badness 2486) in paragraph at lines 164--165
+[]\T1/lmr/m/n/10.95 (+20) Par ex-em-ple, l'algorithme [][]40[][] mon-tre l'\T1/
+lmtt/m/n/10.95 abstract solver \T1/lmr/m/n/10.95 (+20) cor-re-spon-dant à la fi
+g-
  []
 
 
@@ -20587,11 +20461,11 @@ Class scrbook Warning: Usage of deprecated font command `\sf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sf'
-(scrbook)              by `\normalfont \sffamily ' on input line 167.
+(scrbook)              by `\normalfont \sffamily ' on input line 166.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+(relsize)                Using 6.0pt instead on input line 181.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20605,11 +20479,11 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 182.
+(scrbook)              by `\normalfont \bfseries ' on input line 181.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+(relsize)                Using 6.0pt instead on input line 181.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20623,11 +20497,11 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 182.
+(scrbook)              by `\normalfont \bfseries ' on input line 181.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+(relsize)                Using 6.0pt instead on input line 181.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20641,11 +20515,11 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 182.
+(scrbook)              by `\normalfont \bfseries ' on input line 181.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+(relsize)                Using 6.0pt instead on input line 181.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20659,11 +20533,46 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 182.
+(scrbook)              by `\normalfont \bfseries ' on input line 181.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+(relsize)                Using 6.0pt instead on input line 181.
+
+
+Class scrbook Warning: Usage of deprecated font command `\sc'!
+(scrbook)              You should note, that in 1994 font command `\sc' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\sc' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\sc' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
+(scrbook)              by `\normalfont \scshape ' on input line 181.
+
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/8'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Package relsize Warning: Font size 5.55556pt is too small.
+(relsize)                Using 6.0pt instead on input line 181.
+
+
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 181.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -20679,12 +20588,19 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
 (scrbook)              by `\normalfont \scshape ' on input line 182.
 
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/8'.
-(microtype)             Ignoring protrusion settings for this character.
 
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 182.
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 187.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20698,49 +20614,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 182.
-
-
-Class scrbook Warning: Usage of deprecated font command `\sc'!
-(scrbook)              You should note, that in 1994 font command `\sc' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\sc' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\sc' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 183.
-
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 188.
-
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 188.
+(scrbook)              by `\normalfont \bfseries ' on input line 187.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sf'!
@@ -20754,11 +20628,11 @@ Class scrbook Warning: Usage of deprecated font command `\sf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sf'
-(scrbook)              by `\normalfont \sffamily ' on input line 190.
+(scrbook)              by `\normalfont \sffamily ' on input line 189.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 195.
+(relsize)                Using 6.0pt instead on input line 194.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20772,7 +20646,25 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 195.
+(scrbook)              by `\normalfont \bfseries ' on input line 194.
+
+
+Class scrbook Warning: Usage of deprecated font command `\bf'!
+(scrbook)              You should note, that in 1994 font command `\bf' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\bf' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
+(scrbook)              by `\normalfont \bfseries ' on input line 194.
+
+
+Package relsize Warning: Font size 5.55556pt is too small.
+(relsize)                Using 6.0pt instead on input line 195.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -20807,24 +20699,6 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              by `\normalfont \bfseries ' on input line 196.
 
 
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 197.
-
-
-Class scrbook Warning: Usage of deprecated font command `\bf'!
-(scrbook)              You should note, that in 1994 font command `\bf' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\bf' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\bf' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 197.
-
-
 Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              You should note, that in 1994 font command `\sc' has
 (scrbook)              been defined for compatiblitiy to Script 2.0 only.
@@ -20836,7 +20710,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 203.
+(scrbook)              by `\normalfont \scshape ' on input line 202.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20850,8 +20724,9 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 203.
+(scrbook)              by `\normalfont \itshape ' on input line 206.
 
+[180]
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              You should note, that in 1994 font command `\it' has
@@ -20866,7 +20741,6 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 207.
 
-[180]
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              You should note, that in 1994 font command `\it' has
@@ -20893,21 +20767,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 209.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 209.
+(scrbook)              by `\normalfont \itshape ' on input line 208.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -20921,10 +20781,10 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 214.
+(scrbook)              by `\normalfont \scshape ' on input line 213.
 
 
-Underfull \hbox (badness 2486) in paragraph at lines 214--215
+Underfull \hbox (badness 2486) in paragraph at lines 213--214
 []\T1/lmr/m/n/10.95 (+20) Maintenant, nous définis-sons les opéra-teurs de com-
 mu-ni-ca-tion que \T1/lmr/m/sc/10.95 (+20) POSL \T1/lmr/m/n/10.95 (+20) four-
  []
@@ -20941,7 +20801,21 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 217.
+(scrbook)              by `\normalfont \bfseries ' on input line 216.
+
+
+Class scrbook Warning: Usage of deprecated font command `\it'!
+(scrbook)              You should note, that in 1994 font command `\it' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\it' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
+(scrbook)              by `\normalfont \itshape ' on input line 218.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20969,7 +20843,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 220.
+(scrbook)              by `\normalfont \itshape ' on input line 224.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -20983,21 +20857,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 225.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 225.
+(scrbook)              by `\normalfont \itshape ' on input line 224.
 
 
 Class scrbook Warning: Usage of deprecated font command `\bf'!
@@ -21011,7 +20871,21 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\bf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
-(scrbook)              by `\normalfont \bfseries ' on input line 229.
+(scrbook)              by `\normalfont \bfseries ' on input line 228.
+
+
+Class scrbook Warning: Usage of deprecated font command `\it'!
+(scrbook)              You should note, that in 1994 font command `\it' has
+(scrbook)              been defined for compatiblitiy to Script 2.0 only.
+(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
+(scrbook)              shouldn't use such commands any longer and within
+(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
+(scrbook)              See `fntguide.pdf' for more information about
+(scrbook)              recommended font commands.
+(scrbook)              Note also, that KOMA-Script will remove the definition
+(scrbook)              of `\it' anytime until release of about version 3.20.
+(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
+(scrbook)              by `\normalfont \itshape ' on input line 230.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -21039,7 +20913,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 232.
+(scrbook)              by `\normalfont \itshape ' on input line 236.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -21053,21 +20927,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 237.
-
-
-Class scrbook Warning: Usage of deprecated font command `\it'!
-(scrbook)              You should note, that in 1994 font command `\it' has
-(scrbook)              been defined for compatiblitiy to Script 2.0 only.
-(scrbook)              Now, after two decades of LaTeX2e and NFSS2, you
-(scrbook)              shouldn't use such commands any longer and within
-(scrbook)              KOMA-Script usage of `\it' is definitely deprecated.
-(scrbook)              See `fntguide.pdf' for more information about
-(scrbook)              recommended font commands.
-(scrbook)              Note also, that KOMA-Script will remove the definition
-(scrbook)              of `\it' anytime until release of about version 3.20.
-(scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 237.
+(scrbook)              by `\normalfont \itshape ' on input line 236.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -21081,15 +20941,15 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 241.
+(scrbook)              by `\normalfont \scshape ' on input line 240.
 
 File: images/comm_11.png Graphic file (type png)
 <use images/comm_11.png>
-Package pdftex.def Info: images/comm_11.png used on input line 251.
+Package pdftex.def Info: images/comm_11.png used on input line 250.
 (pdftex.def)             Requested size: 108.8318pt x 100.07579pt.
 File: images/comm_1n.png Graphic file (type png)
  <use images/comm_1n.png>
-Package pdftex.def Info: images/comm_1n.png used on input line 256.
+Package pdftex.def Info: images/comm_1n.png used on input line 255.
 (pdftex.def)             Requested size: 108.8318pt x 100.07579pt.
 ) (./french/rf_res.tex
 
@@ -23909,7 +23769,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
 (scrbook)              by `\normalfont \itshape ' on input line 10.
 
-)) <fb//back.pdf, id=3440, 597.50829pt x 845.0471pt>
+)) <fb//back.pdf, id=3441, 597.50829pt x 845.0471pt>
 File: fb//back.pdf Graphic file (type pdf)
  <use fb//back.pdf>
 Package pdftex.def Info: fb//back.pdf used on input line 58.
@@ -23920,7 +23780,7 @@ File: fb//back.pdf Graphic file (type pdf)
 Package pdftex.def Info: fb//back.pdf used on input line 58.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
  [192]
-<fb//back.pdf, id=3447, page=1, 597.50829pt x 845.0471pt>
+<fb//back.pdf, id=3448, page=1, 597.50829pt x 845.0471pt>
 File: fb//back.pdf Graphic file (type pdf)
 
 <use fb//back.pdf, page 1>
@@ -23945,7 +23805,7 @@ File: fb//back.pdf Graphic file (type pdf)
 Package pdftex.def Info: fb//back.pdf, page1 used on input line 58.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [193 <./fb//back.pdf>]
-<fb//back.pdf, id=3453, page=2, 597.50829pt x 845.0471pt>
+<fb//back.pdf, id=3454, page=2, 597.50829pt x 845.0471pt>
 File: fb//back.pdf Graphic file (type pdf)
 
 <use fb//back.pdf, page 2>
@@ -23979,11 +23839,11 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 52633 strings out of 494272
- 1015821 string characters out of 6160999
- 1413206 words of memory out of 5000000
- 52397 multiletter control sequences out of 15000+600000
- 308419 words of font info for 413 fonts, out of 8000000 for 9000
+ 52641 strings out of 494272
+ 1015961 string characters out of 6160999
+ 1413211 words of memory out of 5000000
+ 52403 multiletter control sequences out of 15000+600000
+ 309058 words of font info for 415 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
  82i,30n,152p,10388b,2930s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
@@ -24015,22 +23875,23 @@ f/fonts/type1/public/lm/lmri9.pfb></usr/share/texmf/fonts/type1/public/lm/lmss1
 b></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/typ
 e1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy9.pfb></usr/
 share/texmf/fonts/type1/public/lm/lmtk10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmtti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-adobe/utopia/putb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmar
-yrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stm
-ary8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmr8a.pfb>
-Output written on Thesis.pdf (204 pages, 3951814 bytes).
+ic/lm/lmtko10.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmtti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
+msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
+bm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvet
+ic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+
+Output written on Thesis.pdf (204 pages, 3985830 bytes).
 PDF statistics:
- 3923 PDF objects out of 4296 (max. 8388607)
- 3429 compressed objects within 35 object streams
- 1333 named destinations out of 1440 (max. 500000)
- 72529 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 3927 PDF objects out of 4296 (max. 8388607)
+ 3432 compressed objects within 35 object streams
+ 1334 named destinations out of 1440 (max. 500000)
+ 73553 words of extra memory for PDF output out of 74296 (max. 10000000)
 

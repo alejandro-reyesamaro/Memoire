@@ -8,15 +8,15 @@
 \newpage
 
 %\textcolor{green}{
-%My idea here is to present the work with ParamILS. I worked with the sets of training and test instances, and I think that the key is there, because I obtained a little change in the parameters configuration. The other point is that maybe Costas Array is not a good example to work, because the difference between the runs are too small. I hope that working with other problems, including more training instances, we can obtain better results.}
+%My idea here is to present the work with ParamILS. We worked with the sets of training and test instances, and we think that the key is there, because we obtained a little change in the parameters configuration. The other point is that maybe Costas Array is not a good example to work, because the difference between the runs are too small. We hope that working with other problems, including more training instances, we can obtain better results.}
 
 % short paragraph: about autotuning of parameters; work in progress.
 
 \section{Introduction}
 
-In this section I present some results applying {\sc ParamILS} (version 2.3)\footnote{Open source program (project) in {\it Ruby}, available at \href{http://cs.ubc.ca/labs/beta/Projects/ParamILS}{\texttt{http://cs.ubc.ca/labs/beta/Projects/ParamILS}}}, a stochastic local search approach for automated algorithm parameter tuning, first introduced by Hutter, Hoos and St\:utzle in 2007. The source is available on internet and includes some examples that you can run and see how the tool works. In addition, it brings a complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008,Hutter2009}. In this study we used it to tune {\it Adaptive Search} solver\footnote{An implementation from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. %It is an open source program (project) in {\it Ruby}, and the public source code include some examples and a detailed and complete \textit{User Guide} with a compact explanation about how to use it with a specific solver . 
+In this appendix we present some results applying {\sc ParamILS} (version 2.3)\footnote{Open source program (project) in {\it Ruby}, available at \href{http://cs.ubc.ca/labs/beta/Projects/ParamILS}{\texttt{http://cs.ubc.ca/labs/beta/Projects/ParamILS}}}, a stochastic local search approach for automated algorithm parameter tuning, first introduced by Hutter, Hoos and St\:utzle in 2007. The source is available on internet and includes some examples that you can run and see how the tool works. In addition, it brings a complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008,Hutter2009}. In this study we used it to tune {\it Adaptive Search} solver\footnote{An implementation from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. %It is an open source program (project) in {\it Ruby}, and the public source code include some examples and a detailed and complete \textit{User Guide} with a compact explanation about how to use it with a specific solver . 
 
-The first step was building a {\it wrapper} in C++ language, in order to tune more than one problem with the same code. The goal of doing this is using the tool to tune the solver, i.e., finding the best parameter setting for a specific problem, but also the best parameter setting to solve any kind of benchmark (a general parameter configuration).
+The first step was to build a {\it wrapper} in C++ language, in order to tune more than one problem with the same code. The goal of doing this is using the tool to tune the solver, \ie finding the best parameter setting for a specific problem, but also the best parameter setting to solve any kind of benchmark (a general parameter configuration).
 
 \nocite{Rickard}
 
@@ -81,7 +81,7 @@ Details of each line in this file are the following:
 	\item \textbf{\texttt{cutoff\_time}} $\rightarrow$ The time after which a single algorithm execution will be terminated unsuccessfully. This is an important parameter: if chosen too high, lots of time will be wasted with unsuccessful runs. If chosen too low the optimization is biased to perform well on easy instances only.
 	\item \textbf{\texttt{tunerTimeout}} $\rightarrow$ The timeout of the tuner. Validation of the final best found parameter configuration starts after the timeout.
 	\item \textbf{\texttt{paramfile}} $\rightarrow$ Specifies the file with the parameters of the algorithms. 
-	\item \textbf{\texttt{outdir}} $\rightarrow$ Specifies the directory \textit{ParamILS} should write its results to.
+	\item \textbf{\texttt{outdir}} $\rightarrow$ Specifies the directory where \textit{ParamILS} creates a text file with the results.
 	\item \textbf{\texttt{instance\_file}} $\rightarrow$ Specifies the file with a list of training instances. 
 	\item \textbf{\texttt{test\_instance\_file}} $\rightarrow$ Specifies the file with a list of test instances.
 \end{itemize}
@@ -155,7 +155,7 @@ The algorithm executable must follow the input/output criteria presented below:
 >> SAT, 2.03435, -1, -1, 524453158
 \end{BGVerbatim}
 
-To build the wrapper we have followed a simple algorithm: launch two concurrent process. In the parent process we translate the input of the wrapper to the input of {\it Adaptive Search} solver. The solver is executed, and the runtime is measured. After that we post the output properly. In the child process a {\it sleep} command is executed for \texttt{$<$runtime$>$} seconds and after that, if the parent process has not finished yet, it is killed, posting a time-out message. See Algorithm~\ref{wrapper} for more details.
+To build the wrapper we have followed a simple algorithm: launch two concurrent process. In the parent process we translate the input of the wrapper to the input of {\it Adaptive Search} solver. The solver is executed, and the runtime is measured. After that, we post the output properly. In the child process a {\it sleep} command is executed for \texttt{$<$runtime$>$} seconds and after that, if the parent process has not finished yet, it is killed, posting a time-out message. See Algorithm~\ref{wrapper} for more details.
 
 %\incmargin{1.4em}
 \linesnumbered
@@ -267,7 +267,7 @@ To build the wrapper we have followed a simple algorithm: launch two concurrent 
 
 \section{Results}
 
-In this section I present results of applying {\sc ParamILS} to the resolution of {\it All-Interval Series} and \carr{} problems through {\it Adaptive Search}. In both cases, we need to chose a set of {\it training instances}, to train the tuner, and a set of {\it test instances}, used to obtain the parameter setting. 
+In this section we present results of applying {\sc ParamILS} to the resolution of {\it All-Interval Series} and \carr{} problems through {\it Adaptive Search}. In both cases, we need to chose a set of {\it training instances}, to train the tuner, and a set of {\it test instances}, used to obtain the parameter setting. 
 
 \subsection{ Tuning {\it Adaptive Search} for  {\it All-Intervals Series Problem}}
 
@@ -337,7 +337,7 @@ Table~\ref{table:allint5yh} shows results using a time-out of 5.5 hours (20,000 
 \caption{AISP: \texttt{tunerTimeout} = 3,600 seconds}\label{table:allint1h}
 \end{table}
 
-In a {\bf Second Experiment} I decide to enlarge a bit more the parameters domains and use a time-out of 5 hours. The {\bf Parameters domains} are the following:
+In a {\bf Second Experiment} we decide to enlarge a bit more the parameters domains and use a time-out of 5 hours. The {\bf Parameters domains} are the following:
 \begin{itemize}[itemsep=0.2mm]
 	\item {\bf P}\texttt{ \{10, 20, 30, 40, 50, 60, 70, 80, 90\}}
 	\item {\bf F, f, l}\texttt{ \{0, 1, 2, 3, 4, 5, 6, 7, 8\}}
@@ -370,7 +370,7 @@ In a {\bf Second Experiment} I decide to enlarge a bit more the parameters domai
 \caption{AISP: \texttt{tunerTimeout} = 18,000 seconds}\label{table:allint5h}
 \end{table}
 
-Results presented in Table~\ref{table:allint5h} show better results in terms of test quality with respect to Table~\ref{table:allint5yh}. For that reason, in the \textbf{FINAL Experiment}, only results obtained in those tables were took into account (also because they were obtained by using longer times-out). As it can be observed in those tables, Adaptive Search seems to show a good behavior if the parameters {\bf F}, {\bf P} and {\bf l} are in the following sets: \texttt{\bf F} $\in$ \texttt{\{ 0, 1\}}, \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}} and \texttt{\bf l} $\in$ \texttt{\{ 0, 1\}}.
+Table~\ref{table:allint5h} shows better results in terms of test quality with respect to Table~\ref{table:allint5yh}. For that reason, in the \textbf{FINAL Experiment}, only results obtained in those tables were taken into account (also because they were obtained by using longer times-out). As it can be observed in those tables, Adaptive Search seems to show a good behavior if the parameters {\bf F}, {\bf P} and {\bf l} are in the following sets: \texttt{\bf F} $\in$ \texttt{\{ 0, 1\}}, \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}} and \texttt{\bf l} $\in$ \texttt{\{ 0, 1\}}.
 
 In that sense, a specific parameter setting was extracted from previews results, and 60 runs of {\it Adaptive Search} were performed solving AISP ($N = 600$) benchmark:
 \begin{itemize}
@@ -430,8 +430,8 @@ The \carrp{} (\CARRP) was already introduced in Chapter~\ref{chap:expe}. It cons
 
 \underline{Study cases:}
 \begin{enumerate}
-	\item The {\it training instances set} is composed by instances of \CARRP{} of order $N$ with $9 \leq N \leq 15$
-	\item The {\it test instances set} is composed by instances of \CARRP{} of order $N$ with $14 \leq N \leq 19$
+	\item The {\it training instances set} is composed of instances of \CARRP{} of order $N$ with $9 \leq N \leq 15$
+	\item The {\it test instances set} is composed of instances of \CARRP{} of order $N$ with $14 \leq N \leq 19$
 	\item The cutoff for each run was 60.0 seconds
 	\item The test quality is based on 100 runs
 \end{enumerate}
@@ -443,7 +443,7 @@ The {\bf First Experiments} with this benchmark was using the following paramete
 	\item {\bf p}\texttt{ \{5, 10, 20, 30, 40, 50, 60, 70\}}
 \end{itemize}
 
-Table~\ref{table:ca1} shows results selecting directly a time-out of 5 hours (18,000 seconds). In this case the training quality of the solutions is better, but do not observe any improvement in the test quality. We can see also how {\it Adaptive Search} seems to be not sensitive to parameters {\bf F} and {\bf p}, i.e. they don't change during the tuning process. On the other hand, the tuner seems to find some optimum values for the other parameters: \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}}, \texttt{\bf f} $\in$ \texttt{\{ 4, 5\}} and \texttt{\bf l} $=$ \texttt{2}.
+Table~\ref{table:ca1} shows results selecting directly a time-out of 5 hours (18,000 seconds). In this case the training quality of the solutions is better, but do not observe any improvement in the test quality. We can see also how {\it Adaptive Search} seems to be not sensitive to parameters {\bf F} and {\bf p}, \ie they don't change during the tuning process. On the other hand, the tuner seems to find some optimum values for the other parameters: \texttt{\bf P} $\in$ \texttt{\{ 80, 90\}}, \texttt{\bf f} $\in$ \texttt{\{ 4, 5\}} and \texttt{\bf l} $=$ \texttt{2}.
 
 In that case also, an specific parameter setting was extracted from the results showed in Table~\ref{table:ca1}, and 60 runs of Adaptive Search were performed solving \CARRP{} ($N = 20$) benchmark: 
 \begin{itemize}

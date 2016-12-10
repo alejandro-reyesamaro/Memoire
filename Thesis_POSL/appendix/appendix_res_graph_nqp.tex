@@ -1,6 +1,6 @@
 \chapter{Results of experiments with \nqp}
 \label{app:nqp}
-\textit{This Appendix, presents graphically a summary of individuals runs using \nqp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
+\textit{This Appendix, presents graphically a summary of individual runs for the \nqp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
 
 \vspace{2ex}\vfill
 \minitoc
@@ -29,9 +29,9 @@ In Figures~\ref{boxplot:250}, \ref{boxplot:500}, \ref{boxplot:1000}, \ref{boxplo
 \caption{Different communication strategies to solve 250-Queens using \posl}\label{boxplot:250}
 \end{wrapfigure}
 
-Figures~\ref{boxplot:250}, \ref{boxplot:500}, \ref{boxplot:1000}, \ref{boxplot:3000} and~\ref{boxplot:6000} show summaries of runs from the experimentation with \nqp{} using box-plot representation. They show sequential runs (\texttt{Seq}), parallel without communication runs (\texttt{NC}) and runs from the different \commstrs{} proposed.
+Figures~\ref{boxplot:250}, \ref{boxplot:500}, \ref{boxplot:1000}, \ref{boxplot:3000} and~\ref{boxplot:6000} show summaries of runs from the experimentation with \nqp{} using box-plot representation. They show sequential runs (\texttt{Seq}), parallel without communication runs (\texttt{NC}), and runs from the different proposed \commstrs.
 
-As explained before in Chapter~\ref{chap:expe}, in these graphs can be observed from another point of view how the best found \commstr{} contribute less in terms of runtime when the problem order ($N$: the number of queens) increases. They also show that simple \commstrs{} do not work for this problem: their results are better (lower runtimes) but not competitive.
+As explained in Chapter~\ref{chap:expe}, in these graphs we can have another point of view on how the best found \commstr{} contribute less in terms of runtime when the problem order ($N$: the number of queens) increases. They also show that simple \commstrs{} do not work for this problem: their results are better (lower runtimes) but not competitive.
 
 For the smaller instance, the cyclic \commstr{} work very well. The graph in Figure~\ref{boxplot:250} shows how for both strategies (\texttt{Cyc1-1} and \texttt{Cyc1-n}) all runtimes are under the mean of parallel runs without communication (\texttt{NC}).
 
@@ -80,7 +80,7 @@ Figures~\ref{barplot:250}, \ref{barplot:500}, \ref{barplot:1000}, \ref{barplot:3
 \end{tabular}
 }
 
-Bar graphs in this section provide a clear evidence that the communication has played an important role during the solution process. They are also a different point of view to observe how the number of winner receiver solvers decrease along with the order of the problem, i.e. the communication is less effective.
+Bar graphs in this section provide a clear evidence that the communication has played an important role during the solution process. They also provide a different point of view to observe how the number of winner receiver solvers decrease along with the order of the problem, \ie the communication is less effective.
 
 %-------- SOLVER TYPE
 \begin{figure}[!h]

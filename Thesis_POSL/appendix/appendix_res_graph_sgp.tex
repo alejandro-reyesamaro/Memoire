@@ -1,6 +1,6 @@
 \chapter{Results of experiments with \sgp}
 \label{app:sgp}
-\textit{This Appendix presents graphically a summary of individuals runs using \sgp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
+\textit{This Appendix presents graphically a summary of individual runs for the \sgp. Figures show a \textit{box-plot} representation for different strategies and a bar representation for the percentage of winner solvers types.}
 
 \vspace{2ex}\vfill
 \minitoc
@@ -106,7 +106,7 @@ Figures~\ref{boxplot:5comm}, \ref{boxplot:8comm} and~\ref{boxplot:9comm} show re
 
 \section{Winner solver type representation}
 
-Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the percentage of winner solvers for each communication strategy, according to four different types:
+Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the percentage of winner solvers for each communication strategy according to four different types:
 
 \poslcaptiondesciption{
 \begin{tabular}[t]{rl}
@@ -117,7 +117,7 @@ Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}, represent the perc
 \end{tabular}
 }
 
-In these bar graphs is evident to see how the communication has played an important role in the solution process. The number of receiver solvers which have won the search process is high, as expected, performing dynamic exchange strategies with communication \oneTn. However, due to the huge traffic of information, the communication overhead make the resulting runtimes not competitive. 
+In these bar graphs it is evident to see that the communication has played an important role in the solution process. The number of receiver solvers which have won the search process is high, as expected, performing dynamic exchange strategies with communication \oneTn. However, due to the huge traffic of information, the communication overhead makes the resulting runtimes not competitive. 
 
 The other interesting detail showed in these graphs is that this number of winner receiver solvers remains high on winner \commstrs{} (\texttt{100\%CC1-1} and \texttt{50\%CC1-1}), achieving an important trade-off between information traffic and search speed. 
 
