@@ -1,21 +1,21 @@
-In this section, I present the performed study using \sgp{} (\SGP) as a benchmark. The \commstr{} analyzed here consists in applying a mechanism of cost descending acceleration, exchanging the current configuration between two solvers with different characteristics. Final obtained results show that this \commstr{} works well for this problem.
+In this section, we present our study about \sgp{} (\SGP). The \commstr{} analyzed here consists in applying a mechanism of cost descending acceleration, exchanging the current configuration between two solvers with different characteristics. Final results show that this \commstr{} works well for this problem.
 
 \subsection{Problem definition}
 
 The \sgp{} (\SGP) consists in scheduling $g\times p$ golfers into $g$ groups of $p$ players every week for $w$ weeks, such that two players play in the same group at most once. An instance of this problem can be represented by the triple $g-p-w$. This problem, and other closely related problems, arise in many practical applications such as encoding, encryption, and covering problems~\cite{Lardeux2014}. 
 
-Its structure is very attractive, because it is very similar to other problems. \new{For example, the \textit{Kirkman's Schoolgirl Problem} has almost the same formulation, where a number $n$ of girls (analogous to the total number of players) walk in rows of 3 girls (analogous to the number of players per group) with the requirement that no pair of girls walk in the same row twice. An other example is the \textit{Sports Tournament Scheduling} which has a similar structure of the solution, where the number of players per group is 2, and the goal is to schedule a tournament of $n$ players over $n-1$ weeks.} %, so efficient modules to solve a broad range of problems can be built.
+Its structure is very attractive because it is very similar to other problems. For example, the \textit{Kirkman's Schoolgirl Problem} has almost the same formulation, where a number $n$ of girls (analogous to the total number of players) walk in rows of 3 girls (analogous to the number of players per group) with the requirement that no pair of girls walk in the same row twice. An other example is the \textit{Sports Tournament Scheduling} which has a similar structure of solutions where the number of players per group is 2, and the goal is to schedule a tournament of $n$ players over $n-1$ weeks. %, so efficient modules to solve a broad range of problems can be built.
 
-\new{As it was explained in Chapter~\ref{chap:art}, all benchmarks in this chapter were modeled as unconstrained optimization problems, where the objective functions is a linear combination of penalty functions associated to each constraint. The proposed model of \SGP{} has $g\times p\times w$ variables: $\left\{v_1, v_2, \dots, v_{g\times p\times w}\right\}$. Their domains are the same: ${D_{v_i}=\left\{1, \dots, p\times g\right\}}$.}
+As it was explained in Chapter~\ref{chap:art}, all benchmarks in this chapter were modeled as unconstrained optimization problems, where the objective functions is a linear combination of penalty functions associated to each constraint. The proposed model of \SGP{} has $g\times p\times w$ variables: $\left\{v_1, v_2, \dots, v_{g\times p\times w}\right\}$. Their domains are the same: ${D_{v_i}=\left\{1, \dots, p\times g\right\}}$.
 
-The cost function \new{(objective function to be minimized) for this benchmark assumes the following structure of a configuration: $s=\left(W_1, W_2, \dots, W_w\right)$, where $W_i$ are integer vectors of size $p\times g$.}
+The cost function (objective function to be minimized) for this benchmark assumes the following structure of a configuration: $s=\left(W_1, W_2, \dots, W_w\right)$, where $W_i$ are integer vectors of size $p\times g$.
 
-\new{This function assumes that each vector $W_i$ has the structure $W_i = \left(G_1^i, G_2^i, \dots, G_g^i\right)$, where $G_j^i$ are vectors of size $p$. Based on this structure, the cost $c_s$ of a configuration is: }
+This function assumes that each vector $W_i$ has the structure $W_i = \left(G_1^i, G_2^i, \dots, G_g^i\right)$, where $G_j^i$ are vectors of size $p$. Based on this structure, the cost $c_s$ of a configuration is: 
 \begin{equation}\label{func:cost_sgp}
 c_s=\sum{}{}{\max\left(0,\left|G_i^k \cap G_j^l\right|-1\right), \forall~i,j \in [1\dots g] \text{ and } \forall~k,l \in [1\dots w], k\neq l}
 \end{equation}
 
-\new{The cost $c_s$ is penalized if some vector $W_i$ does not have its values all different.}
+The cost $c_s$ is penalized if some vector $W_i$ does not have its values all different.
 
 \poslexample{For example, let the instace 3--3--2 of \SGP{}, and a configuration $$s=\left\{1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 4, 7, 2, 5, 6, 3, 8, 9\right\}$$ be. The structure of this configuration is the following:
 \begin{align*}
@@ -25,30 +25,30 @@ s=&\left\{\overbrace{1, 2, 3}^{G_1^1}, \overbrace{4, 5, 6}^{G_2^1}, \overbrace{7
 If we use the cost function defined in (\ref{func:cost_sgp}), it is clear to see that the cost $c_s = 2$.
 }
 
-The cost function for this problem was implemented making an efficient use of the stored information about the cost of the previews configuration. Using integers to work with bit-flags \new{(\ie using integer's bits to represent boolean values)}, a table to store the partners of each player in each week can be filled in $O\left(p^2\cdot g \cdot w\right)$. So, if a configuration has $n = (p\cdot g \cdot w)$ elements, this table can be filled in $O\left(p\cdot n\right)$. This table is filled from scratch only one time in the search process. Then, every cost of a new configuration is calculated based on this information and the number $c$ of performed changes between the new configuration and the stored one. This relative cost is calculated in $O\left(c\cdot g\right)$.
+The cost function for this problem was implemented making an efficient use of the stored information about the cost of the previews configuration. Using integers to work with bit-flags (\ie using integer's bits to represent Boolean values), a table to store the partners of each player in each week can be filled in $O\left(p^2\cdot g \cdot w\right)$. So, if a configuration has $n = (p\cdot g \cdot w)$ elements, this table can be filled in $O\left(p\cdot n\right)$. This table is filled from scratch only once in the search process. Then, every cost of a new configuration is calculated based on this information and the number $c$ of performed changes between the new configuration and the stored one. This relative cost is calculated in $O\left(c\cdot g\right)$.
 
 \subsection{Experiments design and results}
 
-Here, I present the \as{} designed for this problem as well as concrete \oms{} composing the different solvers I have tested:
+Here, we present the \as{} designed for this problem as well as concrete \oms{} composing the different solvers we have tested:
 
 \begin{enumerate}
 \item Generation abstract module $I$:
 \subitem $I_{BP}$: Returns a random configuration $s$, respecting the structure of the problem, \ie the configuration is a set of $w$ permutations of the vector $[1..P]$, where $P=g\times p$.
 \item Neighborhood abstract modules $V$:
-\subitem $V_{std}$: Given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ swapping players among groups \new{in the same week, \ie performs all possible swaps between players in $G_i^k$ and $G_j^k$ for all $i, j \in [1...g]$ with $i < j$, and for all $k\in [1..w]$}.
-\subitem $V_{BAS}$: Given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ swapping the most \textit{culprit player} with other players from the same week \new{but in different groups. It means that if a variable $v_i$ is selected as a culprit player and we said that for each week, it belongs to the group $G_{i}^k$, then $V_{BAS}$ performs all possible swaps between the player $v_i$ and all players in $G_j^k$ for all $j \in [1...g]$ with $i \neq j$, and for all $k\in [1..w]$. If a variable shares the same group with another variable more than once, it is called a culprit player. A variable is more culprit than other, if it shares the same group with more variables than the other.} %It is based on the {\it Adaptive Search} algorithm.
-\subitem $V_{BP}(w)$: \new{Given a configuration, selects a set of $w$ weeks randomly, and returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the most culprit player with other players in the same week, for all selected weeks.} %among weeks independently selected under certain probability $p$.
+\subitem $V_{std}$: Given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ swapping players among groups in the same week, \ie performs all possible swaps between players in $G_i^k$ and $G_j^k$ for all $i, j \in [1...g]$ with $i < j$, and for all $k\in [1..w]$.
+\subitem $V_{BAS}$: Given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ swapping the most \textit{culprit player} with other players from the same week but in different groups. It means that if a variable $v_i$ is selected as a culprit player and we said that for each week, it belongs to the group $G_{i}^k$, then $V_{BAS}$ performs all possible swaps between the player $v_i$ and all players in $G_j^k$ for all $j \in [1...g]$ with $i \neq j$, and for all $k\in [1..w]$. If a variable shares the same group with another variable more than once, it is called a culprit player. A variable is more culprit than other, if it shares the same group with more variables than the other. %It is based on the {\it Adaptive Search} algorithm.
+\subitem $V_{BP}(w)$: Given a configuration, selects a set of $w$ weeks randomly, and returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the most culprit player with other players in the same week, for all selected weeks. %among weeks independently selected under certain probability $p$.
 \item Selection abstract modules $S$:
-\subitem $S_{first}$: Given a neighborhood, selects the first configuration $s' \in V\left(s\right)$ improving the current cost and returns it together with the current one into the pair $\left(s', s\right)$. \new{These two configurations are returned together in order to separate two concepts: selecting a configuration to be the current one in the next iteration, and accepting it. If there are no configurations improving the cost, the first found configuration with the same cost is returned.}
-\subitem $S_{best}$: Given a neighborhood, selects the best configuration $s' \in V\left(s\right)$ improving the current cost and returns it together with the current one into the pair $\left(s', s\right)$. \new{If there are no configurations improving the cost, the first found configuration with the same cost is returned.}
+\subitem $S_{first}$: Given a neighborhood, selects the first configuration $s' \in V\left(s\right)$ improving the current cost and returns it together with the current one into the pair $\left(s', s\right)$. These two configurations are returned together in order to separate two concepts: selecting a configuration to be the current one in the next iteration, and accepting it. If there are no configurations improving the cost, the first found configuration with the same cost is returned.
+\subitem $S_{best}$: Given a neighborhood, selects the best configuration $s' \in V\left(s\right)$ improving the current cost and returns it together with the current one into the pair $\left(s', s\right)$. If there are no configurations improving the cost, the first configuration with the same cost is returned.
 \subitem $S_{rand}$: Given a neighborhood, selects randomly a configuration $s' \in V\left(s\right)$ and returns it together with the current one, into the pair $\left(s', s\right)$.
 \item Acceptance abstract module $A$:
 \subitem $A_{AI}$: Given a pair $\left(s', s\right)$, returns always the configuration $s'$
 \end{enumerate}
 
-These concrete modules can be \new{directicly} reused to solve tournament-like problems like \textit{Sports Tournament Scheduling} and the \textit{Kirkman's Schoolgirl}, \new{because they are problems that can be modeled the same way as \SGP}.
+These concrete modules can be directly reused to solve tournament-like problems like \textit{Sports Tournament Scheduling} and the \textit{Kirkman's Schoolgirl}, because they are problems that can be modeled the same way as \SGP.
 
-In a first stage of experiments, I use the operator-based language provided by \posl{} to build and test many different non-communicating strategies. The goal is to select the best concrete modules to run tests performing communication. A very first experiment was performed to select the best neighborhood function to solve the problem, comparing a basic solver using $V_{std}$; a new solver using $V_{BAS}$; and a combination of $V_{std}$ and $V_{BAS}$ by applying the operator $\circled{$\rho$}$, already introduced in the previous chapter. Algorithms~\ref{as:golfers10-10-3} and \ref{as:golfers_rho} present solvers for each case, respectively. In these algorithms, $K_1$ represents the maximum number of {\it restarts}, and $K_2$ the maximum number of iterations before each \textit{restart}.
+In a first stage of experiments we use the operator-based language provided by \posl{} to build and test many different non-communicating strategies. The goal is to select the best concrete modules to run tests performing communication. A very first experiment was performed to select the best neighborhood function to solve the problem, comparing a basic solver using $V_{std}$; a new solver using $V_{BAS}$; and a combination of $V_{std}$ and $V_{BAS}$ by applying the operator $\circled{$\rho$}$, already introduced in the previous chapter. Algorithms~\ref{as:golfers10-10-3} and \ref{as:golfers_rho} present solvers for each case, respectively. In these algorithms, $K_1$ represents the maximum number of {\it restarts}, and $K_2$ the maximum number of iterations before each \textit{restart}.
 
 \begin{algorithm}[t]
 \dontprintsemicolon
@@ -57,7 +57,7 @@ In a first stage of experiments, I use the operator-based language provided by \
 \myproc{as\_simple \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, V, S, A$\;}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{%M_1^a \circled{$\rho$} M_1^b
-		$I \poslop{\mapsto}$
+		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
 	}	
 }
@@ -76,7 +76,7 @@ In a first stage of experiments, I use the operator-based language provided by \
 \myproc{as\_rho \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, V_1, V_2, S, A$\;}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{%M_1^a \circled{$\rho$} M_1^b
-		$I \poslop{\mapsto}$
+		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[\left[V_1 \poslop{\rho} V_2\right] \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
 	}	
 }
@@ -103,19 +103,19 @@ In a first stage of experiments, I use the operator-based language provided by \
 \label{tab:golfers10-10-3}
 \end{table}
 
-\new{Results in Table~\ref{tab:golfers10-10-3} are easy to interpret. $V_{Std}$ uses no additional information to build the neighborhood. It performs every possible swap between two players in different groups, every week, so it allows a more complete and organized search because the set of neighbors is ``pseudo-deterministic'', \ie the construction criteria is always the same but the order in which configurations are stored is random. 
-On the other hand, the neighborhood module $V_{BAS}$ selects the most culprit variable (\ie a player), that is, the variable the most responsible for constraints violation, and permutes this variable value with the value of each other variable, in all groups and all weeks. The most culprit player is calculated as the player which has played with more other players more than once.
+Results in Table~\ref{tab:golfers10-10-3} are easy to interpret. $V_{Std}$ uses no additional information to build the neighborhood. It performs every possible swap between two players in different groups, every week, so it allows a more complete and organized search because the set of neighbors is ``pseudo-deterministic'', \ie the construction criteria is always the same but the order in which configurations are stored is random. 
+On the other hand, the neighborhood module $V_{BAS}$ selects the most culprit variable (\ie a player), that is, the variable the most responsible for constraints violation; this variable value is permuted with the value of each other variable, in all groups and all weeks. The most culprit player is calculated as the player which has played with more other players more than once.
 %with more illegal partners. A player $v_j$ is an illegal partner of the player $v_i$ if 
 %Each permutation gives a neighbor of the current configuration. 
 This neighborhood is $g\times p$ times smaller than the previous one, with $g$ the number of groups and $p$ the number of players per group. Their elements are more promising configurations, for that reason is more efficient, but its size is smaller, hence solvers perform more iterations. Furthermore, it is based on the {\it Adaptive Search} algorithm, which has shown very good results \cite{Diaz}. %It selects the variable (player) contributing the most to the cost and permutes its value with the others variables (players) for all groups, every week.
 $V_{BAS}$ neighborhood function takes random decisions more frequently (\eg if there are more than one \textit{most culprit player}, one is randomly selected), and the order of the configurations is random as well. 
-I also tested a solver combining these modules using the $\circled{$\rho$}$ operator. This operator executes its first or second parameter depending on a given probability $\rho$. This combination spent more time searching the best configuration among the neighborhood, although with a lower number of iterations than $V_{BAS}$. 
-Since the $V_{BAS}$ neighborhood function was clearly faster, I have chosen it for next experiments, even if it shows higher values of standard deviation: 0.75 for \solverposl{AS} versus 0.62 for \solverposl{Std}, considering the ratio $\tfrac{T(sd)}{T}$.}
+We also tested a solver combining these modules using the $\circled{$\rho$}$ operator. This operator executes its first or second parameter depending on a given probability $\rho$. This combination spent more time searching the best configuration among the neighborhood, although with a lower number of iterations than $V_{BAS}$. 
+Since the $V_{BAS}$ neighborhood function was clearly faster, we have chosen it for next experiments, even if it shows higher values of standard deviation: 0.75 for \solverposl{AS} versus 0.62 for \solverposl{Std}, considering the ratio $\tfrac{T(sd)}{T}$.
 
 \separation
 
-Once the neighborhood \om{} has been selected, I have focused the experiment on choosing the best {\it selection} \om. Solvers mentioned above were too slow to solve instances of the problem with more than three weeks: they were very often trapped into local minima. For that reason, another solver implementing the \as{} described in Algorithm~\ref{as:golfers_b001} have been created, using $V_{BAS}$ and combining $S_{best}$ and $S_{rand}$: it tries a number of times to improve the cost, and if it is not possible, it picks a random neighbor for the next iteration. We also compared the $S_{first}$ and $S_{best}$ selection modules. The \om{} $S_{best}$ selects the best configuration inside the neighborhood, so it spend more time searching a better configuration. %, but also is was more sensitive to become trapped into local minima. 
-The second \om{} $S_{first}$ selects the first configuration inside the neighborhood improving the current cost. Using this module, solvers favor exploration over intensification and of course spend clearly less time searching into the neighborhood. \new{In this algorithm, $K_3$ represent the maximum number of iterations with the same current cost.}
+Once the neighborhood \om{} has been selected, we have focused the experiment on choosing the best {\it selection} \om. Solvers mentioned above were too slow to solve instances of the problem with more than three weeks: they were very often trapped into local minima. For that reason, another solver implementing the \as{} described in Algorithm~\ref{as:golfers_b001} has been created, using $V_{BAS}$ and combining $S_{best}$ and $S_{rand}$: it tries a number of times to improve the cost, and if it is not possible, it picks a random neighbor for the next iteration. We also compared the $S_{first}$ and $S_{best}$ selection modules. The \om{} $S_{best}$ selects the best configuration inside the neighborhood, so it spends more time searching a better configuration. %, but also is was more sensitive to become trapped into local minima. 
+The second \om{} $S_{first}$ selects the first configuration inside the neighborhood improving the current cost. Using this module, solvers favor exploration over intensification and of course spend clearly less time searching into the neighborhood. In this algorithm, $K_3$ represent the maximum number of iterations with the same current cost.
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -124,7 +124,7 @@ The second \om{} $S_{first}$ selects the first configuration inside the neighbor
 \myproc{as\_eager \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}}{
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{%M_1^a \circled{$\rho$} M_1^b
-		$I \poslop{\mapsto}$
+		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci < K_3} S_2\right] \poslop{\mapsto} A\right]$}
 	}
 }
@@ -174,11 +174,11 @@ The second \om{} $S_{first}$ selects the first configuration inside the neighbor
 \label{tab:golfers_seq}
 \end{table}
 
-Tables~\ref{tab:golfersB001} and \ref{tab:golfers_seq} present results of this experiment, showing that a local exploration-oriented strategy is better for the \SGP. If we compare results of Tables~\ref{tab:golfersB001} column \textit{First improvement} and \ref{tab:golfers_seq} with respect to the standard deviation, we see some gains in robustness with parallelism, using the same ratio $\tfrac{T(sd)}{T}$. \new{The reason is simple: launching a \soset{} of 40 independent solvers in parallel, is equivalent to launch 40 times a sequential solver and keep the best result}. The spread in the running times and iterations for the instance 5--3--7 is 24\% lower (0.84 sequentially versus 0.60 in parallel), for 8--4--7 is 30\% lower (0.55 sequentially versus 0.25 in parallel) and for 9--4--8 (the hardest one) is 43\% lower (0.69 sequentially versus 0.26 in parallel).
+Tables~\ref{tab:golfersB001} and \ref{tab:golfers_seq} present results of this experiment, showing that a local exploration-oriented strategy is better for the \SGP. If we compare results of Tables~\ref{tab:golfersB001} column \textit{First improvement} and \ref{tab:golfers_seq} with respect to the standard deviation, we see some gains in robustness with parallelism, using the same ratio $\tfrac{T(sd)}{T}$. The reason is simple: launching a \soset{} of 40 independent solvers in parallel is equivalent to launch 40 times a sequential solver and keep the best result. The spread in the running times and iterations for the instance 5--3--7 is 24\% lower (0.84 sequentially versus 0.60 in parallel), for 8--4--7 is 30\% lower (0.55 sequentially versus 0.25 in parallel) and for 9--4--8 (the hardest one) is 43\% lower (0.69 sequentially versus 0.26 in parallel).
 
 \separation
 
-The conclusion of the last experiment was that the fastest solver to solve \SGP{} using \posl{} is the one using a neighborhood \om{} based on {\it Adaptive Search} algorithm ($V_{BAS}$) and a selection \om{} selecting the first configuration improving the cost. Using this solver as a base, the next step was to design a simple communication strategy where the shared information is the current configuration. Algorithms~\ref{as:golfers_sender}~and~\ref{as:golfers_receiver} show that the communication is performed while applying the acceptance criterion of the new configuration for the next iteration. Here, receiver solvers receive a configuration from a sender solver, match it with their current configuration, and keep the configuration with the lowest global cost. This operation is coded using the \textit{minimum} operator $\poslop{m}$ in Algorithm~\ref{as:golfers_receiver}. This way, the receiver solver continues the search from a more promising place into the search space. Different communication strategies were designed, either executing a full connected solvers set, or a tuned combination of connected and unconnected solvers. Between connected solvers, two different connections operations were applied: connecting each sender solver with one receiver solver (\oneTone), or connecting each sender solver with all receiver solvers (\oneTn). The code for the different \commstrs{} are presented in Algorithms~\ref{comm:golfers_1_1-1} to \ref{comm:golfers_1_1-n_25}. \new{In these algorithms, integer values are related to the syntactic sugar explained in Chapter~\ref{chap:posl} to declare set of solvers easily and fast.}
+The conclusion of the last experiment was that the fastest solver to solve \SGP{} using \posl{} is the one using a neighborhood \om{} based on {\it Adaptive Search} algorithm ($V_{BAS}$) and a selection \om{} selecting the first configuration improving the cost. Using this solver as a base, the next step was to design a simple communication strategy where the shared information is the current configuration. Algorithms~\ref{as:golfers_sender}~and~\ref{as:golfers_receiver} show that the communication is performed while applying the acceptance criterion of the new configuration for the next iteration. Here, receiver solvers receive a configuration from a sender solver, match it with their current configuration, and keep the configuration with the lowest global cost. This operation is coded using the \textit{minimum} operator $\poslop{m}$ in Algorithm~\ref{as:golfers_receiver}. This way, the receiver solver continues the search from a more promising place into the search space. Different communication strategies were designed, either executing a full connected solvers set, or a tuned combination of connected and unconnected solvers. Between connected solvers, two different connections operations were applied: connecting each sender solver with one receiver solver (\oneTone), or connecting each sender solver with all receiver solvers (\oneTn). The code for the different \commstrs{} are presented in Algorithms~\ref{comm:golfers_1_1-1} to \ref{comm:golfers_1_1-n_25}. In these algorithms, integer values are related to the syntactic sugar explained in Chapter~\ref{chap:posl} to declare set of solvers easily and fast.
 
 \begin{algorithm}[t]
 \dontprintsemicolon
@@ -187,7 +187,7 @@ The conclusion of the last experiment was that the fastest solver to solve \SGP{
 \myproc{as\_eager\_sender \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}}{%	
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
-		$I \poslop{\mapsto}$
+		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci < K_3} S_2\right] \poslop{\mapsto} \llparenthesis A \rrparenthesis^o\right]$}
 	}
 }
@@ -204,7 +204,7 @@ The conclusion of the last experiment was that the fastest solver to solve \SGP{
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
 	\tet{\bf communication} : $C.M.$\;}{%	
 	\While{$\left(\textbf{\Iter < } K_1\right)$}{%M_1^a \circled{$\rho$} M_1^b
-		$I \poslop{\mapsto}$
+		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{
 			$ V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci < K_3} S_2\right] \poslop{\mapsto} \left[A \poslop{m} C.M.\right]$
 		}
@@ -264,10 +264,10 @@ $\left[\eqsolverposl{first}\right]30;$
 
 In Algorithm~\ref{as:golfers_receiver}, the abstract \opch{} $C.M.$ was instantiated with the concrete \opch{} $CM_{last}$, which takes into account the last received configuration at the time of its execution.
 
-Each time a \posl{} meta-solver is launched, many independent search solvers are executed. We call "good" configuration a configuration %with the lowest cost within the current configuration neighborhood and 
-with a cost strictly lesser than the current one. Once a good configuration is found in a sender solver, it is transmitted to a receiver. At this moment, if the information is accepted by the receiver, there are some solvers searching in the same subset of the search space (\ie they continue the search from the same configuration), and the search process becomes more exploitation--oriented. This can be problematic if this process makes solvers converging too often towards local minima. In that case, we waste more than one solver trapped into a local minima: we waste all solvers that have been attracted to this part of the search space because of communications. This phenomenon is avoided through a simple (but effective) play: if a solver is not able to find a better configuration inside the neighborhood (executing $S_{first}$), it selects a random one at the next iteration (executing $S_{rand}$).
+Each time a \posl{} meta-solver is launched, many independent search solvers are executed. We call ``good'' configuration a configuration %with the lowest cost within the current configuration neighborhood and 
+with a cost strictly lower than the current one. Once a good configuration is found in a sender solver, it is transmitted to a receiver. At this moment, if the information is accepted by the receiver, there are some solvers searching in the same subset of the search space (\ie they continue the search from the same configuration), and the search process becomes more exploitation--oriented. This can be problematic if this process makes solvers converging too often towards local minima. In that case, we waste more than one solver trapped into a local minima: we waste all solvers that have been attracted to this part of the search space because of communications. This phenomenon is avoided through a simple (but effective) play: if a solver is not able to find a better configuration inside the neighborhood (executing $S_{first}$), it selects a random one at the next iteration (executing $S_{rand}$).
 
-After the selection of the proper modules to study different communication strategies, I proceeded to tune parameters $K_1, K_2$ and $K_3$. Only a few runs were necessaries to conclude that the mechanism of using the \om{} $S_{rand}$ to escape from local minima was enough. For that reason, since the solver never perform restarts, the parameter $K_1$ was irrelevant. So the reader can assume $K_1 = 1$ for every experiment. With the certainty that solvers do not perform restarts during the search process, I selected the same value for $K_2 = 5000$ in order to be able to use the same \as{} for all instances. This value was selected after an experimental estimation of the upper bound of the number of iterations for the more complex instance (9--4--8). Finally, in the tuning process of $K_3$, I notice only slightly differences between using the values $5$, $10$, and $15$. So I decided to use $K_3 = 5$. \new{In this version of \posl{}, each time that we have to use different values for $K_i$ we have to change the \as. One of the goals for the next version is to include these values as parameters of the solver, in order to be even more modular.}
+After the selection of the proper modules to study different communication strategies, we tuned parameters $K_1, K_2$ and $K_3$. Only a few runs were necessary to conclude that the mechanism of using the \om{} $S_{rand}$ to escape from local minima was enough. For that reason, since the solver never performs restarts, the parameter $K_1$ was irrelevant. So the reader can assume $K_1 = 1$ for every experiment. With the certainty that solvers do not perform restarts during the search process, we selected the same value for $K_2 = 5000$ in order to be able to use the same \as{} for all instances. This value was selected after an experimental estimation of the upper bound of the number of iterations for the more complex instance (9--4--8). Finally, in the tuning process of $K_3$, we notice only slight differences between using the values $5$, $10$, and $15$. So we decided to use $K_3 = 5$. In this version of \posl{}, each time that we have to use different values for $K_i$ we have to change the \as. One of the goals for the next version is to include these values as parameters of the solver, in order to be even more modular.
 
 \begin{table}
 	\captionsetup{belowskip=6pt,aboveskip=6pt}
@@ -334,23 +334,23 @@ After the selection of the proper modules to study different communication strat
 
 This communication strategy produces some gain in terms of runtime (Table~\ref{tab:golfersB001} with respect to Tables~\ref{tab:golfersB001comm100}, \ref{tab:golfersB001comm50} and \ref{tab:golfersB001comm25}). 
 Having many solvers searching in different places of the search space, the probability that one of them reaches a promising place is higher. Then, when a solver finds a good configuration, it can be communicated, and receiving the help of one or more solvers in order to find the solution.
-Using this strategy, the spread ratio in the running times and iterations \new{calculated from values in Table~\ref{tab:golfersB001}} was reduced for the instance 9--4--8 (0.22 using communication \oneTone{} and 50\% of communication solvers, versus 0.26), but not for instances 5--3--7 and 8--4--7 (0.70 using communication \oneTn{} and 50\% of communicating solvers versus 0.60, and 0.28 using communication \oneTone{} and 50\% of communicating solvers versus 0.25, respectively).
+Using this strategy, the spread ratio in the running times and iterations calculated from values in Table~\ref{tab:golfersB001} was reduced for the instance 9--4--8 (0.22 using communication \oneTone{} and 50\% of communication solvers, versus 0.26), but not for instances 5--3--7 and 8--4--7 (0.70 using communication \oneTn{} and 50\% of communicating solvers versus 0.60, and 0.28 using communication \oneTone{} and 50\% of communicating solvers versus 0.25, respectively).
 
 %Other two strategies were analyzed in the resolution of this problem, with no success, both based on the sub-division of the work by weeks, \ie solvers trying to improve a configuration only working with one or some weeks. These strategies are:
 
-Another \commstr{} was analyzed in the resolution of this problem, with no success, based on the sub-division of the work by weeks, \ie solvers trying to improve a configuration only working with one week. I called \textit{circular strategy}  and it consists in having $K$ solvers trying to improve a configuration during a given number of iteration, only working on one week. When no improvement is obtained, the current configuration is communicated to the next solver (circularly), which tries to do the same working on the next week (see Figure~\ref{subfig:golfers_bad_ring}).
-This strategy did not show better results than previews strategies: \new{more than two time worse than sequential results, for every instance}. The reason is because, although the communication in \posl{} is asynchronous, most of the times solvers were trapped ``waiting'' for a configuration coming from its neighbor solver.
+Another \commstr{} was analyzed in the resolution of this problem, with no success, based on the sub-division of the work by weeks, \ie solvers trying to improve a configuration only working with one week. We called \textit{circular strategy}  and it consists in having $K$ solvers trying to improve a configuration during a given number of iteration, only working on one week. When no improvement is obtained, the current configuration is communicated to the next solver (circularly), which tries to do the same working on the next week (see Figure~\ref{subfig:golfers_bad_ring}).
+This strategy did not show better results than previews strategies: more than two time worse than sequential results, for every instance. The reason is because, although the communication in \posl{} is asynchronous, most of the times solvers were trapped ``waiting'' for a configuration coming from its neighbor solver.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.45\linewidth]{golfers_ring.png}	
-\caption[]{Unsuccessful communication strategies to solve \SGP}
+\caption[]{Cyclic \commstr{} to solve \SGP}
 \label{subfig:golfers_bad_ring}
 \end{figure}
 
 %\begin{enumerate}[label=\Alph*]
 %\item \textbf{Circular strategy:} $K$ solvers try to improve a configuration during a given number of iteration, only working on one week. When no improvement is obtained, the current configuration is communicated to the next solver (circularly), which tries to do the same working on the next week (see Figure~\ref{subfig:golfers_bad_ring}).
-%\subitem This strategy did not show better results than previews strategies: \new{more than two time worse than sequential results, for eevery instance}. The reason is because, although the communication in \posl{} is asynchronous, most of the times solvers were trapped waiting for a configuration coming from its neighbor solver.
+%\subitem This strategy did not show better results than previews strategies: more than two time worse than sequential results, for eevery instance. The reason is because, although the communication in \posl{} is asynchronous, most of the times solvers were trapped waiting for a configuration coming from its neighbor solver.
 %
 %\item \textbf{Dichotomy strategy:} Solvers are divided by levels. Solvers $S_{l}^1$ in level 1 \textit{work} on one week only \new{(\ie they use a neighborhood \om{} which generates configurations only swapping players in week $w$, with $l\in [2...w]$)}; solvers $S_{[l, l+1]}^2$ on level 2, work on 2 consecutive weeks only, and so on; and the solver $S_{[2,w]}$ on the last level ($\log_2^{w-1}+1$) that works on all weeks (except the first one). 
 %Solvers in level 1 try to improve the current configuration during some number of iteration, then their best found configuration is sent to the corresponding solver: the solver on level 2 which works also with the same week. Solvers in level 2 do the same, but working on weeks $k$ to $k+1$. It means that solvers in level 2 receives configurations from the solver on level 1 working on week $k$ and from the solver on level 1 working on week $k+1$, and sends its configuration to the corresponding solver working on weeks $k$ to $k+3$; and so on. The solver in the last level works on all weeks (except the first one) and receive configuration from the solver working on weeks $2$ to $w/2$ and from the solver working on weeks $w/2+1$ to $w$ (see Figure\ref{subfig:golfers_bad_dic}). We tested this strategy with all possible levels. 
@@ -375,11 +375,11 @@ This strategy did not show better results than previews strategies: \new{more th
 
 One last experiment using this benchmark was implementing a \commstr{} which applies a mechanism of cost descending acceleration, exchanging the current configuration between two solvers with different characteristics. Results show that this \commstr{} works pretty well for this problem.
 
-For this strategy, new solvers were built reusing same \ms{} used for the \commstrs{} exposed before, and another different neighborhood \om{}: $V_{BP}(w)$, which given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the culprit player chosen for all $w$ randomly selected weeks with other players in the same week. This new solver was called \textit{companion solver}, and it descends quicker the cost of its current solution at the beginning because its neighborhood generates less values, but the convergence is slower and yet not \new{certain}. It \new{works toguether with a similar solver used for the \commstr{} exposed before}. It is called \textit{standard solver}, and converges in a stable way to the solution. So, the companion solver uses the same neighborhood function that the standard solver, but is parametrized in such a way that it builds neighbors only swapping players among two weeks.
+For this strategy, new solvers were built reusing the same \ms{} used for the \commstrs{} exposed before, and another different neighborhood \om{}: $V_{BP}(w)$, which given a configuration, returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the culprit player chosen for all $w$ randomly selected weeks with other players in the same week. This new solver was called \textit{companion solver}, and it descends quicker the cost of its current solution at the beginning because its neighborhood generates less values. However the convergence is slower and yet not certain. It works together with a similar solver used for the \commstr{} exposed before. It is called \textit{standard solver}, and converges in a stable way to the solution. So, the companion solver uses the same neighborhood function that the standard solver, but is parametrized in such a way that it builds neighbors only swapping players among two weeks.
 
-The idea of the \commstr{} is to communicate a configuration from the companion solver to the standard solver, in order to be able to continue the search from a more promising place into the search space. After some iterations (\new{depending on the instance}), the standard solver sends its configuration to the companion solver. The companion solver takes this received configuration and starts its search from there and finds quickly a much better configuration to send back to the standard solver again. To force the companion solver to take the received configurations over its own, we use the \textit{not null} operator together with the \opch{} $C.M.$ (Algorithm~\ref{as:golfers_partial}). This process is repeated until a solution is found.
+The idea of the \commstr{} is to communicate a configuration from the companion solver to the standard solver, in order to be able to continue the search from a more promising place into the search space. After some iterations (depending on the instance), the standard solver sends its configuration to the companion solver. The companion solver takes this received configuration and starts its search from there and finds quickly a much better configuration to send back to the standard solver again. To force the companion solver to take the received configurations over its own, we use the \textit{not null} operator together with the \opch{} $C.M.$ (Algorithm~\ref{as:golfers_partial}). This process is repeated until a solution is found.
 
-Figure~\ref{fig:solversgolfers} shows \new{a single} standard solver's run versus \new{a single} companion solver's run. In this chart we can see that, at the beginning of the run, found configurations by the companion solver have costs significantly lower than those found by the standard solver. At the 60-th millisecond the standard solver current configuration has cost 123, and the companion solver's one, 76. So for example, the communication at this time, can accelerate the process significantly.
+Figure~\ref{fig:solversgolfers} shows a single standard solver's run versus a single companion solver's run. In this chart we can see that, at the beginning of the run, configurations found by the companion solver have costs significantly lower than those found by the standard solver. At the 60-th millisecond the standard solver current configuration has cost 123, and the companion solver's one, 76. So for example, the communication at this time, can accelerate the process significantly.
 
 \begin{figure}
 \centering
@@ -395,7 +395,7 @@ Figure~\ref{fig:solversgolfers} shows \new{a single} standard solver's run versu
 \myproc{as\_standard \;
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\;
 	\tet{\bf communication} : $C.M.$\;}{%
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci \% K_2} S_1\right] \poslop{\mapsto} \left[C.M. \poslop{m} \llparenthesis A \rrparenthesis^d\right]$		
 	}
@@ -413,7 +413,7 @@ Figure~\ref{fig:solversgolfers} shows \new{a single} standard solver's run versu
 \myproc{as\_companion \;
 	\tet{\bf computation} : $I, V, S_1, S_2, A$\;
 	\tet{\bf communication} : $C.M.$\;}{
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$V \poslop{\mapsto} \left[S_1 \poslopcond{\Sci \% K_2} S_2\right] \poslop{\mapsto} \left[C.M. \poslop{\vee} \llparenthesis A \rrparenthesis^d\right]$		
 	}
@@ -426,28 +426,28 @@ Figure~\ref{fig:solversgolfers} shows \new{a single} standard solver's run versu
 
 We also design different \commstrs, combining connected and unconnected solvers in different percentages, and applying two different \commopers: \oneTone{} and \oneTn. The code for the \commstr{} of 100\% of communicating solvers is presented in Algorithm~\ref{comm:golfers_v2_100} and for 50\% of communicating solvers in Algorithm~\ref{comm:golfers_v2_50}. 
 
-\new{The main idea of this strategy follows the following steps:}
+The main idea of this strategy follows the following steps:
 
 \poslexample{
 \mybox{Step 1}
 
-\new{The \om{} $I_{BP}$ generates an initial configuration $s$ respecting the structure of the problem's model, \ie the configuration $s$ is a set of $w$ permutations of the vector $[1..P]$, where $P=g\times p$. The configuration $s$ is the input of the \m{} in the Step 2.}
+The \om{} $I_{BP}$ generates an initial configuration $s$ respecting the structure of the problem's model, \ie the configuration $s$ is a set of $w$ permutations of the vector $[1..P]$, where $P=g\times p$. The configuration $s$ is the input of the \m{} in the Step 2.
 
 \mybox{Step 2}
 
-\new{The \om{} $V_{BP}(w)$ takes a configuration $s$ as input and selects a set of $w$ weeks randomly. Then it returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the most culprit player with other players in the same week, for all selected weeks.}
+The \om{} $V_{BP}(w)$ takes a configuration $s$ as input and selects a set of $w$ weeks randomly. Then it returns the neighborhood $\mathcal{V}\left(s\right)$ by swapping the most culprit player with other players in the same week, for all selected weeks.
 
 \mybox{Step 3}
 
-\new{In this step a \cm{} which combines the \oms{} $S_{first}$ and $S_{rand}$ through the operator $\poslopcond{\Sci \% K_2}$ is executed. The operator takes the input of the Step 2 and executes either $S_{first}$, which selects the first configuration $s' \in V\left(s\right)$ improving the current cost, if the current cost have been the same during the last $K_2$ iterations, at the time of executing the operator; or $S_{rand}$, which selects randomly a configuration $s'\in V\left(s\right)$, otherwise. This \cm{} returns the configuration $s'$ together with the current one, into the pair $\left(s', s\right)$.}
+In this step a \cm{} which combines the \oms{} $S_{first}$ and $S_{rand}$ through the operator $\poslopcond{\Sci \% K_2}$ is executed. The operator takes the input of the Step 2 and executes either $S_{first}$, which selects the first configuration $s' \in V\left(s\right)$ improving the current cost, if the current cost have been the same during the last $K_2$ iterations, at the time of executing the operator; or $S_{rand}$, which selects randomly a configuration $s'\in V\left(s\right)$, otherwise. This \cm{} returns the configuration $s'$ together with the current one, into the pair $\left(s', s\right)$.
 
 \mybox{Step 4}
 
-%\new{\underline{Sender solver}: A send data operator is executed, which executes the module $A_{AI}$ (which returns always the selected configuration $s'$) and sends its output to external (receivers) solvers. Then, the process returns to the Step 2.}
+\underline{Sender solver}: A send data operator is executed, which executes the module $A_{AI}$ (which returns always the selected configuration $s'$) and sends its output to external (receivers) solvers. Then, the process returns to the Step 2.
 
-\new{\underline{Standard solver}: In this step a \cm{} which combines the \cm{} of the send data operator returning the output of $A_{AI}$ and the \opch{} $CM_{last}$ through the operator $\poslop{m}$ is executed. The minimum operator takes the input of the Step 3 and executes $A_{AI}$ and returns its output $s'$ (and sends $s'$ to external solvers); and executes $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns the configuration with the lowest cost between $s'$ and $s''$, then the process returns to the Step 2.}
+\underline{Standard solver}: In this step a \cm{} which combines the \cm{} of the send data operator returning the output of $A_{AI}$ and the \opch{} $CM_{last}$ through the operator $\poslop{m}$ is executed. The minimum operator takes the input of the Step 3 and executes $A_{AI}$ and returns its output $s'$ (and sends $s'$ to external solvers); and executes $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns the configuration with the lowest cost between $s'$ and $s''$, then the process returns to the Step 2.
 
-\new{\underline{Companion solver}: In this step a \cm{} which combines the \cm{} of the send data operator returning the output of $A_{AI}$ and the \opch{} $CM_{last}$ through the operator $\poslop{\vee}$ is executed. The not null operator takes the input of the Step 3 and executes $A_{AI}$ and returns the selected configuration $s'$(and sends $s'$ to external solvers); and $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns either the configuration $s'$ if the received configuration $s''$ is NULL, or $s''$ otherwise. Then, the process returns to the Step 2.}
+\underline{Companion solver}: In this step a \cm{} which combines the \cm{} of the send data operator returning the output of $A_{AI}$ and the \opch{} $CM_{last}$ through the operator $\poslop{\vee}$ is executed. The not null operator takes the input of the Step 3 and executes $A_{AI}$ and returns the selected configuration $s'$(and sends $s'$ to external solvers); and $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns either the configuration $s'$ if the received configuration $s''$ is NULL, or $s''$ otherwise. Then, the process returns to the Step 2.
 }
 
 \begin{algorithm}[h]
@@ -467,7 +467,7 @@ $\left[\eqsolverposl{first}\right]20;$\;
 \caption{Companion communication strategy 50\% communication}\label{comm:golfers_v2_50}
 \end{algorithm}
 
-This \commstr{} produces some gain in terms of runtime as we can see in Tables~\ref{tab:golfers_v2_1N} and \ref{tab:golfers_v2_11} with respect to Table~\ref{tab:golfersB001}. It produces also more robust results in terms of runtime. The spread of results in iterations show higher variances, because there are included also results of companion solvers, which performs many times more iterations that the standard solvers. The percentage of the receiver solvers that were able to find the solution before the others did, was significant: \new{the 73\% of the receiver solvers, as a mean among the three instances, were the winners} (see Appendix~\ref{app:sgp}, Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}), showing that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc).
+This \commstr{} produces some gain in terms of runtime as we can see in Tables~\ref{tab:golfers_v2_1N} and \ref{tab:golfers_v2_11} with respect to Table~\ref{tab:golfersB001}. It produces also more robust results in terms of runtime. The spread of results in iterations show higher variances, because there are included also results of companion solvers, which performs many times more iterations that the standard solvers. The percentage of the receiver solvers that were able to find the solution before the others did, was significant: the 73\% of the receiver solvers, as a mean among the three instances, were the winners (see Appendix~\ref{app:sgp}, Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}), showing that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc).
 
 \begin{table}
 \captionsetup{belowskip=6pt,aboveskip=6pt}

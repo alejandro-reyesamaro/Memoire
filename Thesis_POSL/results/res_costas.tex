@@ -1,16 +1,16 @@
-\new{In this section I present a performed study using \carrp{} (\CARRP) as a benchmark, by testing a simple communication strategy, in which the information to communicate between solvers is the current configuration received at different times of the algorithm. Results show that for this problem, this strategy improve the parallel non cooperative approach.}
+In this section we present a study using \carrp{} (\CARRP), by testing a simple communication strategy in which the information to communicate between solvers is the current configuration received at different times of the algorithm. Results show that for this problem, this strategy improves the parallel non cooperative approach.
 
 \subsection{Problem definition}
 
 The \carrp{} (\CARRP) consists in finding a \textit{Costas array}, which is an $n\times n$ grid containing $n$ marks such that there is exactly one mark per row and per column and the ${n(n-1)/2}$ vectors joining each couple of marks are all different. This is a very complex problem that finds useful application in some fields like sonar and radar engineering.
 
-\new{\CARRP{} has been studied for several years, and yet many questions remain open, like for example the existence of solutions for all $n$, the existence of other construction algorithms, among others \cite{Rickard}. It also presents an interesting characteristic: although the search space grows factorially, from order 17 the number of solutions drastically decreases~\cite{Drakakis2006}. For example, using the Golomb \cite{Golomb1984a} and Welch \cite{Golomb1984} constructions, \etal{Drakakis} present in~\cite{Drakakis2011} all Costas arrays for $n = 29$, and they show that among the $29!$ permutations, there are only 164 Costas arrays. Nowadays, after many decades of research, the problem of knowing whether it  exists any Costas array for $n = 32$ remains open \cite{Caniou14}.}
+\CARRP{} has been studied for several years, and yet many questions remain open (such as the existence of solutions for all $n$, the existence of other construction algorithms, etc. \cite{Rickard}). It also presents an interesting characteristic: although the search space grows factorially, from order 17 the number of solutions drastically decreases~\cite{Drakakis2006}. For example, using the Golomb \cite{Golomb1984a} and Welch \cite{Golomb1984} constructions, \etal{Drakakis} present in~\cite{Drakakis2011} all Costas arrays for $n = 29$, and they show that among the $29!$ permutations, there are only 164 Costas arrays. Nowadays, after many decades of research, the problem of knowing whether it  exists any Costas array for $n = 32$ remains open \cite{Caniou14}.
 
-\new{For modeling this benchmark as an unconstrained optimization problem, the proposed model has $N$ variables: $\left\{v_1, v_2, \dots, v_n\right\}$, and their domains are the same: ${D_{v_i}=\left\{1, \dots, n\right\}}$.}
+For modeling this benchmark as an unconstrained optimization problem, the proposed model has $N$ variables: $\left\{v_1, v_2, \dots, v_n\right\}$, and their domains are the same: ${D_{v_i}=\left\{1, \dots, n\right\}}$.
 
-\new{The cost function for \CARRP{} was implemented in C++ based on the current implementation of Adaptive Search\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. It assumes that a configuration $s$ is an integer permutation of the set $\left\{1...n\right\}$, \ie $s_i = j$ (the $i^{th}$ variable has the value $j$) means that there is a mark placed in column $i$ and row $j$. In that sense, the cost function does not verify whether values in $s$ are all different.}
+The cost function for \CARRP{} was implemented in C++ based on the current implementation of Adaptive Search\footnote{It is based on the code from Daniel D\'{i}az available at \href{https://sourceforge.net/projects/adaptivesearch/}{https://sourceforge.net/projects/adaptivesearch/}}. It assumes that a configuration $s$ is an integer permutation of the set $\left\{1...n\right\}$, \ie $s_i = j$ (the $i^{th}$ variable has the value $j$) means that there is a mark placed in column $i$ and row $j$. In that sense, the cost function does not verify whether values in $s$ are all different.
 
-\new{The cost is computed by building the triangular matrix of all \textit{diferences} between marks. A difference between two marks $m_i$ and $m_j$ is defined as the vertical shift of $m_j$ with respect to $m_i$. For example, if the mark $m_i$ (mark placed on column $i$) is placed on the row 4, and the mark $m_j$ (mark placed on column $j$) is placed on the row 3, the difference between them is $4-3=1$. The following example describe a differences triangle for a $5\times 5$ matrix:}
+The cost is computed by building the triangular matrix of all \textit{differences} between marks. A difference between two marks $m_i$ and $m_j$ is defined as the vertical shift of $m_j$ with respect to $m_i$. For example, if the mark $m_i$ (mark placed on column $i$) is placed on the row 4, and the mark $m_j$ (mark placed on column $j$) is placed on the row 3, the difference between them is $4-3=1$. The following example describe a differences triangle for a $5\times 5$ matrix:
 
 \poslexample{Figure~\ref{fig:ex_costas} shows a $5\times 5$ matrix with marks. The corresponding configuration for the \carrp{} is the following:
 $$s=\left\{3, 2, 4, 5, 1\right\}$$
@@ -40,13 +40,14 @@ d_3 &= \left\{-2, 1\right\}
 \label{fig:ex_costas}
 \end{figure}
 
-\new{The cost of the configuration $s$ is then the number of equal elements on each row $d_i$ of its corresponding differences triangle. It can be easily proved that this differences triangle is only necessary to be verified until the row $d_B$, with $B=\floor*{(n-1)/2}$.}
+The cost of the configuration $s$ is then the number of equal elements on each row $d_i$ of its corresponding difference triangle. It can be easily proved that this differences triangle is only necessary to be verified until the row $d_B$, with $B=\floor*{(n-1)/2}$.
 
 \subsection{Experiments design and results}
 
-To handle this problem, I have reused all modules used for solving the \nqp. First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time (seconds). After many unsuccessful attempts to find the right parameters of maximum number of restarts, maximum number of iterations, and maximum number of iterations with the same cost, I decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: I have added a {\it Reset} \om{} $R_{AS}$ based on the abstract \om{} $R$. The other \oms{} were the same used for solving the \nqp.
+To handle this problem, we have reused all modules used for solving the \nqp. First attempts to solve this problems were using the same strategies (\ass) used to solve the \sgp{} and \nqp, without success: \posl{} was not able to solve instances larger than $n = 8$ in a reasonable amount of time. %(seconds). 
+After many unsuccessful attempts to find the right parameters of maximum number of restarts, maximum number of iterations, and maximum number of iterations with the same cost, we decided to implement the mechanism used by Daniel D\'iaz in the current implementation of {\it Adaptive Search} to escape from local minima: we have added a {\it Reset} \om{} $R_{AS}$ based on the abstract \om{} $R$. The other \oms{} were the same used for solving the \nqp.
 
-Given a configuration $s$, the basic principle of the reset is build another following four steps:
+Given a configuration $s$, the basic principle of the reset is to build another following four steps:
 \begin{enumerate}
 \item A configuration is obtained by performing left/right shifts to all sub-vectors of $s$ starting or ending by the variable which contributes the most to the cost, and selecting the configuration with the lowest cost.
 \item A configurations is obtained by adding a constant (circularly) to each element in the configuration $s$.
@@ -54,8 +55,7 @@ Given a configuration $s$, the basic principle of the reset is build another fol
 \item Then, one of these 3 generated configuration has the same probability of being selected, to be the result of the reset algorithm. In that sense, some different resets can be performed for the same configuration.
 \end{enumerate}
 
-
-The basic solver used to solve this problem is presented in Algorithm~\ref{as:costas}, and it was taken as a base to build all the different communication strategies. Basically, it is a classical local search iteration, where instead of performing restarts, it performs resets. After a deep analysis of this implementation and results of some runs, I decided to use $K_1 = 2,000,000$ (maximum number of iterations) big enough to solve the chosen instance $n = 19$; and $K_2 = 3$ (the number of iteration before performing the next \textit{reset}).
+The basic solver used to solve this problem is presented in Algorithm~\ref{as:costas}, and it was taken as a base to build all the different communication strategies. Basically, it is a classical local search iteration, which instead of performing restarts performs resets. After a deep analysis of this implementation and results of some runs, we decided to use $K_1 = 2,000,000$ (maximum number of iterations) big enough to solve the chosen instance $n = 19$; and $K_2 = 3$ (the number of iterations before performing the next \textit{reset}).
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -63,7 +63,7 @@ The basic solver used to solve this problem is presented in Algorithm~\ref{as:co
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_hard \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, R, V, S, A$\;}{ %\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}}{%
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 		$R \poslop{\mapsto}$ % \left[\circlearrowleft (\text{\Iter}\% K_2) \left\{ M_V \longmapsto M_{\hat{S}} \longmapsto M_D\right\}\right]$\;
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
@@ -96,7 +96,7 @@ Table~\ref{tab:costas19} shows results of launching \sosets{} to solve each inst
 
 \separation
 
-In order to improve results, a simple communication strategy was applied: communicating the current configuration to other solvers. To do so, we insert a \textit{sending output} operator to the \as{} in Algorithm~\ref{as:costas}. This results in the sender solver presented in Algorithm~\ref{as:costas_sender}. %\tet{et le receiver??? Flo: c'est l'algo 4}
+In order to improve results, a simple communication strategy was applied: communicating the current configuration to other solvers. To do so, we insert a \textit{sending output} operator to the \as{} in Algorithm~\ref{as:costas}, \new{and the obtained \as{} is presented in Algorithm~\ref{as:costas_sender}.} %\tet{et le receiver??? Flo: c'est l'algo 4}
 
 \begin{algorithm}[h]
 \dontprintsemicolon
@@ -104,7 +104,7 @@ In order to improve results, a simple communication strategy was applied: commun
 \SetKwProg{myproc}{\tet{\bf abstract solver}}{\tet{\bf begin}}{\tet{\bf end}}
 \myproc{as\_hard\_sender \; %\hspace{3pt}
 	\tet{\bf computation} : $I, R, V, S, A$\;}{
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$R \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \llparenthesis A \rrparenthesis^d\right]$}
@@ -116,10 +116,10 @@ In order to improve results, a simple communication strategy was applied: commun
 \caption{Sender solver for \CARRP}\label{as:costas_sender}
 \end{algorithm}
 
-Studying some runs of \posl{} solving \CARRP{}, it was observed that \new{during the search process, the cost of the current configuration of all solvers describes an oscillatory descent due to the repeated resets ($K_2 = 3$ in Algorithm~\ref{as:costas}). It means that the cost of the current configuration decreases during $K_2$ iterations and then the current configuration is created by performing a reset which generates generally a more costly configuration. However, in every performed experiment (more than 20 runs with 20 solvers in parallel without communication), the current configuration's cost of the winner solver (first solver finding a solution) described an oscillatory descent also, but not so pronounced (\ie the difference between the cost of the last current configuration before performing the reset and the cost of the configuration after the reset is not high).} For that reason, it was decided to apply a simple \commstr{} that shares the current configuration while applying the acceptance criterion. To do so, a \opch{} using a \textit{minimum} operator $\poslop{m}$ together with the abstract \om{} $A$ was inserted, as shown in Algorithm~\ref{as:costas_receiver_a}.
+Studying some runs of \posl{} solving \CARRP{}, it was observed that during the search process, the cost of the current configuration of all solvers describes an oscillatory descent due to the repeated resets ($K_2 = 3$ in Algorithm~\ref{as:costas}). It means that the cost of the current configuration decreases during $K_2$ iterations and then, the current configuration is created by performing a reset which generates generally a more costly configuration. However, in every performed experiment (more than 20 runs with 20 solvers in parallel without communication), the current configuration's cost of the winner solver (first solver finding a solution) described an oscillatory descent also, but not so pronounced (\ie the difference between the cost of the last current configuration before performing the reset and the cost of the configuration after the reset is not high). For that reason, it was decided to apply a simple \commstr{} that shares the current configuration while applying the acceptance criterion. To do so, a \opch{} using a \textit{minimum} operator $\poslop{m}$ together with the abstract \om{} $A$ was inserted, as shown in Algorithm~\ref{as:costas_receiver_a}.
 
 One of the main purpose of this study is to explore different communication strategies. We have then implemented and tested different variations of the strategy exposed above by combining two communication operators (\oneTone{} and \oneTn) and different percentages of communicating solvers.
-For this problem, it was study also the behavior of the communication performed at two different moments: while applying the acceptance criteria (Algorithm~\ref{as:costas_receiver_a}), and while performing a {\it reset} (Algorithm~\ref{as:costas_receiver_b}).
+For this problem, we also studied the behavior of the communication performed at two different moments: while applying the acceptance criteria (Algorithm~\ref{as:costas_receiver_a}), and while performing a {\it reset} (Algorithm~\ref{as:costas_receiver_b}).
 
 \begin{algorithm}[h]
 \dontprintsemicolon
@@ -128,7 +128,7 @@ For this problem, it was study also the behavior of the communication performed 
 \myproc{as\_hard\_receiver\_a \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, R, V, S, A$ \; %\hspace{3pt}
 	\tet{\bf communication} : $C.M.$\;}{ 
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter} < K_1\right)$}{
 		$R \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \left[A\poslop{m}C.M.\right]\right]$}
@@ -147,7 +147,7 @@ For this problem, it was study also the behavior of the communication performed 
 \myproc{as\_hard\_receiver\_b \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 	\tet{\bf computation} : $I, R, V, S, A$\; %\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
 	\tet{\bf communication} : $C.M.$\;}{%
-	$I \poslop{\mapsto}$
+	$I\poslop{\mapsto}$
 	\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
 		$\left[R \poslop{m} C.M.\right] \poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}
@@ -182,71 +182,41 @@ The instantiation for receiver solvers instantiates the abstract \opch{} $C.M.$ 
 \label{tab:costas19comm}
 \end{table}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\new{The main idea of the proposed \commstr{} (variant A) follows the following steps:}
+The main idea of the proposed \commstr{} (variant A) follows the following steps:
 
 \poslexample{
 \mybox{Step 1}
 
-\new{The \om{} $I_{perm}$ generates an initial configuration $s$ respecting the structure of the problem's model, \ie the configuration $s$ is a permutation of the vector $[1..N]$. The configuration $s$ is the input of the \om{} in the Step 2.}
+The \om{} $I_{perm}$ generates an initial configuration $s$ respecting the structure of the problem's model, \ie the configuration $s$ is a permutation of the vector $[1..N]$. The configuration $s$ is the input of the \om{} in the Step 2.
 
 \mybox{Step 2}
 
-\new{The \om{} $R_{AS}$ takes a configuration $s$ as input and returns a configuration $\hat{s}$ as result of performing a reset.}
+The \om{} $R_{AS}$ takes a configuration $s$ as input and returns a configuration $\hat{s}$ as result of performing a reset.
 
 \mybox{Step 3}
 
-\new{The \om{} $V_{AS}$ takes a configuration $\hat{s}$ as input and returns the neighborhood $\mathcal{V}\left(\hat{s}\right)$ generated by swapping the most culprit variable with all other variables.}
+The \om{} $V_{AS}$ takes a configuration $\hat{s}$ as input and returns the neighborhood $\mathcal{V}\left(\hat{s}\right)$ generated by swapping the most culprit variable with all other variables.
 
 \mybox{Step 4}
 
-\new{The \om{} $S_{first}$ selects the first configuration $s' \in V\left(\hat{s}\right)$ improving the current cost, and returns it together with the current configuration, into the pair $\left(s', \hat{s}\right)$.}
+The \om{} $S_{first}$ selects the first configuration $s' \in V\left(\hat{s}\right)$ improving the current cost, and returns it together with the current configuration, into the pair $\left(s', \hat{s}\right)$.
 
 \mybox{Step 5}
 
-\new{\underline{Sender solver}: A send data operator is executed, which takes the input $\left(s', \hat{s}\right)$ from the Step 4 and executes the module $A_{AI}$ (which returns always the selected configuration $s'$) and sends its output to external (receivers) solvers.}
+\underline{Sender solver}: A send data operator is executed, which takes the input $\left(s', \hat{s}\right)$ from the Step 4 and executes the module $A_{AI}$ (which returns always the selected configuration $s'$) and sends its output to external (receivers) solvers.
 
-\new{\underline{Receiver solver}: A \cm{} which combines the \om{} $A_{AI}$ and the \opch{} $CM_{last}$ trough the operator $\poslop{m}$ is executed. The minimum operator takes the input of the Step 4 and executes $A_{AI}$ which returns its output $s'$, and executes $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns the configuration with the lowest cost between $s'$ and $s''$.}
+\underline{Receiver solver}: A \cm{} which combines the \om{} $A_{AI}$ and the \opch{} $CM_{last}$ trough the operator $\poslop{m}$ is executed. The minimum operator takes the input of the Step 4 and executes $A_{AI}$ which returns its output $s'$, and executes $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns the configuration with the lowest cost between $s'$ and $s''$.
 
-\new{In both cases, the process returns either to the Step 3 if the current iteration is not congruent with 0 modulo $K_2$, \ie if ${\Iter \% K_2 = 0}$; or to the Step 2, otherwise.}
+In both cases, the process returns either to the Step 3 if the current iteration is not congruent with 0 modulo $K_2$, \ie if ${\Iter \% K_2 = 0}$; or to the Step 2, otherwise.
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Table~\ref{tab:costas19comm} shows that \sosets{} executing the strategy {\it A} (receiving the configuration at the time of applying the acceptance criteria) are more effective. \new{The main reason is because in the \commstr{} {\it B}, the communication interferes with the proper performance of the {\it reset}, which is a very important step in the algorithm. Furthermore, the reset provides a very important exploratory factor: when receivers solvers receive the sent configurations and it is accepted by them, they can performed different resets with the same configuration, as it was explained before.}
+Table~\ref{tab:costas19comm} shows that \sosets{} executing Strategy {\it A} (receiving the configuration at the time of applying the acceptance criteria) are more effective. The main reason is because in the \commstr{} {\it B}, the communication interferes with the proper performance of the {\it reset}, which is a very important step in the algorithm. Furthermore, the reset provides a very important exploratory factor: when receivers solvers receive the configurations and accept them, they can performed different resets with the same configuration, as it was explained before.
  
-By analyzing the whole information obtained during the experiments, we can observe that the percentage of communicating solvers finding the solution thanks to the received information was high (74\%, see Appendix~\ref{app:cap}, Figure~\ref{barplot:19}). That shows that the communicated information was very helpful during the search process. 
+By analyzing the whole information obtained during the experiments, we can observe that the percentage of communicating solvers finding the solution using the received information was high (74\%, see Appendix~\ref{app:cap}, Figure~\ref{barplot:19}). That shows that the communicated information was very helpful during the search process. 
 With the simplicity of the operator-based language provided by \posl{}, we were able to find a simple \commstr{} to obtain better results than applying sequential and parallel independent multi-walk approaches. 
 
-\new{Algorithm~\ref{comm:costas1001N} shows the code for the \commstr{} of 100\% of communicating solvers using the \oneTn{} operator $\oneton$. %, where  20 is used as  \textit{syntactic sugar} to declare easily a list of 20 solvers of each type (20 senders and 20 receivers). 
-As expected, this was the best \commstr{}. It finds a proper equilibrium between intensification, by communicating a promising place (configuration) inside the search space to a maximum of solvers; and exploration, by performing stochastic decisions once the configuration is accepted, \eg the must culprit variable is randomly selected if there are more than one, and the way the reset select the returned configuration (explained before).}
+Algorithm~\ref{comm:costas1001N} shows the code for the \commstr{} of 100\% of communicating solvers using the \oneTn{} operator $\oneton$. %, where  20 is used as  \textit{syntactic sugar} to declare easily a list of 20 solvers of each type (20 senders and 20 receivers). 
+As expected, this was the best \commstr{}. It finds a proper equilibrium between intensification, by communicating a promising place (configuration) inside the search space to a maximum of solvers; and exploration, by performing stochastic decisions once the configuration is accepted, \eg the must culprit variable is randomly selected if there are more than one, and the way the reset select the returned configuration (explained before).
 %(a good compromise between local computation and data exchange/a fully based communication/ etc) 
 
 \begin{algorithm}
@@ -256,7 +226,7 @@ $\left[\eqsolverposl{sender}\posldot A(20)\right] \oneton \left[\eqsolverposl{re
 \caption{Communication strategy \oneTn{} 100\% for \CARRP}\label{comm:costas1001N}
 \end{algorithm}
 
-\new{The random nature of this solution strategy has showed to be effective. However, it is the explanation to the high values of standard deviation showed in Table~\ref{tab:costas19comm}. \Ass{} used for the resolution of \CARRP{} combine \oms{} which take many stochastic decisions. The neighborhood \om{} compute the neighborhood based on the most culprit variable of the input configuration, which is randomly selected if there exist more than one. This \m{} also generates neighbors by selecting randomly the variables to swap. In addiction, the reset \om{} generates configurations in three different ways and equally probable, for a same input configuration.}
+The random nature of this solution strategy has showed to be effective. However, it is the explanation to the high values of standard deviation showed in Table~\ref{tab:costas19comm}: \ass{} used for the resolution of \CARRP{} combine \oms{} which take many stochastic decisions. The neighborhood \om{} computes the neighborhood based on the most culprit variable of the input configuration, which is randomly selected if there exist more than one. This \m{} also generates neighbors by selecting randomly the variables to swap. In addiction, the reset \om{} generates configurations in three different ways and equally probable, for a same input configuration.
 
 %\begin{algorithm}[H]
 %\dontprintsemicolon
@@ -265,7 +235,7 @@ $\left[\eqsolverposl{sender}\posldot A(20)\right] \oneton \left[\eqsolverposl{re
 %\myproc{as\_hard\_receiver\_a \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 %	\tet{\bf computation} : $I, R, V, S, A$\; %\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
 %	\tet{\bf communication} : $C.M.$\;}{%
-%	$I \poslop{\mapsto}$\\
+%	$I\poslop{\mapsto}$\\
 %	\While{$\left(\textbf{\Iter < } K_1\right)$}{
 %		$R \poslop{\mapsto}$
 %		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} \left[A \poslop{m} C.M.\right]\right]$}
@@ -282,7 +252,7 @@ $\left[\eqsolverposl{sender}\posldot A(20)\right] \oneton \left[\eqsolverposl{re
 %\myproc{as\_hard\_receiver\_c \tcp*{{\sc Itr} $\rightarrow$ number of iterations}
 %	\tet{\bf computation} : $I, R, V, S, A$\; %\tcp*{{\sc Sci} $\rightarrow$ number of iterations with the same cost}
 %	\tet{\bf communication} : $C.M.$\;}{%
-%	$I \poslop{\mapsto}$\\
+%	$I\poslop{\mapsto}$\\
 %	\While{$\left(\textbf{\Iter < } K_1\right)$}{
 %		$\left[R \poslop{m} C.M.\right] \poslop{\mapsto}$
 %		\whileinline{$\left(\textbf{\Iter \% } K_2\right)$}{$\left[V \poslop{\mapsto} S \poslop{\mapsto} A\right]$}

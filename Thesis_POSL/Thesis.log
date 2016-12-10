@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  9 DEC 2016 11:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.1.20)  10 DEC 2016 14:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -7989,9 +7989,9 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 
 (./results/res_golfers.tex [72]
 Underfull \hbox (badness 1394) in paragraph at lines 18--19
-[][]\T1/lmr/m/n/10.95 (+20) The cost $\OML/lmm/m/it/10.95 c[]$ \T1/lmr/m/n/10.9
-5 (+20) is pe-nal-ized if some vec-tor $\OML/lmm/m/it/10.95 W[]$ \T1/lmr/m/n/10
-.95 (+20) does not have its val-ues all dif-fer-
+[]\T1/lmr/m/n/10.95 (+20) The cost $\OML/lmm/m/it/10.95 c[]$ \T1/lmr/m/n/10.95 
+(+20) is pe-nal-ized if some vec-tor $\OML/lmm/m/it/10.95 W[]$ \T1/lmr/m/n/10.9
+5 (+20) does not have its val-ues all dif-fer-
  []
 
 Package mdframed Info: mdframed works in twoside mode on input line 26.
@@ -8531,7 +8531,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 113.
+(scrbook)              by `\normalfont \itshape ' on input line 110.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -10348,10 +10348,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
 (scrbook)              by `\normalfont \bfseries ' on input line 511.
 
-) (./results/res_nqueens.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [84]
+) (./results/res_nqueens.tex [84]
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              You should note, that in 1994 font command `\sc' has
@@ -11681,8 +11678,8 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 
 [89]
 Underfull \hbox (badness 3919) in paragraph at lines 214--215
-[][]\T1/lmr/m/n/10.95 (+20) The main idea of the pro-posed com-mu-ni-ca-tion st
-rat-egy fol-lows the fol-low-ing
+[]\T1/lmr/m/n/10.95 (+20) The main idea of the pro-posed com-mu-ni-ca-tion stra
+t-egy fol-lows the fol-low-ing
  []
 
 Package mdframed Info: mdframed works in twoside mode on input line 234.
@@ -11935,7 +11932,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 47.
+(scrbook)              by `\normalfont \itshape ' on input line 48.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -11949,7 +11946,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 47.
+(scrbook)              by `\normalfont \itshape ' on input line 48.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -12749,7 +12746,7 @@ Class scrbook Warning: Usage of deprecated font command `\bf'!
 (scrbook)              But for now, KOMA-Script will replace deprecated `\bf'
 (scrbook)              by `\normalfont \bfseries ' on input line 180.
 
-Package mdframed Info: mdframed works in twoside mode on input line 224.
+Package mdframed Info: mdframed works in twoside mode on input line 211.
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              You should note, that in 1994 font command `\sc' has
@@ -12762,11 +12759,11 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 224.
+(scrbook)              by `\normalfont \scshape ' on input line 211.
 
-Package mdframed Info: Not enough space on this page on input line 224.
+Package mdframed Info: Not enough space on this page on input line 211.
 [96]
-Package mdframed Info: Not enough space on this page on input line 224.
+Package mdframed Info: Not enough space on this page on input line 211.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -12780,7 +12777,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 243.
+(scrbook)              by `\normalfont \itshape ' on input line 213.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -12794,7 +12791,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 243.
+(scrbook)              by `\normalfont \itshape ' on input line 213.
 
 
 Class scrbook Warning: Usage of deprecated font command `\it'!
@@ -12808,7 +12805,7 @@ Class scrbook Warning: Usage of deprecated font command `\it'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\it' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\it'
-(scrbook)              by `\normalfont \itshape ' on input line 243.
+(scrbook)              by `\normalfont \itshape ' on input line 213.
 
 [97]
 
@@ -12823,7 +12820,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 246.
+(scrbook)              by `\normalfont \scshape ' on input line 216.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sf'!
@@ -12837,7 +12834,7 @@ Class scrbook Warning: Usage of deprecated font command `\sf'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sf' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sf'
-(scrbook)              by `\normalfont \sffamily ' on input line 253.
+(scrbook)              by `\normalfont \sffamily ' on input line 223.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -12851,7 +12848,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 255.
+(scrbook)              by `\normalfont \scshape ' on input line 225.
 
 
 Class scrbook Warning: Usage of deprecated font command `\sc'!
@@ -12865,7 +12862,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              Note also, that KOMA-Script will remove the definition
 (scrbook)              of `\sc' anytime until release of about version 3.20.
 (scrbook)              But for now, KOMA-Script will replace deprecated `\sc'
-(scrbook)              by `\normalfont \scshape ' on input line 255.
+(scrbook)              by `\normalfont \scshape ' on input line 225.
 
 ) (./results/res_golomb.tex
 
@@ -14497,7 +14494,7 @@ Class scrbook Warning: Usage of deprecated font command `\sc'!
 (scrbook)              by `\normalfont \scshape ' on input line 10.
 
 
-Underfull \vbox (badness 5592) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [106]
 <images/no_conn.png, id=2254, 784.9325pt x 661.47125pt>
@@ -23982,11 +23979,11 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 59.
  ) 
 Here is how much of TeX's memory you used:
- 52635 strings out of 494272
- 1015831 string characters out of 6160999
+ 52629 strings out of 494272
+ 1015771 string characters out of 6160999
  1413206 words of memory out of 5000000
  52397 multiletter control sequences out of 15000+600000
- 308466 words of font info for 414 fonts, out of 8000000 for 9000
+ 308217 words of font info for 411 fonts, out of 8000000 for 9000
  443 hyphenation exceptions out of 8191
  82i,30n,152p,10388b,2930s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texlive/texmf-dist
@@ -24030,7 +24027,7 @@ sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb>
-Output written on Thesis.pdf (204 pages, 3952327 bytes).
+Output written on Thesis.pdf (204 pages, 3951480 bytes).
 PDF statistics:
  3923 PDF objects out of 4296 (max. 8388607)
  3429 compressed objects within 35 object streams

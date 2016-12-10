@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {4.2}A dynamic configuration exchange strategy (Social Golfers)}{72}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Problem definition}{72}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Experiments design and results}{74}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}A cyclic communication strategy{} (N-Queens)}{85}{section.4.3}
+\contentsline {section}{\numberline {4.3}A cyclic communication strategy{} (N-Queens)}{84}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}Problem definition}{85}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}Experiments design and results}{86}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}A simple communication strategy{} (Costas Array)}{92}{section.4.4}
