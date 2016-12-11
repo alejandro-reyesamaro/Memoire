@@ -1,8 +1,4 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.1}Introduction}{\reset@font\mtcSfont 140}{section.B.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.2}Using ParamILS}{\reset@font\mtcSfont 140}{section.B.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.3}Tuning scenario files}{\reset@font\mtcSfont 141}{section.B.3}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.4}Building the wrapper}{\reset@font\mtcSfont 143}{section.B.4}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.5}Results}{\reset@font\mtcSfont 145}{section.B.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {B.5.1} Tuning {\it Adaptive Search} for {\it All-Intervals Series Problem}}{\reset@font\mtcSSfont 145}{subsection.B.5.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {B.5.2} Tuning {\it Adaptive Search} for Costas Array{} Problem}{\reset@font\mtcSSfont 148}{subsection.B.5.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {B.6}Conclusion}{\reset@font\mtcSfont 150}{section.B.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.1}Introduction}{\reset@font\mtcSfont 132}{section.A.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.2}Domain Splitting. General point of view}{\reset@font\mtcSfont 133}{section.A.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.3}Split strategies}{\reset@font\mtcSfont 134}{section.A.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {A.4}Conclusion}{\reset@font\mtcSfont 137}{section.A.4}}
