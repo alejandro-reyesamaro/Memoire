@@ -20,45 +20,45 @@ Warning--empty year in Jinnai
 Warning--empty institution in Babai1979
 Warning--empty institution in Arbab1995
 Warning--empty year in Reyes-amaro
-You've used 141 entries,
+You've used 140 entries,
             1791 wiz_defined-function locations,
-            1345 strings with 27357 characters,
-and the built_in function-call counts, 40329 in all, are:
-= -- 3952
-> -- 1462
-< -- 92
-+ -- 538
-- -- 397
-* -- 2598
-:= -- 5843
-add.period$ -- 473
-call.type$ -- 141
-change.case$ -- 151
+            1344 strings with 27367 characters,
+and the built_in function-call counts, 40544 in all, are:
+= -- 4002
+> -- 1426
+< -- 96
++ -- 528
+- -- 388
+* -- 2607
+:= -- 5822
+add.period$ -- 474
+call.type$ -- 140
+change.case$ -- 150
 chr.to.int$ -- 0
-cite$ -- 154
-duplicate$ -- 2009
-empty$ -- 3935
-format.name$ -- 397
-if$ -- 9444
+cite$ -- 153
+duplicate$ -- 2026
+empty$ -- 3970
+format.name$ -- 388
+if$ -- 9530
 int.to.chr$ -- 0
-int.to.str$ -- 141
+int.to.str$ -- 140
 missing$ -- 137
-newline$ -- 708
-num.names$ -- 161
-pop$ -- 496
+newline$ -- 703
+num.names$ -- 152
+pop$ -- 489
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1095
+skip$ -- 1122
 stack$ -- 0
-substring$ -- 2999
-swap$ -- 700
-text.length$ -- 92
+substring$ -- 3069
+swap$ -- 726
+text.length$ -- 96
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 13
-while$ -- 438
-width$ -- 144
-write$ -- 1618
+while$ -- 442
+width$ -- 143
+write$ -- 1611
 (There were 13 warnings)

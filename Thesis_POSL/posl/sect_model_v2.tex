@@ -1,6 +1,6 @@
 %In this stage we explain formally our modeling process of a benchmark to be solved (or study) through \posl{}. We explain how to make use of the already existing models or to create new benchmarks using the basic layer of the framework in C++ making a proper usage of the object-oriented design.
 
-Target problems are modeled using the low-level framework provided by \posl{} (written in C++ programming language) %, respecting some rules of the object-oriented design. 
+Target problems are modeled using the low-level framework provided by \posl{} (written in C++) %, respecting some rules of the object-oriented design. 
 They have to be coded respecting an object-oriented hierarchy designed for the optimum performance of the language. The most important functionalities that the proposed model have to provide are the following:
 
 \underline{\textbf{Cost function}}. This function must compute the \textit{cost} of a given configuration. It must return an integer value taking into account the problem constraints. Given a configuration $s$, the \textit{cost function}, as a mandatory rule, must return 0 if and only if $s$ is a solution of the problem, \ie $s$ fulfills all the problem constraints. Otherwise, it must return an integer describing ``how long'' is the given configuration from a solution. An example of \textit{cost function} is the one returning the number of violated constraints. However, the more expressive the cost function is, the better the performance of \posl{} to lead to the solution is.

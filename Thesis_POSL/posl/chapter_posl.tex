@@ -3,7 +3,7 @@
 %----------------------------------------------------------------------------------------------
 \chapter[\posl{}: Parallel Oriented Solver~Language]{A Parallel-Oriented Language for Modeling Meta-Heuristic-Based Solvers and communication strategies}
 \label{chap:posl}
-\textit{In this chapter \posl{} is introduced as the main contribution of this thesis and a new way to solve \csps{} (Section \ref{sec:posl_intro}). Its characteristics and advantages are summarized, and a general methodology for building parallel solvers using \posl{} is described. Then, a detailed description of each step is presented: modeling the target benchmark in Section~\ref{sec:model}, creating \posl's modules in Section~\ref{sec:1ststage}, assembling \posl's modules in Section~\ref{sec:2ndstage}, creating \posl{} solvers in Section~\ref{sec:3rdstage}, connecting solvers in Section~\ref{sec:4thstage} and then, a brief summary in Section~\ref{sec:posl_zum}.}
+\textit{In this chapter, \posl{} is introduced as the main contribution of this thesis (Section \ref{sec:posl_intro}). Its characteristics and advantages are summarized, and a general methodology for building parallel solvers using \posl{} is described. Then, a detailed description of each step is presented: modeling the target benchmark in Section~\ref{sec:model}, creating \posl's modules in Section~\ref{sec:1ststage}, assembling \posl's modules in Section~\ref{sec:2ndstage}, creating \posl{} solvers in Section~\ref{sec:3rdstage}, connecting solvers in Section~\ref{sec:4thstage} and then, a brief summary in Section~\ref{sec:posl_zum}.}
 \vfill
 \minitoc
 \newpage
@@ -11,11 +11,13 @@
 \section{Introduction}
 \label{sec:posl_intro}
 
-Meta-heuristic methods, despite showing very good results for solving \CSPs, are frequently not enough for solving instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction for this thesis was to tackle one of the weakest points of meta-heuristic methods: theirs parameters. In Appendix~\ref{chap:prior_paramils} a performed study applying {\sc ParamILS} to {\it Adaptive Search} in order to find a general parameter settings is presented. This experiment did not produce encouraging results. That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
+Meta-heuristic methods, despite showing very good results for solving \CSPs, are frequently not enough for solving instances with extremely large search spaces. Most of these methods are sensible to their large number of parameters. For that reason, a first direction for this thesis was to tackle one of the weakest points of meta-heuristic methods: theirs parameters. In that sense, a performed study applying {\sc ParamILS}\footnote{{\sc ParamILS} (available at \href{http://cs.ubc.ca/labs/beta/Projects/ParamILS}{\texttt{http://cs.ubc.ca/labs/beta/Projects/ParamILS}}) is a stochastic local search approach for automated algorithm parameter tuning, first introduced by Hutter, Hoos and St\:utzle in 2007. The source includes some examples that we can run and see how the tool works. In addition, it brings a complete User Guide with a compact explanation about how to use it with a specific solver \cite{Hutter2008,Hutter2009}.} to {\it Adaptive Search} in order to find a general parameter settings was performed. \new{This experiment did not produce encouraging results, showing that default parameters used in the current implementation of \textit{Adaptive Search} are more effective and consistent than those found by {\sc ParamILS} for both tested benchmarks (All-Interval Series and \carr{} problems).}
+
+That is why it was decided to abandon the idea as the main direction of the thesis, but not as future work.
 
 From the beginning of the current investigation, the target problems were big and complex instances of \csps. For that reason, even if the current version of the framework does not provide auto tuning mechanisms, this thesis focuses on the implementation of a mechanism to easily build solvers based on local search meta-heuristic, providing an easy way of reusing algorithm's components common to different methods.
 
-With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided to focus this thesis completely on the parallel approach. In Appendix~\ref{chap:prior_split} we present a study in which the problem-subdivision approach was applied to the resolution of {\it K-Medoids Problem}. The main goal of this work was generalizing the proposed ideas to similar problems. It was only a theoretical study, performed in parallel with what would latter be the main scientific contribution of this thesis.
+With the development of parallelism, opening new ways to tackle constrained problems, the accessibility to this technology to a broad public has also increased. It is available through multi-core personal computers, Xeon Phi cards and GPU video cards. For that reason it was decided to focus this thesis completely on the parallel approach. \new{Using the {\it K-Medoids Problem}, a study in which the problem-subdivision approach was applied to its resolution was performed. The main goal of this work was generalizing the proposed ideas by \etal{Arbelaez} in \cite{Arbelaez2012} where authors present a study of the impact of space-partitioning techniques on the performance of parallel local search algorithms to tackle this problem. It was only a theoretical study, performed in parallel with what would latter be the main scientific contribution of this thesis.}
 
 Many results from the literature indicate that the combination of meta-heuristic methods with parallelism provides very good results for large scale \csps. This investigation focuses in the implementation of the multi-walk parallel approach. Most of the methods found in the state of the art of this field are based on applying clever techniques to accelerate the solution process of specific problems. The present work does not apply partitioning techniques neither for the search space nor for the target problem. This makes the proposed framework applicable in a general and more easy way for a broad range of problems.
 
@@ -63,7 +65,7 @@ In this chapter we present \posl{}, the main contribution of this thesis, as wel
 		\label{subfig:modules}
 		\includegraphics[width=0.4\linewidth]{modules_1.png}
 	}\\
-	\subfloat[][Assembling modules using \posl's operators]{%
+	\subfloat[][Assembling modules using \posl's operators to create solvers]{%
 		\label{subfig:as}
 		\includegraphics[width=0.6\linewidth]{example_1.png}
 	}\\
@@ -96,7 +98,7 @@ In the following sections all these steps are explained in details, but first, w
 
 \section{Summarizing}\label{sec:posl_zum} \vspace{-10pt}
 
-In this chapter \posl{} have been formally presented, as a Parallel--Oriented Solver Language to build meta-heuristic-based solver to solve \CSPs{}. This language provides a set of \oms{} useful to solve a wide range of constrained problems. It is also possible to create new ones, through the low-level framework in C++ programming language. \posl{} also provides a set of \opchs{}, essential features to share information between solvers.
+In this chapter \posl{} have been formally presented, as a Parallel--Oriented Solver Language to build meta-heuristic-based solver to solve \CSPs{}. This language provides a set of \oms{} useful to solve a wide range of constrained problems. It is also possible to create new ones, through the low-level framework in C++. \posl{} also provides a set of \opchs{}, essential features to share information between solvers.
 
 One of the \posl's advantages is the possibility of creating, using an operator-based language, \ass{} remaining independent from concrete \bothmodules{}. It is then possible to create many different solvers built upon the same \as{} by only instantiating different modules. It is also possible to create different \comstrs{} upon the same \soset{} by using \commopers{} that \posl{} provides.
 

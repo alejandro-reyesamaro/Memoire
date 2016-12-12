@@ -25,7 +25,7 @@ Ibrahim~H Osman and Gilbert Laporte.
 \bibitem{Boussaid2013}
 Ilhem Boussa{\"{i}}d, Julien Lepagnot, and Patrick Siarry.
 \newblock {A survey on optimization metaheuristics}.
-\newblock {\em Information Sciences}, 237:82--117, jul 2013.
+\newblock {\em Information Sciences}, 237:82--117, 2013.
 
 \bibitem{Arbelaez2014a}
 Alejandro Arbelaez, Deepak Mehta, and Luis Quesada.
@@ -69,14 +69,15 @@ Alex~S Fukunaga.
 \bibitem{Landtsheer2015}
 Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
 \newblock {Combining Neighborhoods into Local Search Strategies}.
-\newblock In {\em 11th MetaHeuristics International Conference}, Agadir, 2015.
-  Springer.
+\newblock In {\em 11th MetaHeuristics International Conference}. Springer,
+  2015.
 
 \bibitem{Martin2016}
 Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
   and Edmund~K Burke.
 \newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
-\newblock {\em European Journal of Operational Research}, 2016.
+\newblock {\em European Journal of Operational Research}, 254(1):169--178,
+  2016.
 
 \bibitem{Akplogan2011}
 Mahuna Akplogan, J{\'{e}}rome Dury, Simon de~Givry, Gauthier Quesnel, Alexandre
@@ -85,7 +86,7 @@ Mahuna Akplogan, J{\'{e}}rome Dury, Simon de~Givry, Gauthier Quesnel, Alexandre
 \newblock {A Weighted CSP approach for solving spatio-temporal planning problem
   in farming systems}.
 \newblock In {\em 11th Workshop on Preferences and Soft Constraints Soft
-  2011.}, Perugia, Italy, 2011.
+  2011.}, 2011.
 
 \bibitem{Sibbesen2008}
 Louise~K. Sibbesen.
@@ -129,13 +130,14 @@ Fr{\'{e}}d{\'{e}}ric Boussemart, Christophe Lecoutre, and C{\'{e}}dric Piette.
 Krzysztof~R. Apt.
 \newblock {From Chaotic Iteration to Constraint Propagation}.
 \newblock In {\em 24th International Colloquium on Automata, Languages and
-  Programming (ICALP'97)}, pages 36--55, 1997.
+  Programming (ICALP'97)}, pages 36--55. CWI (Centre for Mathematics and
+  Computer Science), 1997.
 
 \bibitem{Monfroy}
 {\'{E}}ric Monfroy and Jean-Hugues R{\'{e}}ty.
 \newblock {Chaotic Iteration for Distributed Constraint Propagation}.
-\newblock In {\em ACM symposium on Applied computing SAC '99}, pages 19--24,
-  1999.
+\newblock In {\em ACM Symposium on Applied Computing (SAC '99)}, pages 19--24.
+  ACM, 1999.
 
 \bibitem{Chazan1969}
 Daniel Chazan and Willard Miranker.
@@ -147,59 +149,61 @@ Patrick Cousot and Radhia Cousot.
 \newblock {Automatic synthesis of optimal invariant assertions: mathematical
   foundations}.
 \newblock In {\em ACM Symposium on Artificial Intelligence amd Programming
-  Languages}, volume~12, pages 1--12, Rochester, NY, 1977.
+  Languages}, volume~12, pages 1--12. ACM, 1977.
 
 \bibitem{Monfroy2000}
 {\'{E}}ric Monfroy.
 \newblock {A coordination-based chaotic iteration algorithm for constraint
   propagation}.
-\newblock In {\em Proceedings of The 15th ACM Symposium on Applied Computing,
-  SAC 2000}, pages 262--269. ACM Press, 2000.
+\newblock In {\em Proceedings of The 15th ACM Symposium on Applied Computing
+  (SAC'2000)}, pages 262--269. ACM Press, 2000.
 
 \bibitem{Zoeteweij2003}
 Peter Zoeteweij.
 \newblock {Coordination-based distributed constraint solving in DICE.}
 \newblock In {\em Proceedings of the 18th ACM Symposium on Applied Computing
-  (SAC 2003)}, pages 360--366, New York, 2003. ACM Press.
+  (SAC 2003)}, pages 360--366. ACM Press, 2003.
 
 \bibitem{Granvilliers2001}
 Laurent Granvilliers and {\'{E}}ric Monfroy.
 \newblock {Implementing Constraint Propagation by Composition of Reductions}.
-\newblock In {\em Logic Programming}, pages 300--314. Springer Berlin
-  Heidelberg, 2001.
+\newblock In {\em Logic Programming}, pages 300--314. Springer, 2001.
 
 \bibitem{DP_Composite}
 Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
 \newblock {The Iterator and Composite Patterns. Well-Managed Collections}.
 \newblock In {\em Head First Design Patterns}, chapter~9, pages 315--384.
-  O'Relliy, 1st edition, 2004.
+  O'Reilly, 1st edition, 2004.
 
 \bibitem{DP_Observer}
 Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
 \newblock {The Observer Pattern. Keeping your Objects in the know}.
 \newblock In {\em Head First Design Patterns}, chapter~2, pages 37--78.
-  O'Relliy, 1st edition, 2004.
+  O'Reilly, 1st edition, 2004.
 
 \bibitem{DP_Strategy}
 Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
 \newblock {Introduction to Design Patterns}.
 \newblock In {\em Head First Design Patterns}, chapter~1, pages 1--36.
-  O'Relliy, 1st edition, 2004.
+  O'Reilly, 1st edition, 2004.
 
 \bibitem{Prudhomme2013}
 Charles Prud'homme, Xavier Lorca, R{\'{e}}mi Douence, and Narendra Jussien.
 \newblock {Propagation engine prototyping with a domain specific language}.
-\newblock {\em Constraints}, 19(1):57--76, sep 2013.
+\newblock {\em Constraints}, 19(1):57--76, 2013.
 
 \bibitem{Gent2006}
 Ian~P. Gent, Chris Jefferson, and Ian Miguel.
 \newblock {Watched Literals for Constraint Propagation in Minion}.
-\newblock {\em Lecture Notes in Computer Science}, 4204:182--197, 2006.
+\newblock {\em Principles and Practice of Constraint Programming (CP'2006)},
+  4204:182--197, 2006.
 
 \bibitem{Lagerkvist2007}
 Mikael~Z. Lagerkvist and Christian Schulte.
 \newblock {Advisors for Incremental Propagation}.
-\newblock {\em Lecture Notes in Computer Science}, 4741:409--422, 2007.
+\newblock In {\em 13th international conference on Principles and practice of
+  constraint programming (CP'07)}, volume 4741, pages 409--422. Springer LNCS,
+  2007.
 
 \bibitem{Gecode}
 Christian Schulte, Guido Tack, and Mikael~Z Lagerkvist.
@@ -211,7 +215,7 @@ Narendra Jussien, Hadrien {Prud'homme, Charles Cambazard}, Guillaume Rochart,
   and Fran{\c{c}}ois Laburthe.
 \newblock {Choco: an Open Source Java Constraint Programming Library}.
 \newblock In {\em CPAIOR'08 Workshop on Open-Source Software for Integer and
-  Contraint Programming (OSSICP'08),}, Paris, France, 2008.
+  Contraint Programming (OSSICP'08)}, pages 1--10, 2008.
 
 \bibitem{Prudhomme2016}
 Charles Prud'homme, Jean-Guillaume Fages, and Xavier Lorca.
@@ -222,7 +226,8 @@ Charles Prud'homme, Jean-Guillaume Fages, and Xavier Lorca.
 \bibitem{Dreo2006}
 Johann Dr{\'{e}}o, Patrick Siarry, Alain P{\'{e}}trowski, and Eric Taillard.
 \newblock {Introduction}.
-\newblock In {\em Metaheuristics for Hard Optimization}. Springer, 2006.
+\newblock In {\em Metaheuristics for Hard Optimization}, pages 1--19. Springer,
+  2006.
 
 \bibitem{Blum2003}
 Christian Blum and Andrea Roli.
@@ -235,14 +240,13 @@ Stefan Voss, Silvano Martello, Ibrahim~H. Osman, and Catherine Roucairol,
   editors.
 \newblock {\em {Meta-heuristics: Advances and trends in local search paradigms
   for optimization}}.
-\newblock Springer Science+Business Media, LLC, 2012.
+\newblock Springer, 2012.
 
 \bibitem{Nikolaev2010}
 Alexander~G. Nikolaev and Sheldon~H. Jacobson.
 \newblock {Simulated Annealing}.
-\newblock In Michel Gendreau and Jean-Yves Potvin, editors, {\em Handbook of
-  Metaheuristics}, volume 146, chapter~1, pages 1--39. Springer, 2nd edition,
-  2010.
+\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~1, pages
+  1--39. Springer, 2nd edition, 2010.
 
 \bibitem{Anagnostopoulos2006}
 Aris Anagnostopoulos, Laurent Michel, Pascal {Van Hentenryck}, and Yannis
@@ -254,9 +258,8 @@ Aris Anagnostopoulos, Laurent Michel, Pascal {Van Hentenryck}, and Yannis
 \bibitem{Gendreau2010}
 Michel Gendreau and Jean-Yves Potvin.
 \newblock {Tabu Search}.
-\newblock In Michel Gendreau and Jean-Yves Potvin, editors, {\em Handbook of
-  Metaheuristics}, volume 146, chapter~2, pages 41--59. Springer, 2nd edition,
-  2010.
+\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~2, pages
+  41--59. Springer, 2nd edition, 2010.
 
 \bibitem{IvanDotu2007}
 {Iv{\'{a}}n Dot{\'{u}}} and {Pascal Van Hentenryck}.
@@ -266,9 +269,8 @@ Michel Gendreau and Jean-Yves Potvin.
 \bibitem{Christos2010}
 Christos Voudouris, Edward~P.K. Tsang, and Abdullah Alsheddy.
 \newblock {Guided Local Search}.
-\newblock In Michel Gendreau and Jean-Yves Potvin, editors, {\em Handbook of
-  Metaheuristics}, volume 146, chapter~11, pages 321--361. Springer, 2 edition,
-  2010.
+\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~11, pages
+  321--361. Springer, 2nd edition, 2010.
 
 \bibitem{Mills2000}
 Patrick Mills and Edward Tsang.
@@ -278,8 +280,8 @@ Patrick Mills and Edward Tsang.
 \bibitem{PierreNenad}
 Pierre Hansen, Nenad Mladenovie, Jack Brimberg, and Jose A.~Moreno Perez.
 \newblock {Variable neighborhood Search}.
-\newblock In Michel Gendreau and Jean-Yves Potvin, editors, {\em Handbook of
-  Metaheuristics}, volume 146, chapter~3, pages 61--86. Springer, 2010.
+\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~3, pages
+  61--86. Springer, 2nd edition, 2010.
 
 \bibitem{Bouhmala2015}
 Noureddine Bouhmala, Karina Hjelmervik, and Kjell~Ivar Overgaard.
@@ -837,11 +839,5 @@ Stephen~W. Soliday, Abdollah. Homaifar, and Gary~L. Lebby.
 \newblock {Genetic algorithm approach to the search for Golomb Rulers}.
 \newblock In {\em International Conference on Genetic Algorithms}, volume~1,
   pages 528--535, Pittsburg, 1995.
-
-\bibitem{Paradis2005}
-Emmanuel Paradis.
-\newblock {R for Beginners}.
-\newblock Technical report, Institut des Sciences de l'Evolution,
-  Universit{\'{e}} Montpellier II, 2005.
 
 \end{thebibliography}

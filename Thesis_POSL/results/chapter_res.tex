@@ -12,13 +12,13 @@ We have chosen the \sgp, the \nqp, the \carrp{} and the \grp{} as benchmarks sin
 
 %In this chapter we present formally each benchmark, we explain the structure of \posl's solvers that we have generated for experiments and present a detailed analysis of obtained results.
 
-First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} where it was used to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, and it was able to solve relatively easy instances only. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}, and they encourage us to go even further on this direction. In this first version were implemented simple communciation mechanisms only (communication \oneTone{} and \oneTn{}, but only in one direction.)
+First results using \posl{} to solve constraint problems were published in \cite{Reyes-amaro} where it was used to solve the \sgp{} and to study some communication strategies. It was the first version of \posl{}, and it was able to solve relatively easy instances only. However, results suggested that the communication can play an important role if we are able to find the proper \commstr{}, and they encourage us to go even further on this direction. In this first version were implemented simple communication mechanisms only (communication \oneTone{} and \oneTn{}, but only in one direction.)
 
-In the second and current version of \posl{}\footnote{\posl{} source code is available on GitHub: \href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}}, other \commopers{} were incorporated, and those already existent were improved, in order to be able to build more sophisticated \commstrs. With this version, we decided to start performing more detailed studies, \new{which are presented in this chapter.} 
+In the second and current version of \posl{}\footnote{\posl{} source code is available on GitHub: \href{https://github.com/alejandro-reyesamaro/POSL}{https://github.com/alejandro-reyesamaro/POSL}}, other \commopers{} were incorporated, and those already existent were improved, in order to be able to build more sophisticated \commstrs. With this version, we started deeper investigations with more advanced experimentations, \new{which are presented in this chapter.} 
 
 \section{Methodology}
 
-Some terms are necessary to be defined for simplification sake: the \textit{sequential environment} and the \textit{parallel environment} are the description of the computation resources used for experimentation. Experiments were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called {\sc Curiosiphi} and is located at the  \textit{Laboratoire d'Informatique de Nantes Atlantique} of the Université de Nantes. %The other term that needs to be introduced is the \textit{statistical summary}, which is the obtained information from the runs, used to analyze the solution process and draw conclusions.
+Some terms are necessary to be defined for simplification sake: the \textit{sequential environment} and the \textit{parallel environment} are the description of the computation resources used for experimentation. Experiments were performed on an Intel\R{} Xeon\TM{} E5-2680 v2, 10$\times$4 cores, 2.80GHz. This server is called {\sc Curiosiphi} and is located at the  \textit{Laboratoire des Sciences du Numérique de Nantes (LS2N)} of the Université de Nantes. %The other term that needs to be introduced is the \textit{statistical summary}, which is the obtained information from the runs, used to analyze the solution process and draw conclusions.
 
 \begin{definition}\label{def:seq_envir}
 We say that we launch an experiment using a \textbf{sequential environment} if we execute a \soset{} into a single process of {\sc Curiosiphi}.
@@ -53,7 +53,7 @@ With the aim of being as exhaustive as possible in the experimentation process, 
 \item \underline{\textbf{Communication strategy evaluation}} The designed \commstr{} is launched using the parallel environment, and a statistical analysis is performed. Communication strategies are compared each others based on obtained results in order to select the right one. These results are also compared to those obtained during Stage~\ref{stage_expe_2}, to be able to draw conclusions about the success of the cooperative approach.
 \end{enumerate}
 
-It is important to point out that \posl{} is not designed to obtain the best results in terms of performance, and much less to outperform the state-of-the-art solutions, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
+It is important to point out that \posl{} is designed neither to obtain the best results in terms of performance, nor to outperform the state-of-the-art solutions, but to give the possibility of rapidly prototyping and studying different cooperative or non cooperative search strategies.
 
 %All benchmarks were coded using the \posl{} low-level framework in C++.
 

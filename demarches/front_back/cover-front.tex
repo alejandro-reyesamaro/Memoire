@@ -61,7 +61,7 @@
 
 \doctoralschool{Sciences et technologies de l'information, et mathématiques}
 %\europeanlabel
-\laboratory{Laboratoire d'informatique de Nantes-Atlantique (LINA)}
+\laboratory{Laboratoire des Sciences du Numérique de Nantes (LS2N)}
 \thesisnumber{}
    % - L'attribution d'un numéro dépend de l'établissement.
    %   De plus, cela est facultatif.
@@ -79,15 +79,16 @@
 %    \reviewer*{Civilité}{Prénom}{Nom}{Titre}{Établissement}
 %    - Dans de rares cas, un ou les rapporteurs de thèse pourraient ne pas être membre(s) du jury le jour de la soutenance.
 %      Utilisez alors la version étoilée de la commande.
-\reviewer{M.}{Salvador}{ABREU}{Professeur étranger}{Université d'Évora}
+\reviewer{M.}{Salvador}{ABREU}{Professeur}{Université d'Évora}
 \reviewer{M.}{Christophe}{LECOUTRE}{Professeur}{Université d'Artois}
 
 % examinateurs (optionnel, jusqu'à huit... en théorie) / examiners (optional, up to height... in strange cases)
 %    \examiner{Civilité}{Prénom}{Nom}{Titre}{Établissement}
-\examiner{M.}{Arnaud}{LALLOUET}{Chercheur industriel}{Huawei Technologies Ltd.}
+\examiner{M.}{Arnaud}{LALLOUET}{Ingénieur de recherche}{Huawei Technologies Ltd.}
+\examiner{M.}{Frédéric}{LARDEUX}{Maître de conférences}{Université d'Angers}
 %\examiner{Mme}{Martine}{Lani-Bayle}{Maître de conférences}{École nationale des Ponts et Chaussées, Marne-la-Vallée}
 %\examiner{M.}{Patrick}{Ledru}{Ingénieur-chercheur sénior}{Universidad del Pa\`is Vasco, Bilbao, Espagne}
-\president{M.}{Frédéric}{LARDEUX}{Maître de conférences}{Université d'Angers} % cf. ci-dessous / See below
+%\president{-}{}{}{}{} % cf. ci-dessous / See below
 %\examiner{Mme}{Prénom}{Nom}{Titre}{Établissement}
 
 % president (optionnel) / president (optional)
@@ -161,7 +162,7 @@ CSP, méta-heuristiques, parallèle, communication entre processus, langage.
    \footnotesize
    %\scriptsize
 The multi-core technology and massive parallel architectures are nowadays more accessible for a broad public through hardware like the Xeon Phi or GPU cards. This architecture strategy has been commonly adopted by processor manufacturers to stick with Moore's law. However, this new architecture implies new ways of designing and implementing algorithms to exploit their full potential. This is in particular true for constraint-based solvers dealing with combinatorial optimization problems.
-Furthermore, the developing time needed to code parallel solvers is often underestimated. In fact, conceiving efficient algorithms to solve certain problems takes a considerable amount of time. In this thesis we present {\sc POSL}, a Parallel-Oriented Solver Language for building solvers based on meta-heuristic, in order to solve Constraint Satisfaction Problems (CSP) in parallel. The main goal of this thesis is to obtain a system with which solvers can be easily built, reducing therefore their development effort, by proposing a mechanism of code reusing between solvers. It provides a mechanism to implement solver-independent communication strategies. We also present a detailed analysis of the results obtained when solving some CSPs. The goal is not to outperform the state of the art in terms of efficiency, but showing that it is possible to rapidly prototyping with {\sc POSL} in order to experiment different communication strategies.
+Furthermore, the developing time needed to code parallel solvers is often underestimated. In fact, conceiving efficient algorithms to solve certain problems takes a considerable amount of time. In this thesis we present {\sc POSL}, a Parallel-Oriented Solver Language for building solvers based on meta-heuristic in order to solve Constraint Satisfaction Problems (CSP) in parallel. The main goal of this thesis is to obtain a system with which solvers can be easily built, reducing therefore their development effort by proposing a mechanism for code reusing between solvers. It also provides a mechanism to implement solver-independent communication strategies. We also present a detailed analysis of the results obtained when solving some CSPs. The goal is not to outperform the state--of--the--art solvers in terms of efficiency, but to show that it is possible to rapidly prototype with {\sc POSL} in order to experiment different communication strategies.
 \end{abstract}
 
 \begin{keywords}

@@ -1101,14 +1101,14 @@
       \ifx#3\@empty
       \else
          \ifnum #4 = 0\relax
-            \@onecommitteemember{Co-directeur de th\`ese}{#3}
+            \@onecommitteemember{Co-encadrant de th\`ese}{#3} %directeur de th\`ese}{#3}
          \else
             \@onecommitteemember{Co-directrice de th\`ese}{#3}
          \fi
       \fi
    \else\ifx#3\@empty
       \ifnum #2 = 0\relax
-         \@onecommitteemember{Co-directeur de th\`ese}{#1}
+         \@onecommitteemember{Co-encadrant de th\`ese}{#1}
       \else
          \@onecommitteemember{Co-directrice de th\`ese}{#1}
       \fi

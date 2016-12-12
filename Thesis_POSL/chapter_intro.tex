@@ -1,6 +1,6 @@
 \chapter{Introduction}
 \label{chap:Intro}
-\textit{In this chapter \CSPs{} (\csp) are introduced as the main target problems. Since they are extremely complicated, they are tackled by meta-heuristic methods. However, this methods are not sufficient for some problem instances. The new era of parallelism has opened new ways to solve \csps{}. \posl{} is proposed as an alternative. It is a Parallel-Oriented Solver Language to build many different solvers working in parallel. \posl{} also provides simple mechanisms to construct communication strategies with few effort. Finally, the structure of this document is presented.}
+\textit{In this chapter \CSPs{} (\csp) are introduced as the main target problems. \posl{}, the main contribution of this thesis, is proposed: a Parallel-Oriented Solver Language to build many different solvers working in parallel. \posl{} also provides simple mechanisms to construct communication strategies with few effort. Finally, the structure of this document is presented.}
 \vfill
 \minitoc
 \newpage
@@ -26,7 +26,7 @@ With all these elements, the idea of obtaining a tool to rapidly prototype solut
 
 \section{Goals and contributions}
 
-The \underline{first contribution} of this thesis is presenting: 
+In this section, the \underline{main contribution} of this thesis is presented, which is the design and implementation of: 
 \begin{center}
 \posl{} (pronounced "puzzle")\\
 \textbf{Parallel-Oriented Solver Language}
@@ -42,7 +42,7 @@ This framework was inspired by a similar idea proposed by Alex S. Fukunaga in \c
 
 %In the last phase of the coding process with \posl{}, solvers can be connected each others, depending on the structure of their \opchs, and this way, they can share not only information, but also their behavior, by sharing their \oms. This approach makes the solvers able to evolve during the execution.
 
-The \underline{second contribution} of the present work is a detailed study of the solution process of some \CSPs{} chosen as benchmarks, using \posl{}. In this study some different strategies are proposed, in order to show how the communication can play an important role in the solution of \csps{}.
+The \underline{other contribution} of the present work is a detailed study of the solution process of some \CSPs{} chosen as benchmarks, using \posl{}. In this study some different strategies are proposed, in order to show how the communication can play an important role in the solution of \csps{}.
 
 A first study was made using the \sgp{}, in which a \textit{standard} communication strategy is used: the communication of the current configuration. This strategy shows to be effective because it helps to preserve the equilibrium between exploration and exploitation, necessary in the efficient resolution of this problem.
 
@@ -67,4 +67,6 @@ Results for each study to build \posl{} \comstrs{} to solve the proposed benchma
 
 Main results of this thesis are summarized in Chapter~\ref{chap:conclusion}, where possible new lines of investigation are also discussed.
 
-This document includes some appendixes in order to bring more detailed information. A theoretical study of the problem subdivision approach applied to divide the variable domains of the \textit{K-Medoids Problem} is presented in Appendix~\ref{chap:prior_split} as a prior works leading to \posl{}. Another study was performed: applying the {\sc ParamILS} tool to find the optimum parameter configuration to \textit{Adaptive Search} solver (presented in Appendix~\ref{chap:prior_paramils}). Appendix~\ref{app:sgp}, \ref{app:cap}, \ref{app:nqp}, and~\ref{app:grp} show detailed results of the experimentation process.
+This document includes also Appendixes~\ref{app:sgp}, \ref{app:cap}, \ref{app:nqp}, and~\ref{app:grp} in order to bring more detailed information about results of the experimentation process.
+%This document includes some appendixes in order to bring more detailed information: %A theoretical study of the problem subdivision approach applied to divide the variable domains of the \textit{K-Medoids Problem} is presented in Appendix~\ref{chap:prior_split} as a prior works leading to \posl{}. Another study was performed: applying the {\sc ParamILS} tool to find the optimum parameter configuration to \textit{Adaptive Search} solver (presented in Appendix~\ref{chap:prior_paramils}). 
+%Appendix~\ref{app:sgp}, \ref{app:cap}, \ref{app:nqp}, and~\ref{app:grp} show detailed results of the experimentation process.
