@@ -424,7 +424,41 @@ Figure~\ref{fig:solversgolfers} shows a single standard solver's run versus a si
 \caption{Companion solver for \SGP}\label{as:golfers_partial}
 \end{algorithm}
 
-We also design different \commstrs, combining connected and unconnected solvers in different percentages, and applying two different \commopers: \oneTone{} and \oneTn. The code for the \commstr{} of 100\% of communicating solvers is presented in Algorithm~\ref{comm:golfers_v2_100} and for 50\% of communicating solvers in Algorithm~\ref{comm:golfers_v2_50}. 
+We also design different \commstrs, combining connected and unconnected solvers in different percentages, and applying two different \commopers: \oneTone{} and \oneTn. Algorithms~\ref{comm:golfers_v2_100}, \ref{comm:golfers_v2_50}, and~\ref{comm:golfers_v2_25} represent the \commstrs{} using operator \oneTone{} with 100\%, 50\% and 25\% of communicating solvers, respectively. Algorithm~\ref{comm:golfers_v2_1-n} represents \commstrs{} using \oneTn{} operator by groups (K = 1,2,4).
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\SetNoline
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]20;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]20;$
+\caption{Companion communication strategy 100\% communication}\label{comm:golfers_v2_100}
+\end{algorithm}
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\SetNoline
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]10;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]10;$\;
+$\left[\eqsolverposl{first}\right]20;$\;
+\caption{Companion communication strategy 50\% communication}\label{comm:golfers_v2_50}
+\end{algorithm}
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\SetNoline
+$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]5;$\;
+$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]5;$\;
+$\left[\eqsolverposl{first}\right]10;$\;
+\caption{Companion communication strategy 25\% communication}\label{comm:golfers_v2_25}
+\end{algorithm} 
+
+\begin{algorithm}[!h]
+\dontprintsemicolon
+\SetNoline
+$\left[\eqsolverposl{companion}\posldot A(\tfrac{20}{K})\right] \oneton \left[\eqsolverposl{standard}\posldot C.M.(\tfrac{20}{K})\right]K;$\;
+$\left[\eqsolverposl{standard}\posldot A(\tfrac{20}{K})\right] \oneton \left[\eqsolverposl{companion}\posldot C.M.(\tfrac{20}{K})\right]K;$
+\caption{Companion \commstr{} \oneTn{}}\label{comm:golfers_v2_1-n}
+\end{algorithm}
 
 The main idea of this strategy follows the following steps:
 
@@ -449,23 +483,6 @@ In this step a \cm{} which combines the \oms{} $S_{first}$ and $S_{rand}$ throug
 
 \underline{Companion solver}: In this step a \cm{} which combines the \cm{} of the send data operator returning the output of $A_{AI}$ and the \opch{} $CM_{last}$ through the operator $\poslop{\vee}$ is executed. The not null operator takes the input of the Step 3 and executes $A_{AI}$ and returns the selected configuration $s'$(and sends $s'$ to external solvers); and $CM_{last}$, which returns the received configuration $s''$. The \cm{} returns either the configuration $s'$ if the received configuration $s''$ is NULL, or $s''$ otherwise. Then, the process returns to the Step 2.
 }
-
-\begin{algorithm}[h]
-\dontprintsemicolon
-\SetNoline
-$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]20;$\;
-$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]20;$
-\caption{Companion communication strategy 100\% communication}\label{comm:golfers_v2_100}
-\end{algorithm}
-
-\begin{algorithm}[h]
-\dontprintsemicolon
-\SetNoline
-$\left[\eqsolverposl{companion}\posldot A\right] \onetoone \left[\eqsolverposl{standard}\posldot C.M.\right]10;$\;
-$\left[\eqsolverposl{standard}\posldot A\right] \onetoone \left[\eqsolverposl{companion}\posldot C.M.\right]10;$\;
-$\left[\eqsolverposl{first}\right]20;$\;
-\caption{Companion communication strategy 50\% communication}\label{comm:golfers_v2_50}
-\end{algorithm}
 
 This \commstr{} produces some gain in terms of runtime as we can see in Tables~\ref{tab:golfers_v2_1N} and \ref{tab:golfers_v2_11} with respect to Table~\ref{tab:golfersB001}. It produces also more robust results in terms of runtime. The spread of results in iterations show higher variances, because there are included also results of companion solvers, which performs many times more iterations that the standard solvers. The percentage of the receiver solvers that were able to find the solution before the others did, was significant: the 73\% of the receiver solvers, as a mean among the three instances, were the winners (see Appendix~\ref{app:sgp}, Figures~\ref{barplot:5}, \ref{barplot:8} and \ref{barplot:9}), showing that the communication played an important role during the search, despite inter--process communication's overheads (reception, information interpretation, making decisions, etc).
 

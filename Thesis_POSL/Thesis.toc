@@ -1,0 +1,88 @@
+\select@language {english}
+\contentsline {chapter}{\nonumberline Acknowledgements}{vii}{chapter*.3}
+\contentsline {part}{I\hspace {1em}Presentation}{1}{part.1}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Goals and contributions}{5}{section.1.1}
+\contentsline {section}{\numberline {1.2}Structure of the document}{7}{section.1.2}
+\contentsline {chapter}{\numberline {2}State of the art}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Combinatorial Optimization}{10}{section.2.1}
+\contentsline {section}{\numberline {2.2}Constraint programming}{12}{section.2.2}
+\contentsline {section}{\numberline {2.3}Meta-heuristic methods}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Single Solution Based Meta-heuristic}{17}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Population Based Meta-heuristic}{19}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Hyper-heuristic Methods}{21}{section.2.4}
+\contentsline {section}{\numberline {2.5}Hybridization}{23}{section.2.5}
+\contentsline {section}{\numberline {2.6}Parallel computing}{24}{section.2.6}
+\contentsline {section}{\numberline {2.7}Solvers cooperation}{28}{section.2.7}
+\contentsline {section}{\numberline {2.8}Parameter setting techniques}{30}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Off-line tuning}{31}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}On-line tunning}{32}{subsection.2.8.2}
+\contentsline {section}{\numberline {2.9}Summarizing}{33}{section.2.9}
+\contentsline {part}{II\hspace {1em}{\sc POSL}{}: Parallel \penalty \@M {Oriented} Solver~Language\hfill }{35}{part.2}
+\contentsline {chapter}{\numberline {3}{\sc POSL}{}: Parallel Oriented Solver~Language}{37}{chapter.3}
+\contentsline {section}{\numberline {3.1}Introduction}{38}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Precedents}{39}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}POSL}{40}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Modeling the target benchmark}{41}{section.3.2}
+\contentsline {section}{\numberline {3.3}First stage: creating {\sc POSL}'s modules}{44}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Computation module}{44}{subsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.1.1}Creating new computation{} modules}{45}{subsubsection.3.3.1.1}
+\contentsline {subsection}{\numberline {3.3.2}Communication modules}{45}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Second stage: assembling {\sc POSL}'s modules}{47}{section.3.4}
+\contentsline {section}{\numberline {3.5}Third stage: creating {\sc POSL}{} solvers}{60}{section.3.5}
+\contentsline {section}{\numberline {3.6}Forth stage: connecting solvers}{61}{section.3.6}
+\contentsline {subsection}{\numberline {3.6.1}Solver namespace expansion}{65}{subsection.3.6.1}
+\contentsline {section}{\numberline {3.7}Summarizing}{66}{section.3.7}
+\contentsline {part}{III\hspace {1em}Study and evaluation of {\sc POSL}}{69}{part.3}
+\contentsline {chapter}{\numberline {4}Experiments design and results}{71}{chapter.4}
+\contentsline {section}{\numberline {4.1}Methodology}{72}{section.4.1}
+\contentsline {section}{\numberline {4.2}A dynamic configuration exchange strategy (Social Golfers)}{74}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Problem definition}{74}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Experiments design and results}{76}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}A cyclic communication strategy{} (N-Queens)}{87}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Problem definition}{87}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Experiments design and results}{88}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}A simple communication strategy{} (Costas Array)}{94}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Problem definition}{94}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Experiments design and results}{96}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}A local minima evasion strategy (Golomb Ruler)}{101}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}Problem definition}{101}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Experiments design and results}{102}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Summarizing}{107}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Strategies overview}{109}{subsection.4.6.1}
+\contentsline {part}{IV\hspace {1em}Conclusions and future works}{113}{part.4}
+\contentsline {chapter}{\numberline {5}Conclusion and future works}{115}{chapter.5}
+\contentsline {section}{\numberline {5.1}Conclusions}{116}{section.5.1}
+\contentsline {section}{\numberline {5.2}Future works}{117}{section.5.2}
+\contentsline {chapter}{\numberline {6}Bibliography}{121}{chapter.6}
+\contentsline {part}{V\hspace {1em}Appendix}{131}{part.5}
+\contentsline {chapter}{\numberline {A}Results of experiments with Social Golfers{} Problem}{133}{appendix.A}
+\contentsline {section}{\numberline {A.1}Comparison between sequential and parallel runs}{134}{section.A.1}
+\contentsline {section}{\numberline {A.2}Comparison between communication strategies}{135}{section.A.2}
+\contentsline {section}{\numberline {A.3}Winner solver type representation}{136}{section.A.3}
+\contentsline {chapter}{\numberline {B}Results of experiments with N-Queens{} Problem}{139}{appendix.B}
+\contentsline {section}{\numberline {B.1}Comparison between sequential and parallel runs}{140}{section.B.1}
+\contentsline {section}{\numberline {B.2}Winner solver type representation}{142}{section.B.2}
+\contentsline {chapter}{\numberline {C}Results of experiments with Costas Array{} Problem}{145}{appendix.C}
+\contentsline {section}{\numberline {C.1}Comparison between sequential and parallel runs}{146}{section.C.1}
+\contentsline {section}{\numberline {C.2}Comparison between communication strategies}{146}{section.C.2}
+\contentsline {section}{\numberline {C.3}Winner solver type representation}{147}{section.C.3}
+\contentsline {chapter}{\numberline {D}Results of experiments with Golomb Ruler{} Problem}{149}{appendix.D}
+\contentsline {section}{\numberline {D.1}Comparison between sequential and parallel runs}{150}{section.D.1}
+\contentsline {section}{\numberline {D.2}Comparison between communication strategies}{151}{section.D.2}
+\contentsline {section}{\numberline {D.3}Winner solver type representation}{152}{section.D.3}
+\contentsline {chapter}{\numberline {E}French summary}{153}{appendix.E}
+\contentsline {section}{\numberline {E.1}Introduction}{154}{section.E.1}
+\contentsline {section}{\numberline {E.2}Des travaux reli\'es}{155}{section.E.2}
+\contentsline {section}{\numberline {E.3}Solveurs parall\IeC {\`e}les POSL}{156}{section.E.3}
+\contentsline {subsection}{\numberline {E.3.1}Computation module}{157}{subsection.E.3.1}
+\contentsline {subsection}{\numberline {E.3.2}Communication module}{158}{subsection.E.3.2}
+\contentsline {subsection}{\numberline {E.3.3}Abstract solver}{159}{subsection.E.3.3}
+\contentsline {subsection}{\numberline {E.3.4}Cr\IeC {\'e}er les solveurs}{162}{subsection.E.3.4}
+\contentsline {subsection}{\numberline {E.3.5}Connecter les solveurs : cr\IeC {\'e}er le solver set}{162}{subsection.E.3.5}
+\contentsline {section}{\numberline {E.4}Les r\IeC {\'e}sultats}{164}{section.E.4}
+\contentsline {subsection}{\numberline {E.4.1}Social Golfers Problem}{165}{subsection.E.4.1}
+\contentsline {subsection}{\numberline {E.4.2}Costas Array Problem}{167}{subsection.E.4.2}
+\contentsline {subsection}{\numberline {E.4.3}N-Queens Problem}{169}{subsection.E.4.3}
+\contentsline {subsection}{\numberline {E.4.4}Golomb Ruler Problem}{171}{subsection.E.4.4}
+\contentsline {section}{\numberline {E.5}Conclusions}{173}{section.E.5}

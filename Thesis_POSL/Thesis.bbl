@@ -1,843 +1,824 @@
 \begin{thebibliography}{100}
 
-\bibitem{Paschos2013}
-Vangelis~Th Paschos, editor.
-\newblock {\em {Applications of combinatorial optimization}}.
-\newblock John Wiley {\&} Sons, 2013.
-
-\bibitem{Barahona1988}
-Francisco Barahona, Martin Groetschel, Michael Juenger, and Gerhard Reinelt.
-\newblock {An Application of Combinatorial Optimization To Statistical Physics
-  and Circuit Layout Design.}
-\newblock {\em Operations Research}, 36(3):493 -- 513, 1988.
-
-\bibitem{Espelage2000}
-Wolfgang Espelage and Egon Wanke.
-\newblock {The combinatorial complexity of masterkeying}.
-\newblock {\em Mathematical Methods of Operations Research}, 52(2):325--348,
-  2000.
-
-\bibitem{Osman1996}
-Ibrahim~H Osman and Gilbert Laporte.
-\newblock {Metaheuristics : A bibliography}.
-\newblock {\em Annals of Operations research}, 63(5):511--623, 1996.
-
-\bibitem{Boussaid2013}
-Ilhem Boussa{\"{i}}d, Julien Lepagnot, and Patrick Siarry.
-\newblock {A survey on optimization metaheuristics}.
-\newblock {\em Information Sciences}, 237:82--117, 2013.
-
-\bibitem{Arbelaez2014a}
-Alejandro Arbelaez, Deepak Mehta, and Luis Quesada.
-\newblock {A Constraint-based Parallel Local Search for Disjoint Rooted
-  Distance-Constrained Minimum Spanning Tree Problem}.
-\newblock 2014.
-
-\bibitem{Caniou2011}
-Yves Caniou, Philippe Codognet, Daniel Diaz, and Salvador Abreu.
-\newblock {Experiments in parallel constraint-based local search}.
-\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
-  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics)}, 6622
-  LNCS:96--107, 2011.
-
-\bibitem{Diaz2012a}
-Daniel Diaz, Florian Richoux, Yves Caniou, Philippe Codognet, and Salvador
-  Abreu.
-\newblock {Parallel Local Search for the Costas Array Problem}.
-\newblock {\em 2012 IEEE 26th International Parallel and Distributed Processing
-  Symposium Workshops {\&} PhD Forum}, pages 1793--1802, 2012.
-
-\bibitem{Diaz}
-Daniel Diaz, Florian Richoux, Philippe Codognet, Yves Caniou, and Salvador
-  Abreu.
-\newblock {Constraint-Based Local Search for the Costas Array Problem}.
-\newblock In {\em Learning and Intelligent Optimization}, pages 378--383.
-  Springer, 2012.
-
-\bibitem{Munera}
-Danny Munera, Daniel Diaz, Salvador Abreu, and Philippe Codognet.
-\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
-\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
-  volume 8600 of {\em LNCS}, pages 13--24. Springer, 2014.
-
-\bibitem{Fukunaga2008}
-Alex~S Fukunaga.
-\newblock {Automated discovery of local search heuristics for satisfiability
-  testing.}
-\newblock {\em Evolutionary computation}, 16(1):31--61, 2008.
-
-\bibitem{Landtsheer2015}
-Renaud~De Landtsheer, Yoann Guyot, Gustavo Ospina, and Christophe Ponsard.
-\newblock {Combining Neighborhoods into Local Search Strategies}.
-\newblock In {\em 11th MetaHeuristics International Conference}. Springer,
-  2015.
-
-\bibitem{Martin2016}
-Simon Martin, Djamila Ouelhadj, Patrick Beullens, Ender Ozcan, Angel~A Juan,
-  and Edmund~K Burke.
-\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
-\newblock {\em European Journal of Operational Research}, 254(1):169--178,
-  2016.
-
 \bibitem{Akplogan2011}
-Mahuna Akplogan, J{\'{e}}rome Dury, Simon de~Givry, Gauthier Quesnel, Alexandre
-  Joannon, Arnauld Reynaud, Jacques~Eric Bergez, and Fr{\'{e}}d{\'{e}}rick
-  Garcia.
+{\sc Akplogan, M., Dury, J., de~Givry, S., Quesnel, G., Joannon, A., Reynaud,
+  A., Bergez, J.~E., and Garcia, F.}
 \newblock {A Weighted CSP approach for solving spatio-temporal planning problem
   in farming systems}.
 \newblock In {\em 11th Workshop on Preferences and Soft Constraints Soft
-  2011.}, 2011.
+  2011.\/} (2011).
 
-\bibitem{Sibbesen2008}
-Louise~K. Sibbesen.
-\newblock {\em {Mathematical models and heuristic solutions for container
-  positioning problems in port terminals}}.
-\newblock Doctor of philosophy, Technical University of Danemark, 2008.
+\bibitem{Amadini}
+{\sc Amadini, R., Gabbrielli, M., and Mauro, J.}
+\newblock {Features for Building CSP Portfolio Solvers}.
+\newblock {\em arXiv:1308.0227\/} (2013).
 
-\bibitem{Smith2005}
-Barbara~M Smith.
-\newblock {Modelling for Constraint Programming}.
-\newblock {\em Lecture Notes for the First International Summer School on
-  Constraint Programming}, 2005.
+\bibitem{Amadini2014}
+{\sc Amadini, R., and Stuckey, P.~J.}
+\newblock {Sequential Time Splitting and Bounds Communication for a Portfolio
+  of Optimization Solvers}.
+\newblock In {\em Principles and Practice of Constraint Programming\/} (2014),
+  Springer, pp.~108--124.
 
-\bibitem{Galinier04}
-Philippe Galinier and Jin-Kao Hao.
-\newblock {A General Approach for Constraint Solving by Local Search}.
-\newblock {\em Journal of Mathematical Modelling and Algorithms}, 3(1):73--88,
-  2004.
+\bibitem{Anagnostopoulos2006}
+{\sc Anagnostopoulos, A., Michel, L., {Van Hentenryck}, P., and Vergados, Y.}
+\newblock {A simulated annealing approach to the travelling tournament
+  problem}.
+\newblock {\em Journal of Scheduling 2}, 9 (2006), 177--193.
 
-\bibitem{Nethercote}
-Nicholas Nethercote, Peter~J Stuckey, Ralph Becket, Sebastian Brand, Gregory~J
-  Duck, and Guido Tack.
-\newblock {MiniZinc: Towards A Standard CP Modelling Language}.
-\newblock In {\em Principles and Practice of Constraint Programming}, pages
-  529--543. Springer, 2007.
+\bibitem{Apt}
+{\sc Apt, K.~R.}
+\newblock {From Chaotic Iteration to Constraint Propagation}.
+\newblock In {\em 24th International Colloquium on Automata, Languages and
+  Programming (ICALP'97)\/} (1997), CWI (Centre for Mathematics and Computer
+  Science), pp.~36--55.
+
+\bibitem{Arbab1995}
+{\sc Arbab, F.}
+\newblock {Coordination of Massively Concurrent Activities}.
+\newblock Tech. rep., Amsterdam, 1995.
+
+\bibitem{Arbab2000}
+{\sc Arbab, F., and Monfroy, {\'{E}}.}
+\newblock {Distributed Splitting of Constraint Satisfaction Problems}.
+\newblock In {\em Coordination Languages and Models}. Springer, 2000,
+  pp.~115--132.
+
+\bibitem{Arbelaez2014a}
+{\sc Arbelaez, A., Mehta, D., and Quesada, L.}
+\newblock {A Constraint-based Parallel Local Search for Disjoint Rooted
+  Distance-Constrained Minimum Spanning Tree Problem}.
+
+\bibitem{Arbelaez2012}
+{\sc Arbelaez, A., and Quesada, L.}
+\newblock {Parallelising the k-Medoids Clustering Problem Using
+  Space-Partitioning}.
+\newblock In {\em Sixth Annual Symposium on Combinatorial Search\/} (2013),
+  AAAI Press, pp.~20--28.
+
+\bibitem{Babai1979}
+{\sc Babai, L.}
+\newblock {Monte-Carlo algorithms in graph isomorphism testing}.
+\newblock Tech. Rep.~79, 1979.
+
+\bibitem{Barahona1988}
+{\sc Barahona, F., Groetschel, M., Juenger, M., and Reinelt, G.}
+\newblock {An Application of Combinatorial Optimization To Statistical Physics
+  and Circuit Layout Design.}
+\newblock {\em Operations Research 36}, 3 (1988), 493 -- 513.
+
+\bibitem{Bell2009}
+{\sc Bell, J., and Stevens, B.}
+\newblock {A survey of known results and research areas for n-queens}.
+\newblock {\em Discrete Mathematics 309}, 1 (2009), 1--31.
+
+\bibitem{Berkhin2002}
+{\sc Berkhin, P.}
+\newblock {Survey Of Clustering Data Mining Techniques}.
+\newblock Tech. rep., Accrue Software, Inc., 2002.
+
+\bibitem{Birattari2005}
+{\sc Birattari, M., Zlochin, M., and Dorigo, M.}
+\newblock {Towards a Theory of Practice in Metaheuristics Design. A machine
+  learning perspective}.
+\newblock {\em RAIRO-Theoretical Informatics and Applications 40}, 2 (2006),
+  353--369.
+
+\bibitem{Blum2003}
+{\sc Blum, C., and Roli, A.}
+\newblock {Metaheuristics in combinatorial optimization: overview and
+  conceptual comparison}.
+\newblock {\em ACM Computing Surveys (CSUR) 35}, 3 (2003), 268--308.
+
+\bibitem{Boettcher2000}
+{\sc Boettcher, S., and Percus, A.}
+\newblock {Nature's way of optimizing}.
+\newblock {\em Artificial Intelligence 119}, 1 (2000), 275--286.
+
+\bibitem{Borkar2007}
+{\sc Borkar, S.}
+\newblock {Thousand core chips: a technology perspective}.
+\newblock In {\em Proceedings of the 44th annual Design Automation Conference
+  (DAC-07)\/} (2007), ACM, pp.~746--749.
+
+\bibitem{Bouhmala2015}
+{\sc Bouhmala, N., Hjelmervik, K., and Overgaard, K.~I.}
+\newblock {A generalized variable neighborhood search for combinatorial
+  optimization problems}.
+\newblock In {\em The 3rd International Conference on Variable Neighborhood
+  Search (VNS'14)\/} (2015), vol.~47, Elsevier, pp.~45--52.
+
+\bibitem{Boussaid2013}
+{\sc Boussa{\"{i}}d, I., Lepagnot, J., and Siarry, P.}
+\newblock {A survey on optimization metaheuristics}.
+\newblock {\em Information Sciences 237\/} (2013), 82--117.
 
 \bibitem{Boussemart2016}
-Fr{\'{e}}d{\'{e}}ric Boussemart, Christophe Lecoutre, and C{\'{e}}dric Piette.
+{\sc Boussemart, F., Lecoutre, C., and Piette, C.}
 \newblock {\em {XCSP3 An Integrated Format for Benchmarking Combinatorial
   Constrained Problems}}.
 \newblock Lens, 2016.
 
-\bibitem{ChristianBessiere2006}
-{Christian Bessiere}.
-\newblock {Constraint Propagation}.
-\newblock In Francesca Rossi, Peter van Beek, and Toby Walsh, editors, {\em
-  Handbook of Constraint Programming}, chapter~3, pages 29--84. Elsevier, 1st
-  edition, 2006.
+\bibitem{Brownlee2014}
+{\sc Brownlee, A.~E., Swan, J., {\"{O}}zcan, E., and Parkes, A.~J.}
+\newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
+  research}.
+\newblock In {\em Proceedings of the Companion Publication of the 2014 Annual
+  Conference on Genetic and Evolutionary Computation\/} (2014), GECCO Comp '14,
+  ACM, pp.~1133--1140.
 
-\bibitem{Apt}
-Krzysztof~R. Apt.
-\newblock {From Chaotic Iteration to Constraint Propagation}.
-\newblock In {\em 24th International Colloquium on Automata, Languages and
-  Programming (ICALP'97)}, pages 36--55. CWI (Centre for Mathematics and
-  Computer Science), 1997.
+\bibitem{Cahon2004}
+{\sc Cahon, S., Melab, N., and Talbi, E.-G.}
+\newblock {ParadisEO: A Framework for the Reusable Design of Parallel and
+  Distributed Metaheuristics}.
+\newblock {\em Journal of Heuristics 10}, 3 (2004), 357--380.
 
-\bibitem{Monfroy}
-{\'{E}}ric Monfroy and Jean-Hugues R{\'{e}}ty.
-\newblock {Chaotic Iteration for Distributed Constraint Propagation}.
-\newblock In {\em ACM Symposium on Applied Computing (SAC '99)}, pages 19--24.
-  ACM, 1999.
+\bibitem{Caniou2011}
+{\sc Caniou, Y., Codognet, P., Diaz, D., and Abreu, S.}
+\newblock {Experiments in parallel constraint-based local search}.
+\newblock {\em Lecture Notes in Computer Science (including subseries Lecture
+  Notes in Artificial Intelligence and Lecture Notes in Bioinformatics) 6622
+  LNCS\/} (2011), 96--107.
+
+\bibitem{Caniou14}
+{\sc Caniou, Y., Codognet, P., Richoux, F., Diaz, D., and Abreu, S.}
+\newblock {Large-Scale Parallelism for Constraint-Based Local Search: The
+  Costas Array Case Study}.
+\newblock {\em Constraints 20}, 1 (2014), 30--56.
+
+\bibitem{Chakhlevitch2008}
+{\sc Chakhlevitch, K., and Cowling, P.}
+\newblock {Hyperheuristics : Recent Developments}.
+\newblock In {\em Adaptive and multilevel metaheuristics}. Springer, 2008,
+  pp.~3--29.
 
 \bibitem{Chazan1969}
-Daniel Chazan and Willard Miranker.
+{\sc Chazan, D., and Miranker, W.}
 \newblock {Chaotic relaxation}.
-\newblock {\em Linear Algebra and its Applications}, 2(2):199--222, 1969.
+\newblock {\em Linear Algebra and its Applications 2}, 2 (1969), 199--222.
+
+\bibitem{Chen2005}
+{\sc Chen, H.-L., and Chang, Y.-I.}
+\newblock {Neighbor-finding based on space-filling curves}.
+\newblock {\em Information Systems 30}, 3 (2005), 205--226.
+
+\bibitem{ChristianBessiere2006}
+{\sc {Christian Bessiere}}.
+\newblock {Constraint Propagation}.
+\newblock In {\em Handbook of Constraint Programming}, F.~Rossi, P.~van Beek,
+  and T.~Walsh, Eds., 1st~ed. Elsevier, 2006, ch.~3, pp.~29--84.
+
+\bibitem{Cire2011}
+{\sc Cire, A.~A., Kadioglu, S., and Sellmann, M.}
+\newblock {Parallel Restarted Search}.
+\newblock In {\em Twenty-Eighth AAAI Conference on Artificial Intelligence\/}
+  (2011), AAAI Press, pp.~842--848.
+
+\bibitem{Clune2005}
+{\sc Clune, J., Goings, S., Goodman, E.~D., and Punch, W.}
+\newblock {Investigations in Meta-GAs: Panaceas or Pipe Dreams?}
+\newblock In {\em Workshop on Genetic an Evolutionary Computation (GECCO'05)\/}
+  (2005), ACM, pp.~235--241.
+
+\bibitem{Codognet2001}
+{\sc Codognet, P., and Diaz, D.}
+\newblock {Yet Another Local Search Method for Constraint Solving}.
+\newblock In {\em Stochastic Algorithms: Foundations and Applications\/}
+  (2001), Springer, pp.~73--90.
 
 \bibitem{Cousot1977}
-Patrick Cousot and Radhia Cousot.
+{\sc Cousot, P., and Cousot, R.}
 \newblock {Automatic synthesis of optimal invariant assertions: mathematical
   foundations}.
 \newblock In {\em ACM Symposium on Artificial Intelligence amd Programming
-  Languages}, volume~12, pages 1--12. ACM, 1977.
+  Languages\/} (1977), vol.~12, ACM, pp.~1--12.
+
+\bibitem{Diaz2012a}
+{\sc Diaz, D., Richoux, F., Caniou, Y., Codognet, P., and Abreu, S.}
+\newblock {Parallel Local Search for the Costas Array Problem}.
+\newblock {\em 2012 IEEE 26th International Parallel and Distributed Processing
+  Symposium Workshops {\&} PhD Forum\/} (2012), 1793--1802.
+
+\bibitem{Diaz}
+{\sc Diaz, D., Richoux, F., Codognet, P., Caniou, Y., and Abreu, S.}
+\newblock {Constraint-Based Local Search for the Costas Array Problem}.
+\newblock In {\em Learning and Intelligent Optimization}. Springer, 2012,
+  pp.~378--383.
+
+\bibitem{Diosan2009}
+{\sc Dioşan, L., and Oltean, M.}
+\newblock {Evolutionary design of Evolutionary Algorithms}.
+\newblock {\em Genetic Programming and Evolvable Machines 10}, 3 (2009),
+  263--306.
+
+\bibitem{Dorigo2010}
+{\sc Dorigo, M., and St{\"{u}}tzle, T.}
+\newblock {Ant colony optimization: overview and recent advances}.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~8, pp.~227--263.
+
+\bibitem{Drakakis2006}
+{\sc Drakakis, K.}
+\newblock {A review of Costas arrays}.
+\newblock {\em Journal of Applied Mathematics 2006\/} (2006), 32 pages.
+
+\bibitem{Drakakis2011}
+{\sc Drakakis, K., Iorio, F., Rickard, S., and Walsh, J.}
+\newblock {Results of the enumeration of costas arrays of order 29}.
+\newblock {\em Advances in Mathematics of Communications 5}, 3 (2011),
+  547--553.
+
+\bibitem{Dreo2006}
+{\sc Dr{\'{e}}o, J., Siarry, P., P{\'{e}}trowski, A., and Taillard, E.}
+\newblock {Introduction}.
+\newblock In {\em Metaheuristics for Hard Optimization}. Springer, 2006,
+  pp.~1--19.
+
+\bibitem{Drozdik}
+{\sc Drozdik, M., Aguirre, H., Akimoto, Y., and Tanaka, K.}
+\newblock {Comparison of Parameter Control Mechanisms in Multi-objective
+  Differential Evolution}.
+\newblock In {\em Learning and Intelligent Optimization}. Springer, 2015,
+  pp.~89--103.
+
+\bibitem{Eiben1999}
+{\sc Eiben, A.~E., Hinterding, R., and Michalewicz, Z.}
+\newblock {Parameter control in evolutionary algorithms}.
+\newblock {\em IEEE Transactions on Evolutionary Computation 3}, 2 (1999),
+  124--141.
+
+\bibitem{A.E.Eiben2012}
+{\sc Eiben, A.~E., and Smit, S.~K.}
+\newblock {Evolutionary algorithm parameters and methods to tune them}.
+\newblock In {\em Autonomous Search}. Springer, 2011, pp.~15--36.
+
+\bibitem{Espelage2000}
+{\sc Espelage, W., and Wanke, E.}
+\newblock {The combinatorial complexity of masterkeying}.
+\newblock {\em Mathematical Methods of Operations Research 52}, 2 (2000),
+  325--348.
+
+\bibitem{Falcou2009}
+{\sc Falcou, J.}
+\newblock {Parallel programming with skeletons}.
+\newblock {\em Computing in Science and Engineering 11}, 3 (2009), 58--63.
+
+\bibitem{Feo95}
+{\sc Feo, T.~A., and Resende, M.~G.}
+\newblock {Greedy Randomized Adaptive Search Procedures}.
+\newblock {\em Journal of Global Optimization}, 6 (1995), 109--134.
+
+\bibitem{Fontaine2014}
+{\sc Fontaine, D., Michel, L., and Hentenryck, P.~V.}
+\newblock {Constraint-Based Lagrangian Relaxation}.
+\newblock In {\em Principles and Practice of Constraint Programming\/} (2014),
+  Springer, pp.~324--339.
+
+\bibitem{Frank2003}
+{\sc Frank, S., Hofstedt, P., and Mai., P.~R.}
+\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
+\newblock In {\em Florida AI Research Society (FLAIRS)\/} (2003), AAAI Press,
+  pp.~177--181.
+
+\bibitem{DP_Strategy}
+{\sc Freeman, E., Freeman, E., Sierra, K., and Bates, B.}
+\newblock {Introduction to Design Patterns}.
+\newblock In {\em Head First Design Patterns}, 1st~ed. O'Reilly, 2004, ch.~1,
+  pp.~1--36.
+
+\bibitem{DP_Composite}
+{\sc Freeman, E., Freeman, E., Sierra, K., and Bates, B.}
+\newblock {The Iterator and Composite Patterns. Well-Managed Collections}.
+\newblock In {\em Head First Design Patterns}, 1st~ed. O'Reilly, 2004, ch.~9,
+  pp.~315--384.
+
+\bibitem{DP_Observer}
+{\sc Freeman, E., Freeman, E., Sierra, K., and Bates, B.}
+\newblock {The Observer Pattern. Keeping your Objects in the know}.
+\newblock In {\em Head First Design Patterns}, 1st~ed. O'Reilly, 2004, ch.~2,
+  pp.~37--78.
+
+\bibitem{Fukunaga2008}
+{\sc Fukunaga, A.~S.}
+\newblock {Automated discovery of local search heuristics for satisfiability
+  testing.}
+\newblock {\em Evolutionary computation 16}, 1 (2008), 31--61.
+
+\bibitem{Gale1962}
+{\sc Gale, D., and Shapley, L.~S.}
+\newblock {College Admissions and the Stability of Marriage}.
+\newblock {\em The American Mathematical Monthly 69}, 1 (1962), 9--15.
+
+\bibitem{Galinier04}
+{\sc Galinier, P., and Hao, J.-K.}
+\newblock {A General Approach for Constraint Solving by Local Search}.
+\newblock {\em Journal of Mathematical Modelling and Algorithms 3}, 1 (2004),
+  73--88.
+
+\bibitem{Gao2012}
+{\sc Gao, W., Liu, S., and Huang, L.}
+\newblock {A global best artificial bee colony algorithm for global
+  optimization}.
+\newblock {\em Journal of Computational and Applied Mathematics 236}, 11
+  (2012), 2741--2753.
+
+\bibitem{Gendreau2010}
+{\sc Gendreau, M., and Potvin, J.-Y.}
+\newblock {Tabu Search}.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~2, pp.~41--59.
+
+\bibitem{Gent2006}
+{\sc Gent, I.~P., Jefferson, C., and Miguel, I.}
+\newblock {Watched Literals for Constraint Propagation in Minion}.
+\newblock {\em Principles and Practice of Constraint Programming (CP'2006)
+  4204\/} (2006), 182--197.
+
+\bibitem{Gent}
+{\sc Gent, I.~P., Jefferson, C., Miguel, I., Moore, N. C.~A., Nightingale, P.,
+  Prosser, P., and Unsworth, C.}
+\newblock {A Preliminary Review of Literature on Parallel Constraint Solving}.
+\newblock In {\em Workshop on Parallel Methods for Constraint Solving (PMCS
+  2011)\/} (2011).
+
+\bibitem{Golomb1984a}
+{\sc Golomb, S.~W.}
+\newblock {Algebraic constructions for costas arrays}.
+\newblock {\em Journal of Combinatorial Theory, Series A 37}, 1 (1984), 13--21.
+
+\bibitem{Golomb1984}
+{\sc Golomb, S.~W., and Taylor, H.}
+\newblock {Constructions and properties of Costas arrays}.
+\newblock {\em Proceedings of the IEEE 72}, 9 (1984), 1143--1163.
+
+\bibitem{Grama2003}
+{\sc Grama, A., Gupta, A., Karypis, G., and {Vipin Kumar}}.
+\newblock {Introduction to Parallel Computing}.
+\newblock In {\em Introduction to Parallel Computing}, 2nd~ed. Addison Wesley,
+  2003, ch.~1, pp.~1--9.
+
+\bibitem{Grama2003a}
+{\sc Grama, A., Gupta, A., Karypis, G., and {Vipin Kumar}}.
+\newblock {Programming Using the Message-Passing Paradigm}.
+\newblock In {\em Introduction to Parallel Computing}, second~ed. Addison
+  Wesley, 2003, ch.~6, pp.~233--278.
+
+\bibitem{Granvilliers2001}
+{\sc Granvilliers, L., and Monfroy, {\'{E}}.}
+\newblock {Implementing Constraint Propagation by Composition of Reductions}.
+\newblock In {\em Logic Programming\/} (2001), Springer, pp.~300--314.
+
+\bibitem{Guo2010}
+{\sc Guo, L., Hamadi, Y., Jabbour, S., and Sais, L.}
+\newblock {Diversification and Intensification in Parallel SAT Solving}.
+\newblock {\em Principles and Practice of Constraint Programming\/} (2010),
+  252--265.
+
+\bibitem{Hamadi2012}
+{\sc Hamadi, Y., Jaddour, S., and Sais, L.}
+\newblock {Control-Based Clause Sharing in Parallel SAT Solving}.
+\newblock In {\em Autonomous Search}. Springer, 2012, pp.~245--267.
+
+\bibitem{WhatIsAuto}
+{\sc Hamadi, Y., Monfroy, {\'{E}}., and Saubion, F.}
+\newblock {An Introduction to Autonomous Search}.
+\newblock In {\em Autonomous Search}. Springer, 2012, pp.~1--11.
+
+\bibitem{Hamadi2011}
+{\sc Hamadi, Y., Piette, C., Jabbour, S., and Sais, L.}
+\newblock {Deterministic Parallel DPLL system description}.
+\newblock {\em Journal on Satisfiability, Boolean Modeling and Computation 7\/}
+  (2011), 127--132.
+
+\bibitem{PierreNenad}
+{\sc Hansen, P., Mladenovie, N., Brimberg, J., and Perez, J. A.~M.}
+\newblock {Variable neighborhood Search}.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~3, pp.~61--86.
+
+\bibitem{Hill}
+{\sc Hill, M.~D.}
+\newblock {What is Scalability?}
+\newblock {\em ACM SIGARCH Computer Architecture News 18\/} (1990), 18--21.
+
+\bibitem{Hill2008}
+{\sc Hill, M.~D., and Marty, M.~R.}
+\newblock {Amdahl's Law in the multicore era}.
+\newblock {\em IEEE Computer}, 7 (2008), 33--38.
+
+\bibitem{Hooker2006}
+{\sc Hooker, J.~N.}
+\newblock {Operations Research Methods in Constraint Programming}.
+\newblock In {\em Handbook of Constraint Programming}. Elsevier, 2006, ch.~15.
+
+\bibitem{Hooker2012}
+{\sc Hooker, J.~N.}
+\newblock {Toward Unification of Exact and Heuristic Optimization Methods}.
+\newblock {\em International Transactions in Operational Research 22}, 1
+  (2015), 19--48.
+
+\bibitem{Hoos2012}
+{\sc Hoos, H.~H.}
+\newblock {Automated algorithm configuration and parameter tuning}.
+\newblock In {\em Autonomous Search}. Springer, 2012, pp.~37--71.
+
+\bibitem{Huang2009}
+{\sc Huang, V.~L., Zhao, S.~Z., Mallipeddi, R., and Suganthan, P.~N.}
+\newblock {Multi-objective optimization using self-adaptive differential
+  evolution algorithm}.
+\newblock {\em IEEE Congress on Evolutionary Computation\/} (2009), 190--194.
+
+\bibitem{Hutter2008}
+{\sc Hutter, F.}
+\newblock {Updated Quick start guide for ParamILS, version 2.3}.
+\newblock Tech. rep., Department of Computer Science University of British
+  Columbia, Vancouver, Canada, 2008.
+
+\bibitem{Hutter2009}
+{\sc Hutter, F., Hoos, H.~H., and Leyton-brown, K.}
+\newblock {ParamILS: An Automatic Algorithm Configuration Framework}.
+\newblock {\em Journal of Artificial Intelligence Research 36\/} (2009),
+  267--306.
+
+\bibitem{Comet}
+{\sc Inc., D. D.~T.}
+\newblock {\em {Dynadec. Comet Tutorial}}.
+\newblock 2010.
+
+\bibitem{IvanDotu2007}
+{\sc {Iv{\'{a}}n Dot{\'{u}}}, and {Pascal Van Hentenryck}}.
+\newblock {Scheduling Social Tournaments Locally}.
+\newblock {\em AI Commun 20}, 3 (2007), 151--162.
+
+\bibitem{Iwama1999}
+{\sc Iwama, K., Manlove, D., Miyazaki, S., and Morita, Y.}
+\newblock {Stable marriage with incomplete lists and ties}.
+\newblock In {\em ICALP\/} (1999), vol.~99, Springer, pp.~443--452.
+
+\bibitem{Jinnai}
+{\sc Jinnai, Y., and Fukunaga, A.}
+\newblock {Abstract Zobrist Hashing : An Efficient Work Distribution Method for
+  Parallel Best-First Search}.
+\newblock {\em 30th AAAI Conference on Artificial Intelligence (AAAI-16)\/}
+  (2016), 717--723.
+
+\bibitem{Jussien2002}
+{\sc Jussien, N., and Lhomme, O.}
+\newblock {Local Search with Constant Propagation and Conflict-Based
+  Heuristics}.
+\newblock {\em Artificial Intelligence 139}, 1 (2002), 21--45.
+
+\bibitem{Jussien2008}
+{\sc Jussien, N., {Prud'homme, Charles Cambazard}, H., Rochart, G., and
+  Laburthe, F.}
+\newblock {Choco: an Open Source Java Constraint Programming Library}.
+\newblock In {\em CPAIOR'08 Workshop on Open-Source Software for Integer and
+  Contraint Programming (OSSICP'08)\/} (2008), pp.~1--10.
+
+\bibitem{Kishimoto2009}
+{\sc Kishimoto, A., Fukunaga, A., and Botea, A.}
+\newblock {Scalable, Parallel Best-First Search for Optimal Sequential
+  Planning}.
+\newblock In {\em International Conference on Automated Planning and Scheduling
+  (ICAPS'09)\/} (2009), pp.~201--208.
+
+\bibitem{Kishimoto2013}
+{\sc Kishimoto, A., Fukunaga, A., and Botea, A.}
+\newblock {Evaluation of a simple, scalable, parallel best-first search
+  strategy}.
+\newblock {\em Artificial Intelligence 195\/} (2013), 222--248.
+
+\bibitem{Kotecha2010}
+{\sc Kotecha, P.~R., Bhushan, M., and Gudi, R.~D.}
+\newblock {Efficient optimization strategies with constraint programming}.
+\newblock {\em AIChE Journal 56}, 2 (2010), 387--404.
+
+\bibitem{Lagerkvist2007}
+{\sc Lagerkvist, M.~Z., and Schulte, C.}
+\newblock {Advisors for Incremental Propagation}.
+\newblock In {\em 13th international conference on Principles and practice of
+  constraint programming (CP'07)\/} (2007), vol.~4741, Springer LNCS,
+  pp.~409--422.
+
+\bibitem{Landtsheer2015}
+{\sc Landtsheer, R.~D., Guyot, Y., Ospina, G., and Ponsard, C.}
+\newblock {Combining Neighborhoods into Local Search Strategies}.
+\newblock In {\em 11th MetaHeuristics International Conference\/} (2015),
+  Springer.
+
+\bibitem{Lardeux2014}
+{\sc Lardeux, F., Monfroy, {\'{E}}., Crawford, B., and Soto, R.}
+\newblock {Set Constraint Model and Automated Encoding into SAT: Application to
+  the Social Golfer Problem}.
+\newblock {\em Annals of Operations Research 235}, 1 (2014), 423--452.
+
+\bibitem{Leyton-Brown2003}
+{\sc Leyton-Brown, K., Nudelman, E., and Andrew, G.}
+\newblock {A portfolio approach to algorithm selection}.
+\newblock In {\em 18th International Joint Conference on Artificial
+  Intelligence, IJCAI'03\/} (2003), Morgan Kaufmann Publishers Inc.,
+  pp.~1542--1543.
+
+\bibitem{Liu2005}
+{\sc Liu, J., and Lampinen, J.}
+\newblock {A Fuzzy Adaptive Differential Evolution Algorithm}.
+\newblock {\em Soft Computing 9}, 6 (2005), 448--462.
+
+\bibitem{Martin2016}
+{\sc Martin, S., Ouelhadj, D., Beullens, P., Ozcan, E., Juan, A.~A., and Burke,
+  E.~K.}
+\newblock {A Multi-Agent Based Cooperative Approach To Scheduling and Routing}.
+\newblock {\em European Journal of Operational Research 254}, 1 (2016),
+  169--178.
+
+\bibitem{Maturana2012}
+{\sc Maturana, J., Fialho, {\'{A}}., Saubion, F., Schoenauer, M., Lardeux, F.,
+  and Sebag, M.}
+\newblock {Adaptive Operator Selection and Management in Evolutionary
+  Algorithms}.
+\newblock In {\em Autonomous Search}. Springer, 2012, pp.~161--189.
+
+\bibitem{Michel2002}
+{\sc Michel, L., and Hentenryck., P.~V.}
+\newblock {A constraint-based architecture for local search}.
+\newblock {\em ACM SIGPLAN Notices 37}, 11 (2002), 83--100.
+
+\bibitem{Michel2005}
+{\sc Michel, L., and Hentenryck., P.~V.}
+\newblock {The comet programming language and system}.
+\newblock In {\em Principles and Practice of Constraint Programming}. Springer,
+  2005, pp.~881--881.
+
+\bibitem{Mills2000}
+{\sc Mills, P., and Tsang, E.}
+\newblock {Guided local search for solving SAT and weighted MAX-SAT problems}.
+\newblock {\em Journal of Automated Reasoning 24}, 1 (2000), 205--223.
 
 \bibitem{Monfroy2000}
-{\'{E}}ric Monfroy.
+{\sc Monfroy, {\'{E}}.}
 \newblock {A coordination-based chaotic iteration algorithm for constraint
   propagation}.
 \newblock In {\em Proceedings of The 15th ACM Symposium on Applied Computing
-  (SAC'2000)}, pages 262--269. ACM Press, 2000.
+  (SAC'2000)\/} (2000), ACM Press, pp.~262--269.
 
-\bibitem{Zoeteweij2003}
-Peter Zoeteweij.
-\newblock {Coordination-based distributed constraint solving in DICE.}
-\newblock In {\em Proceedings of the 18th ACM Symposium on Applied Computing
-  (SAC 2003)}, pages 360--366. ACM Press, 2003.
+\bibitem{Monfroy}
+{\sc Monfroy, {\'{E}}., and R{\'{e}}ty, J.-H.}
+\newblock {Chaotic Iteration for Distributed Constraint Propagation}.
+\newblock In {\em ACM Symposium on Applied Computing (SAC '99)\/} (1999), ACM,
+  pp.~19--24.
 
-\bibitem{Granvilliers2001}
-Laurent Granvilliers and {\'{E}}ric Monfroy.
-\newblock {Implementing Constraint Propagation by Composition of Reductions}.
-\newblock In {\em Logic Programming}, pages 300--314. Springer, 2001.
+\bibitem{Monfroyb}
+{\sc Monfroy, {\'{E}}., Saubion, F., and Lambert, T.}
+\newblock {On Hybridization of Local Search and Constraint Propagation}.
+\newblock In {\em Logic Programming}. Springer, 2004, pp.~299--313.
 
-\bibitem{DP_Composite}
-Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
-\newblock {The Iterator and Composite Patterns. Well-Managed Collections}.
-\newblock In {\em Head First Design Patterns}, chapter~9, pages 315--384.
-  O'Reilly, 1st edition, 2004.
+\bibitem{Monfroya}
+{\sc Monfroy, {\'{E}}., Saubion, F., and Lambert, T.}
+\newblock {Hybrid CSP Solving}.
+\newblock In {\em Frontiers of Combining Systems}. Springer, 2005,
+  pp.~138--167.
 
-\bibitem{DP_Observer}
-Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
-\newblock {The Observer Pattern. Keeping your Objects in the know}.
-\newblock In {\em Head First Design Patterns}, chapter~2, pages 37--78.
-  O'Reilly, 1st edition, 2004.
+\bibitem{Munera2016}
+{\sc Munera, D., Diaz, D., and Abreu, S.}
+\newblock {Solving the Quadratic Assignment Problem with Cooperative Parallel
+  Extremal Optimization}.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimization}.
+  Springer, 2016, pp.~251--266.
 
-\bibitem{DP_Strategy}
-Eric Freeman, Elisabeth Freeman, Kathy Sierra, and Bert Bates.
-\newblock {Introduction to Design Patterns}.
-\newblock In {\em Head First Design Patterns}, chapter~1, pages 1--36.
-  O'Reilly, 1st edition, 2004.
+\bibitem{Munera}
+{\sc Munera, D., Diaz, D., Abreu, S., and Codognet, P.}
+\newblock {A Parametric Framework for Cooperative Parallel Local Search}.
+\newblock In {\em Evolutionary Computation in Combinatorial Optimisation},
+  vol.~8600 of {\em LNCS}. Springer, 2014, pp.~13--24.
+
+\bibitem{Munera2015}
+{\sc Munera, D., Diaz, D., Abreu, S., Rossi, F., and Codognet, P.}
+\newblock {Solving Hard Stable Matching Problems via Local Search and
+  Cooperative Parallelization}.
+\newblock In {\em 29th AAAI Conference on Artificial Intelligence\/} (2015),
+  AAAI Press.
+
+\bibitem{Nannen2007}
+{\sc Nannen, V., and Eiben, A.~E.}
+\newblock {Relevance Estimation and Value Calibration of Evolutionary Algorithm
+  Parameters}.
+\newblock In {\em 20th International Joint Conference on Artifical Intelligence
+  (IJCAI'07)\/} (2007), Morgan Kaufmann Publishers Inc., pp.~975--980.
+
+\bibitem{Nethercote}
+{\sc Nethercote, N., Stuckey, P.~J., Becket, R., Brand, S., Duck, G.~J., and
+  Tack, G.}
+\newblock {MiniZinc: Towards A Standard CP Modelling Language}.
+\newblock In {\em Principles and Practice of Constraint Programming\/} (2007),
+  Springer, pp.~529--543.
+
+\bibitem{Nikolaev2010}
+{\sc Nikolaev, A.~G., and Jacobson, S.~H.}
+\newblock {Simulated Annealing}.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~1, pp.~1--39.
+
+\bibitem{Osman1996}
+{\sc Osman, I.~H., and Laporte, G.}
+\newblock {Metaheuristics : A bibliography}.
+\newblock {\em Annals of Operations research 63}, 5 (1996), 511--623.
+
+\bibitem{Pajot2003}
+{\sc Pajot, B., and Monfroy, {\'{E}}.}
+\newblock {Separating Search and Strategy in Solver Cooperations}.
+\newblock In {\em Perspectives of System Informatics}. Springer, 2003,
+  pp.~401--414.
+
+\bibitem{Paschos2013}
+{\sc Paschos, V.~T.}, Ed.
+\newblock {\em {Applications of combinatorial optimization}}.
+\newblock John Wiley {\&} Sons, 2013.
+
+\bibitem{Pesant1996}
+{\sc Pesant, G., and Gendreau, M.}
+\newblock {A View of Local Search in Constraint Programming}.
+\newblock In {\em Second International Conference on Principles an Practice of
+  Constraint Programming\/} (1996), no.~1118, Springer, pp.~353--366.
+
+\bibitem{Poli2007}
+{\sc Poli, R., Kennedy, J., and Blackwell, T.}
+\newblock {Particle swarm optimization}.
+\newblock {\em Swarm intelligence 1}, 1 (2007), 33--57.
+
+\bibitem{Prudhomme2016}
+{\sc Prud'homme, C., Fages, J.-G., and Lorca, X.}
+\newblock {Choco Documentation}.
+\newblock Tech. rep., TASC, INRIA Rennes, LINA CNRS UMR 6241, COSLING S.A.S.,
+  2016.
 
 \bibitem{Prudhomme2013}
-Charles Prud'homme, Xavier Lorca, R{\'{e}}mi Douence, and Narendra Jussien.
+{\sc Prud'homme, C., Lorca, X., Douence, R., and Jussien, N.}
 \newblock {Propagation engine prototyping with a domain specific language}.
-\newblock {\em Constraints}, 19(1):57--76, 2013.
+\newblock {\em Constraints 19}, 1 (2013), 57--76.
 
-\bibitem{Gent2006}
-Ian~P. Gent, Chris Jefferson, and Ian Miguel.
-\newblock {Watched Literals for Constraint Propagation in Minion}.
-\newblock {\em Principles and Practice of Constraint Programming (CP'2006)},
-  4204:182--197, 2006.
+\bibitem{Qin2009}
+{\sc Qin, A.~K., Huang, V.~L., and Suganthan, P.~N.}
+\newblock {Differential evolution algorithm with strategy adaptation for global
+  numerical optimization}.
+\newblock {\em IEEE Transactions on Evolutionary Computation 13}, 2 (2009),
+  398--417.
 
-\bibitem{Lagerkvist2007}
-Mikael~Z. Lagerkvist and Christian Schulte.
-\newblock {Advisors for Incremental Propagation}.
-\newblock In {\em 13th international conference on Principles and practice of
-  constraint programming (CP'07)}, volume 4741, pages 409--422. Springer LNCS,
-  2007.
+\bibitem{Reeves2010}
+{\sc Reeves, C.~R.}
+\newblock {Genetic Algorithms}.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~5, pp.~109--139.
+
+\bibitem{Regin2014}
+{\sc R{\'{e}}gin, J.-C., Rezgui, M., and Malapert, A.}
+\newblock {Improvement of the Embarrassingly Parallel Search for Data Centers}.
+\newblock In {\em Principles and Practice of Constraint Programming\/} (2014),
+  Springer, pp.~622--635.
+
+\bibitem{Resende2009}
+{\sc Resende, M.~G.}
+\newblock {Greedy randomized adaptive search procedures}.
+\newblock In {\em Encyclopedia of optimization}. Springer, 2009,
+  pp.~1460--1469.
+
+\bibitem{Reyes-amaro}
+{\sc Reyes-amaro, A., Monfroy, {\'{E}}., and Richoux, F.}
+\newblock {POSL: A Parallel-Oriented metaheuristic-based Solver Language}.
+\newblock In {\em Recent developments of metaheuristics}, to appear. Springer.
+
+\bibitem{Rickard}
+{\sc Rickard, S.}
+\newblock {Open problems in Costas arrays}.
+\newblock In {\em IMA International Conference on Mathematics in Signal
+  Processing\/} (2006), pp.~1--24.
+
+\bibitem{Riff2013}
+{\sc Riff, M.-C., and Montero, E.}
+\newblock {A new algorithm for reducing metaheuristic design effort}.
+\newblock {\em IEEE Congress on Evolutionary Computation\/} (2013), 3283--3290.
+
+\bibitem{Ryser-welch}
+{\sc Ryser-Welch, P., and Miller, J.~F.}
+\newblock {A Review of Hyper-Heuristic Frameworks}.
+\newblock In {\em Proceedings of the Evo20 Workshop, AISB\/} (2014).
+
+\bibitem{Samulowitz2013}
+{\sc Samulowitz, H., Reddy, C., Sabharwal, A., and Sellmann, M.}
+\newblock {Snappy: A simple algorithm portfolio}.
+\newblock In {\em Theory and Applications of Satisfiability Testing (SAT
+  2013)}, vol.~7962. Springer LNCS, 2013, pp.~422--428.
+
+\bibitem{Sanders2014}
+{\sc Sanders, P.}
+\newblock {Engineering Parallel Algorithms: The Multicore Transformation}.
+\newblock {\em Ubiquity 2014\/} (2014), 1--11.
+
+\bibitem{Schmegner2004}
+{\sc Schmegner, C., and Baron, M.~I.}
+\newblock {Principles of optimal sequential planning}.
+\newblock {\em Sequential Analysis 23}, 1 (2004), 11--32.
 
 \bibitem{Gecode}
-Christian Schulte, Guido Tack, and Mikael~Z Lagerkvist.
+{\sc Schulte, C., Tack, G., and Lagerkvist, M.~Z.}
 \newblock {\em {Modeling and Programming with Gecode}}.
 \newblock 2013.
 
-\bibitem{Jussien2008}
-Narendra Jussien, Hadrien {Prud'homme, Charles Cambazard}, Guillaume Rochart,
-  and Fran{\c{c}}ois Laburthe.
-\newblock {Choco: an Open Source Java Constraint Programming Library}.
-\newblock In {\em CPAIOR'08 Workshop on Open-Source Software for Integer and
-  Contraint Programming (OSSICP'08)}, pages 1--10, 2008.
+\bibitem{Shaw1998}
+{\sc Shaw, P.}
+\newblock {Using Constraint Programming and Local Search Methods to Solve
+  Vehicle Routing Problems}.
+\newblock {\em Computer 1520\/} (1998), 417--431.
 
-\bibitem{Prudhomme2016}
-Charles Prud'homme, Jean-Guillaume Fages, and Xavier Lorca.
-\newblock {Choco Documentation}.
-\newblock Technical report, TASC, INRIA Rennes, LINA CNRS UMR 6241, COSLING
-  S.A.S., 2016.
+\bibitem{Sibbesen2008}
+{\sc Sibbesen, L.~K.}
+\newblock {\em {Mathematical models and heuristic solutions for container
+  positioning problems in port terminals}}.
+\newblock Doctor of philosophy, Technical University of Danemark, 2008.
 
-\bibitem{Dreo2006}
-Johann Dr{\'{e}}o, Patrick Siarry, Alain P{\'{e}}trowski, and Eric Taillard.
-\newblock {Introduction}.
-\newblock In {\em Metaheuristics for Hard Optimization}, pages 1--19. Springer,
-  2006.
+\bibitem{Smit2010}
+{\sc Smit, S.~K., and Eiben, A.~E.}
+\newblock {Beating the 'world champion' evolutionary algorithm via REVAC
+  tuning}.
+\newblock {\em IEEE Congress on Evolutionary Computation\/} (2010), 1--8.
 
-\bibitem{Blum2003}
-Christian Blum and Andrea Roli.
-\newblock {Metaheuristics in combinatorial optimization: overview and
-  conceptual comparison}.
-\newblock {\em ACM Computing Surveys (CSUR)}, 35(3):268--308, 2003.
+\bibitem{Smith2005}
+{\sc Smith, B.~M.}
+\newblock {Modelling for Constraint Programming}.
+\newblock {\em Lecture Notes for the First International Summer School on
+  Constraint Programming\/} (2005).
+
+\bibitem{Soliday1995}
+{\sc Soliday, S.~W., Homaifar, A., and Lebby, G.~L.}
+\newblock {Genetic algorithm approach to the search for Golomb Rulers}.
+\newblock In {\em International Conference on Genetic Algorithms\/} (1995),
+  vol.~1, Morgan Kaufmann Publishers Inc., pp.~528--535.
+
+\bibitem{Sosic1994}
+{\sc Sosic, R., and Gu, J.}
+\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
+  the N-Queens Problem}.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering 6\/} (1994),
+  661--668.
+
+\bibitem{Swan2015}
+{\sc Swan, J., and Burles, N.}
+\newblock {Templar - a framework for template-method hyper-heuristics}.
+\newblock In {\em Genetic Programming}, vol.~9025. Springer LNCS, 2015,
+  pp.~205--216.
+
+\bibitem{El-Ghazali2013}
+{\sc Talbi, E.-G.}
+\newblock {Combining metaheuristics with mathematical programming, constraint
+  programming and machine learning}.
+\newblock {\em 4or 11}, 2 (2013), 101--150.
+
+\bibitem{Truchet02}
+{\sc Truchet, C., Arbelaez, A., Richoux, F., and Codognet, P.}
+\newblock {Estimating Parallel Runtimes for Randomized Algorithms in Constraint
+  Solving}.
+\newblock {\em Journal of Heuristics\/} (2015), 1--36.
+
+\bibitem{Urra2013}
+{\sc Urra, E., Cabrera-Paniagua, D., and Cubillos, C.}
+\newblock {Towards an Object-Oriented Pattern Proposal for Heuristic Structures
+  of Diverse Abstraction Levels}.
+\newblock {\em XXI Jornadas Chilenas de Computaci{\'{o}}n 2013\/} (2013).
 
 \bibitem{Voss2012}
-Stefan Voss, Silvano Martello, Ibrahim~H. Osman, and Catherine Roucairol,
-  editors.
+{\sc Voss, S., Martello, S., Osman, I.~H., and Roucairol, C.}, Eds.
 \newblock {\em {Meta-heuristics: Advances and trends in local search paradigms
   for optimization}}.
 \newblock Springer, 2012.
 
-\bibitem{Nikolaev2010}
-Alexander~G. Nikolaev and Sheldon~H. Jacobson.
-\newblock {Simulated Annealing}.
-\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~1, pages
-  1--39. Springer, 2nd edition, 2010.
-
-\bibitem{Anagnostopoulos2006}
-Aris Anagnostopoulos, Laurent Michel, Pascal {Van Hentenryck}, and Yannis
-  Vergados.
-\newblock {A simulated annealing approach to the travelling tournament
-  problem}.
-\newblock {\em Journal of Scheduling}, 2(9):177----193, 2006.
-
-\bibitem{Gendreau2010}
-Michel Gendreau and Jean-Yves Potvin.
-\newblock {Tabu Search}.
-\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~2, pages
-  41--59. Springer, 2nd edition, 2010.
-
-\bibitem{IvanDotu2007}
-{Iv{\'{a}}n Dot{\'{u}}} and {Pascal Van Hentenryck}.
-\newblock {Scheduling Social Tournaments Locally}.
-\newblock {\em AI Commun}, 20(3):151----162, 2007.
-
 \bibitem{Christos2010}
-Christos Voudouris, Edward~P.K. Tsang, and Abdullah Alsheddy.
+{\sc Voudouris, C., Tsang, E.~P., and Alsheddy, A.}
 \newblock {Guided Local Search}.
-\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~11, pages
-  321--361. Springer, 2nd edition, 2010.
-
-\bibitem{Mills2000}
-Patrick Mills and Edward Tsang.
-\newblock {Guided local search for solving SAT and weighted MAX-SAT problems}.
-\newblock {\em Journal of Automated Reasoning}, 24(1):205--223, 2000.
-
-\bibitem{PierreNenad}
-Pierre Hansen, Nenad Mladenovie, Jack Brimberg, and Jose A.~Moreno Perez.
-\newblock {Variable neighborhood Search}.
-\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~3, pages
-  61--86. Springer, 2nd edition, 2010.
-
-\bibitem{Bouhmala2015}
-Noureddine Bouhmala, Karina Hjelmervik, and Kjell~Ivar Overgaard.
-\newblock {A generalized variable neighborhood search for combinatorial
-  optimization problems}.
-\newblock In {\em The 3rd International Conference on Variable Neighborhood
-  Search (VNS'14)}, volume~47, pages 45--52. Elsevier, 2015.
-
-\bibitem{Feo95}
-Thomas~A. Feo and Mauricio~G.C. Resende.
-\newblock {Greedy Randomized Adaptive Search Procedures}.
-\newblock {\em Journal of Global Optimization}, (6):109--134, 1995.
-
-\bibitem{Resende2009}
-Mauricio~G.C Resende.
-\newblock {Greedy randomized adaptive search procedures}.
-\newblock In {\em Encyclopedia of optimization}, pages 1460--1469. Springer,
-  2009.
-
-\bibitem{Codognet2001}
-Philippe Codognet and Daniel Diaz.
-\newblock {Yet Another Local Search Method for Constraint Solving}.
-\newblock In {\em Stochastic Algorithms: Foundations and Applications}, pages
-  73--90. Springer Verlag, 2001.
-
-\bibitem{Caniou14}
-Yves Caniou, Philippe Codognet, Florian Richoux, Daniel Diaz, and Salvador
-  Abreu.
-\newblock {Large-Scale Parallelism for Constraint-Based Local Search: The
-  Costas Array Case Study}.
-\newblock {\em Constraints}, 20(1):30--56, 2014.
-
-\bibitem{Munera2015}
-Danny Munera, Daniel Diaz, Salvador Abreu, Francesca Rossi, and Philippe
-  Codognet.
-\newblock {Solving Hard Stable Matching Problems via Local Search and
-  Cooperative Parallelization}.
-\newblock In {\em 29th AAAI Conference on Artificial Intelligence}, Austin, TX,
-  2015.
-
-\bibitem{Iwama1999}
-Kazuo Iwama, David Manlove, Shuichi Miyazaki, and Yasufumi Morita.
-\newblock {Stable marriage with incomplete lists and ties}.
-\newblock In {\em ICALP}, volume~99, pages 443--452. Springer, 1999.
-
-\bibitem{Gale1962}
-David Gale and Lloyd~S. Shapley.
-\newblock {College Admissions and the Stability of Marriage}.
-\newblock {\em The American Mathematical Monthly}, 69(1):9--15, 1962.
-
-\bibitem{Michel2002}
-Laurent Michel and Pascal~Van Hentenryck.
-\newblock {A constraint-based architecture for local search}.
-\newblock {\em ACM SIGPLAN Notices}, 37(11):83--100, 2002.
-
-\bibitem{Comet}
-Dynamic Decision~Technologies Inc.
-\newblock {\em {Dynadec. Comet Tutorial}}.
-\newblock 2010.
-
-\bibitem{Michel2005}
-Laurent Michel and Pascal~Van Hentenryck.
-\newblock {The comet programming language and system}.
-\newblock In {\em Principles and Practice of Constraint Programming}, pages
-  881--881. Springer Berlin Heidelberg, 2005.
-
-\bibitem{Maturana2012}
-Jorge Maturana, {\'{A}}lvaro Fialho, Fr{\'{e}}d{\'{e}}ric Saubion, Marc
-  Schoenauer, Fr{\'{e}}d{\'{e}}ric Lardeux, and Mich{\`{e}}le Sebag.
-\newblock {Adaptive Operator Selection and Management in Evolutionary
-  Algorithms}.
-\newblock In {\em Autonomous Search}, pages 161--189. Springer Berlin
-  Heidelberg, 2012.
-
-\bibitem{Reeves2010}
-Colin~R. Reeves.
-\newblock {Genetic Algorithms}.
-\newblock In Michel Gendreau and Jean-Yves Potvin, editors, {\em Handbook of
-  Metaheuristics}, volume 146, chapter~5, pages 109--139. Springer, 2010.
-
-\bibitem{Dorigo2010}
-Marco Dorigo and Thomas St{\"{u}}tzle.
-\newblock {Ant colony optimization: overview and recent advances}.
-\newblock In {\em Handbook of Metaheuristics}, volume 146, chapter~8, pages
-  227--263. Springer, 2nd edition, 2010.
-
-\bibitem{Poli2007}
-Riccardo Poli, James Kennedy, and Tim Blackwell.
-\newblock {Particle swarm optimization}.
-\newblock {\em Swarm intelligence}, 1(1):33--57, 2007.
-
-\bibitem{Gao2012}
-Weifeng Gao, Sanyang Liu, and Lingling Huang.
-\newblock {A global best artificial bee colony algorithm for global
-  optimization}.
-\newblock {\em Journal of Computational and Applied Mathematics},
-  236(11):2741--2753, 2012.
-
-\bibitem{Chakhlevitch2008}
-Konstantin Chakhlevitch and Peter Cowling.
-\newblock {Hyperheuristics : Recent Developments}.
-\newblock In {\em Adaptive and multilevel metaheuristics}, pages 3--29.
-  Springer, 2008.
-
-\bibitem{Ryser-welch}
-Patricia Ryser-Welch and Julian~F. Miller.
-\newblock {A Review of Hyper-Heuristic Frameworks}.
-\newblock In {\em Proceedings of the Evo20 Workshop, AISB}, 2014.
-
-\bibitem{Leyton-Brown2003}
-Kevin Leyton-Brown, Eugene Nudelman, and Galen Andrew.
-\newblock {A portfolio approach to algorithm selection}.
-\newblock In {\em IJCAI}, pages 1542--1543, 2003.
-
-\bibitem{Brownlee2014}
-Alexander~E.I. Brownlee, Jerry Swan, Ender {\"{O}}zcan, and Andrew~J. Parkes.
-\newblock {Hyperion 2. A toolkit for {\{}meta- , hyper-{\}} heuristic
-  research}.
-\newblock In {\em Proceedings of the Companion Publication of the 2014 Annual
-  Conference on Genetic and Evolutionary Computation}, GECCO Comp '14, pages
-  1133--1140, Vancouver, BC, 2014. ACM.
-
-\bibitem{Urra2013}
-Enrique Urra, Daniel Cabrera-Paniagua, and Claudio Cubillos.
-\newblock {Towards an Object-Oriented Pattern Proposal for Heuristic Structures
-  of Diverse Abstraction Levels}.
-\newblock {\em XXI Jornadas Chilenas de Computaci{\'{o}}n 2013}, 2013.
-
-\bibitem{Diosan2009}
-Laura Dioşan and Mihai Oltean.
-\newblock {Evolutionary design of Evolutionary Algorithms}.
-\newblock {\em Genetic Programming and Evolvable Machines}, 10(3):263--306,
-  2009.
-
-\bibitem{Samulowitz2013}
-Horst Samulowitz, Chandra Reddy, Ashish Sabharwal, and Meinolf Sellmann.
-\newblock {Snappy: A simple algorithm portfolio}.
-\newblock In {\em Theory and Applications of Satisfiability Testing - SAT
-  2013}, volume 7962 LNCS, pages 422--428. Springer, 2013.
-
-\bibitem{Swan2015}
-Jerry Swan and Nathan Burles.
-\newblock {Templar - a framework for template-method hyper-heuristics}.
-\newblock In {\em Genetic Programming}, volume 9025 of {\em LNCS}, pages
-  205--216. Springer International Publishing, 2015.
-
-\bibitem{Cahon2004}
-S{\'{e}}bastien Cahon, Nordine Melab, and El-Ghazali Talbi.
-\newblock {ParadisEO: A Framework for the Reusable Design of Parallel and
-  Distributed Metaheuristics}.
-\newblock {\em Journal of Heuristics}, 10(3):357--380, 2004.
-
-\bibitem{El-Ghazali2013}
-El-Ghazali Talbi.
-\newblock {Combining metaheuristics with mathematical programming, constraint
-  programming and machine learning}.
-\newblock {\em 4or}, 11(2):101--150, 2013.
-
-\bibitem{Jussien2002}
-Narendra Jussien and Olivier Lhomme.
-\newblock {Local Search with Constant Propagation and Conflict-Based
-  Heuristics}.
-\newblock {\em Artificial Intelligence}, 139(1):21--45, 2002.
-
-\bibitem{Pesant1996}
-Gilles Pesant and Michel Gendreau.
-\newblock {A View of Local Search in Constraint Programming}.
-\newblock In {\em Second International Conference on Principles an Practice of
-  Constraint Programming}, number 1118, pages 353--366. Springer, 1996.
-
-\bibitem{Shaw1998}
-Paul Shaw.
-\newblock {Using Constraint Programming and Local Search Methods to Solve
-  Vehicle Routing Problems}.
-\newblock {\em Computer}, 1520(Springer):417--431, 1998.
-
-\bibitem{Hooker2012}
-John~N. Hooker.
-\newblock {Toward Unification of Exact and Heuristic Optimization Methods}.
-\newblock {\em International Transactions in Operational Research},
-  22(1):19--48, 2015.
-
-\bibitem{Monfroya}
-{\'{E}}ric Monfroy, Fr{\'{e}}d{\'{e}}ric Saubion, and Tony Lambert.
-\newblock {Hybrid CSP Solving}.
-\newblock In {\em Frontiers of Combining Systems}, pages 138--167. Springer
-  Berlin Heidelberg, 2005.
-
-\bibitem{Monfroyb}
-{\'{E}}ric Monfroy, Fr{\'{e}}d{\'{e}}ric Saubion, and Tony Lambert.
-\newblock {On Hybridization of Local Search and Constraint Propagation}.
-\newblock In {\em Logic Programming}, pages 299--313. Springer Berlin
-  Heidelberg, 2004.
-
-\bibitem{Amadini}
-Roberto Amadini, Maurizio Gabbrielli, and Jacopo Mauro.
-\newblock {Features for Building CSP Portfolio Solvers}.
-\newblock {\em arXiv:1308.0227}, 2013.
-
-\bibitem{Amadini2014}
-Roberto Amadini and Peter~J Stuckey.
-\newblock {Sequential Time Splitting and Bounds Communication for a Portfolio
-  of Optimization Solvers}.
-\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
-  Constraint Programming}, volume~1, pages 108--124. Springer, 2014.
-
-\bibitem{WhatIsAuto}
-Youssef Hamadi, {\'{E}}ric Monfroy, and Fr{\'{e}}d{\'{e}}ric Saubion.
-\newblock {An Introduction to Autonomous Search}.
-\newblock In {\em Autonomous Search}, pages 1--11. Springer Berlin Heidelberg,
-  2012.
-
-\bibitem{Fontaine2014}
-Daniel Fontaine, Laurent Michel, and Pascal~Van Hentenryck.
-\newblock {Constraint-Based Lagrangian Relaxation}.
-\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
-  Constraint Programming}, pages 324--339. Springer, 2014.
-
-\bibitem{Hooker2006}
-John~N. Hooker.
-\newblock {Operations Research Methods in Constraint Programming}.
-\newblock In {\em Handbook of Constraint Programming}, chapter~15. 2006.
-
-\bibitem{Grama2003}
-Ananth Grama, Anshul Gupta, George Karypis, and {Vipin Kumar}.
-\newblock {Introduction to Parallel Computing}.
-\newblock In {\em Introduction to Parallel Computing}, chapter~1, pages 1--9.
-  Addison Wesley, 2nd edition, 2003.
-
-\bibitem{Borkar2007}
-Shekhar Borkar.
-\newblock {Thousand core chips: a technology perspective}.
-\newblock In {\em Proceedings of the 44th annual Design Automation Conference},
-  DAC '07, pages 746--749, New York, 2007. ACM.
-
-\bibitem{Hill2008}
-Mark~D. Hill and Michael~R. Marty.
-\newblock {Amdahl's Law in the multicore era}.
-\newblock {\em IEEE Computer}, (7):33--38, 2008.
-
-\bibitem{Sanders2014}
-Peter Sanders.
-\newblock {Engineering Parallel Algorithms: The Multicore Transformation}.
-\newblock {\em Ubiquity}, 2014(July):1--11, 2014.
-
-\bibitem{Gent}
-Ian~P Gent, Chris Jefferson, Ian Miguel, Neil C~A Moore, Peter Nightingale,
-  Patrick Prosser, and Chris Unsworth.
-\newblock {A Preliminary Review of Literature on Parallel Constraint Solving}.
-\newblock In {\em Proceedings PMCS 2011 Workshop on Parallel Methods for
-  Constraint Solving}, 2011.
-
-\bibitem{Falcou2009}
-Joel Falcou.
-\newblock {Parallel programming with skeletons}.
-\newblock {\em Computing in Science and Engineering}, 11(3):58--63, 2009.
-
-\bibitem{Munera2016}
-Danny Munera, Daniel Diaz, and Salvador Abreu.
-\newblock {Solving the Quadratic Assignment Problem with Cooperative Parallel
-  Extremal Optimization}.
-\newblock In {\em Evolutionary Computation in Combinatorial Optimization},
-  pages 251--266. Springer, 2016.
-
-\bibitem{Boettcher2000}
-Stefan Boettcher and Allon Percus.
-\newblock {Nature's way of optimizing}.
-\newblock {\em Artificial Intelligence}, 119(1):275--286, 2000.
-
-\bibitem{Rezgui2013}
-Jean-Charles R{\'{e}}gin, Mohamed Rezgui, and Arnaud Malapert.
-\newblock {Embarrassingly Parallel Search}.
-\newblock In {\em Principles and Practice of Constraint Programming}, pages
-  596--610. Springer, 2013.
-
-\bibitem{Hill}
-Mark~D. Hill.
-\newblock {What is Scalability?}
-\newblock {\em ACM SIGARCH Computer Architecture News}, 18:18--21, 1990.
-
-\bibitem{Arbab2000}
-Farhad Arbab and {\'{E}}ric Monfroy.
-\newblock {Distributed Splitting of Constraint Satisfaction Problems}.
-\newblock In {\em Coordination Languages and Models}, pages 115--132. Springer,
-  2000.
+\newblock In {\em Handbook of Metaheuristics}, 2nd~ed., vol.~146. Springer,
+  2010, ch.~11, pp.~321--361.
 
 \bibitem{Yasuhara2015}
-M~Yasuhara, T~Miyamoto, K~Mori, S~Kitamura, and Y~Izui.
+{\sc Yasuhara, M., Miyamoto, T., Mori, K., Kitamura, S., and Izui, Y.}
 \newblock {Multi-Objective Embarrassingly Parallel Search}.
 \newblock In {\em IEEE International Conference on Industrial Engineering and
-  Engineering Management (IEEM)}, pages 853--857, Singapore, 2015. IEEE.
-
-\bibitem{Regin2014}
-Jean-Charles R{\'{e}}gin, Mohamed Rezgui, and Arnaud Malapert.
-\newblock {Improvement of the Embarrassingly Parallel Search for Data Centers}.
-\newblock In Barry O'Sullivan, editor, {\em Principles and Practice of
-  Constraint Programming}, pages 622--635, Lyon, 2014. Springer.
-
-\bibitem{Kotecha2010}
-Prakash~R. Kotecha, Mani Bhushan, and Ravindra~D. Gudi.
-\newblock {Efficient optimization strategies with constraint programming}.
-\newblock {\em AIChE Journal}, 56(2):387--404, 2010.
-
-\bibitem{Kishimoto2013}
-Akihiro Kishimoto, Alex Fukunaga, and Adi Botea.
-\newblock {Evaluation of a simple, scalable, parallel best-first search
-  strategy}.
-\newblock {\em Artificial Intelligence}, 195:222--248, 2013.
-
-\bibitem{Grama2003a}
-Ananth Grama, Anshul Gupta, George Karypis, and {Vipin Kumar}.
-\newblock {Programming Using the Message-Passing Paradigm}.
-\newblock In {\em Introduction to Parallel Computing}, chapter~6, pages
-  233--278. Addison Wesley, second edition, 2003.
-
-\bibitem{Jinnai}
-Yuu Jinnai and Alex Fukunaga.
-\newblock {Abstract Zobrist Hashing : An Efficient Work Distribution Method for
-  Parallel Best-First Search}.
-\newblock {\em 30th AAAI Conference on Artificial Intelligence (AAAI-16)}.
-
-\bibitem{Arbelaez2012}
-Alejandro Arbelaez and Luis Quesada.
-\newblock {Parallelising the k-Medoids Clustering Problem Using
-  Space-Partitioning}.
-\newblock In {\em Sixth Annual Symposium on Combinatorial Search}, pages
-  20--28, 2013.
-
-\bibitem{Chen2005}
-Hue-Ling Chen and Ye-In Chang.
-\newblock {Neighbor-finding based on space-filling curves}.
-\newblock {\em Information Systems}, 30(3):205--226, may 2005.
-
-\bibitem{Berkhin2002}
-Pavel Berkhin.
-\newblock {Survey Of Clustering Data Mining Techniques}.
-\newblock Technical report, Accrue Software, Inc., 2002.
-
-\bibitem{Truchet02}
-Charlotte Truchet, Alejandro Arbelaez, Florian Richoux, and Philippe Codognet.
-\newblock {Estimating Parallel Runtimes for Randomized Algorithms in Constraint
-  Solving}.
-\newblock {\em Journal of Heuristics}, pages 1--36, 2015.
-
-\bibitem{Babai1979}
-Laszlo Babai.
-\newblock {Monte-Carlo algorithms in graph isomorphism testing}.
-\newblock Technical Report~79, 1979.
-
-\bibitem{Hamadi2012}
-Youssef Hamadi, Said Jaddour, and Lakhdar Sais.
-\newblock {Control-Based Clause Sharing in Parallel SAT Solving}.
-\newblock In {\em Autonomous Search}, pages 245--267. Springer Berlin
-  Heidelberg, 2012.
-
-\bibitem{Kishimoto2009}
-Akihiro Kishimoto, Alex Fukunaga, and Adi Botea.
-\newblock {Scalable, Parallel Best-First Search for Optimal Sequential
-  Planning}.
-\newblock {\em In ICAPS-09}, pages 201--208, 2009.
-
-\bibitem{Schmegner2004}
-Claudia Schmegner and Michael~I. Baron.
-\newblock {Principles of optimal sequential planning}.
-\newblock {\em Sequential Analysis}, 23(1):11--32, 2004.
-
-\bibitem{Pajot2003}
-Brice Pajot and {\'{E}}ric Monfroy.
-\newblock {Separating Search and Strategy in Solver Cooperations}.
-\newblock In {\em Perspectives of System Informatics}, pages 401--414. Springer
-  Berlin Heidelberg, 2003.
-
-\bibitem{Frank2003}
-Stephan Frank, Petra Hofstedt, and Pierre~R. Mai.
-\newblock {Meta-S: A Strategy-Oriented Meta-Solver Framework}.
-\newblock In {\em Florida AI Research Society (FLAIRS) Conference}, pages
-  177--181, 2003.
-
-\bibitem{Arbab1995}
-Farhad Arbab.
-\newblock {Coordination of Massively Concurrent Activities}.
-\newblock Technical report, Amsterdam, 1995.
-
-\bibitem{Zoeteweij}
-Peter Zoeteweij and Farhad Arbab.
-\newblock {A Component-Based Parallel Constraint Solver}.
-\newblock In {\em Coordination Models and Languages}, pages 307--322. Springer,
-  2004.
-
-\bibitem{Guo2010}
-Long Guo, Youssef Hamadi, Said Jabbour, and Lakhdar Sais.
-\newblock {Diversification and Intensification in Parallel SAT Solving}.
-\newblock {\em Principles and Practice of Constraint Programming}, pages
-  252--265, 2010.
-
-\bibitem{Hamadi2011}
-Youssef Hamadi, Cedric Piette, Said Jabbour, and Lakhdar Sais.
-\newblock {Deterministic Parallel DPLL system description}.
-\newblock {\em Journal on Satisfiability, Boolean Modeling and Computation},
-  7:127--132, 2011.
-
-\bibitem{Cire2011}
-Andre~A. Cire, Sendar Kadioglu, and Meinolf Sellmann.
-\newblock {Parallel Restarted Search}.
-\newblock In {\em Twenty-Eighth AAAI Conference on Artificial Intelligence},
-  pages 842--848, 2011.
-
-\bibitem{Birattari2005}
-Mauro Birattari, Mark Zlochin, and Marrco Dorigo.
-\newblock {Towards a Theory of Practice in Metaheuristics Design. A machine
-  learning perspective}.
-\newblock {\em RAIRO-Theoretical Informatics and Applications}, 40(2):353--369,
-  2006.
-
-\bibitem{Hoos2012}
-Holger~H. Hoos.
-\newblock {Automated algorithm configuration and parameter tuning}.
-\newblock In {\em Autonomous Search}, pages 37--71. Springer Berlin Heidelberg,
-  2012.
-
-\bibitem{A.E.Eiben2012}
-Agoston~E Eiben and Selmar~K Smit.
-\newblock {Evolutionary algorithm parameters and methods to tune them}.
-\newblock In {\em Autonomous Search}, pages 15--36. Springer Berlin Heidelberg,
-  2011.
-
-\bibitem{Nannen2007}
-Volker Nannen and Agoston~E. Eiben.
-\newblock {Relevance Estimation and Value Calibration of Evolutionary Algorithm
-  Parameters}.
-\newblock {\em IJCAI}, 7, 2007.
-
-\bibitem{Smit2010}
-S.~K. Smit and A.~E. Eiben.
-\newblock {Beating the 'world champion' evolutionary algorithm via REVAC
-  tuning}.
-\newblock {\em IEEE Congress on Evolutionary Computation}, pages 1--8, jul
-  2010.
-
-\bibitem{Riff2013}
-Maria-Cristina Riff and Elizabeth Montero.
-\newblock {A new algorithm for reducing metaheuristic design effort}.
-\newblock {\em IEEE Congress on Evolutionary Computation}, pages 3283--3290,
-  jun 2013.
-
-\bibitem{Hutter2009}
-Frank Hutter, Holger~H Hoos, and Kevin Leyton-brown.
-\newblock {ParamILS: An Automatic Algorithm Configuration Framework}.
-\newblock {\em Journal of Artificial Intelligence Research}, 36:267--306, 2009.
-
-\bibitem{Hutter2008}
-Frank Hutter.
-\newblock {Updated Quick start guide for ParamILS, version 2.3}.
-\newblock Technical report, Department of Computer Science University of
-  British Columbia, Vancouver, Canada, 2008.
+  Engineering Management (IEEM)\/} (2015), IEEE, pp.~853--857.
 
 \bibitem{Yeguas2014}
-E.~Yeguas, M.V. Luz{\'{o}}n, R.~Pav{\'{o}}n, R.~Laza, G.~Arroyo, and
-  F.~D{\'{i}}az.
+{\sc Yeguas, E., Luz{\'{o}}n, M., Pav{\'{o}}n, R., Laza, R., Arroyo, G., and
+  D{\'{i}}az, F.}
 \newblock {Automatic parameter tuning for Evolutionary Algorithms using a
   Bayesian Case-Based Reasoning system}.
-\newblock {\em Applied Soft Computing}, 18:185--195, may 2014.
+\newblock {\em Applied Soft Computing 18}, C (2014), 185--195.
 
-\bibitem{Eiben1999}
-Agoston~E. Eiben, Robert Hinterding, and Zbigniew Michalewicz.
-\newblock {Parameter control in evolutionary algorithms}.
-\newblock {\em IEEE Transactions on Evolutionary Computation}, 3(2):124--141,
-  1999.
+\bibitem{Zoeteweij2003}
+{\sc Zoeteweij, P.}
+\newblock {Coordination-based distributed constraint solving in DICE.}
+\newblock In {\em Proceedings of the 18th ACM Symposium on Applied Computing
+  (SAC 2003)\/} (2003), ACM Press, pp.~360--366.
 
-\bibitem{Drozdik}
-Martin Drozdik, Hernan Aguirre, Youhei Akimoto, and Kiyoshi Tanaka.
-\newblock {Comparison of Parameter Control Mechanisms in Multi-objective
-  Differential Evolution}.
-\newblock In {\em Learning and Intelligent Optimization}, pages 89--103.
-  Springer, 2015.
-
-\bibitem{Liu2005}
-Junhong Liu and Jouni Lampinen.
-\newblock {A Fuzzy Adaptive Differential Evolution Algorithm}.
-\newblock {\em Soft Computing}, 9(6):448--462, 2005.
-
-\bibitem{Qin2009}
-A~Kai Qin, Vicky~Ling Huang, and Ponnuthurai~N Suganthan.
-\newblock {Differential evolution algorithm with strategy adaptation for global
-  numerical optimization}.
-\newblock {\em IEEE Transactions on Evolutionary Computation}, 13(2):398--417,
-  2009.
-
-\bibitem{Huang2009}
-Vicky~Ling Huang, Shuguang~Z Zhao, Rammohan Mallipeddi, and Ponnuthurai~N
-  Suganthan.
-\newblock {Multi-objective optimization using self-adaptive differential
-  evolution algorithm}.
-\newblock {\em IEEE Congress on Evolutionary Computation}, pages 190--194,
-  2009.
-
-\bibitem{Clune2005}
-Jeff Clune, Sherri Goings, Erik~D. Goodman, and William Punch.
-\newblock {Investigations in Meta-GAs: Panaceas or Pipe Dreams?}
-\newblock In {\em GECOO'05: Proceedings of the 2005 Workshop on Genetic an
-  Evolutionary Computation}, pages 235--241, 2005.
-
-\bibitem{Reyes-amaro}
-Alejandro Reyes-amaro, {\'{E}}ric Monfroy, and Florian Richoux.
-\newblock {POSL: A Parallel-Oriented metaheuristic-based Solver Language}.
-\newblock In {\em Recent developments of metaheuristics}, to appear. Springer.
-
-\bibitem{Lardeux2014}
-Fr{\'{e}}d{\'{e}}ric Lardeux, {\'{E}}ric Monfroy, Broderick Crawford, and
-  Ricardo Soto.
-\newblock {Set Constraint Model and Automated Encoding into SAT: Application to
-  the Social Golfer Problem}.
-\newblock {\em Annals of Operations Research}, 235(1):423--452, 2014.
-
-\bibitem{Bell2009}
-Jordan Bell and Brett Stevens.
-\newblock {A survey of known results and research areas for n-queens}.
-\newblock {\em Discrete Mathematics}, 309(1):1--31, 2009.
-
-\bibitem{Sosic1994}
-Rok Sosic and Jun Gu.
-\newblock {Effcient Local Search with Conflict Minimization: A Case Study of
-  the N-Queens Problem}.
-\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
-  6:661--668, 1994.
-
-\bibitem{Rickard}
-S~Rickard.
-\newblock {Open problems in Costas arrays}.
-\newblock In {\em Proc. IMA Int. Conf. Math. Signal Processing}, pages 1--24,
-  Cirencester, UK., 2006.
-
-\bibitem{Drakakis2006}
-Konstantinos Drakakis.
-\newblock {A review of Costas arrays}.
-\newblock {\em Journal of Applied Mathematics}, 2006:32 pages, 2006.
-
-\bibitem{Golomb1984a}
-Solomon~W. Golomb.
-\newblock {Algebraic constructions for costas arrays}.
-\newblock {\em Journal of Combinatorial Theory, Series A}, 37(1):13--21, 1984.
-
-\bibitem{Golomb1984}
-Solomon~W. Golomb and Herbert Taylor.
-\newblock {Constructions and properties of Costas arrays}.
-\newblock {\em Proceedings of the IEEE}, 72(9):1143--1163, 1984.
-
-\bibitem{Drakakis2011}
-Konstantinos Drakakis, Francesco Iorio, Scott Rickard, and John Walsh.
-\newblock {Results of the enumeration of costas arrays of order 29}.
-\newblock {\em Advances in Mathematics of Communications}, 5(3):547--553, 2011.
-
-\bibitem{Soliday1995}
-Stephen~W. Soliday, Abdollah. Homaifar, and Gary~L. Lebby.
-\newblock {Genetic algorithm approach to the search for Golomb Rulers}.
-\newblock In {\em International Conference on Genetic Algorithms}, volume~1,
-  pages 528--535, Pittsburg, 1995.
+\bibitem{Zoeteweij}
+{\sc Zoeteweij, P., and Arbab, F.}
+\newblock {A Component-Based Parallel Constraint Solver}.
+\newblock In {\em Coordination Models and Languages\/} (2004), Springer,
+  pp.~307--322.
 
 \end{thebibliography}

@@ -1,64 +1,60 @@
 This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Thesis.aux
-The style file: unsrt.bst
+The style file: acm.bst
 A level-1 auxiliary file: appendix/appendix_res_graph_sgp.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_nqp.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_cap.aux
 A level-1 auxiliary file: appendix/appendix_res_graph_grp.aux
 Database file #1: biblio201612.bib
+Warning--empty institution in Arbab1995
 Warning--empty journal in Arbelaez2014a
+Warning--empty institution in Babai1979
 Warning--empty publisher in Boussemart2016
 Warning--can't use both volume and number fields in Cousot1977
-Warning--empty publisher in Gecode
-Warning--there's a number but no volume in Feo95
 Warning--empty publisher in Comet
 Warning--there's a number but no series in Pesant1996
-Warning--empty publisher in Hooker2006
-Warning--there's a number but no volume in Hill2008
-Warning--empty year in Jinnai
-Warning--empty institution in Babai1979
-Warning--empty institution in Arbab1995
 Warning--empty year in Reyes-amaro
-You've used 140 entries,
-            1791 wiz_defined-function locations,
-            1344 strings with 27367 characters,
-and the built_in function-call counts, 40544 in all, are:
-= -- 4002
-> -- 1426
-< -- 96
-+ -- 528
-- -- 388
-* -- 2607
-:= -- 5822
-add.period$ -- 474
-call.type$ -- 140
-change.case$ -- 150
+Warning--empty publisher in Gecode
+You've used 139 entries,
+            2253 wiz_defined-function locations,
+            1416 strings with 27792 characters,
+and the built_in function-call counts, 53499 in all, are:
+= -- 5463
+> -- 2176
+< -- 1
++ -- 896
+- -- 757
+* -- 3990
+:= -- 8234
+add.period$ -- 449
+call.type$ -- 139
+change.case$ -- 805
 chr.to.int$ -- 0
-cite$ -- 153
-duplicate$ -- 2026
-empty$ -- 3970
-format.name$ -- 388
-if$ -- 9530
+cite$ -- 148
+duplicate$ -- 2153
+empty$ -- 4465
+format.name$ -- 757
+if$ -- 11577
 int.to.chr$ -- 0
-int.to.str$ -- 140
-missing$ -- 137
-newline$ -- 703
-num.names$ -- 152
-pop$ -- 489
+int.to.str$ -- 139
+missing$ -- 136
+newline$ -- 697
+num.names$ -- 282
+pop$ -- 874
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 655
 quote$ -- 0
-skip$ -- 1122
+skip$ -- 1487
 stack$ -- 0
-substring$ -- 3069
-swap$ -- 726
-text.length$ -- 96
+substring$ -- 3743
+swap$ -- 699
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 13
-while$ -- 442
-width$ -- 143
-write$ -- 1611
-(There were 13 warnings)
+type$ -- 546
+warning$ -- 9
+while$ -- 572
+width$ -- 142
+write$ -- 1506
+(There were 9 warnings)
