@@ -162,6 +162,12 @@
 \newblock {Neighbor-finding based on space-filling curves}.
 \newblock {\em Information Systems 30}, 3 (2005), 205--226.
 
+\bibitem{Choi2006}
+{\sc Choi, C.~W., Harvey, W., Lee, J. H.~M., and Stuckey, P.~J.}
+\newblock {Finite domain bounds consistency revisited}.
+\newblock {\em AI 2006: Advances in Artificial Intelligence 4304\/} (2006),
+  49--58.
+
 \bibitem{ChristianBessiere2006}
 {\sc {Christian Bessiere}}.
 \newblock {Constraint Propagation}.

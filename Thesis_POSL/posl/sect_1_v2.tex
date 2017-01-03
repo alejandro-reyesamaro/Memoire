@@ -6,10 +6,10 @@ There exist two types of basic modules in \posl: \INTROom{} and \INTROopch{}. A 
 
 A \om{} is the most basic and abstract way to define a piece of computation. It is a function which receives an instance of a \posl{} data type as input, then executes an internal algorithm, and returns an instance of a \posl{} data type as output. The input and output types will characterize the computation module signature. It can be dy\-na\-mi\-cally replaced by (or combined with) other computation modules, since they can be transmitted to other solvers working in parallel. They are joined through operators defined in Section~\ref{sec:2ndstage}.
 
-\defname{Computation Module}{
+\defname{Computation Module}{\label{def:om}
 A \om{} $Cm$ is a mapping defined by: 
 \begin{equation}
-\label{def:om}
+\label{eq:om}
 Cm:\mathcal{I} \rightarrow \mathcal{O}
 \end{equation}
 }

@@ -352,7 +352,8 @@ $\circled{$\shortdownarrow$}$ {\bf Race Operator} Let
 	\item $\mathcal{M}_1 : \mathcal{I} \rightarrow \mathcal{O}_1$ and  
 	\item $\mathcal{M}_2 : \mathcal{I} \rightarrow \mathcal{O}_2$,
 \end{enumerate}%\end{inparaenum} 
-be modules, where $\mathcal{I}_1 \subseteq \mathcal{I}_2$ and $\mathcal{O}_1 \subset \mathcal{O}_2$. Then the operation $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{race}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns the output of the module ending first:
+be modules. %, where $\mathcal{I}_1 \subseteq \mathcal{I}_2$ and $\mathcal{O}_1 \subset \mathcal{O}_2$. 
+Then the operation $\left|\mathcal{M}_1\circled{$\shortdownarrow$}\mathcal{M}_2\right|$ defines the \cm{} $\mathcal{M}_{race}$ that executes both modules $\mathcal{M}_1$ and $\mathcal{M}_2$, and returns the output of the module ending first:
 
 \[
 \mathcal{M}_{race}:\mathcal{I} \rightarrow \mathcal{O}_1 \cup \mathcal{O}_2 
@@ -493,7 +494,7 @@ where:
 \item $\mathbf{M}$ is the root \cm.
 \end{itemize}
 
-For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver corresponding to Figure~\ref{subfig:as}.
+For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver corresponding to Figure~\ref{subfig:sender_example}.% Figure~\ref{subfig:as}.
 
 \begin{algorithm}[H]
 \dontprintsemicolon
@@ -505,9 +506,10 @@ For instance, Algorithm~\ref{algo:as_example} illustrates the abstract solver co
 	\Begin{
 		$I\poslop{\mapsto}$
 		\whileinline{$\left(\textbf{\Iter < } K_1\right)$}{
-			$\left[V\poslop{\mapsto}S\poslop{\mapsto}\left[C.M.\poslop{m} \senddataop{A}\right]\right]$%
+			$\left[V\poslop{\mapsto}S\poslop{\mapsto}\senddataop{A}\right]$ %\left[C.M.\poslop{m} \senddataop{A}\right]\right]$
 		}
 	}
 }
-\caption{\posl{} pseudo-code for the \as{} presented in Figure~\ref{subfig:as}}\label{algo:as_example}
+\caption{\posl{} pseudo-code for the \as{} presented in Figure~\ref{subfig:sender_example}}\label{algo:as_example}
+%\caption{\posl{} pseudo-code for the \as{} presented in Figure~\ref{subfig:as}}\label{algo:as_example}
 \end{algorithm}	
