@@ -719,6 +719,12 @@
 \newblock {Engineering Parallel Algorithms: The Multicore Transformation}.
 \newblock {\em Ubiquity 2014\/} (2014), 1--11.
 
+\bibitem{Saraswat2012}
+{\sc Saraswat, V., Tardieu, O., Grove, D., Cunningham, D., Takeuchi, M., and
+  Herta, B.}
+\newblock {A Brief Introduction to X10 (for the High Performance Programmer)}.
+\newblock Tech. rep., 2012.
+
 \bibitem{Schmegner2004}
 {\sc Schmegner, C., and Baron, M.~I.}
 \newblock {Principles of optimal sequential planning}.
